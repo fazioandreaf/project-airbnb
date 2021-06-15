@@ -13,7 +13,16 @@ class AddForeignKeys extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('messages',function(Blueprint $table){
+            $table->foreign('landlord_id','messagelandlord')
+                 ->references('id')
+                 ->on('landlords');
+        });
+        Schema::table('apartments',function(Blueprint $table){
+            $table->foreign('landlord_id','apartmentlandlord')
+                 ->references('id')
+                 ->on('landlords');
+        });
     }
 
     /**

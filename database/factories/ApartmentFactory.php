@@ -2,11 +2,18 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model;
+use App\Apartment;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(Apartment::class, function (Faker $faker) {
     return [
-        //
+        'title' => $faker ->sentence,
+        'rooms' => $faker ->word,
+        'bed' => rand(1,4),
+        'bathroom' => $faker ->word,
+        'area' => $faker ->integer,
+        'address' => $faker ->word,
+        'url_img' => $faker ->word,
+        'features' => $faker ->word,
     ];
 });

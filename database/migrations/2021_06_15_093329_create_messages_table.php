@@ -15,6 +15,16 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
+
+            $table -> string('email');
+            $table -> date('date_sent');
+            $table -> string('name');
+            $table -> string('lastname');
+            $table -> string('text_message');
+            
+            $table -> integer('landlord_id')->index()->unsigned();
+
+
             $table->timestamps();
         });
     }

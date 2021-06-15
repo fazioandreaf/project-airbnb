@@ -15,6 +15,16 @@ class CreateLandlordsTable extends Migration
     {
         Schema::create('landlords', function (Blueprint $table) {
             $table->id();
+
+            $table -> string('email')->unique()->required();
+            $table -> string('password')->required();
+            $table -> string('name');
+            $table -> string('lastname');
+            $table -> date('dob');
+
+            $table -> boolean('owners');
+
+
             $table->timestamps();
         });
     }

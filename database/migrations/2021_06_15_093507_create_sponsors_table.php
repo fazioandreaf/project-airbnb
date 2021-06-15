@@ -15,6 +15,10 @@ class CreateSponsorsTable extends Migration
     {
         Schema::create('sponsors', function (Blueprint $table) {
             $table->id();
+
+            $table -> date('expired_date');
+            $table -> integer('price');
+
             $table->timestamps();
         });
     }

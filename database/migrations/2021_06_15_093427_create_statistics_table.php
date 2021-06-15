@@ -15,6 +15,10 @@ class CreateStatisticsTable extends Migration
     {
         Schema::create('statistics', function (Blueprint $table) {
             $table->id();
+
+            $table -> integer('view');
+            $table -> integer('rate_message');
+
             $table->timestamps();
         });
     }
