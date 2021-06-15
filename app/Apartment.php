@@ -30,6 +30,11 @@ class Apartment extends Model
         return $this -> hasOne(Statistic::class);
     }
 
+    public function sponsoreds() {
+
+        return $this -> hasMany(SponsoredApartment::class);
+    }
+
 
 
 }
