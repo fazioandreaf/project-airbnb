@@ -15,9 +15,9 @@ class Sponsor extends Model
             return $this -> hasMany(Apartment::class);
     }
 
-    public function sponsoreds() {
+    public function sponsoredapartments() {
 
-        return $this -> hasMant(SponsoredApartment::class);
+        return $this -> hasMany(SponsoredApartment::class);
     }
 
 }

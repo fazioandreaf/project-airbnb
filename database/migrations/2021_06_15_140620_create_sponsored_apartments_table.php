@@ -16,11 +16,11 @@ class CreateSponsoredApartmentsTable extends Migration
         Schema::create('sponsored_apartments', function (Blueprint $table) {
 
             $table -> id();
-            
+
             $table -> date('expired_date');
-            $table -> bigInteger('apartement_id') -> unsigned() -> index();
+            $table -> bigInteger('apartment_id') -> unsigned() -> index();
             $table -> bigInteger('sponsor_id') -> unsigned() -> index();
-            
+
             $table -> timestamps();
         });
     }

@@ -23,15 +23,15 @@ class AddForeignKeys extends Migration
                  ->references('id')
                  ->on('landlords');
         });
-        Schema::table('apartments',function(Blueprint $table){
-            $table->foreign('sponsor_id','apartmentsponsor')
-                 ->references('id')
-                 ->on('sponsors');
-        });
+        // Schema::table('apartments',function(Blueprint $table){
+        //     $table->foreign('sponsor_id','apartmentsponsor')
+        //          ->references('id')
+        //          ->on('sponsors');
+        // });
 
         Schema::table('statistics', function (Blueprint $table) {
 
-            $table 
+            $table
                     -> foreign('apartment_id', 'apartment_statistic')
                     -> references('id')
                     -> on('apartments');
@@ -39,16 +39,16 @@ class AddForeignKeys extends Migration
 
         Schema::table('sponsored_apartments', function (Blueprint $table) {
 
-            $table 
+            $table
                     -> foreign('apartment_id', 'sponsored_apartment')
                     -> references('id')
                     -> on('apartments');
 
-            $table 
+            $table
                     -> foreign('sponsor_id', 'sponsored_sponsor')
                     -> references('id')
                     -> on('sponsors');
-             
+
         });
     }
 

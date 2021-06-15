@@ -26,11 +26,11 @@ class Apartment extends Model
     }
 
     public function statistic() {
-        
+
         return $this -> hasOne(Statistic::class);
     }
 
-    public function sponsoreds() {
+    public function sponsoredapartments() {
 
         return $this -> hasMany(SponsoredApartment::class);
     }
