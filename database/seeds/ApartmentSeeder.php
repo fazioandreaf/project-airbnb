@@ -15,10 +15,10 @@ class ApartmentSeeder extends Seeder
     {
         factory(Apartment::class,50)->make()->each(function($apartment){
             $landlord=Landlord::inRandomOrder()->first();
-            $sponsor=Sponsor::inRandomOrder()->first();
+            // $sponsor=Sponsor::inRandomOrder()->first();
 
             $apartment->landlord()->associate($landlord);
-            $apartment->sponsor()->associate($sponsor);
+            // $apartment->sponsor()->associate($sponsor);
             $apartment->save();
         });
 

@@ -23,18 +23,32 @@ class AddForeignKeys extends Migration
                  ->references('id')
                  ->on('landlords');
         });
-        Schema::table('apartments',function(Blueprint $table){
-            $table->foreign('sponsor_id','apartmentsponsor')
-                 ->references('id')
-                 ->on('sponsors');
-        });
+        // Schema::table('apartments',function(Blueprint $table){
+        //     $table->foreign('sponsor_id','apartmentsponsor')
+        //          ->references('id')
+        //          ->on('sponsors');
+        // });
 
         Schema::table('statistics', function (Blueprint $table) {
 
-            $table 
+            $table
                     -> foreign('apartment_id', 'apartment_statistic')
                     -> references('id')
                     -> on('apartments');
+        });
+
+        Schema::table('sponsored_apartments', function (Blueprint $table) {
+
+            $table
+                    -> foreign('apartment_id', 'sponsored_apartment')
+                    -> references('id')
+                    -> on('apartments');
+
+            $table
+                    -> foreign('sponsor_id', 'sponsored_sponsor')
+                    -> references('id')
+                    -> on('sponsors');
+
         });
     }
 
@@ -45,19 +59,26 @@ class AddForeignKeys extends Migration
      */
     public function down()
     {
-        Schema::table('messages', function(Blueprint $table){
-            $table->dropForeign('messagelandlord');
-        });
-        Schema::table('apartments', function(Blueprint $table){
-            $table->dropForeign('apartmentlandlord');
-        });
-        Schema::table('apartments', function(Blueprint $table){
-            $table->dropForeign('apartmentsponsor');
-        });
+        // Schema::table('messages', function(Blueprint $table){
+        //     $table->dropForeign('messagelandlord');
+        // });
+        // Schema::table('apartments', function(Blueprint $table){
+        //     $table->dropForeign('apartmentlandlord');
+        // });
+        // Schema::table('apartments', function(Blueprint $table){
+        //     $table->dropForeign('apartmentsponsor');
+        // });
 
-        Schema::table('statistics', function (Blueprint $table) {
+        // Schema::table('statistics', function (Blueprint $table) {
 
-            $table -> dropForeign('apartment_statistic');
-        });
+        //     $table -> dropForeign('apartment_statistic');
+        // });
+
+        // Schema::table('sponsored_apartments', function (Blueprint $table) {
+
+        //     $table -> dropForeign('sponsored_apartment');
+        //     $table -> dropForeign('sponsored_sponsor');
+        // });
+
     }
 }
