@@ -16,7 +16,6 @@ class Apartment extends Model
         'url_img',
         'features',
     ];
-
     public function landlord(){
             return $this -> belongsTo(Landlord::class);
     }
@@ -34,7 +33,4 @@ class Apartment extends Model
 
         return $this -> hasMany(SponsoredApartment::class);
     }
-
-
-
 }
