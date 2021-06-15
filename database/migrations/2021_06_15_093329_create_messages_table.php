@@ -21,8 +21,8 @@ class CreateMessagesTable extends Migration
             $table -> string('name');
             $table -> string('lastname');
             $table -> string('text_message');
-            
-            $table -> integer('landlord_id')->index()->unsigned();
+
+            $table -> bigInteger('landlord_id')->index()->unsigned();
 
 
             $table->timestamps();

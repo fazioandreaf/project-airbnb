@@ -21,7 +21,6 @@ class CreateLandlordsTable extends Migration
             $table -> string('name');
             $table -> string('lastname');
             $table -> date('dob');
-
             $table -> boolean('owners');
 
 

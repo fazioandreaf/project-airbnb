@@ -11,7 +11,7 @@ $factory->define(Apartment::class, function (Faker $faker) {
         'rooms' => $faker ->word,
         'bed' => rand(1,4),
         'bathroom' => $faker ->word,
-        'area' => $faker ->integer,
+        'area' => $faker ->numberBetween(1,100000),
         'address' => $faker ->word,
         'url_img' => $faker ->word,
         'features' => $faker ->word,

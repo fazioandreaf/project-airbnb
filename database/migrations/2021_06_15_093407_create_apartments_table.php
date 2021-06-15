@@ -25,7 +25,8 @@ class CreateApartmentsTable extends Migration
             $table -> string('url_img');
             $table -> string('features');
 
-            $table -> integer('landlord_id')->index()->unsigned();
+            $table -> bigInteger('landlord_id')->index()->unsigned();
+
 
             $table->timestamps();
         });

@@ -18,6 +18,7 @@ class CreateSponsorsTable extends Migration
 
             $table -> date('expired_date');
             $table -> integer('price');
+            $table -> bigInteger('apartment_id')->index()->unsigned();
 
             $table->timestamps();
         });
