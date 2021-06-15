@@ -9,17 +9,18 @@
 
   <body>
 
-    <section>
-      @include('components.header')
-    </section>
+    <header>
+      @include('pages.components.header')
+    </header>
 
-    <section>
+    <main>
       @yield('content')
-    </section>
+    </main>
 
-    <section>
-      @include('components.footer')
-    </section>
+    <footer>
+      @include('pages.components.footer')
+    </footer>
+
 
   </body>
 

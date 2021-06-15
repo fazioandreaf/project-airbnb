@@ -1,0 +1,9 @@
+section#homepage-test {
+
+  .container {
+    background-color: $scottish-blue;
+    @include container(80%);
+    @include flex(row, center, null);
+  }
+
+}
