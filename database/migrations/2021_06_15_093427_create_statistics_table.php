@@ -18,6 +18,7 @@ class CreateStatisticsTable extends Migration
 
             $table -> integer('view');
             $table -> integer('rate_message');
+            $table -> bigInteger('apartment_id') -> unsigned() -> index();
 
             $table->timestamps();
         });
