@@ -19,7 +19,7 @@ class CreateApartmentsTable extends Migration
             $table -> string('title')->required();
             $table -> string('rooms')->required();
             $table -> integer('bed');
-            $table -> string('bathroom');
+            $table -> integer('bathroom');
             $table -> integer('area');
             $table -> string('address');
             $table -> string('url_img');

@@ -59,26 +59,26 @@ class AddForeignKeys extends Migration
      */
     public function down()
     {
-        // Schema::table('messages', function(Blueprint $table){
-        //     $table->dropForeign('messagelandlord');
-        // });
-        // Schema::table('apartments', function(Blueprint $table){
-        //     $table->dropForeign('apartmentlandlord');
-        // });
+        Schema::table('messages', function(Blueprint $table){
+            $table->dropForeign('messagelandlord');
+        });
+        Schema::table('apartments', function(Blueprint $table){
+            $table->dropForeign('apartmentlandlord');
+        });
         // Schema::table('apartments', function(Blueprint $table){
         //     $table->dropForeign('apartmentsponsor');
         // });
 
-        // Schema::table('statistics', function (Blueprint $table) {
+        Schema::table('statistics', function (Blueprint $table) {
 
-        //     $table -> dropForeign('apartment_statistic');
-        // });
+            $table -> dropForeign('apartment_statistic');
+        });
 
-        // Schema::table('sponsored_apartments', function (Blueprint $table) {
+        Schema::table('sponsored_apartments', function (Blueprint $table) {
 
-        //     $table -> dropForeign('sponsored_apartment');
-        //     $table -> dropForeign('sponsored_sponsor');
-        // });
+            $table -> dropForeign('sponsored_apartment');
+            $table -> dropForeign('sponsored_sponsor');
+        });
 
     }
 }

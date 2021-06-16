@@ -10,10 +10,10 @@ $factory->define(Apartment::class, function (Faker $faker) {
         'title' => $faker ->sentence,
         'rooms' => $faker ->word,
         'bed' => rand(1,4),
-        'bathroom' => $faker ->word,
-        'area' => $faker ->numberBetween(1,100000),
-        'address' => $faker ->word,
-        'url_img' => $faker ->word,
+        'bathroom' => rand(0,2),
+        'area' => $faker ->numberBetween(1,9999)*0.01,
+        'address' => $faker ->address,
+        'url_img' => $faker ->imageUrl(800, 600,'city'),
         'features' => $faker ->word,
     ];
 });
