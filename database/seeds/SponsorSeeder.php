@@ -15,9 +15,8 @@ class SponsorSeeder extends Seeder
         factory(Sponsor::class,20) ->make()
             ->each(function($sponsor){
 
-                $apartments = Apartment::inRandomOrder()->first();
-
-                $sponsor -> apartments()-> attach($apartments);
+                $apartment = Apartment::inRandomOrder()->first();
+                $sponsor -> apartment_id = $apartment->id;
                 $sponsor->save();
          });
     }

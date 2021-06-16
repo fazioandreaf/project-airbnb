@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+Use App\Message;
+use App\LandLord;
 
 class MessageSeeder extends Seeder
 {

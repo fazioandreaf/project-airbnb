@@ -19,15 +19,13 @@ class ApartmentSeeder extends Seeder
 
                 $sponsor = Sponsor::inRandomOrder()->first();
                 $apartment->sponsor()->associate($sponsor);
-                $apartment->save();
 
                 $landlord = LandLord::inRandomOrder()->first();
                 $apartment->landlord()->associate($landlord);
-                $apartment->save();
 
                 $statistic = Statistic::inRandomOrder()->first();
                 $apartment->statistic()->associate($statistic);
-                $apartment->save();
+
             });
     }
 }
