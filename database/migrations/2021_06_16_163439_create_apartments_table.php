@@ -23,7 +23,7 @@ class CreateApartmentsTable extends Migration
             $table->integer('area');
             $table->string('address');
             $table->string('img');
-            $table->string('string');
+            $table->string('services');
 
             $table->bigInteger('landlord_id')->unsigned()->index();
 
