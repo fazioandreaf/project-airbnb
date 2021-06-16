@@ -30,17 +30,29 @@ class HomeController extends Controller {
         $landlord=Landlord::findOrFail($id);
         return view('pages.dashboard',compact('landlord'));
     }
-    public function add(Request $request){
+    public function add(){
+        $apartment=Apartment::all();
+        $landlord=:andlord::all();
+        return view('pages.manageapartment',compact('apartment','landlord'));
+    }
+    public function add_function(Request $request){
         $validate=$request->validate([
-            'title'=>'bail|required|unique:posts'
-            'rooms'=>'required|string'
-            'bed'=>'required|integer'
-            'bathroom'=>'required|integer'
-            'area'=>'required|'
-            'address'=>'required|'
-            'url_img'=>'required|'
-            'features'=>'required|'
+            'title'=>'bail|required|unique:posts',
+            'rooms'=>'required|string',
+            'bed'=>'required|integer',
+            'bathroom'=>'required|integer',
+            'area'=>'required|integer',
+            'address'=>'required|string',
+            'url_img'=>'required|string',
+            'features'=>'required|string',
+            'landlord_id'=>'required|integer'
         ]);
+        $landlord_id=$request->get('landlord_id');
+        $landlord=Landlord::findOrFail($landlord_id);
+        $apartment=Apartment::make($validate);
+        $apartment->landlord()->associate($landlord);
+        $landlord->save();
+
 
     }
 
