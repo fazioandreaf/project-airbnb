@@ -15,7 +15,7 @@ Route::get('/homepage', 'MainController@homepage') -> name('homepage');
 Route::get('/apartment/{id}','MainController@showApartment')->name('apartment');
 
 // rotta registrazione
-Route::get('/login','MainController@login')->name('login');
+Route::post('/login','MainController@login')->name('login');
 
 // Ricerca appartamento
 // Route::get('/search/{id}/{address}','MainController@search')->name('searchApartment');
