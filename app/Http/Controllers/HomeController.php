@@ -30,9 +30,13 @@ class HomeController extends Controller {
         $landlord=Landlord::findOrFail($id);
         return view('pages.dashboard',compact('landlord'));
     }
+    public function myapartment($id){
+        $apartment=Apartment::findOrFail($id);
+        return view('pages.myapartment',compact('apartment'))
+    }
     public function add(){
         $apartment=Apartment::all();
-        $landlord=:andlord::all();
+        $landlord=Landlord::all();
         return view('pages.manageapartment',compact('apartment','landlord'));
     }
     public function add_function(Request $request){
@@ -54,6 +58,17 @@ class HomeController extends Controller {
         $landlord->save();
 
 
+    }
+    public function statistic($id){
+        $statistic=Statistic::findOrFail($id);
+        return view('pages.statistic',compact('statistic'));
+    }
+    public function sponsor($id){
+        $apartment=Apartment::findOrFail($id);
+        return view('pages.sponsor',compact('apartment'));
+    }
+    public function sponsor_function($id){
+        
     }
 
 } // END OF HomeController
