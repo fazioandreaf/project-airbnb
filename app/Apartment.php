@@ -19,11 +19,16 @@ class Apartment extends Model
 
     public function sponsor()
     {
-        return $this->hasOne(Sponsor::class);
+        return $this->belongsTo(Sponsor::class);
     }
 
     public function landLord()
     {
-        return $this->hasMany(LandLord::class);
+        return $this->belongsTo(LandLord::class);
+    }
+
+    public function statistic() {
+
+        return $this->hasOne(Statistic::class);
     }
 }

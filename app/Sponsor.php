@@ -12,8 +12,8 @@ class Sponsor extends Model
         'time_lapse',
     ];
 
-    public function apartments(Type $var = null)
+    public function apartments()
     {
-        return $this->belongsTo(Apartment::class);
+        return $this->hasMany(Apartment::class);
     }
 }

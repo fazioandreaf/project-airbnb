@@ -14,8 +14,8 @@ class LandLord extends Model
         'date_of_birth',
     ];
 
-    public function apartment()
+    public function apartments()
     {
-        return $this->belongsTo(Apartment::class);
+        return $this->hasMany(Apartment::class);
     }
 }
