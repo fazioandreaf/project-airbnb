@@ -29,8 +29,8 @@ class Apartment extends Model
         return $this -> hasOne(Statistic::class);
     }
 
-    public function sponsoredapartments() {
+    public function sponsoredapartment() {
 
-        return $this -> hasMany(SponsoredApartment::class);
+        return $this -> hasOne(SponsoredApartment::class);
     }
 }

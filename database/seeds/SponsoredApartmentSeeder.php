@@ -13,7 +13,8 @@ class SponsoredApartmentSeeder extends Seeder
      */
     public function run()
     {
-    factory(SponsoredApartment::class,50)->make()->each(function($sponsored){
+
+    factory(SponsoredApartment::class,20)->make()->each(function($sponsored){
                 $apartment=Apartment::inRandomOrder()->first();
                 $sponsor=Sponsor::inRandomOrder()->first();
 

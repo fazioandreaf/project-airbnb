@@ -19,6 +19,7 @@ class CreateSponsoredApartmentsTable extends Migration
 
             $table -> date('expired_date');
             $table -> bigInteger('apartment_id') -> unsigned() -> index();
+
             $table -> bigInteger('sponsor_id') -> unsigned() -> index();
 
             $table -> timestamps();

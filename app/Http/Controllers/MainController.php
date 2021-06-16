@@ -11,6 +11,7 @@ class MainController extends Controller {
   public function homepage() {
 
     // appartamenti sponsorizzati
+
     $apartments = DB::table('apartments')
         ->join(
             'sponsored_apartments',
@@ -18,6 +19,7 @@ class MainController extends Controller {
             '=',
             'sponsored_apartments.apartment_id'
           )
+
         ->select('apartments.*','sponsored_apartments.apartment_id')
         ->get();
 

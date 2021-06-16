@@ -20,7 +20,7 @@ class CreateLandlordsTable extends Migration
             $table -> string('password')->required();
             $table -> string('name');
             $table -> string('lastname');
-            $table -> date('dob');
+            $table -> string('dob');
             $table -> boolean('owners');
 
 

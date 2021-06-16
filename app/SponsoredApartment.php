@@ -12,6 +12,7 @@ class SponsoredApartment extends Model
         'sponsor_id'
     ];
 
+
     public function apartment() {
 
         return $this -> belongsTo(Apartment::class);
