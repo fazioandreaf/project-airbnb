@@ -12,16 +12,18 @@ class MainController extends Controller {
 
     // appartamenti sponsorizzati
 
-    $apartments = DB::table('apartments')
-        ->join(
-            'sponsored_apartments',
-            'apartments.id',
-            '=',
-            'sponsored_apartments.apartment_id'
-          )
+    // $apartments = DB::table('apartments')
+    //     ->join(
+    //         'sponsored_apartments',
+    //         'apartments.id',
+    //         '=',
+    //         'sponsored_apartments.apartment_id'
+    //       )
 
-        ->select('apartments.*','sponsored_apartments.apartment_id')
-        ->get();
+    //     ->select('apartments.*','sponsored_apartments.apartment_id')
+    //     ->get();
+
+    $apartments = Apartment::all();
 
     return view("pages.homepage",compact('apartments'));
   }
