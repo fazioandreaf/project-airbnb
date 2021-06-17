@@ -12,6 +12,6 @@ class LandlordSeeder extends Seeder
      */
     public function run()
     {
-        
+        factory(LandLord::class, 30) -> create();
     }
 }

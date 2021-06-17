@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Apartment;
+use App\LandLord;
+use App\Service;
 
 
 class ApartmentSeeder extends Seeder
@@ -12,6 +15,10 @@ class ApartmentSeeder extends Seeder
      */
     public function run()
     {
- 
+        // factory(Apartment::class, 50)->make()->each(function ($apartment) {
+        //         $landlord = LandLord::inRandomOrder()->first();
+        //         $apartment->landlord()->associate($landlord);
+        //         $apartment->save();
+        //     });
     }
 }
