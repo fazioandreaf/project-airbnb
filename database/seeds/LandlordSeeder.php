@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Landlord;
+use App\LandLord;
 
 class LandlordSeeder extends Seeder
 {
@@ -12,6 +12,6 @@ class LandlordSeeder extends Seeder
      */
     public function run()
     {
-        factory(Landlord::class, 30) -> create();
+        factory(LandLord::class, 30) -> create();
     }
 }

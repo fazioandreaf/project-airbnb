@@ -9,10 +9,11 @@ class Sponsor extends Model
     protected $fillable = [
         'sponsor_duration',
         'price',
+        'scadenza'
     ];
 
     public function apartments()
     {
-        return $this -> belongsToMany(Apartment::class);
+        return $this -> belongsToMany(Apartment::class, 'apartment_sponsor')->withPivot('start_date','expire_date');
     }
 }
