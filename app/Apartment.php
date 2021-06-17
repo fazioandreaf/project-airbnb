@@ -18,5 +18,28 @@ class Apartment extends Model
         'cover_image',
     ];
 
+    public function landlord()
+    {
+        return $this->belongsTo(Apartment::class);
+    }
 
+    public function services()
+    {
+        return $this -> belongsToMany(Service::class);
+    }
+
+    public function sponsors()
+    {
+        return $this -> belongsToMany(Sonsor::class);
+    }
+
+    public function statistics()
+    {
+        return $this -> belongsToMany(Statistic::class);
+    }
+
+    public function messages()
+    {
+        return $this -> hasMany(Message::class);
+    }
 }

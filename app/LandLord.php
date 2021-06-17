@@ -14,4 +14,9 @@ class LandLord extends Model
        'lastname',
        'date_of_birth',
     ];
+
+    public function apartments()
+    {
+        return $this -> hasMany(LandLord::class);
+    }
 }

@@ -15,4 +15,9 @@ class Message extends Model
 
         return $this->belongsTo(LandLord::class);
     }
+
+    public function apartment()
+    {
+        return $this->belongsTo(Apartment::class);
+    }
 }
