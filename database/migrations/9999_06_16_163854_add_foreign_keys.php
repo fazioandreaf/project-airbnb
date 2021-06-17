@@ -13,36 +13,50 @@ class AddForeignKeys extends Migration
      */
     public function up()
     {
-        Schema::table('messages', function (Blueprint $table) {
 
-            $table
-                    ->foreign('landlord_id', 'message_landlord')
-                    ->references('id')
-                    ->on('landlords');
+        Schema::table('apartment_sponsor', function (Blueprint $table) {
+            $table->foreign('apartment_id','apartmentSponsor')
+                ->references('id')
+                ->on('apartments');
+
+            $table->foreign('sponsor_id','sponsorApartment')
+                ->references('id')
+                ->on('sponsors');
+
+        });
+
+        Schema::table('apartment_statistic', function (Blueprint $table) {
+            $table->foreign('apartment_id','apartmentStatistic')
+                ->references('id')
+                ->on('apartments');
+
+            $table->foreign('statistic_id','statisticApartment')
+                ->references('id')
+                ->on('statistics');
+
+        });
+
+        Schema::table('apartment_service', function (Blueprint $table) {
+            $table->foreign('apartment_id','apartmentService')
+                ->references('id')
+                ->on('apartments');
+
+            $table->foreign('service_id','ServiceApartment')
+                ->references('id')
+                ->on('services');
+
         });
 
         Schema::table('apartments', function (Blueprint $table) {
-
-            $table
-                    ->foreign('landlord_id', 'apartment_landlord')
-                    ->references('id')
-                    ->on('landlords');
+            $table->foreign('landlord_id','apartmentLandlord')
+                ->references('id')
+                ->on('landlords');
         });
 
-        Schema::table('sponsors', function (Blueprint $table) {
-
-            $table
-                    ->foreign('apartment_id', 'sponsor_apartment')
-                    ->references('id')
-                    ->on('apartments');
-        });
-
-        Schema::table('statistics', function (Blueprint $table) {
-
-            $table
-                    ->foreign('apartment_id', 'statistic_apartment')
-                    ->references('id')
-                    ->on('apartments');
+        Schema::table('messages', function (Blueprint $table) {
+            $table->foreign('apartment_id','apartmentMessage')
+                ->references('id')
+                ->on('apartments');
         });
     }
 
@@ -53,24 +67,27 @@ class AddForeignKeys extends Migration
      */
     public function down()
     {
-        Schema::table('messages', function (Blueprint $table) {
+        Schema::table('apartment_sponsor', function (Blueprint $table) {
+            $table->dropForeign('apartmentSponsor');
+            $table->dropForeign('sponsorApartment');
+        });
 
-            $table->dropForeign('message_landlord');
+        Schema::table('apartment_statistic', function (Blueprint $table) {
+            $table->dropForeign('apartmentStatistic');
+            $table->dropForeign('statisticApartment');
+        });
+
+        Schema::table('apartment_service', function (Blueprint $table) {
+            $table->dropForeign('apartmentService');
+            $table->dropForeign('ServiceApartment');
         });
 
         Schema::table('apartments', function (Blueprint $table) {
-
-            $table->dropForeign('apartment_landlord');
+            $table->dropForeign('apartmentLandlord');
         });
 
-        Schema::table('sponsors', function (Blueprint $table) {
-
-            $table->dropForeign('sponsor_apartment');
-        });
-
-        Schema::table('statistics', function (Blueprint $table) {
-
-            $table->dropForeign('statistic_apartment');
+        Schema::table('messages', function (Blueprint $table) {
+            $table->dropForeign('apartmentMessage');
         });
     }
 }

@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Sponsor;
-use App\Apartment;
+
 class SponsorSeeder extends Seeder
 {
     /**
@@ -12,12 +11,5 @@ class SponsorSeeder extends Seeder
      */
     public function run()
     {
-        factory(Sponsor::class,20) ->make()
-            ->each(function($sponsor){
-
-                $apartment = Apartment::inRandomOrder()->first();
-                $sponsor -> apartment_id = $apartment->id;
-                $sponsor->save();
-         });
     }
 }

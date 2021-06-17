@@ -7,13 +7,9 @@ use Faker\Generator as Faker;
 
 $factory->define(LandLord::class, function (Faker $faker) {
 
-    $gender = $faker->randomElement(['male','female']);
+    // $gender = $faker->randomElement(['male','female']);
 
     return [
-        'email'=> $faker ->email,
-        'password' => $faker -> password,
-        'firstnmae'=> $faker ->firstName($gender),
-        'lastname'=> $faker ->lastName,
-        'date_of_birth'=> $faker ->date,
+
     ];
 });
