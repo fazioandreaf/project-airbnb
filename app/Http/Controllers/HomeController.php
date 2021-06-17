@@ -32,7 +32,7 @@ class HomeController extends Controller {
     }
     public function myapartment($id){
         $apartment=Apartment::findOrFail($id);
-        return view('pages.myapartment',compact('apartment'))
+        return view('pages.myapartment',compact('apartment'));
     }
     public function add(){
         $apartment=Apartment::all();
@@ -68,7 +68,7 @@ class HomeController extends Controller {
         return view('pages.sponsor',compact('apartment'));
     }
     public function sponsor_function($id){
-        
+
     }
 
 } // END OF HomeController
