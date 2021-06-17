@@ -18,7 +18,7 @@
     @foreach ($apartments as $apartment)
       <li>
         <a href="{{route('apartment', $apartment->id) }}">
-          {{ $apartment->id }}
+          {{ $apartment->id }} 
         </a>
       </li>
     @endforeach
