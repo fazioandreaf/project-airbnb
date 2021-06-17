@@ -20,7 +20,7 @@ class CreateLandlordsTable extends Migration
             $table->string('password',128);
             $table->string('firstname',128);
             $table->string('lastname',128);
-            $table->date('date_of_birth',128);
+            $table->date('date_of_birth');
 
             $table->timestamps();
         });

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class LandLord extends Model
+class Landlord extends Model
 {
     protected $table = 'landlords';
     protected $fillable = [
@@ -17,6 +17,6 @@ class LandLord extends Model
 
     public function apartments()
     {
-        return $this -> hasMany(LandLord::class);
+        return $this -> hasMany(Landlord::class);
     }
 }

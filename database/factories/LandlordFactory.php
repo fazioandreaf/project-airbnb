@@ -2,12 +2,13 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\LandLord;
+use App\Model;
 use Faker\Generator as Faker;
 
-$factory->define(LandLord::class, function (Faker $faker) {
+$factory->define(Model::class, function (Faker $faker) {
+    $gender = $faker->randomElement(['male','female']);
     return [
-        'email' => $faker -> email,
+        'email' => $faker -> mail,
         'password' => $faker -> password,
         'firstname' => $faker -> firstName,
         'lastname' => $faker -> lastName,
