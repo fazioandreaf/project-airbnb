@@ -15,10 +15,10 @@
   </section>
 
   <ul class="apartment-samples">
-    @foreach ($apartments as $a)
+    @foreach ($apartments as $apartment)
       <li>
-        <a href="{{route('apartment',$a->apartment_id)}}">
-          {{$a->apartment_id}}
+        <a href="{{route('apartment', $apartment->id) }}">
+          {{ $apartment->id }}
         </a>
       </li>
     @endforeach
