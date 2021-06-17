@@ -2,10 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Sponsor;
-<<<<<<< HEAD
-=======
 use App\Apartment;
->>>>>>> Gioele
 
 class SponsorSeeder extends Seeder
 {
@@ -16,21 +13,6 @@ class SponsorSeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD
-        factory(Sponsor::class,3)->create();
-        DB::table('sponsors')->insert([
-            'sponsor_duration'=>24,
-            'price'=>299,
-        ]);
-        DB::table('sponsors')->insert([
-            'sponsor_duration'=>72,
-            'price'=>599,
-        ]);
-        DB::table('sponsors')->insert([
-            'sponsor_duration'=>144,
-            'price'=>999,
-        ]);
-=======
         // $sponsors = [
         //     [
         //         'sponsor_duration'=>24,
@@ -64,6 +46,5 @@ class SponsorSeeder extends Seeder
             $sponsor->apartments()->attach($apartments, ['start_date' => $randomDate, 'expire_date' => $test]);
             $sponsor->save();
         });
->>>>>>> Gioele
     }
 }
