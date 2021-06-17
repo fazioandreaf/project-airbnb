@@ -11,5 +11,6 @@ $factory->define(LandLord::class, function (Faker $faker) {
 
     return [
 
+
     ];
 });

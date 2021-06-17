@@ -8,10 +8,7 @@ class Message extends Model
 {
     protected $fillable = [
         'email',
-        'sent_date',
-        'firstname',
-        'lastname',
-        'text'
+        'text_message',
     ];
 
     public function landlord() {
