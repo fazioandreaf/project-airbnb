@@ -67,27 +67,27 @@ class AddForeignKeys extends Migration
      */
     public function down()
     {
-        // Schema::table('apartment_sponsor', function (Blueprint $table) {
-        //     $table->dropForeign('apartmentSponsor');
-        //     $table->dropForeign('sponsorApartment');
-        // });
+        Schema::table('apartment_sponsor', function (Blueprint $table) {
+            $table->dropForeign('apartmentSponsor');
+            $table->dropForeign('sponsorApartment');
+        });
 
-        // Schema::table('apartment_statistic', function (Blueprint $table) {
-        //     $table->dropForeign('apartmentStatistic');
-        //     $table->dropForeign('statisticApartment');
-        // });
+        Schema::table('apartment_statistic', function (Blueprint $table) {
+            $table->dropForeign('apartmentStatistic');
+            $table->dropForeign('statisticApartment');
+        });
 
-        // Schema::table('apartment_service', function (Blueprint $table) {
-        //     $table->dropForeign('apartmentService');
-        //     $table->dropForeign('ServiceApartment');
-        // });
+        Schema::table('apartment_service', function (Blueprint $table) {
+            $table->dropForeign('apartmentService');
+            $table->dropForeign('ServiceApartment');
+        });
 
-        // Schema::table('apartments', function (Blueprint $table) {
-        //     $table->dropForeign('apartmentLandlord');
-        // });
+        Schema::table('apartments', function (Blueprint $table) {
+            $table->dropForeign('apartmentLandlord');
+        });
 
-        // Schema::table('messages', function (Blueprint $table) {
-        //     $table->dropForeign('apartmentMessage');
-        // });
+        Schema::table('messages', function (Blueprint $table) {
+            $table->dropForeign('apartmentMessage');
+        });
     }
 }
