@@ -57,8 +57,17 @@ footer {
   color: #38c172;
 }
 
-.testDanny h1 {
+.testDanny {
+  background-color: black;
+}
+
+.testDanny section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   color: purple;
+  height: 80%;
 }
 
 * {

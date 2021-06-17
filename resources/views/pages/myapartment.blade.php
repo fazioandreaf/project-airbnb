@@ -1,7 +1,9 @@
 @extends("layouts.main_layout")
 @section("content")
 <div class="testDanny">
-  <h1>CIAO</h1>
+  <section>
+    THIS IS THE CENTRAL PART
+  </section>
 </div>
 
 @endsection
