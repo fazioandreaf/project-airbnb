@@ -1,9 +1,9 @@
 .testDanny {
   background-color: black;
+  height: 92vh;
 
   section {
     @include flex(row, center, center);
     color: purple;
-    height: 80%;
   }
 }

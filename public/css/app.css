@@ -59,6 +59,7 @@ footer {
 
 .testDanny {
   background-color: black;
+  height: 92vh;
 }
 
 .testDanny section {
@@ -67,7 +68,6 @@ footer {
   justify-content: center;
   align-items: center;
   color: purple;
-  height: 80%;
 }
 
 * {
