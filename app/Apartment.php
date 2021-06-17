@@ -6,31 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Apartment extends Model
 {
-    protected $fillable=[
+    protected $fillable = [
         'title',
-        'rooms',
-        'bed',
-        'bathroom',
+        'number_rooms',
+        'number_toiletes',
+        'number_beds',
         'area',
         'address',
-        'url_img',
-        'features',
+        'latitude',
+        'longitude',
+        'cover_image',
     ];
-    public function landlord(){
-            return $this -> belongsTo(Landlord::class);
-    }
 
-    public function sponsor(){
-            return $this -> belongsTo(Sponsor::class);
-    }
 
-    public function statistic() {
-
-        return $this -> hasOne(Statistic::class);
-    }
-
-    public function sponsoredapartment() {
-
-        return $this -> hasOne(SponsoredApartment::class);
-    }
 }

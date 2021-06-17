@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStatisticsTable extends Migration
+class CreateLandlordsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateStatisticsTable extends Migration
      */
     public function up()
     {
-        Schema::create('statistics', function (Blueprint $table) {
+        Schema::create('landlords', function (Blueprint $table) {
             $table->id();
 
-            $table -> integer('view');
-            $table -> integer('rate_message');
-            $table -> bigInteger('apartment_id') -> unsigned() -> index();
+            $table->string('email',128);
+            $table->string('password',128);
+            $table->string('firstname',128);
+            $table->string('lastname',128);
+            $table->date('date_of_birth',128);
 
             $table->timestamps();
         });
@@ -31,6 +33,6 @@ class CreateStatisticsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('statistics');
+        Schema::dropIfExists('landlords');
     }
 }

@@ -7,13 +7,14 @@ use Faker\Generator as Faker;
 
 $factory->define(Apartment::class, function (Faker $faker) {
     return [
-        'title' => $faker ->sentence,
-        'rooms' => $faker ->word,
-        'bed' => rand(1,4),
-        'bathroom' => rand(0,2),
-        'area' => $faker ->numberBetween(1,9999)*0.01,
-        'address' => $faker ->address,
-        'url_img' => $faker ->imageUrl(800, 600,'city'),
-        'features' => $faker ->word,
+        'title' => $faker->word,
+        'number_rooms' => $rand(1,3),
+        'number_toiletes' => $rand(1,3),
+        'number_beds' => $rand(1,4),
+        'area' => $rand(15,100),
+        'address' => $faker->word,
+        'latitude' => $faker->word,
+        'longitude' => $faker->word,
+        'cover_image' => $faker->word,
     ];
 });

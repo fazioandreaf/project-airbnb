@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLandlordsTable extends Migration
+class CreateApartmentSponsorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,11 @@ class CreateLandlordsTable extends Migration
      */
     public function up()
     {
-        Schema::create('landlords', function (Blueprint $table) {
+        Schema::create('apartment_sponsor', function (Blueprint $table) {
             $table->id();
 
-            $table -> string('email')->unique()->required();
-            $table -> string('password')->required();
-            $table -> string('name');
-            $table -> string('lastname');
-            $table -> string('dob');
-            $table -> boolean('owners');
-
+            $table->bigInteger('apartment_id')->unsigned()->index();
+            $table->bigInteger('sponsor_id')->unsigned()->index();
 
             $table->timestamps();
         });
@@ -35,6 +30,6 @@ class CreateLandlordsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('landlords');
+        Schema::dropIfExists('apartment_sponsor');
     }
 }

@@ -12,7 +12,5 @@ $factory->define(Sponsor::class, function (Faker $faker) {
 
     // }
     return [
-        'duration'=> '24'+'72'+'144',
-        'price'=> '299'+'599'+'999',
     ];
 });

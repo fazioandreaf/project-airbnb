@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Message;
-use App\Landlord;
+Use App\Message;
+use App\LandLord;
 
 class MessageSeeder extends Seeder
 {
@@ -13,10 +13,6 @@ class MessageSeeder extends Seeder
      */
     public function run()
     {
-        factory(Message::class,50)->make()->each(function($message){
-            $landlord=Landlord::inRandomOrder()->first();
-            $message->landlord()->associate($landlord);
-            $message->save();
-        });
+
     }
 }

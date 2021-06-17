@@ -16,18 +16,17 @@ class CreateApartmentsTable extends Migration
         Schema::create('apartments', function (Blueprint $table) {
             $table->id();
 
-            $table -> string('title')->required();
-            $table -> string('rooms')->required();
-            $table -> integer('bed');
-            $table -> integer('bathroom');
-            $table -> integer('area');
-            $table -> string('address');
-            $table -> string('url_img');
-            $table -> string('features');
+            $table->string('title',128);
+            $table->smallInteger('number_rooms');
+            $table->smallInteger('number_toiletes');
+            $table->smallInteger('number_beds');
+            $table->smallInteger('area');
+            $table->string('address',128);
+            $table->string('latitude',128);
+            $table->string('longitude',128);
+            $table->string('cover_image',128);
 
-            $table -> bigInteger('landlord_id')->index()->unsigned();
-            // $table -> bigInteger('sponsor_id')->index()->unsigned();
-
+            $table->BigInteger('landlord_id')->unsigned()->index();
 
             $table->timestamps();
         });

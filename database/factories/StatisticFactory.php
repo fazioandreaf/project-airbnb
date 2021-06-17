@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Statistic::class, function (Faker $faker) {
     return [
-        'view'=>rand(1,20000),
-        'rate_message'=>rand(1,200),
+        'number_views'=> rand(10,100),
+        'number_messages'=> rand(10,100),
     ];
 });
