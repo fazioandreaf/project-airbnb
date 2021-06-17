@@ -1,4 +1,5 @@
 header {
+  height: 10%;
   background-color: $orange;
   @include flex(row, center, center);
 }

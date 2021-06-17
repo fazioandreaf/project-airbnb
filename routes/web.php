@@ -29,3 +29,6 @@ Route::post('/login','MainController@login')->name('login');
 
 // Ricerca appartamento
 // Route::get('/search/{id}/{address}','MainController@search')->name('searchApartment');
+
+
+Route::get('/debugdanny/{id}', 'MainController@debugdanny') ;
