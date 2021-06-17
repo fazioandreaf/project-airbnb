@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\LandLord;
 
 class LandlordSeeder extends Seeder
 {
