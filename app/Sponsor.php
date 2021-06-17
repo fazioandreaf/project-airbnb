@@ -11,5 +11,8 @@ class Sponsor extends Model
         'price',
     ];
 
-
+    public function apartments()
+    {
+        return $this -> belongsToMany(Apartment::class);
+    }
 }

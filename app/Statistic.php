@@ -11,5 +11,8 @@ class Statistic extends Model
         'number_messages',
     ];
 
-
+    public function apartments()
+    {
+        return $this -> belongsToMany(Apartment::class);
+    }
 }
