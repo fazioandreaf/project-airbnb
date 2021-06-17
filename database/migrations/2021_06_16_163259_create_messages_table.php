@@ -14,14 +14,17 @@ class CreateMessagesTable extends Migration
     public function up()
     {
         Schema::create('messages', function (Blueprint $table) {
-            $table->id();
+            $table -> id();
 
-            $table->string('email',128);
-            $table->string('text_message',128);
+            $table -> string('email',128);
+            $table -> date('sent_date');
+            $table -> string('firstname');
+            $table -> string('lastname');
+            $table -> string('text_message',128);
 
-            $table->bigInteger('apartment_id')->unsigned()->index();
+            $table -> bigInteger('apartment_id')->unsigned()->index();
 
-            $table->timestamps();
+            $table -> timestamps();
         });
     }
 
