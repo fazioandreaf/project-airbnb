@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Sponsor;
 
 class SponsorSeeder extends Seeder
 {
@@ -13,15 +14,15 @@ class SponsorSeeder extends Seeder
     {
         factory(Sponsor::class,3)->create();
         DB::table('sponsors')->insert([
-            'duration'=>24,
+            'sponsor_duration'=>24,
             'price'=>299,
         ]);
         DB::table('sponsors')->insert([
-            'duration'=>72,
+            'sponsor_duration'=>72,
             'price'=>599,
         ]);
         DB::table('sponsors')->insert([
-            'duration'=>144,
+            'sponsor_duration'=>144,
             'price'=>999,
         ]);
     }
