@@ -11,6 +11,5 @@ class SponsorSeeder extends Seeder
      */
     public function run()
     {
-
     }
 }

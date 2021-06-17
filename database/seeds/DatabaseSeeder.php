@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
                 // ApartmentSeeder::class,
                 // SponsorSeeder::class,
                 // StatisticSeeder::class,
-                // SponsoredApartmentSeeder::class,
             ]
         );
     }
