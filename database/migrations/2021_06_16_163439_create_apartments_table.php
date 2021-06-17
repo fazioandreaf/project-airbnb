@@ -22,8 +22,8 @@ class CreateApartmentsTable extends Migration
             $table->smallInteger('number_beds');
             $table->smallInteger('area');
             $table->string('address',128);
-            $table->string('latitude',128);
-            $table->string('longitude',128);
+            $table->string('latitude');
+            $table->string('longitude');
             $table->string('cover_image',128);
 
             $table->BigInteger('landlord_id')->unsigned()->index();
