@@ -13,26 +13,27 @@ class SponsorSeeder extends Seeder
      */
     public function run()
     {
-        // factory(Sponsor::class,3)->create();
-        
-        DB::table('sponsors')->insert([
-            'sponsor_duration'=>24,
-            'price'=>299,
-        ]);
-        DB::table('sponsors')->insert([
-            'sponsor_duration'=>72,
-            'price'=>599,
-        ]);
-        DB::table('sponsors')->insert([
-            'sponsor_duration'=>144,
-            'price'=>999,
-        ]);
-        factory(Sponsor::class)->create()->each(function ($sponsor) {
+        $sponsors = [
+            [
+                'sponsor_duration'=>24,
+                'price'=>299,
+            ],
+            [
+                'sponsor_duration'=>72,
+                'price'=>599,
+            ],
+            [
+                'sponsor_duration'=>144,
+                'price'=>999,
+            ]
+        ];
 
-            $apartments=Apartment::inRandomOrder()->limit(1)->get();
-            $sponsor->apartments()->attach($apartments);
-            $sponsor->save();
-        });
-
+        foreach($sponsors as $sponsor) {
+            factory(Sponsor::class) -> create($sponsor)->each(function ($sponsor) {
+                $apartments = Apartment::inRandomOrder()->limit(rand(1,10))->get();
+                $sponsor->apartments()->attach($apartments);
+                $sponsor->save();
+            });
+        };
     }
 }
