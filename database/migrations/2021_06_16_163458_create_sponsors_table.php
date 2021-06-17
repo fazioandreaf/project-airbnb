@@ -16,13 +16,8 @@ class CreateSponsorsTable extends Migration
         Schema::create('sponsors', function (Blueprint $table) {
             $table->id();
 
-<<<<<<< HEAD:database/migrations/2021_06_15_093507_create_sponsors_table.php
-            $table -> string('duration');
-            $table -> string('price');
-=======
             $table->integer('sponsor_duration');
             $table->integer('price');
->>>>>>> Fazio:database/migrations/2021_06_16_163458_create_sponsors_table.php
 
             $table->timestamps();
         });
