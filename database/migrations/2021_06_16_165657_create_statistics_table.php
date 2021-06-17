@@ -16,10 +16,6 @@ class CreateStatisticsTable extends Migration
         Schema::create('statistics', function (Blueprint $table) {
             $table->id();
 
-            $table->bigInteger('apartment_id')->unsigned()->index();
-            $table->integer('views');
-            $table->integer('messages');
-
             $table->timestamps();
         });
     }

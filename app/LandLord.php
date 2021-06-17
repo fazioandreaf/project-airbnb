@@ -8,15 +8,6 @@ class LandLord extends Model
 {
     protected $table = 'landlords';
     protected $fillable = [
-        'email',
-        'pas`sword',
-        'firstnmae',
-        'lastname',
-        'date_of_birth',
-    ];
 
-    public function apartments()
-    {
-        return $this->hasMany(Apartment::class);
-    }
+    ];
 }
