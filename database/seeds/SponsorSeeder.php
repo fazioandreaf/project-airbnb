@@ -38,10 +38,12 @@ class SponsorSeeder extends Seeder
 
         factory(Sponsor::class,3)->create()->each(function ($sponsor) {
 
-            $expire = 2;
+            $timestamp = mt_rand(1609455600, time());
+            $randomDate = date("d-m-Y", $timestamp);
+            $test = "Sono un pirla";
 
             $apartments = Apartment::inRandomOrder()->limit(2)->get();
-            $sponsor->apartments()->attach($apartments, ['scadenza' => $expire]);
+            $sponsor->apartments()->attach($apartments, ['start_date' => $randomDate, 'expire_date' => $test]);
             $sponsor->save();
         });
     }

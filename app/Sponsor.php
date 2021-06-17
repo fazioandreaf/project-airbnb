@@ -14,6 +14,6 @@ class Sponsor extends Model
 
     public function apartments()
     {
-        return $this -> belongsToMany(Apartment::class, 'apartment_sponsor')->withPivot('scadenza');;
+        return $this -> belongsToMany(Apartment::class, 'apartment_sponsor')->withPivot('start_date','expire_date');
     }
 }
