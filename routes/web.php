@@ -9,7 +9,7 @@ Route::get('/home', 'HomeController@index')->name('home');
     // ROTTE LIBERE
 
 // HOMEPAGE appartamenti in vetrina
-Route::get('/homepage', 'MainController@homepage') -> name('homepage');
+Route::get('pages/homepage', 'MainController@homepage') -> name('homepage');
 Route::get('/dashboard/{id}', 'HomeController@dashboard') -> name('dashboard');
 Route::get('/myapartment/{id}', 'HomeController@myapartment') -> name('myapartment');
 // Rotte per add e editing
@@ -25,7 +25,7 @@ Route::post('/sponsor_function/{id}', 'HomeController@sponsor_function')->name('
 Route::get('/apartment/{id}','MainController@showApartment')->name('apartment');
 
 // rotta registrazione
-Route::post('/login','MainController@login')->name('login');
+Route::get('/login_ui','MainController@login_ui')->name('login_ui');
 
 // Ricerca appartamento
 // Route::get('/search/{id}/{address}','MainController@search')->name('searchApartment');
