@@ -13,10 +13,8 @@ class ServiceSeeder extends Seeder
      */
     public function run()
     {
-        factory(Service::class, 5)->create()->each(function ($service) {
-            // dd($service);
-
-            $apartments=Apartment::inRandomOrder()->limit(rand(1,5))->get();
+        factory(Service::class, 9)->create()->each(function ($service) {
+            $apartments=Apartment::inRandomOrder()->limit(rand(4,8))->get();
             $service->apartments()->attach($apartments);
             $service->save();
         });
