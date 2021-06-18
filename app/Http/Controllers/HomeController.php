@@ -62,19 +62,18 @@ class HomeController extends Controller {
         
         date_default_timezone_set('Europe/Rome');
         
-        $start_date = date('m/d/Y h:i:s', time());
+        $start_date = date('m/d/Y h:i:s a', time());
         switch ($validated['sponsor_id']) {
             case 1:
-                $afterDate = date('m/d/Y h:i:s', time() + 86400);
+                $afterDate = date('m/d/Y h:i:s a', time() + 86400);
                 break;
             case 2:
-                $afterDate = date('m/d/Y h:i:s', time() + 259200);
+                $afterDate = date('m/d/Y h:i:s a', time() + 259200);
                 break;
             case 3:
-                $afterDate = date('m/d/Y h:i:s', time() + 604800);
+                $afterDate = date('m/d/Y h:i:s a', time() + 604800);
                 break;
         }
-        $expire = $afterDate;
         // dd($validated);
         
         $service = Service::findOrFail($request -> get('service_id'));
@@ -84,11 +83,20 @@ class HomeController extends Controller {
 
         $apartment->services()->attach($request-> get('service_id'));
         $apartment->sponsors()->attach($request-> get('sponsor_id'),
-            ['start_date' => $start_date, 'expire_date' => $expire]);
+            ['start_date' => $start_date, 'expire_date' => $afterDate]);
         
 
         $apartment->save();
 
+        return redirect()->route('homepage');
+    }
+
+    // softDeletes
+    public function deleteApartment($id)
+    {
+        $apartment = Apartment::findOrFail($id);
+        $apartment->delete();
+        $apartment->save();
         return redirect()->route('homepage');
     }
 

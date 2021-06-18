@@ -3,6 +3,9 @@
     <div class="container">
         <h1>
             [{{$apartment->id}}] -- {{$apartment->title}}
+            <a href="{{route('delete',$apartment->id)}}">
+                --delete--
+            </a>
         </h1>
         <ul>
             <li>

@@ -36,3 +36,5 @@ Route::get('/login_ui','MainController@login_ui')->name('login_ui');
 
 
 Route::get('/debugdanny/{id}', 'MainController@debugdanny') ;
+
+Route::get('/delete/{id}','HomeController@deleteApartment')->name('delete');
