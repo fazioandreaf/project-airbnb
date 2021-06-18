@@ -26,5 +26,10 @@
                 {{$apartment->area}}
             </li>
         </ul>
+        @foreach ($apartment->sponsors as $apSp)
+            <p>
+                {{$apSp->sponsor_duration}} durata sponsor
+            </p>
+        @endforeach
     </div>
 @endsection

@@ -39,10 +39,9 @@ class HomeController extends Controller {
     // nuovo appartamento
     public function add()
     {
-        // $apartments = Apartment::all();
         $services = Service::all();
-        // $sponsors = Sponsor::all();
-        return view('pages.newapartment',compact('services'));
+        $sponsors = Sponsor::all();
+        return view('pages.newapartment',compact('services','sponsors'));
     }
     public function add_function(Request $request)
     {
@@ -57,13 +56,35 @@ class HomeController extends Controller {
         'latitude' => 'required|numeric',
         'longitude' => 'required|numeric',
         'cover_image' => 'nullable',
-        'user_id' => 'required'
+        'user_id' => 'required',
+        'sponsor_id' => 'required',
         ]);
         
+        date_default_timezone_set('Europe/Rome');
+        
+        $start_date = date('m/d/Y h:i:s', time());
+        switch ($validated['sponsor_id']) {
+            case 1:
+                $afterDate = date('m/d/Y h:i:s', time() + 86400);
+                break;
+            case 2:
+                $afterDate = date('m/d/Y h:i:s', time() + 259200);
+                break;
+            case 3:
+                $afterDate = date('m/d/Y h:i:s', time() + 604800);
+                break;
+        }
+        $expire = $afterDate;
         // dd($validated);
+        
         $service = Service::findOrFail($request -> get('service_id'));
+        $sponsor = Sponsor::findOrFail($request -> get('sponsor_id'));
+
         $apartment = Apartment::create($validated);
+
         $apartment->services()->attach($request-> get('service_id'));
+        $apartment->sponsors()->attach($request-> get('sponsor_id'),
+            ['start_date' => $start_date, 'expire_date' => $expire]);
         
 
         $apartment->save();
