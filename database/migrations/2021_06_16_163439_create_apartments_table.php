@@ -24,7 +24,7 @@ class CreateApartmentsTable extends Migration
             $table->string('address',128);
             $table->string('latitude');
             $table->string('longitude');
-            $table->string('cover_image',128);
+            $table->string('cover_image',128)->nullable();
 
             $table->BigInteger('user_id')->unsigned()->index();
 

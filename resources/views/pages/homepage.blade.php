@@ -12,6 +12,11 @@
         </a>
       </h1>
     </div>
+    <a href="{{route('add')}}">
+      <button>
+        NEW
+      </button>
+    </a>
   </section>
 
   <ul class="apartment-samples">

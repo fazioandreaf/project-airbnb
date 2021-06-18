@@ -7,18 +7,23 @@
         <ul>
             <li>
                 Stanza :
-                {{$apartment->rooms}}
+                {{$apartment->number_rooms}}
             </li>
             <li>
                 Numero letti :
-                {{$apartment->bed}}
+                {{$apartment->number_beds}}
+            </li>
+            <li>
+                numero bagni :
+                {{$apartment->number_toiletes}}
             </li>
             <li>
                 Indirizzo :
-                {{$apartment->address}}
+                [{{$apartment->address}}]
             </li>
             <li>
-                [{{$apartment->landlord_id}}]
+                area :
+                {{$apartment->area}}
             </li>
         </ul>
     </div>

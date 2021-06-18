@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Apartment;
-Use App\Statistic;
+// Use App\Statistic;
+// Use App\Service;
 use DB;
-// use App\SponsoredApartment;
 use Illuminate\Http\Request;
 
 class MainController extends Controller {
@@ -35,6 +35,8 @@ class MainController extends Controller {
     $apartment = Apartment::findOrFail($id);
     return view('pages.apartment',compact('apartment'));
   }
+
+
 
     // registrazione
   public function login_ui()

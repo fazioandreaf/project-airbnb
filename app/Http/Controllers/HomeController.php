@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Landlord;
 use App\Apartment;
 use App\Sponsor;
+Use App\Service;
 use App\SponsoredApartment;
 
 class HomeController extends Controller {
@@ -34,31 +35,43 @@ class HomeController extends Controller {
         $apartment=Apartment::findOrFail($id);
         return view('pages.myapartment',compact('apartment'));
     }
-    public function add(){
-        $apartment=Apartment::all();
-        $landlord=Landlord::all();
-        return view('pages.manageapartment',compact('apartment','landlord'));
+
+    // nuovo appartamento
+    public function add()
+    {
+        // $apartments = Apartment::all();
+        $services = Service::all();
+        // $sponsors = Sponsor::all();
+        return view('pages.newapartment',compact('services'));
     }
-    public function add_function(Request $request){
-        $validate=$request->validate([
-            'title'=>'bail|required|unique:posts',
-            'rooms'=>'required|string',
-            'bed'=>'required|integer',
-            'bathroom'=>'required|integer',
-            'area'=>'required|integer',
-            'address'=>'required|string',
-            'url_img'=>'required|string',
-            'features'=>'required|string',
-            'landlord_id'=>'required|integer'
+    public function add_function(Request $request)
+    {
+        
+        $validated = $request -> validate([
+        'title' => 'required|max:128|min:4',
+        'number_rooms' => 'required|numeric',
+        'number_toiletes' => 'required|numeric',
+        'number_beds' => 'required|numeric',
+        'area' => 'required|numeric',
+        'address' => 'required',
+        'latitude' => 'required|numeric',
+        'longitude' => 'required|numeric',
+        'cover_image' => 'nullable',
+        'user_id' => 'required'
         ]);
-        $landlord_id=$request->get('landlord_id');
-        $landlord=Landlord::findOrFail($landlord_id);
-        $apartment=Apartment::make($validate);
-        $apartment->landlord()->associate($landlord);
-        $landlord->save();
+        
+        // dd($validated);
+        $service = Service::findOrFail($request -> get('service_id'));
+        $apartment = Apartment::create($validated);
+        $apartment->services()->attach($request-> get('service_id'));
+        
 
+        $apartment->save();
 
+        return redirect()->route('homepage');
     }
+
+
     public function statistic($id){
         $statistic=Statistic::findOrFail($id);
         return view('pages.statistic',compact('statistic'));
