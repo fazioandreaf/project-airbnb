@@ -13,37 +13,28 @@ class SponsorSeeder extends Seeder
      */
     public function run()
     {
-        // $sponsors = [
-        //     [
-        //         'sponsor_duration'=>24,
-        //         'price'=>299,
-        //     ],
-        //     [
-        //         'sponsor_duration'=>72,
-        //         'price'=>599,
-        //     ],
-        //     [
-        //         'sponsor_duration'=>144,
-        //         'price'=>999,
-        //     ]
-        // ];
-
-        // foreach($sponsors as $sponsor) {
-        //     factory(Sponsor::class) -> create($sponsor)->each(function ($sponsor) {
-        //         $apartments = Apartment::inRandomOrder()->limit(2)->get();
-        //         $sponsor->apartments()->attach($apartments);
-        //         $sponsor->save();
-        //     });
-        // };
 
         factory(Sponsor::class,3)->create()->each(function ($sponsor) {
 
-            $timestamp = mt_rand(1609455600, time());
-            $randomDate = date("d-m-Y", $timestamp);
-            $test = "Sono un pirla";
+            $timestamp = new DateTime ("today");
+            $expire = new DateTime ("today");
+
+            switch ($sponsor->id) {
+                case 1:
+                    $expire->modify('+1 day');
+                    break;
+                case 2:
+                    $expire->modify('+3 day');
+                    break;
+                case 3:
+                    $expire->modify('+7 day');
+                    break;
+            }
+
+            // dd($timestamp);
 
             $apartments = Apartment::inRandomOrder()->limit(2)->get();
-            $sponsor->apartments()->attach($apartments, ['start_date' => $randomDate, 'expire_date' => $test]);
+            $sponsor->apartments()->attach($apartments, ['start_date' => $timestamp, 'expire_date' => $expire]);
             $sponsor->save();
         });
     }
