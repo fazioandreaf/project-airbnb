@@ -17,8 +17,8 @@ class CreateStatisticsTable extends Migration
             $table->id();
 
             $table->string('ip');
-            $table->integer('views');
-
+            $table->date('view_date');
+            $table->bigInteger('apartment_id')->unsigned()->index();
 
             $table->timestamps();
         });

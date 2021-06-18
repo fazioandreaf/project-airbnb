@@ -35,7 +35,7 @@ class Apartment extends Model
 
     public function statistics()
     {
-        return $this -> belongsToMany(Statistic::class);
+        return $this -> hasMany(Statistic::class);
     }
 
     public function messages()

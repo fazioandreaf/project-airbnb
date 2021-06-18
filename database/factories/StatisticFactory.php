@@ -8,6 +8,6 @@ use Faker\Generator as Faker;
 $factory->define(Statistic::class, function (Faker $faker) {
     return [
         'ip'=> $faker-> ipv6,
-        'views'=> rand(10,50),
+        'view_date'=>$faker->date
     ];
 });
