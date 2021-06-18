@@ -17,7 +17,7 @@ class CreateServicesTable extends Migration
             $table->id();
 
             $table->string('service',128);
-
+        
             $table->timestamps();
         });
     }

@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Statistic extends Model
 {
     protected $fillable = [
-        'number_views',
-        'number_messages',
+        'ip',
+        'view_date'
     ];
 
-    public function apartments()
+    public function apartment()
     {
-        return $this -> belongsToMany(Apartment::class);
+        return $this -> belongsTo(Apartment::class);
     }
 }

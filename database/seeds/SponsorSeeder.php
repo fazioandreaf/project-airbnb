@@ -17,17 +17,17 @@ class SponsorSeeder extends Seeder
         factory(Sponsor::class,3)->create()->each(function ($sponsor) {
 
             $start_date = new DateTime ("now");
-            // $expire = new DateTime ("today");
+            $expire = new DateTime ("now");
 
             switch ($sponsor->id) {
                 case 1:
-                    $expire = $timestamp->modify('+24 hours');
+                    $expire->modify('+24 hours');
                     break;
                 case 2:
-                    $expire = $timestamp->modify('+48 hours');
+                    $expire->modify('+48 hours');
                     break;
                 case 3:
-                    $expire = $timestamp->modify('+144 hours');
+                    $expire->modify('+144 hours');
                     break;
             }
 
