@@ -50,7 +50,7 @@ class AddForeignKeys extends Migration
         Schema::table('apartments', function (Blueprint $table) {
             $table->foreign('user_id','apartmentUsers')
                 ->references('id')
-                ->on('landlords');
+                ->on('users');
         });
 
         Schema::table('messages', function (Blueprint $table) {
