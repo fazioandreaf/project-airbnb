@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 
 use App\Apartment;
-use App\Landlord;
+use App\User;
 
 class ApartmentSeeder extends Seeder
 {
@@ -15,8 +15,8 @@ class ApartmentSeeder extends Seeder
     public function run()
     {
         factory(Apartment::class, 50)->make()->each(function ($apartment) {
-                $landlord = Landlord::inRandomOrder()->first();
-                $apartment->landlord()->associate($landlord);
+                $user = User::inRandomOrder()->first();
+                $apartment->user()->associate($user);
                 $apartment->save();
         });
     }
