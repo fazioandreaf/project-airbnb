@@ -1,5 +1,33 @@
 header {
-  height: 10%;
+  height: 25%;
+  @include container(90%);
+}
+
+.bigger-header {
+  height: 100%;
+  width: 100%;
+}
+
+.bigger-header div {
+  height: calc(100% / 2);
+  @include flex(row, null, null);
+}
+
+.bigger-header div:first-of-type {
   background-color: $orange;
-  @include flex(row, center, center);
+  @include flex(row, space-between, null);
+
+  span:first-of-type {
+    background-color: red;
+    @include flex(row, center, center);
+  }
+
+  span:last-of-type {
+    background-color: green;
+    @include flex(row, center, center);
+  }
+}
+
+.bigger-header div:last-of-type {
+  background-color: $yellow;
 }

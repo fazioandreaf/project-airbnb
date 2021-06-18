@@ -1,7 +1,7 @@
 .homepage {
-
+  
   background-color: black;
-  height: 80%;
+  height: 60%;
 
   section#homepage-test {
     width: 100%;
@@ -10,16 +10,16 @@
 
     .container {
       background-color: $scottish-blue;
-      @include container(80%);
+      @include container(90%);
       @include flex(row, center, center);
-      height:100px;
+      height: 100px;
     }
 
   }
 
   .apartment-samples {
     font-size: 20px;
-    @include container(80%);
+    @include container(90%);
     @include flex(row, space-between, null);
 
     li:nth-child(odd) {
