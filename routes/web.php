@@ -12,6 +12,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('pages/homepage', 'MainController@homepage') -> name('homepage');
 Route::get('/dashboard/{id}', 'HomeController@dashboard') -> name('dashboard');
 Route::get('/myapartment/{id}', 'HomeController@myapartment') -> name('myapartment');
+
 // Rotte per add e editing
 Route::get('/add', 'HomeController@add') -> name('add');
 Route::post('/add_function/{id}', 'HomeController@add_function')->name('add_function');
@@ -26,9 +27,6 @@ Route::get('/apartment/{id}','MainController@showApartment')->name('apartment');
 
 // rotta registrazione
 Route::get('/login_ui','MainController@login_ui')->name('login_ui');
-
-// Ricerca appartamento
-// Route::get('/search/{id}/{address}','MainController@search')->name('searchApartment');
 
 
 Route::get('/debugdanny/{id}', 'MainController@debugdanny') ;
