@@ -36,7 +36,7 @@ class MainController extends Controller {
   }
 
     // registrazione
-  public function login()
+  public function login_ui()
   {
     return view('pages.login');
   }
