@@ -1,7 +1,7 @@
 @extends('layouts.main_layout')
 
 @section('content')
-            
+
 <div class="container">
     {{-- Use __('Type_some_text') when you want a localizated text --}}
     {{-- Rivedere come funziona l'attributo autocomplete --}}
@@ -14,12 +14,23 @@
         @csrf
 
         <div class="form-wrapper-fields">
-            <label for="name">
-                {{ __('Name') }}
+            <label for="firstname">
+                {{ __('firstName') }}
             </label>
-            <input type="text" name="name" id="name" name="name" value="{{ old('name') }}" required>
+            <input type="text" name="firstname" id="firstname" name="firstname"  required>
         </div>
-
+        <div class="form-wrapper-fields">
+            <label for="lastname">
+                {{ __('lastname') }}
+            </label>
+            <input type="text" name="lastname" id="lastname" name="lastname"  required>
+        </div>
+        <div class="form-wrapper-fields">
+            <label for="date_of_birth">
+                {{ __('date_of_birth') }}
+            </label>
+            <input type="text" name="date_of_birth" id="date_of_birth" name="date_of_birth"  required>
+        </div>
         <div class="form-wrapper-fields">
             <label for="email">
                 {{ __('Email Address')}}

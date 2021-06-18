@@ -18,7 +18,7 @@ class Apartment extends Model
         'cover_image',
     ];
 
-    public function landlord()
+    public function user()
     {
         return $this->belongsTo(Apartment::class);
     }
