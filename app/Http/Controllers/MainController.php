@@ -11,28 +11,26 @@ class MainController extends Controller {
 
   public function homepage() {
 
-    // appartamenti sponsorizzati
-
-    // $apartments = DB::table('apartments')
-    //     ->join(
-    //         'sponsored_apartments',
-    //         'apartments.id',
-    //         '=',
-    //         'sponsored_apartments.apartment_id'
-    //       )
-
-    //     ->select('apartments.*','sponsored_apartments.apartment_id')
-    //     ->get();
-
     $apartments = Apartment::all();
 
     return view("pages.homepage",compact('apartments'));
   }
 
   // dettagli appartamento
-  public function showApartment($id)
+  public function showApartment(Request $request, $id)
   {
+    // dd(\Request::getClientIp(true));
+    // dd($request);
+    $ip=\Request::ip();
+    $validate=([
+        'ip'=>$ip,
+        'view_date'=>'2020-05-10',
+    ]);
+
     $apartment = Apartment::findOrFail($id);
+    $sponsor=Statistic::make($validate);
+    $sponsor -> apartment() -> associate($id);
+    $sponsor->save();
     return view('pages.apartment',compact('apartment'));
   }
 
