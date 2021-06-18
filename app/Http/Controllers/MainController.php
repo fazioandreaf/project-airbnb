@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Apartment;
+Use App\Statistic;
 use DB;
 // use App\SponsoredApartment;
 use Illuminate\Http\Request;

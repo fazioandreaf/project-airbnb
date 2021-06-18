@@ -18,11 +18,21 @@
     @foreach ($apartments as $apartment)
       <li>
         <a href="{{route('apartment', $apartment->id) }}">
-          {{ $apartment->id }}
+            {{ $apartment->id }}
+          {{ $apartment->title }}
         </a>
-      </li>
+        @foreach ($apartment -> sponsors as $i)
+            </li>
+            <div style="color:white">sponsored
+                <span>
+
+                    {{$i -> sponsor_duration }}
+                </span>
+            </div>
+        @endforeach
     @endforeach
-  </ul>
+
+</ul>
 
   @endsection
 
