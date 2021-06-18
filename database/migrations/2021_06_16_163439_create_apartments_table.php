@@ -26,7 +26,7 @@ class CreateApartmentsTable extends Migration
             $table->string('longitude');
             $table->string('cover_image',128);
 
-            $table->BigInteger('landlord_id')->unsigned()->index();
+            $table->BigInteger('user_id')->unsigned()->index();
 
             $table->timestamps();
         });
