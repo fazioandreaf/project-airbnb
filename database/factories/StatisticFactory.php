@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Statistic::class, function (Faker $faker) {
     return [
-        'ip'=> $faker-> ipv6,
+        'ip'=> $faker-> ipv4,
         'view_date'=>$faker->date
     ];
 });
