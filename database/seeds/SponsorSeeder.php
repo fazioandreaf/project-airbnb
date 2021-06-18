@@ -20,7 +20,6 @@ class SponsorSeeder extends Seeder
             $start_date = new DateTime("now", $timezone);
             $expire = new DateTime("now", $timezone);
             
-
             switch ($sponsor->id) {
                 case 1:
                     $expire->modify('+24 hours');
