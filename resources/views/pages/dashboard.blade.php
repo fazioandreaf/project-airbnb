@@ -1,21 +1,29 @@
 @extends('layouts.main_layout')
 @section('content')
     <ul>
+        @foreach ($apartments as $item)
+
+        @endforeach
         <li>
-            {{$user ->firstname}}
+            {{$item ->firstname}}
         </li>
         <li>
-            {{$user ->lastname}}
+            {{$item ->lastname}}
         </li>
         <li>
-            {{$user ->email}}
+            {{$item ->email}}
         </li>
         <li>
-            {{$user ->date_of_birth}}
+            {{$item ->date_of_birth}}
         </li>
+        <li>
+            {{count($apartments)}}
         </li>
     </ul>
-    <ul>
+
+
+
+    {{-- <ul>
         <li>
             {{$apartment -> title}}
         </li>
@@ -42,5 +50,5 @@
         </li>
         <img src="{{$apartment -> cover_image}}" alt="">
 
-    </ul>
+    </ul> --}}
 @endsection

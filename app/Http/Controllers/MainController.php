@@ -102,9 +102,17 @@ class MainController extends Controller {
         return view('pages.myapartment',compact('apartment'));
     }
     public function dashboard($id) {
-        $user=User::findOrFail($id);
-        $apartment= Apartment::findOrFail($id);
+        // $user=User::findOrFail($id);
+        $apartments=DB::table('apartments')
+                    ->join('users','apartments.user_id','=','users.id')
+                    ->select('apartments.*','users.*')
+                    ->where('apartments.user_id','=',$id)
+                    ->get();
         // dd($apartment);
-        return view('pages.dashboard',compact('user','apartment'));
+        // dd($apartment);
+        // $apartment-> users()->associate($id);
+        // $apartment= Apartment::findOrFail();
+        // dd($apartment);
+        return view('pages.dashboard',compact('apartments'));
     }
 }
