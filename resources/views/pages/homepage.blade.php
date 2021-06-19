@@ -12,9 +12,10 @@
         </a>
       </h1>
     </div>
+    {{-- rotta per la create --}}
     <a href="{{route('add')}}">
-      <button>
-        NEW
+      <button style="width: 300px">
+        NEW APARTMENT
       </button>
     </a>
   </section>

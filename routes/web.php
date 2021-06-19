@@ -15,14 +15,21 @@ Route::get('/dashboard/{id}', 'HomeController@dashboard') -> name('dashboard');
 
 Route::get('/myapartment/{id}', 'HomeController@myapartment') -> name('myapartment');
 
-// Rotte per add e editing
+// Rotte per add apartment
 Route::get('/add', 'HomeController@add') -> name('add');
 Route::post('/add_function', 'HomeController@add_function')->name('add_function');
 
-Route::get('/edit', 'HomeController@edit') -> name('edit');
+// Rotte per edit apartment
+Route::get('/edit/{id}', 'HomeController@edit') -> name('edit');
 Route::post('/edit_function/{id}', 'HomeController@edit_function')->name('edit_function');
 
+// Rotta Add Sponsor
+Route::get('/add_sponsor/{id}','HomeController@addSponsor')->name('add_sponsor');
 
+// Rotta Soft-Delete
+Route::get('/delete/{id}','HomeController@deleteApartment')->name('delete');
+
+// 
 Route::get('/sponsor/{id}', 'HomeController@sponsor') -> name('sponsor');
 Route::post('/sponsor_function/{id}', 'HomeController@sponsor_function')->name('sponsor_function');
 
@@ -36,5 +43,3 @@ Route::get('/login_ui','MainController@login_ui')->name('login_ui');
 
 
 Route::get('/debugdanny/{id}', 'MainController@debugdanny') ;
-
-Route::get('/delete/{id}','HomeController@deleteApartment')->name('delete');
