@@ -9,7 +9,7 @@
         <a href="{{route('login')}}">
           THIS IS THE MAIN
         </a>
-        {{-- <a href="{{route('search')}}">Search advanced</a> --}}
+        {{-- a href="{{route('search')}}">Search advanced</a> --}}
       </h1>
     </div>
     {{-- rotta per la create --}}
