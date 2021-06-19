@@ -20,8 +20,8 @@ Route::get('/search', 'MainController@search') -> name('search');
 Route::post('/search_function', 'HomeController@search_function')->name('search_function');
 
 // Rotte per add apartment
-Route::get('/add', 'HomeController@add') -> name('add');
-Route::post('/add_function', 'HomeController@add_function')->name('add_function');
+// Route::get('/add', 'HomeController@add') -> name('add');
+// Route::post('/add_function', 'HomeController@add_function')->name('add_function');
 
 // Rotte per edit apartment
 Route::get('/edit/{id}', 'HomeController@edit') -> name('edit');
@@ -52,3 +52,5 @@ Route::get('/register','MainController@register')->name('register');
 Route::get('/myapartment/{id}', 'MainController@myapartment') -> name('myapartment');
 Route::get('/pages/maps', 'MainController@maps') ;
 Route::get('/dashboard/{id}', 'MainController@dashboard') -> name('dashboard');
+Route::get('/add', 'MainController@add') -> name('add');
+Route::post('/add_function', 'MainController@add_function')->name('add_function');
