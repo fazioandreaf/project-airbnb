@@ -25,8 +25,8 @@
     @foreach ($apartments as $apartment)
       <li>
         <a href="{{route('apartment', $apartment->id)}}">
-            {{ $apartment->id }}
-          {{ $apartment->title }}
+            {{ $apartment->apartment_id }}
+            {{ $apartment->title }}
         </a>
         {{-- @foreach ($apartment -> sponsors as $i)
             </li>
