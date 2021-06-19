@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class MainController extends Controller {
 
   public function homepage() {
-    
+
     //Filtro appartamenti sponsorizzati
     $now = Carbon::now()->setTimeZone("Europe/Rome");
     $apartments = DB::table('apartments')
@@ -22,7 +22,7 @@ class MainController extends Controller {
                   ->select('apartment_sponsor.*', 'apartments.*', 'users.*')
                   ->where('apartment_sponsor.expire_date', '>', $now)
                   ->get();
-      
+
     return view('pages.homepage', compact('apartments'));
   }
 
@@ -108,7 +108,7 @@ class MainController extends Controller {
 
 
     // funzioni di debug
-    public function debugdanny($id){
+    public function myapartment($id){
         $apartment=Apartment::findOrFail($id);
         return view('pages.myapartment',compact('apartment'));
     }

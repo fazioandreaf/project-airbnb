@@ -13,7 +13,7 @@ Route::get('pages/homepage', 'MainController@homepage') -> name('homepage');
 
 // Route::get('/dashboard/{id}', 'HomeController@dashboard') -> name('dashboard');
 
-Route::get('/myapartment/{id}', 'HomeController@myapartment') -> name('myapartment');
+// Route::get('/myapartment/{id}', 'HomeController@myapartment') -> name('myapartment');
 
 //Ricerca avanzata
 Route::get('/search', 'MainController@search') -> name('search');
@@ -49,6 +49,6 @@ Route::get('/login_ui','MainController@login_ui')->name('login_ui');
 Route::get('/register','MainController@register')->name('register');
 
 //ROtte di debug(senza login)
-Route::get('/debugdanny/{id}', 'MainController@debugdanny') ;
+Route::get('/myapartment/{id}', 'MainController@myapartment') -> name('myapartment');
 Route::get('/pages/maps', 'MainController@maps') ;
-Route::get('/dashboard/{id}', 'MainController@dashboard') ;
+Route::get('/dashboard/{id}', 'MainController@dashboard') -> name('dashboard');
