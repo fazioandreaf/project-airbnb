@@ -16,7 +16,7 @@ header {
 }
 
 .bigger-header div {
-  height: calc(100% / 2);
+  height: 50%;
   @include flex(row, null, null);
 }
 
@@ -47,19 +47,27 @@ header {
     // debug
     background-color: $green;
 
+    a:nth-child(1) {
+      margin-right: 20px;
+      font-weight: bolder;
+    }
+
     // LOGIN
     a:nth-child(2) {
       font-size: 25px;
       @include flex(row, space-around, center);
       background-color: $white;
-      width: 90px;
-      height: 80px;
+      width: 110px;
+      height: 60px;
       border-radius: 30px;
 
       // Icona utente (omino)
-      // i:last-of-type {
-      //   background-color:
-      // }
+      i:last-of-type {
+        color: $white;
+        background-color: $user-gray;
+        padding: 10px;
+        border-radius: 100%;
+      }
     }
   }
 
@@ -68,46 +76,52 @@ header {
 
 
 
-// ---------- SECOND SECTION OF header -----------------
+// ---------- SECOND SECTION OF header (NAVBAR1) -----------------
 
 
 .bigger-header div:last-of-type {
-  width:100%;
   @include flex(row, center, center);
+  width:100%;
   // debug
   background-color: $yellow;
 
   .navbar1 {
-    width:70%;
-    height:100%;
-    // debug
-    background-color: $teal;
+    @include flex(row, center, center);
+    width: 70%;
+    height: 100%;
+    background-color: $white;
+    border-radius: 50px;
 
     div {
       width: calc(100% / 4);
       height: 100%;
       border-radius: 50px;
-      @include flex(row, center, center);
-    }
-
-    div:first-of-type {
-      // debug
-      background-color: $blue;
+      background-color: $navbar1-gray;
+      @include flex(column, space-around, center);
     }
 
     div:nth-child(2) {
-      // debug
-      background-color: $indigo;
+      margin: 0px 5px;
     }
 
     div:nth-child(3) {
-      // debug
-      background-color: $purple;
+      margin-right: 5px;
     }
 
-    div:nth-child(4) {
-      // debug
-      background-color: $pink;
+    // Ultimo div con Opiti e lente'ingrandimento
+    div:last-of-type {
+      @include flex(row, space-around, center);
+
+      // Questa è la lente d'ingrandimento (SEARCH)
+      a:last-of-type {
+        @include flex(row, center, center);
+        background-color: $fuchsia-serach;
+        color: $white;
+        font-size: 25px;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+      }
     }
 
   } // END OF NAVBAR1
