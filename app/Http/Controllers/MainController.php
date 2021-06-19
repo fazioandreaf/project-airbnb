@@ -5,6 +5,8 @@ use App\Apartment;
 Use App\Sponsor;
 Use App\Statistic;
 use DB;
+use Carbon\Carbon;
+
 use Illuminate\Http\Request;
 
 class MainController extends Controller {
@@ -21,9 +23,6 @@ class MainController extends Controller {
                   ->get();
       
     return view('pages.homepage', compact('apartments'));
-
-    // $apartments = Apartment::all();
-    // return view("pages.homepage",compact('apartments'));
   }
 
   // dettagli appartamento
