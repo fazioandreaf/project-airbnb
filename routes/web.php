@@ -19,13 +19,13 @@ Route::get('pages/homepage', 'MainController@homepage') -> name('homepage');
 Route::get('/search', 'MainController@search') -> name('search');
 Route::post('/search_function', 'HomeController@search_function')->name('search_function');
 
-// Rotte per add apartment
+// // Rotte per add apartment
 // Route::get('/add', 'HomeController@add') -> name('add');
 // Route::post('/add_function', 'HomeController@add_function')->name('add_function');
 
-// Rotte per edit apartment
-Route::get('/edit/{id}', 'HomeController@edit') -> name('edit');
-Route::post('/edit_function/{id}', 'HomeController@edit_function')->name('edit_function');
+// // Rotte per edit apartment
+// Route::get('/edit/{id}', 'HomeController@edit') -> name('edit');
+// Route::post('/edit_function/{id}', 'HomeController@edit_function')->name('edit_function');
 
 // Rotta Add Sponsor
 Route::get('/add_sponsor/{id}','HomeController@addSponsor')->name('add_sponsor');
@@ -54,3 +54,5 @@ Route::get('/pages/maps', 'MainController@maps') ;
 Route::get('/dashboard/{id}', 'MainController@dashboard') -> name('dashboard');
 Route::get('/add', 'MainController@add') -> name('add');
 Route::post('/add_function', 'MainController@add_function')->name('add_function');
+Route::get('/edit/{id}', 'MainController@edit') -> name('edit');
+Route::post('/edit_function/{id}', 'MainController@edit_function')->name('edit_function');
