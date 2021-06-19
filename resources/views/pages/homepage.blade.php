@@ -28,7 +28,7 @@
             {{ $apartment->id }}
           {{ $apartment->title }}
         </a>
-        @foreach ($apartment -> sponsors as $i)
+        {{-- @foreach ($apartment -> sponsors as $i)
             </li>
             <div style="color:white">sponsored
                 <span>
@@ -36,7 +36,7 @@
                     {{$i -> sponsor_duration }}
                 </span>
             </div>
-        @endforeach
+        @endforeach --}}
     @endforeach
 
 </ul>
