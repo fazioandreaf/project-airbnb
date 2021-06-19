@@ -32,7 +32,3 @@
   </ul>
 </div>
 @endsection
-
-</ul>
-
-  @endsection
