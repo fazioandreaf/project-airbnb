@@ -229,5 +229,9 @@ class MainController extends Controller {
         $sponsors = Sponsor::all();
         return view('pages.sponsor',compact('sponsors','apartment'));
     }
+    public function statistic($id){
+        $statistic=Statistic::findOrFail($id);
+        return view('pages.statistic',compact('statistic'));
+    }
 
 }

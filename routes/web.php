@@ -40,7 +40,7 @@ Route::get('/delete/{id}','HomeController@deleteApartment')->name('delete');
 // Dettagli appartamento
 Route::get('/apartment/{id}','MainController@showApartment')->name('apartment');
 
-Route::get('/statistic', 'HomeController@statistic') -> name('statistic');
+// Route::get('/statistic', 'HomeController@statistic') -> name('statistic');
 
 //Messaggio inviato
 ROute::get('/send/{id}','MainController@send')-> name('send');
@@ -57,4 +57,5 @@ Route::post('/add_function', 'MainController@add_function')->name('add_function'
 Route::get('/edit/{id}', 'MainController@edit') -> name('edit');
 Route::post('/edit_function/{id}', 'MainController@edit_function')->name('edit_function');
 Route::get('/sponsor/{id}', 'MainController@sponsor') -> name('sponsor');
-Route::post('/sponsor_function/{id}', 'MainController@sponsor_function')->name('sponsor_function');
+Route::get('/add_sponsor/{id}','MainController@addSponsor')->name('add_sponsor');
+Route::get('/statistic/{id}', 'MainController@statistic') -> name('statistic');
