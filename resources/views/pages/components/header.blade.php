@@ -11,63 +11,34 @@
       </span>
 
       <span>
-        <a href="{{route('register')}}">
-          Diventa un host
-        </a>
-
-        <a href="{{route('login')}}">
-          <i class="fas fa-bars"></i>
-          <i class="fas fa-user"></i>
-        </a>
-
-      </span>
-
-    </div>
-    <!-- LOGIN NO BOOTSTRAP -->    
-    <div id="app">
-        <div class="container">
-            <a href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+        <!-- LOGIN NO BOOTSTRAP - DA IMPLEMENTARE <UL><LI> ESSENDO UN MENU -->
+        @guest
+          @if (Route::has('register'))
+            <a href="{{ route('register') }}">
+              {{ __('Diventa un Host') }}
             </a>
-            <div class="hamburger-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul>
-                @guest    
-                <li>
-                    <a href="{{ route('login') }}">
-                        {{ __('Login') }}
-                    </a>
-                    @if (Route::has('register'))
-                        <li>
-                            <a href="{{ route('register') }}">
-                                {{ __('Register') }}
-                            </a>
-                        </li>
-                    @endif
-                </li>
-                @endguest
-                @auth
-                    <li>
-                        <a href="#">
-                            {{ Auth::user()->name }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('logout')}}" onclick="
-                            event.preventDefault(); 
-                            document.getElementById('form_logout').submit();"
-                        >
-                            {{ __('Logout') }}
-                        </a>
+          @endif
 
-                        <form id="form_logout" method="POST" action="{{ route('logout') }}">
-                            @csrf
-                        </form>
-                    </li>
-                @endauth
-            </ul>
-        </div>
+          <a href="{{ route('login') }}">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-user"></i>
+          </a>
+        @endguest
+        @auth
+          <a href="#">
+            {{ Auth::user()->name }}
+          </a>
+          <a href="{{ route('logout')}}" onclick="
+              event.preventDefault(); 
+              document.getElementById('form_logout').submit();"
+          >
+              {{ __('Logout') }}
+          </a>
+
+          <form id="form_logout" method="POST" action="{{ route('logout') }}">
+              @csrf
+          </form>
+        @endauth
     </div>
     <div> <!-- INIZIO div in header con la navbar1 (width 100%)-->
       <div class="navbar1"> <!-- INIZIO Navbar1 (width 70%)-->
