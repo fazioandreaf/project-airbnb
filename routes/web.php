@@ -40,6 +40,7 @@ Route::get('/statistic', 'HomeController@statistic') -> name('statistic');
 
 // rotta registrazione
 Route::get('/login_ui','MainController@login_ui')->name('login_ui');
+Route::get('/register','MainController@register')->name('register');
 
 
 Route::get('/debugdanny/{id}', 'MainController@debugdanny') ;

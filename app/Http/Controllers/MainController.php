@@ -36,6 +36,10 @@ class MainController extends Controller {
   {
     return view('pages.login');
   }
+  public function register()
+  {
+    return view('auth.register');
+  }
     public function debugdanny($id){
         $apartment=Apartment::findOrFail($id);
         return view('pages.myapartment',compact('apartment'));

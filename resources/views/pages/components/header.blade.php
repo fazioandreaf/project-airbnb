@@ -2,7 +2,14 @@
 
   <div>
     <span>LOGO VA QUI</span>
-    <span>DIVENTA UN HOST</span>
+    <span>
+        <a href="{{route('login')}}">
+            Log-in
+        </a>
+        <a href="{{route('register')}}">
+            DIVENTA UN HOST
+        </a>
+    </span>
   </div>
 
   <div>
