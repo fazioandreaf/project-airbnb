@@ -1,24 +1,48 @@
 <div class="outer-container">
 
-<section class="bigger-header">
+  <section class="bigger-header">
 
-    <div>
-        <span>LOGO VA QUI</span>
-        <span>
-            <a href="{{route('login')}}">
-                Log-in
-            </a>
-            <a href="{{route('register')}}">
-                DIVENTA UN HOST
-            </a>
+    <div> <!-- Questo div è header con logo/diventaHost/Login -->
 
+      <span>
+        LOGO QUI
       </span>
+
+      <span>
+        <a href="{{route('register')}}">
+          Diventa un host &#160; <!-- &#160; è lo spazio fra 'diventa un host' e 'login' -->
+        </a>
+
+        <a href="{{route('login')}}">
+          Login
+        </a>
+      </span>
+
     </div>
 
-    <div>
-      HEADER 2
+
+    <div> <!-- Questo div è header con la navbar1 -->
+      <div class="navbar1">
+
+        <div>
+          DOVE
+        </div>
+
+        <div>
+          CHECK-IN
+        </div>
+
+        <div>
+          CHECK-OUT
+        </div>
+
+        <div>
+          DOVE
+        </div>
+
+      </div>
     </div>
 
-  </section>
+  </section> <!-- END OF BIGGER HEADER -->
 
-</div>
+</div> <!-- END OF OUTER CONTAINER -->

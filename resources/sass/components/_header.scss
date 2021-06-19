@@ -1,7 +1,8 @@
 header {
   width: 100%;
   height: 25%;
-  background-color: black;
+  // debug
+  background-color: $lighter-black;
 }
 
 .outer-container {
@@ -19,21 +20,80 @@ header {
   @include flex(row, null, null);
 }
 
+
+// ---------- FIRST SECTION OF header -----------------
+
 .bigger-header div:first-of-type {
-  background-color: $orange;
   @include flex(row, space-between, null);
+  // debug
+  background-color: $orange;
 
   span:first-of-type {
-    background-color: $red;
     @include flex(row, center, center);
+    // debug
+    background-color: $red;
   }
 
   span:last-of-type {
-    background-color: $green;
     @include flex(row, center, center);
+    // debug
+    background-color: $green;
   }
-}
+
+  span:last-of-type a:nth-child(2) {
+    font-size: 20px;
+    font-weight: bold;
+    // debug
+    color:$red;
+  }
+
+} // END OF .bigger-header div:first-of-type
+
+
+
+// ---------- SECOND SECTION OF header -----------------
+
 
 .bigger-header div:last-of-type {
+  width:100%;
+  @include flex(row, center, center);
+  // debug
   background-color: $yellow;
-}
+
+  .navbar1 {
+    width:70%;
+    height:100%;
+    // debug
+    background-color: $teal;
+
+    div {
+      width: calc(100% / 4);
+      height: 100%;
+      border-radius: 50px;
+      @include flex(row, center, center);
+    }
+
+    div:first-of-type {
+      // debug
+      background-color: $blue;
+    }
+
+    div:nth-child(2) {
+      // debug
+      background-color: $indigo;
+    }
+
+    div:nth-child(3) {
+      // debug
+      background-color: $purple;
+    }
+
+    div:nth-child(4) {
+      // debug
+      background-color: $pink;
+    }
+
+  } // END OF NAVBAR1
+
+
+} // END OF .bigger-header div:last-of-type
