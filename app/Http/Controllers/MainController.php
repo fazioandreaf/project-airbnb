@@ -40,4 +40,7 @@ class MainController extends Controller {
         $apartment=Apartment::findOrFail($id);
         return view('pages.myapartment',compact('apartment'));
     }
+    public function maps(){
+        return view('pages.maps');
+    }
 }

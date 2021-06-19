@@ -29,7 +29,7 @@ Route::get('/add_sponsor/{id}','HomeController@addSponsor')->name('add_sponsor')
 // Rotta Soft-Delete
 Route::get('/delete/{id}','HomeController@deleteApartment')->name('delete');
 
-// 
+//
 Route::get('/sponsor/{id}', 'HomeController@sponsor') -> name('sponsor');
 Route::post('/sponsor_function/{id}', 'HomeController@sponsor_function')->name('sponsor_function');
 
@@ -43,3 +43,4 @@ Route::get('/login_ui','MainController@login_ui')->name('login_ui');
 
 
 Route::get('/debugdanny/{id}', 'MainController@debugdanny') ;
+Route::get('/pages/maps', 'MainController@maps') ;
