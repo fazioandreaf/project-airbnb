@@ -82,7 +82,6 @@ class HomeController extends Controller {
     // update apartment
     public function edit_function(Request $request, $id)
     {
-
         $validated = $request -> validate([
             'title' => 'required|max:128|min:4',
             'number_rooms' => 'required|numeric',
@@ -94,13 +93,13 @@ class HomeController extends Controller {
             'longitude' => 'required|numeric',
             'cover_image' => 'nullable',
             'user_id' => 'required',
-            ]);
+        ]);
 
-            $apartment = Apartment::findOrFail($id);
-            $apartment->update($validated);
-            $apartment->services()->sync($request-> get('service_id'));
+        $apartment = Apartment::findOrFail($id);
+        $apartment->update($validated);
+        $apartment->services()->sync($request-> get('service_id'));
 
-            return redirect()->route('homepage');
+        return redirect()->route('homepage');
     }
 
     // add sponsor
