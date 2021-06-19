@@ -11,7 +11,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 // HOMEPAGE appartamenti in vetrina
 Route::get('pages/homepage', 'MainController@homepage') -> name('homepage');
 
-Route::get('/dashboard/{id}', 'HomeController@dashboard') -> name('dashboard');
+// Route::get('/dashboard/{id}', 'HomeController@dashboard') -> name('dashboard');
 
 Route::get('/myapartment/{id}', 'HomeController@myapartment') -> name('myapartment');
 
@@ -48,6 +48,7 @@ ROute::get('/send/{id}','MainController@send')-> name('send');
 Route::get('/login_ui','MainController@login_ui')->name('login_ui');
 Route::get('/register','MainController@register')->name('register');
 
-
+//ROtte di debug(senza login)
 Route::get('/debugdanny/{id}', 'MainController@debugdanny') ;
 Route::get('/pages/maps', 'MainController@maps') ;
+Route::get('/dashboard/{id}', 'MainController@dashboard') ;
