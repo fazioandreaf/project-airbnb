@@ -33,7 +33,7 @@ Route::get('/add_sponsor/{id}','HomeController@addSponsor')->name('add_sponsor')
 // Rotta Soft-Delete
 Route::get('/delete/{id}','HomeController@deleteApartment')->name('delete');
 
-//
+//sponsor function
 Route::get('/sponsor/{id}', 'HomeController@sponsor') -> name('sponsor');
 Route::post('/sponsor_function/{id}', 'HomeController@sponsor_function')->name('sponsor_function');
 
@@ -42,6 +42,8 @@ Route::get('/apartment/{id}','MainController@showApartment')->name('apartment');
 
 Route::get('/statistic', 'HomeController@statistic') -> name('statistic');
 
+//Messaggio inviato
+ROute::get('/send/{id}','MainController@send')-> name('send');
 // rotta registrazione
 Route::get('/login_ui','MainController@login_ui')->name('login_ui');
 Route::get('/register','MainController@register')->name('register');
