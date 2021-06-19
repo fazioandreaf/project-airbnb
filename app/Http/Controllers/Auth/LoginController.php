@@ -43,4 +43,9 @@ public function credentials(Request $request)
     {
         $this->middleware('guest')->except('logout');
     }
+    // public function logout()
+    // {
+    //     Auth::logout();
+    //     return redirect('pages/homepage');
+    // }
 }
