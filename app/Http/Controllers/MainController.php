@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Apartment;
 Use App\Sponsor;
 Use App\Statistic;
+Use App\User;
 use DB;
 use Carbon\Carbon;
 
@@ -89,10 +90,7 @@ class MainController extends Controller {
     public function maps(){
         return view('pages.maps');
     }
-    public function debugdanny($id){
-        $apartment=Apartment::findOrFail($id);
-        return view('pages.myapartment',compact('apartment'));
-    }
+
     public function send(Request $request,$id){
 
         $validate=$request->validate([
@@ -105,5 +103,27 @@ class MainController extends Controller {
         $message -> apartment() -> associate($id);
         $message->save();
         return view('pages.message',compact('apartment','message'));
+    }
+
+
+
+    // funzioni di debug
+    public function debugdanny($id){
+        $apartment=Apartment::findOrFail($id);
+        return view('pages.myapartment',compact('apartment'));
+    }
+    public function dashboard($id) {
+        // $user=User::findOrFail($id);
+        $apartments=DB::table('apartments')
+                    ->join('users','apartments.user_id','=','users.id')
+                    ->select('apartments.*','users.*')
+                    ->where('apartments.user_id','=',$id)
+                    ->get();
+        // dd($apartment);
+        // dd($apartment);
+        // $apartment-> users()->associate($id);
+        // $apartment= Apartment::findOrFail();
+        // dd($apartment);
+        return view('pages.dashboard',compact('apartments'));
     }
 }
