@@ -5,7 +5,9 @@
     <div> <!-- Questo div è header con logo/diventaHost/Login -->
 
       <span>
-        LOGO QUI
+        <a href="{{route('homepage')}}">
+          <img src="{{asset('storage/assets/lg_color0.png')}}" alt="logo-image">
+        </a>
       </span>
 
       <span>
@@ -14,8 +16,10 @@
         </a>
 
         <a href="{{route('login')}}">
-          Login
+          <i class="fas fa-bars"></i>
+          <i class="fas fa-user"></i>
         </a>
+
       </span>
 
     </div>

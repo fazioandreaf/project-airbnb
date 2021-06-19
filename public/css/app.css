@@ -36,6 +36,11 @@
   background-color: #e3342f;
 }
 
+.bigger-header div:first-of-type span:first-of-type img {
+  width: 100px;
+  height: 100px;
+}
+
 .bigger-header div:first-of-type span:last-of-type {
   display: flex;
   flex-direction: row;
@@ -45,9 +50,15 @@
 }
 
 .bigger-header div:first-of-type span:last-of-type a:nth-child(2) {
-  font-size: 20px;
-  font-weight: bold;
-  color: #e3342f;
+  font-size: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #FFF;
+  width: 90px;
+  height: 80px;
+  border-radius: 30px;
 }
 
 .bigger-header div:last-of-type {
