@@ -12,7 +12,7 @@
 
       <span>
         <a href="{{route('register')}}">
-          Diventa un host &#160; <!-- &#160; è lo spazio fra 'diventa un host' e 'login' -->
+          Diventa un host
         </a>
 
         <a href="{{route('login')}}">
@@ -63,6 +63,7 @@
         </div>
 
       </div> <!-- FINE Navbar1 (width 70%)-->
+
     </div> <!-- FINE div in header con la navbar1 (width 100%)-->
 
   </div> <!-- END OF BIGGER HEADER -->
