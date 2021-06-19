@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);header {
   width: 100%;
-  height: 25%;
+  height: 200px;
   background-color: #121212;
 }
 
@@ -37,6 +37,10 @@
 }
 
 .bigger-header div:first-of-type span:first-of-type img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   width: 100px;
   height: 100px;
 }
