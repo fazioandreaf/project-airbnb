@@ -1,6 +1,6 @@
 <div class="outer-container">
 
-  <section class="bigger-header">
+  <div class="bigger-header">
 
     <div> <!-- Questo div è header con logo/diventaHost/Login -->
 
@@ -12,7 +12,7 @@
 
       <span>
         <a href="{{route('register')}}">
-          Diventa un host &#160; <!-- &#160; è lo spazio fra 'diventa un host' e 'login' -->
+          Diventa un host
         </a>
 
         <a href="{{route('login')}}">
@@ -70,28 +70,47 @@
         </div>
 
 
-    <div> <!-- Questo div è header con la navbar1 -->
-      <div class="navbar1">
+    <div> <!-- INIZIO div in header con la navbar1 (width 100%)-->
+      <div class="navbar1"> <!-- INIZIO Navbar1 (width 70%)-->
 
         <div>
-          DOVE
+          <a href="#">
+            <h3>Dove</h3>
+            <p>Dove vuoi andare?</p>
+          </a>
         </div>
 
         <div>
-          CHECK-IN
+          <a href="#">
+            <h3>Check-In</h3>
+            <p>Aggiungi data</p>
+          </a>
         </div>
 
         <div>
-          CHECK-OUT
+          <a href="#">
+            <h3>Check-Out</h3>
+            <p>Aggiungi data</p>
+          </a>
         </div>
 
         <div>
-          DOVE
+
+          <a href="#">
+            <h3>Ospiti</h3>
+            <p>Aggiungi ospiti</p>
+          </a>
+
+          <a href="#">
+            <i class="fas fa-search"></i>
+          </a>
+
         </div>
 
-      </div>
-    </div>
+      </div> <!-- FINE Navbar1 (width 70%)-->
 
-  </section> <!-- END OF BIGGER HEADER -->
+    </div> <!-- FINE div in header con la navbar1 (width 100%)-->
+
+  </div> <!-- END OF BIGGER HEADER -->
 
 </div> <!-- END OF OUTER CONTAINER -->
