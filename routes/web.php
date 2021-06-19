@@ -33,9 +33,9 @@ Route::get('/add_sponsor/{id}','HomeController@addSponsor')->name('add_sponsor')
 // Rotta Soft-Delete
 Route::get('/delete/{id}','HomeController@deleteApartment')->name('delete');
 
-//sponsor function
-Route::get('/sponsor/{id}', 'HomeController@sponsor') -> name('sponsor');
-Route::post('/sponsor_function/{id}', 'HomeController@sponsor_function')->name('sponsor_function');
+// //Sponsor function
+// Route::get('/sponsor/{id}', 'HomeController@sponsor') -> name('sponsor');
+// Route::post('/sponsor_function/{id}', 'HomeController@sponsor_function')->name('sponsor_function');
 
 // Dettagli appartamento
 Route::get('/apartment/{id}','MainController@showApartment')->name('apartment');
@@ -56,3 +56,5 @@ Route::get('/add', 'MainController@add') -> name('add');
 Route::post('/add_function', 'MainController@add_function')->name('add_function');
 Route::get('/edit/{id}', 'MainController@edit') -> name('edit');
 Route::post('/edit_function/{id}', 'MainController@edit_function')->name('edit_function');
+Route::get('/sponsor/{id}', 'MainController@sponsor') -> name('sponsor');
+Route::post('/sponsor_function/{id}', 'MainController@sponsor_function')->name('sponsor_function');

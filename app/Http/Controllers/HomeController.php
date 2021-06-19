@@ -42,14 +42,14 @@ class HomeController extends Controller {
         $services = Service::all();
         $sponsors = Sponsor::all();
         return view('pages.newapartment',compact('services','sponsors'));
-    } 
+    }
 
     public function add_function(Request $request)
     {
-        
+
          // da completare,
-        // manca l'immagine 
-        
+        // manca l'immagine
+
         $validated = $request -> validate([
         'title' => 'required|max:128|min:4',
         'number_rooms' => 'required|numeric',
@@ -62,7 +62,7 @@ class HomeController extends Controller {
         'cover_image' => 'nullable',
         'user_id' => 'required',
         ]);
-        
+
         $service = Service::findOrFail($request -> get('service_id'));
         $apartment = Apartment::create($validated);
         $apartment->services()->attach($request-> get('service_id'));
@@ -82,7 +82,7 @@ class HomeController extends Controller {
     // update apartment
     public function edit_function(Request $request, $id)
     {
-        
+
         $validated = $request -> validate([
             'title' => 'required|max:128|min:4',
             'number_rooms' => 'required|numeric',
@@ -131,10 +131,13 @@ class HomeController extends Controller {
                     'expire_date' => $afterDate
                 ]
             );
-        
+
         return redirect()->route('homepage');
     }
 
+    public function sponsor_function($id){
+
+    }
     // softDeletes
     public function deleteApartment($id)
     {
@@ -152,9 +155,6 @@ class HomeController extends Controller {
     public function sponsor($id){
         $apartment=Apartment::findOrFail($id);
         return view('pages.sponsor',compact('apartment'));
-    }
-    public function sponsor_function($id){
-
     }
 
 } // END OF HomeController

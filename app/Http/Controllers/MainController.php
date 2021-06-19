@@ -192,5 +192,42 @@ class MainController extends Controller {
 
             return redirect()->route('homepage');
     }
+        // add sponsor
+    public function addSponsor(Request $request,$id)
+    {
+        // $validated = $request -> validate([
+        //     'sponsor_id' => 'required'
+        // ]);
+
+        date_default_timezone_set('Europe/Rome');
+        switch ($validated['sponsor_id']) {
+            case 1:
+                $afterDate = date('m/d/Y h:i:s a', time() + 86400);
+                break;
+            case 2:
+                $afterDate = date('m/d/Y h:i:s a', time() + 259200);
+                break;
+            case 3:
+                $afterDate = date('m/d/Y h:i:s a', time() + 604800);
+                break;
+        }
+        $apartment = Apartment::findOrFail($id);
+        $apartment->update($validated);
+        $apartment->sponsors()
+            ->attach($request-> get('sponsor_id'),
+                [
+                    'start_date' => date('m/d/Y h:i:s a', time()),
+                    'expire_date' => $afterDate
+                ]
+            );
+
+        return redirect()->route('homepage');
+    }
+
+    public function sponsor($id){
+        $apartment = Apartment::findOrFail($id);
+        $sponsors = Sponsor::all();
+        return view('pages.sponsor',compact('sponsors','apartment'));
+    }
 
 }
