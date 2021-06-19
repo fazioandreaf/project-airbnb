@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Apartment extends Model
 {
+    use SoftDeletes;
     protected $fillable = [
         'title',
         'number_rooms',
@@ -16,6 +18,7 @@ class Apartment extends Model
         'latitude',
         'longitude',
         'cover_image',
+        'user_id',
     ];
 
     public function user()

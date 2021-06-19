@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers;
 use App\Apartment;
-Use App\Statistic;
+Use App\Sponsor;
 use DB;
-// use App\SponsoredApartment;
 use Illuminate\Http\Request;
 
 class MainController extends Controller {
 
   public function homepage() {
-
     $apartments = Apartment::all();
-
     return view("pages.homepage",compact('apartments'));
   }
 
@@ -28,11 +25,11 @@ class MainController extends Controller {
     ]);
 
     $apartment = Apartment::findOrFail($id);
-    $sponsor=Statistic::make($validate);
-    $sponsor -> apartment() -> associate($id);
-    $sponsor->save();
-    return view('pages.apartment',compact('apartment'));
+    $sponsors = Sponsor::all();
+    return view('pages.apartment',compact('apartment','sponsors'));
   }
+
+
 
     // registrazione
   public function login_ui()
