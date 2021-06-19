@@ -1,4 +1,4 @@
-<section class="bigger-header">
+<div class="outer-container">
 
   <div>
     <span>LOGO VA QUI</span>
@@ -12,8 +12,15 @@
     </span>
   </div>
 
-  <div>
-    HEADER 2
-  </div>
+    <div>
+      <span>LOGO VA QUI</span>
+      <span>DIVENTA UN HOST</span>
+    </div>
 
-</section>
+    <div>
+      HEADER 2
+    </div>
+
+  </section>
+  
+</div>
