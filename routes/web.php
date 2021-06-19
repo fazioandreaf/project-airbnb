@@ -15,6 +15,9 @@ Route::get('/dashboard/{id}', 'HomeController@dashboard') -> name('dashboard');
 
 Route::get('/myapartment/{id}', 'HomeController@myapartment') -> name('myapartment');
 
+//Ricerca avanzata
+
+Route::get('/search', 'MainController@search') -> name('search');
 // Rotte per add apartment
 Route::get('/add', 'HomeController@add') -> name('add');
 Route::post('/add_function', 'HomeController@add_function')->name('add_function');
