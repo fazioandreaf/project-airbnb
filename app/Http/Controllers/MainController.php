@@ -82,4 +82,17 @@ class MainController extends Controller {
         $apartment=Apartment::findOrFail($id);
         return view('pages.myapartment',compact('apartment'));
     }
+    public function send(Request $request,$id){
+
+        $validate=$request->validate([
+            'email'=>'required|string',
+            'text_message'=>'required|string',
+        ]);
+        // dd($ip);
+        $apartment = Apartment::findOrFail($id);
+        $message=Message::make($validate);
+        $message -> apartment() -> associate($id);
+        $message->save();
+        return view('pages.message',compact('apartment','message'));
+    }
 }

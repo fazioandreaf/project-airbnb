@@ -17,7 +17,7 @@
             </a>
         </h1>
                     {{-- form per l'aggiunta sponsor --}}
-        <div> 
+        <div>
             <form action="{{Route('add_sponsor',$apartment->id)}}" method="get">
                 <select name="sponsor_id" id="sponsor_id">
                     @foreach ($sponsors as $sponsor)
@@ -66,5 +66,12 @@
                 {{$apSp->sponsor_duration}} durata sponsor
             </p>
         @endforeach
+        <div>
+            <h1>FORM INVIO MESSAGGIO
+                <a href="{{route('send',$apartment->id)}}"
+                style="background-color:blue; padding:2rem"
+                    >SUBMIT INVIO MESSAGGIO</a>
+            </h1>
+        </div>
     </div>
 @endsection
