@@ -30,5 +30,10 @@ a {
   text-decoration: none;
 }
 
+body {
+  background: url(../storage/app/public/assets/background.jpg)no-repeat;
+  background-size: 100vw 100vh;
+}
+
 // Bootstrap
 // @import '~bootstrap/scss/bootstrap';

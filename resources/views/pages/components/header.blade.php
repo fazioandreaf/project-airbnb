@@ -6,7 +6,7 @@
 
       <span>
         <a href="{{route('homepage')}}">
-          <img src="{{asset('storage/assets/lg_color0.png')}}" alt="logo-image">
+          <img src="{{asset('storage/assets/lg_clr2.png')}}" alt="logo-image">
         </a>
       </span>
 
@@ -29,7 +29,7 @@
             {{ Auth::user()->name }}
           </a>
           <a href="{{ route('logout')}}" onclick="
-              event.preventDefault(); 
+              event.preventDefault();
               document.getElementById('form_logout').submit();"
           >
               {{ __('Logout') }}
@@ -40,6 +40,7 @@
           </form>
         @endauth
     </div>
+
     <div> <!-- INIZIO div in header con la navbar1 (width 100%)-->
       <div class="navbar1"> <!-- INIZIO Navbar1 (width 70%)-->
 
