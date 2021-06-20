@@ -1,5 +1,140 @@
 footer {
-  height: 15%;
-  background-color: $red;
-  @include flex(row, center, center);
-}
+  border-bottom: 1px solid rgba(50, 50, 50, .1);
+  border-opacity: 0.7;
+  height: 500px;
+  background-color: $footer-gray;
+
+  // Div grosso che contiene i div rispettivamente di height 90% e 10%
+  .bigger-footer {
+    @include container(90%);
+    height: 100%;
+    // debug
+    // background-color: red;
+
+    // INIZIO primo div da 85% di height
+    div:nth-child(1) {
+      @include flex(row, null, null);
+      height: 85%;
+      width: 100%;
+      // debug
+      // background-color: blue;
+
+      // tutte le sezioni assieme
+      section {
+        padding-top: 30px;
+        width: calc(100% / 4);
+        height: 100%;
+        line-height: 200%;
+        border-bottom: 1px solid rgba(50, 50, 50, .1);
+
+        li a:hover {
+          text-decoration: underline;
+        }
+      } // FINE di TUTTE LE SECTION
+
+      // (1)
+      section:first-of-type {
+        // debug
+        // background-color: navy;
+      }
+
+      // (2)
+      section:nth-child(2) {
+        // debug
+        // background-color: dodgerblue;
+      }
+
+      // (3)
+      section:nth-child(3) {
+        // debug
+        // background-color: royalblue;
+      }
+
+      // (4)
+      section:last-of-type {
+        // debug
+        // background-color: $scottish-blue;
+      }
+
+
+    } // FINE primo div da 85% di height
+
+
+    // ------ QUI INIZIA LA SEZIONE PIU' PICCOLA DEL FOOTER --------
+
+
+    // secondo div da 15% di height
+    div:nth-child(2) {
+      @include flex(row, null, null);
+      height: 15%;
+      width: 100%;
+      // debug
+      // background-color: green;
+
+      // Tutti e due gli UL
+      ul {
+        @include flex(row, null, center);
+        width: calc(100% / 2);
+        height: 100%;
+        // debug
+        // background-color: purple;
+      }
+
+      // UL di sinistra
+      ul:first-of-type {
+        // debug
+        // background-color: lime;
+
+        li {
+          margin-right: 20px;
+        }
+
+        li:nth-child(2):hover,
+        li:nth-child(3):hover,
+        li:nth-child(4):hover,
+        li:nth-child(5):hover {
+          text-decoration: underline;
+        }
+      }
+
+      // UL di destra
+      ul:last-of-type {
+        @include flex(row, flex-end, center);
+        // debug
+        // background-color: coral;
+
+        li:nth-child(1) p,
+        li:nth-child(2) p {
+          display:inline;
+          text-decoration: underline;
+        }
+
+        li:nth-child(1):hover,
+        li:nth-child(2):hover,
+        .fa-facebook-f:hover,
+        .fa-twitter:hover,
+        .fa-instagram:hover {
+          opacity: 0.4;
+        }
+
+        li {
+          margin-right: 30px;
+        }
+
+        li:last-of-type {
+          margin: 0;
+        }
+
+        .fa-facebook-f,
+        .fa-twitter,
+        .fa-instagram {
+          font-size: 18px;
+        }
+
+      } // fine dell'ultimo div di destra
+
+    } // fine del div 15% di hight (seconda sezione footer)
+
+  } // fine di .bigger-footer (quello che contiene entrambi i footer[85% e 15%] )
+
+} // fine di footer

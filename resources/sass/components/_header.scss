@@ -1,11 +1,11 @@
 header {
-  margin-top: 20px;
   width: 100%;
   height: 200px;
   // debug
   // background-color: $lighter-black;
 }
 
+// div più esterno
 .outer-container {
   height: 100%;
   @include container(90%);
