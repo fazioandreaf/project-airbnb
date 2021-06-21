@@ -3,7 +3,7 @@
         <transition-group name="slide-left" tag="div" class="wrapper-images">
             <img v-for="(image,index) in images" :key="image" class="slide" :src="image" v-if="index == activeImage">
         </transition-group>
-    </div>
+    </div> 
 </template>
 
 <script>
