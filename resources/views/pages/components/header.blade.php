@@ -77,7 +77,7 @@
             <p>Aggiungi ospiti</p>
           </a>
 
-          <a href="#">
+          <a href="{{route('search')}}">
             <i class="fas fa-search"></i>
           </a>
 
