@@ -20,10 +20,11 @@
 
       {{-- rotta per la create --}}
       <a href="{{route('add')}}">
-        <button style="width: 300px">
+        <button>
           NEW APARTMENT
         </button>
       </a>
+      
     </section>
   </div>
 

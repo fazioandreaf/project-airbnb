@@ -143,6 +143,10 @@
   border-radius: 100%;
 }
 
+.bigger-header div:last-of-type .navbar1 div:last-of-type a:last-of-type:hover {
+  background-color: #e8005d;
+}
+
 footer {
   border-bottom: 1px solid rgba(50, 50, 50, 0.1);
   border-opacity: 0.7;
@@ -280,6 +284,17 @@ footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-instagram {
 
 .jumbotron section:only-of-type ul:first-of-type li:nth-child(2) {
   font-size: 30px;
+}
+
+.jumbotron section:only-of-type button {
+  margin-top: 20px;
+  font-weight: bolder;
+  width: 150px;
+  height: 50px;
+  background-color: #000;
+  color: #FFF;
+  border-radius: 10px;
+  border: none;
 }
 
 .jumbotron .apartment-samples {

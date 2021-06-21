@@ -128,12 +128,16 @@ header {
       // Questa è la lente d'ingrandimento (SEARCH)
       a:last-of-type {
         @include flex(row, center, center);
-        background-color: $fuchsia-serach;
+        background-color: $fuchsia-search;
         color: $white;
         font-size: 25px;
         width: 50px;
         height: 50px;
         border-radius: 100%;
+      }
+
+      a:last-of-type:hover {
+        background-color: $darker-fuchsia-search;
       }
     }
 
