@@ -19,7 +19,10 @@
         </li>
         <li><strong>
             Numbero di case posseduto: </strong>
-            {{count($apartments)}}
+            <a href="{{route('myapartment',$item->id)}}">
+
+                {{count($apartments)}}
+            </a>
         </li>
     </ul>
 
