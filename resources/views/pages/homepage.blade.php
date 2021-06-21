@@ -17,9 +17,6 @@
       <li>
         <h2>Ti presentiamo<div>oltre 100 novità</div></h2>
       </li>
-
-      {{-- a href="{{route('search')}}">Search advanced</a> --}}
-
     </ul>
 
 
@@ -51,6 +48,6 @@
     </li>
     @endforeach
   </ul>
-  
+
 </div>
 @endsection

@@ -42,7 +42,7 @@ Route::get('/register','MainController@register')->name('register');
 
 
 // Route::get('/statistic', 'HomeController@statistic') -> name('statistic');
-// Route::get('/dashboard/{id}', 'HomeController@dashboard') -> name('dashboard');
+Route::get('/dashboard/{id}', 'HomeController@dashboard') -> name('dashboard');
 // Route::get('/myapartment/{id}', 'HomeController@myapartment') -> name('myapartment');
 
 // //Sponsor function
@@ -52,7 +52,7 @@ Route::get('/sponsor_function/{id}', 'HomeController@sponsor_function')->name('s
 //ROtte di debug(senza login)
 Route::get('/myapartment/{id}', 'MainController@myapartment') -> name('myapartment');
 Route::get('/pages/maps', 'MainController@maps') ;
-Route::get('/dashboard/{id}', 'MainController@dashboard') -> name('dashboard');
+// Route::get('/dashboard/{id}', 'MainController@dashboard') -> name('dashboard');
 // Route::get('/add', 'MainController@add') -> name('add');
 // Route::post('/add_function', 'MainController@add_function')->name('add_function');
 // Route::get('/edit/{id}', 'MainController@edit') -> name('edit');

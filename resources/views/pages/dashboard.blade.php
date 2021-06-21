@@ -1,6 +1,6 @@
 @extends('layouts.main_layout')
 @section('content')
-    <ul>
+    <ul style="background-color: lightgray">
         @foreach ($apartments as $item)
 
         @endforeach
@@ -19,12 +19,15 @@
         </li>
         <li><strong>
             Numbero di case posseduto: </strong>
-            <a href="{{route('myapartment',$item->id)}}">
+            <a href="{{route('myapartment',$item->id)}}" style="font-weight:bolder;background-color:green;color:white">
 
                 {{count($apartments)}}
             </a>
         </li>
     </ul>
+    <div>
+             <a style="margin:1.5rem;padding:1rem;background-color:blue" href="{{route('add',$user->id)}}">add</a>
+    </div>
 
 
 
