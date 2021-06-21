@@ -3,6 +3,50 @@
   height: 200px;
 }
 
+.register-header {
+  background-color: #000;
+  height: 100px;
+  color: #FFF;
+}
+
+.register-header .container {
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+}
+
+.register-header .navbar {
+  flex-grow: 1;
+}
+
+.register-header .navbar .nav-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.register-header .navbar .nav-links > li > ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.register-header .navbar .nav-links > li > ul > li {
+  margin: 0 5px;
+}
+
+.register-header .navbar .button-link {
+  display: inline-block;
+  background-color: #12a19a;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 700;
+}
+
 .outer-container {
   height: 100%;
   margin: 0 auto;
@@ -314,6 +358,10 @@ footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-instagram {
   color: #38c172;
 }
 
+.jumbotron .bolla {
+  background-color: red;
+}
+
 .testDanny {
   background-color: black;
   height: 92vh;
@@ -325,6 +373,10 @@ footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-instagram {
   justify-content: center;
   align-items: center;
   color: purple;
+}
+
+section#section-register {
+  background-color: red;
 }
 
 * {
@@ -343,7 +395,6 @@ a {
 }
 
 #header-and-main {
-  background: url(/images/wallpaper.jpg?abdb21d0f378fe9f5f822fbe1d8d9d15) no-repeat;
   background-size: 100vw 100vh;
 }
 

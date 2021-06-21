@@ -12,7 +12,7 @@
 // Pages
 @import 'pages/homepage';
 @import 'pages/myapartment';
-
+@import 'pages/register';
 
 // RULES FOR THE WHOLE PAGES
 * {
@@ -31,7 +31,7 @@ a {
 }
 
 #header-and-main {
-  background: url(../storage/app/public/assets/wallpaper.jpg)no-repeat;
+  // background: url(../storage/app/public/assets/wallpaper.jpg)no-repeat;
   background-size: 100vw 100vh;
 }
 
