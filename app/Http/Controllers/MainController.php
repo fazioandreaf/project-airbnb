@@ -35,7 +35,7 @@ class MainController extends Controller {
         $ip=\Request::ip();
         $validate=([
             'ip'=>$ip,
-            'view_date'=>'2020-05-10',
+            'view_date'=>date('Y-m-d') ,
         ]);
         // dd($ip);
         $apartment = Apartment::findOrFail($id);
