@@ -236,35 +236,35 @@ footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-instagram {
   font-size: 18px;
 }
 
-.homepage {
+.jumbotron {
   height: 755px;
 }
 
-.homepage section:only-of-type {
+.jumbotron section:only-of-type {
   width: 100%;
   margin: 0 auto;
   width: 90%;
 }
 
-.homepage section:only-of-type ul:first-of-type {
+.jumbotron section:only-of-type ul:first-of-type {
   height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
-.homepage section:only-of-type ul:first-of-type li:nth-child(1) {
+.jumbotron section:only-of-type ul:first-of-type li:nth-child(1) {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: space-envely;
 }
 
-.homepage section:only-of-type ul:first-of-type li:nth-child(1) a {
+.jumbotron section:only-of-type ul:first-of-type li:nth-child(1) a {
   margin-top: 5px;
 }
 
-.homepage section:only-of-type ul:first-of-type li:nth-child(1) span {
+.jumbotron section:only-of-type ul:first-of-type li:nth-child(1) span {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -278,11 +278,11 @@ footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-instagram {
   color: #FFF;
 }
 
-.homepage section:only-of-type ul:first-of-type li:nth-child(2) {
+.jumbotron section:only-of-type ul:first-of-type li:nth-child(2) {
   font-size: 30px;
 }
 
-.homepage .apartment-samples {
+.jumbotron .apartment-samples {
   font-size: 20px;
   margin: 0 auto;
   width: 90%;
@@ -291,11 +291,11 @@ footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-instagram {
   justify-content: space-between;
 }
 
-.homepage .apartment-samples li:nth-child(odd) {
+.jumbotron .apartment-samples li:nth-child(odd) {
   color: #e3342f;
 }
 
-.homepage .apartment-samples li:nth-child(even) {
+.jumbotron .apartment-samples li:nth-child(even) {
   color: #38c172;
 }
 
