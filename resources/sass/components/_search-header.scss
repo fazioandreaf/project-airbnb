@@ -1,0 +1,85 @@
+#header-search {
+  height: 150px;
+  @include container(97%);
+
+  div {
+    height: 50%;
+    width: 100%;
+  }
+
+  .top-header-search {
+    @include flex(row, null, null);
+
+    div {
+      height: 100%;
+      width:calc(100% / 3);
+    }
+
+    div:nth-child(1) {
+
+      img {
+        height: 100%;
+      }
+    }
+
+    // INIZIO secondo div (scelte utente)
+    div:nth-child(2) {
+      @include flex(row, null, null);
+
+      span {
+        @include flex(row, center, center);
+        width: calc(100% / 3);
+        box-shadow: 1px 1px 1px 1px grey;
+      }
+
+      // (1)
+      span:first-of-type {
+        border-radius: 50px 0 0 50px;
+        border: 0.5px solid black;
+      }
+
+      // (2)
+      span:nth-child(2) {
+        border-top: 0.5px solid black;
+        border-bottom: 0.5px solid black;
+      }
+
+      // (3)
+      span:last-of-type {
+        @include flex(row, space-evenly, center);
+        border-radius: 0 50px 50px 0;
+        border: 0.5px solid black;
+
+        a:last-of-type {
+          @include flex(row, center, center);
+          background-color: $fuchsia-search;
+          color: $white;
+          font-size: 20px;
+          width: 35px;
+          height: 35px;
+          border-radius: 100%;
+        }
+      }
+
+    } // fine secondo div (scelte utente)
+
+    div:nth-child(3) {
+      // debug
+      background-color:navy;
+    }
+
+  } // fine di top-header search
+
+  .lower-header-search {
+    @include flex(row, null, null);
+    // debug
+    background-color: silver;
+
+    ul {
+      width: 100%;
+      @include flex(row, space-between, center);
+    }
+
+  } // fine di lower-header search
+
+} // END of header-serch
