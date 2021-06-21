@@ -6,7 +6,7 @@
 
       <span>
         <a href="{{route('homepage')}}">
-          <img src="{{asset('storage/assets/lg_clr2.png')}}" alt="logo-image">
+          <img src="{{asset('storage/assets/lg_color0.png')}}" alt="logo-image">
         </a>
       </span>
 
