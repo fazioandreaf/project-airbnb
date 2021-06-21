@@ -14,38 +14,37 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller {
 
-  public function homepage() {
-
+    public function homepage() {
     //Filtro appartamenti sponsorizzati
-    $now = Carbon::now()->setTimeZone("Europe/Rome");
-    $apartments = DB::table('apartments')
-                  ->join('apartment_sponsor', 'apartments.id' , '=', 'apartment_sponsor.apartment_id')
-                  ->join('users', 'apartments.user_id' , '=', 'users.id')
-                  ->select('apartment_sponsor.*', 'apartments.*')
-                  ->where('apartments.deleted_at', null)
-                  ->get();
+        $now = Carbon::now()->setTimeZone("Europe/Rome");
+        $apartments = DB::table('apartments')
+                    ->join('apartment_sponsor', 'apartments.id' , '=', 'apartment_sponsor.apartment_id')
+                    ->join('users', 'apartments.user_id' , '=', 'users.id')
+                    ->select('apartment_sponsor.*', 'apartments.*')
+                    ->where('apartments.deleted_at', null)
+                    ->get();
 
     return view('pages.homepage', compact('apartments'));
-  }
+    }
 
-  // dettagli appartamento
-  public function showApartment(Request $request, $id)
-  {
-    // dd(\Request::getClientIp(true));
-    // dd($request);
-    $ip=\Request::ip();
-    $validate=([
-        'ip'=>$ip,
-        'view_date'=>'2020-05-10',
-    ]);
-    // dd($ip);
-    $apartment = Apartment::findOrFail($id);
-    $statistic=Statistic::make($validate);
-    $statistic -> apartment() -> associate($id);
-    $statistic->save();
-    $sponsors=Sponsor::all();
-    return view('pages.apartment',compact('apartment','statistic','sponsors'));
-  }
+    // dettagli appartamento
+    public function showApartment(Request $request, $id)
+    {
+        // dd(\Request::getClientIp(true));
+        // dd($request);
+        $ip=\Request::ip();
+        $validate=([
+            'ip'=>$ip,
+            'view_date'=>'2020-05-10',
+        ]);
+        // dd($ip);
+        $apartment = Apartment::findOrFail($id);
+        $statistic=Statistic::make($validate);
+        $statistic -> apartment() -> associate($id);
+        $statistic->save();
+        $sponsors=Sponsor::all();
+        return view('pages.apartment',compact('apartment','statistic','sponsors'));
+    }
 
 
 

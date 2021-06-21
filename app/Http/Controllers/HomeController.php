@@ -56,28 +56,24 @@ class HomeController extends Controller {
     }
     public function add_function(Request $request)
     {
-
-         // da completare,
+        // da completare,
         // manca l'immagine
-
         $validated = $request -> validate([
-        'title' => 'required|max:128|min:4',
-        'number_rooms' => 'required|numeric',
-        'number_toiletes' => 'required|numeric',
-        'number_beds' => 'required|numeric',
-        'area' => 'required|numeric',
-        'address' => 'required',
-        'latitude' => 'required|numeric',
-        'longitude' => 'required|numeric',
-        'cover_image' => 'nullable',
-        'user_id' => 'required',
+            'title' => 'required|max:128|min:4',
+            'number_rooms' => 'required|numeric',
+            'number_toiletes' => 'required|numeric',
+            'number_beds' => 'required|numeric',
+            'area' => 'required|numeric',
+            'address' => 'required',
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
+            'cover_image' => 'nullable',
+            'user_id' => 'required',
         ]);
-
         $service = Service::findOrFail($request -> get('service_id'));
         $apartment = Apartment::create($validated);
         $apartment->services()->attach($request-> get('service_id'));
         $apartment->save();
-
         return redirect()->route('homepage');
     }
 
