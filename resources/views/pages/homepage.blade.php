@@ -24,7 +24,7 @@
           NEW APARTMENT
         </button>
       </a>
-      
+
     </section>
   </div>
 
