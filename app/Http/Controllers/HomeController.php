@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
+use DB;
 use Illuminate\Http\Request;
-use App\Landlord;
+use App\User;
 use App\Apartment;
 use App\Sponsor;
 Use App\Service;
@@ -28,8 +29,14 @@ class HomeController extends Controller {
         return view('home');
     }
     public function dashboard($id) {
-        $landlord=Landlord::findOrFail($id);
-        return view('pages.dashboard',compact('landlord'));
+        $user= User::findOrFail($id);
+        $apartments=DB::table('apartments')
+                    ->join('users','apartments.user_id','=','users.id')
+                    ->select('apartments.*','users.*')
+                    ->where('apartments.user_id','=',$user->id)
+                    ->get();
+
+        return view('pages.dashboard',compact('apartments'));
     }
     public function myapartment($id){
         $apartment=Apartment::findOrFail($id);
