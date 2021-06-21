@@ -314,8 +314,22 @@ footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-instagram {
   color: #38c172;
 }
 
-.apartment-samples .bollino {
-  background-color: black;
+.apartment-samples .flags {
+  width: 250px;
+  height: 250px;
+  background-color: purple;
+  border-radius: 10px;
+}
+
+.apartment-samples .flags a {
+  color: white;
+}
+
+.host {
+  width: 800px;
+  height: 300px;
+  background-color: purple;
+  border-radius: 10px;
 }
 
 .testDanny {
