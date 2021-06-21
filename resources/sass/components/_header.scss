@@ -1,4 +1,4 @@
-header {
+#header-homepage {
   width: 100%;
   height: 200px;
   // debug
@@ -78,9 +78,10 @@ header {
         padding: 10px;
         border-radius: 100%;
       }
-    }
-  }
 
+    } // Ultima a-href con "hamburger" e "omino/utente"
+
+  } // FINE Ultimo span con "diventa host", "hamburger" e "omino/utente"
 
 } // END OF .bigger-header div:first-of-type
 
@@ -139,9 +140,9 @@ header {
       a:last-of-type:hover {
         background-color: $darker-fuchsia-search;
       }
+
     }
 
   } // END OF NAVBAR1
-
 
 } // END OF .bigger-header div:last-of-type
