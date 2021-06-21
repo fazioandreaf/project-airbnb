@@ -8,11 +8,13 @@
 // Components
 @import 'components/header';
 @import 'components/footer';
+@import 'components/search-header';
 
 // Pages
 @import 'pages/homepage';
 @import 'pages/myapartment';
 @import 'pages/register';
+@import 'pages/search';
 
 // RULES FOR THE WHOLE PAGES
 * {
