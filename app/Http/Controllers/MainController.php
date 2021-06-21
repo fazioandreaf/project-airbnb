@@ -116,8 +116,14 @@ class MainController extends Controller {
 
     // funzioni di debug
     public function myapartment($id){
-        $apartment=Apartment::findOrFail($id);
-        return view('pages.myapartment',compact('apartment'));
+        $user = User::findOrFail($id);
+        $apartments=DB::table('apartments')
+            ->join('users','apartments.user_id','=','users.id')
+            ->select('apartments.*','users.*')
+            ->where('apartments.user_id','=',$id)
+            ->get();
+            // dd($apartments);
+        return view('pages.myapartment',compact('apartments', 'user'));
     }
     public function dashboard($id) {
         // $user=User::findOrFail($id);
