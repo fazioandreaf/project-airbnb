@@ -50,4 +50,18 @@
   </ul>
 
 </div>
+
+<div class="bolla">  
+  <ul class="apartment-samples bolla">
+  @foreach ($apartments as $apartment)
+    <li>
+      <a href="{{route('apartment', $apartment->id)}}">
+        {{ $apartment->id }}
+        {{ $apartment->title }}
+      </a>
+    </li>
+  @endforeach
+</ul>
+</div>
+
 @endsection
