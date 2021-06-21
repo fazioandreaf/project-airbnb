@@ -5,6 +5,49 @@ header {
   // background-color: $lighter-black;
 }
 
+// Header pagina Diventa un Host
+.register-header {
+  
+  background-color: $black;
+  height: 100px;
+  color: $white;
+
+  .container {
+
+    @include container(90%);
+    @include flex(row, null, center);
+    height: 100%;
+  }
+  
+  .navbar {
+
+    flex-grow: 1;
+    .nav-links {
+
+      @include flex(row, space-between, center);
+
+      & > li > ul {
+
+        @include flex(row, null, center);
+
+        & > li {
+
+          margin: 0 5px;
+        }
+      }
+    }
+
+    .button-link {
+
+      display: inline-block;
+      background-color: $venusaur-green;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: 700;
+    }
+  }
+}
+
 // div più esterno
 .outer-container {
   height: 100%;

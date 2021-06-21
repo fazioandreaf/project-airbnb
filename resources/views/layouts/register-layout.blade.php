@@ -14,7 +14,7 @@
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700&display=swap" rel="stylesheet"> 
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -25,14 +25,13 @@
 
   <body>
 
-    <section id="header-and-main"> <!-- INIZIO DI #header-and-main (usato per il background, vedi app.css) -->
 
-      @include('pages.components.header')
+
+    @include('pages.components.register-header')
     
-      <main>
-        @yield('content')
-      </main>
-    </section> <!-- FINE DI #header-and-main (usato per il background, vedi app.css) -->
+    <main>
+    @yield('content')
+    </main>
 
     <footer>
       @include('pages.components.footer')

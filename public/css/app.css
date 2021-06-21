@@ -3,6 +3,50 @@
   height: 200px;
 }
 
+.register-header {
+  background-color: #000;
+  height: 100px;
+  color: #FFF;
+}
+
+.register-header .container {
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+}
+
+.register-header .navbar {
+  flex-grow: 1;
+}
+
+.register-header .navbar .nav-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.register-header .navbar .nav-links > li > ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.register-header .navbar .nav-links > li > ul > li {
+  margin: 0 5px;
+}
+
+.register-header .navbar .button-link {
+  display: inline-block;
+  background-color: #12a19a;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 700;
+}
+
 .outer-container {
   height: 100%;
   margin: 0 auto;
@@ -345,10 +389,126 @@ footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-instagram {
   color: purple;
 }
 
+section#register-jumbotron {
+  background-color: #000;
+  color: #FFF;
+}
+
+section#register-jumbotron .jumbotron {
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+section#register-jumbotron .jumbotron .wrapper-text {
+  color: #FFF;
+  flex-basis: 60%;
+  padding: 0 50px;
+}
+
+section#register-jumbotron .jumbotron .wrapper-text h2 {
+  font-size: 60px;
+}
+
+section#register-jumbotron .jumbotron div#app {
+  flex-basis: 40%;
+}
+
+section#register-jumbotron .jumbotron div#app .carousel {
+  height: 350px;
+  margin: 0 50px;
+}
+
+section#register-jumbotron .jumbotron div#app .carousel .wrapper-images {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+section#register-jumbotron .jumbotron div#app .carousel .wrapper-images .slide {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+section#register-jumbotron .jumbotron div#app .slide-left-enter-active,
+section#register-jumbotron .jumbotron div#app .slide-left-leave-active {
+  transition: all 2s;
+}
+
+section#register-jumbotron .jumbotron div#app .slide-left-enter {
+  transform: translateX(100%);
+}
+
+section#register-jumbotron .jumbotron div#app .slide-left-leave-to {
+  transform: translate(-100%);
+}
+
+section#section-register {
+  margin: 50px 0;
+}
+
+section#section-register .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section#section-register form {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section#section-register form .form-wrapper-fields {
+  margin: 5px;
+}
+
+section#section-register form label {
+  display: inline-block;
+  width: 200px;
+}
+
+section#section-register form input {
+  background-color: #ededed;
+  padding: 5px 10px;
+  border: 0;
+  border-radius: 20px;
+}
+
+section#section-register form input:focus {
+  outline: 0;
+}
+
+section#section-register form .form-button {
+  background-color: #12a19a;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 20px;
+  color: #FFF;
+  font-weight: 600;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
 }
 
 li {
@@ -361,7 +521,10 @@ a {
 }
 
 #header-and-main {
+<<<<<<< HEAD
   background: url(/images/wallpaper.jpg) no-repeat;
+=======
+>>>>>>> Gioele
   background-size: 100vw 100vh;
 }
 
