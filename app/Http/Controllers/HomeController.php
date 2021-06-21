@@ -152,8 +152,9 @@ class HomeController extends Controller {
         return view('pages.statistic',compact('statistic'));
     }
     public function sponsor($id){
-        $apartment=Apartment::findOrFail($id);
-        return view('pages.sponsor',compact('apartment'));
+        $apartment = Apartment::findOrFail($id);
+        $sponsors = Sponsor::all();
+        return view('pages.sponsor',compact('sponsors','apartment'));
     }
 
 } // END OF HomeController

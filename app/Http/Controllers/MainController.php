@@ -64,7 +64,7 @@ class MainController extends Controller {
     }
 
 
-        // // // // // // // // // // // // // // // 
+        // // // // // // // // // // // // // // //
 
     // public function search_function(Request $request)
     // {
@@ -146,7 +146,18 @@ class MainController extends Controller {
         return view('pages.sponsor',compact('sponsors','apartment'));
     }
     public function statistic($id){
-        $statistic=Statistic::findOrFail($id);
+        // $statistic=Statistic::findOrFail($id);
+        $statistic=DB::table('statistics')
+                    ->join('apartments','statistics.apartment_id','=','apartments.id')
+                    ->select('statistics.*','apartments.*')
+                    ->where('statistics.apartment_id','=',$id)
+                    ->get();
+        //             dd(count($statistic));
+        // if(count($statistic)==0){
+
+        //     $statistic='Non hai ancora nessun appartamento';
+
+        // }
         return view('pages.statistic',compact('statistic'));
     }
 
