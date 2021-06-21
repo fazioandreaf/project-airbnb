@@ -6,7 +6,7 @@ Use App\Sponsor;
 Use App\Statistic;
 Use App\User;
 Use App\Service;
-
+use Auth;
 use DB;
 use Carbon\Carbon;
 
@@ -63,39 +63,6 @@ class MainController extends Controller {
         return view('pages.search');
     }
 
-
-        // // // // // // // // // // // // // // //
-
-    // public function search_function(Request $request)
-    // {
-
-    //      // da completare,
-    //     // manca l'immagine
-
-    //     $validated = $request -> validate([
-    //     'title' => 'required|max:128|min:4',
-    //     'number_rooms' => 'required|numeric',
-    //     'number_toiletes' => 'required|numeric',
-    //     'number_beds' => 'required|numeric',
-    //     'area' => 'required|numeric',
-    //     'address' => 'required',
-    //     'latitude' => 'required|numeric',
-    //     'longitude' => 'required|numeric',
-    //     'cover_image' => 'nullable',
-    //     'user_id' => 'required',
-    //     ]);
-
-    //     $service = Service::findOrFail($request -> get('service_id'));
-    //     $apartment = Apartment::create($validated);
-    //     $apartment->services()->attach($request-> get('service_id'));
-    //     $apartment->save();
-
-    //     return redirect()->route('apartment');
-    // }
-
-        // // // // // // // // // // // // // // //
-
-
     public function maps(){
         return view('pages.maps');
     }
@@ -120,14 +87,13 @@ class MainController extends Controller {
         return view('pages.myapartment',compact('apartment'));
     }
     public function dashboard($id) {
-        // $user=User::findOrFail($id);
+        $user= Auth::id();
         $apartments=DB::table('apartments')
                     ->join('users','apartments.user_id','=','users.id')
                     ->select('apartments.*','users.*')
-                    ->where('apartments.user_id','=',$id)
+                    ->where('apartments.user_id','=',$user)
                     ->get();
-        // dd($apartment);
-        // dd($apartment);
+        // dd($id);
         // $apartment-> users()->associate($id);
         // $apartment= Apartment::findOrFail();
         // dd($apartment);

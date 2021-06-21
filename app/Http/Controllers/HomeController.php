@@ -103,7 +103,7 @@ class HomeController extends Controller {
     }
 
     // add sponsor
-    public function addSponsor(Request $request,$id)
+    public function sponsor_function(Request $request,$id)
     {
         $validated = $request -> validate([
             'sponsor_id' => 'required'
@@ -134,9 +134,6 @@ class HomeController extends Controller {
         return redirect()->route('homepage');
     }
 
-    public function sponsor_function($id){
-
-    }
     // softDeletes
     public function deleteApartment($id)
     {

@@ -18,7 +18,7 @@
         </h1>
                     {{-- form per l'aggiunta sponsor --}}
         <div>
-            <form action="{{Route('add_sponsor',$apartment->id)}}" method="get">
+            <form action="{{Route('sponsor_function',$apartment->id)}}" method="get">
                 <select name="sponsor_id" id="sponsor_id">
                     @foreach ($sponsors as $sponsor)
                         <option value="{{$sponsor->id}}">

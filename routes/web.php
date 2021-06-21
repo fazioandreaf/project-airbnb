@@ -47,14 +47,14 @@ Route::get('/register','MainController@register')->name('register');
 
 // //Sponsor function
 Route::get('/sponsor/{id}', 'HomeController@sponsor') -> name('sponsor');
-Route::post('/sponsor_function/{id}', 'HomeController@sponsor_function')->name('sponsor_function');
+Route::get('/sponsor_function/{id}', 'HomeController@sponsor_function')->name('sponsor_function');
 
 //ROtte di debug(senza login)
 Route::get('/myapartment/{id}', 'MainController@myapartment') -> name('myapartment');
 Route::get('/pages/maps', 'MainController@maps') ;
 Route::get('/dashboard/{id}', 'MainController@dashboard') -> name('dashboard');
-Route::get('/add', 'MainController@add') -> name('add');
-Route::post('/add_function', 'MainController@add_function')->name('add_function');
+// Route::get('/add', 'MainController@add') -> name('add');
+// Route::post('/add_function', 'MainController@add_function')->name('add_function');
 // Route::get('/edit/{id}', 'MainController@edit') -> name('edit');
 // Route::post('/edit_function/{id}', 'MainController@edit_function')->name('edit_function');
 // Route::get('/sponsor/{id}', 'MainController@sponsor') -> name('sponsor');
