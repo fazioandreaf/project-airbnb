@@ -49,8 +49,10 @@ class MainController extends Controller {
     // registrazione
     public function search()
     {
-        return view('pages.search');
+        $apartments=Apartment::all();
+        return view('pages.search',compact('apartments'));
     }
+
 
     public function maps(){
         return view('pages.maps');

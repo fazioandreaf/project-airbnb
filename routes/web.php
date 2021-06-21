@@ -13,7 +13,7 @@ Route::get('pages/homepage', 'MainController@homepage') -> name('homepage');
 
 //Ricerca avanzata
 Route::get('/search', 'MainController@search') -> name('search');
-Route::post('/search_function', 'MainController@search_function')->name('search_function');
+
 
 // // Rotte per add apartment
 Route::get('/add', 'HomeController@add') -> name('add');
@@ -44,6 +44,10 @@ Route::get('/myapartment/{id}', 'HomeController@myapartment') -> name('myapartme
 // //Sponsor function
 Route::get('/sponsor/{id}', 'HomeController@sponsor') -> name('sponsor');
 Route::get('/sponsor_function/{id}', 'HomeController@sponsor_function')->name('sponsor_function');
+
+
+
+
 
 //ROtte di debug(senza login)
 Route::get('/pages/maps', 'MainController@maps') ;
