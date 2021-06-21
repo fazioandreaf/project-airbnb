@@ -36,7 +36,7 @@ class HomeController extends Controller {
                     ->where('apartments.user_id','=',$user->id)
                     ->get();
 
-        return view('pages.dashboard',compact('apartments'));
+        return view('pages.dashboard',compact('apartments','user'));
     }
     public function myapartment($id){
         $apartment=Apartment::findOrFail($id);
