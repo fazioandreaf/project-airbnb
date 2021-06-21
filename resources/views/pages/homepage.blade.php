@@ -36,16 +36,21 @@
 
   </section>
 
+
+</div>
+
+<div class="outer-jumbotron">
+
   <ul class="apartment-samples">
     @foreach ($apartments as $apartment)
-      <li>
-        <a href="{{route('apartment', $apartment->id)}}">
-          {{ $apartment->id }}
-          {{ $apartment->title }}
-        </a>
-      </li>
+    <li>
+      <a href="{{route('apartment', $apartment->id)}}">
+        {{ $apartment->id }}
+        {{ $apartment->title }}
+      </a>
+    </li>
     @endforeach
   </ul>
-
+  
 </div>
 @endsection
