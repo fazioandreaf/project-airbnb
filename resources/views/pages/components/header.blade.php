@@ -1,5 +1,6 @@
 <div class="outer-container">
-  <div class="bigger-header">    <div> <!-- Questo div è header con logo/diventaHost/Login -->
+  <div class="bigger-header">
+    <div> <!-- Questo div è header con logo/diventaHost/Login -->
     <span>
         <a href="{{route('homepage')}}">
           <img src="{{asset('images/lg_color0.png')}}" alt="logo-image">
@@ -37,7 +38,7 @@
               </a>
           </div>
         @endauth
-    </div>    
+    </div>
     <div> <!-- INIZIO div in header con la navbar1 (width 100%)-->
       <div class="navbar1"> <!-- INIZIO Navbar1 (width 70%)-->
         <div>
