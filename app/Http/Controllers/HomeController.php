@@ -38,10 +38,15 @@ class HomeController extends Controller {
         return view('pages.dashboard',compact('apartments','user'));
     }
     public function myapartment($id){
-        $apartment=Apartment::findOrFail($id);
-        return view('pages.myapartment',compact('apartment'));
+        $user = User::findOrFail($id);
+        $apartments=DB::table('apartments')
+            ->join('users','apartments.user_id','=','users.id')
+            ->select('apartments.*','users.*')
+            ->where('apartments.user_id','=',$id)
+            ->get();
+            // dd($apartments);
+        return view('pages.myapartment',compact('apartments', 'user'));
     }
-
     // nuovo appartamento
     public function add()
     {
@@ -49,7 +54,6 @@ class HomeController extends Controller {
         $sponsors = Sponsor::all();
         return view('pages.newapartment',compact('services','sponsors'));
     }
-
     public function add_function(Request $request)
     {
 
@@ -149,9 +153,13 @@ class HomeController extends Controller {
         return redirect()->route('homepage');
     }
 
-
     public function statistic($id){
-        $statistic=Statistic::findOrFail($id);
+        $statistic=DB::table('statistics')
+                    ->join('apartments','statistics.apartment_id','=','apartments.id')
+                    ->select('statistics.*','apartments.*')
+                    ->where('statistics.apartment_id','=',$id)
+                    ->get();
+        //             dd(count($statistic));
         return view('pages.statistic',compact('statistic'));
     }
     public function sponsor($id){
