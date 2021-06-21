@@ -17,7 +17,7 @@
           <h2>Ti presentiamo<div>oltre 100 novità</div></h2>
         </li>
       </ul>
-      
+
       {{-- rotta per la create --}}
       <a href="{{route('add')}}">
         <button style="width: 300px">
@@ -26,7 +26,7 @@
       </a>
     </section>
   </div>
-  
+
   <div class="outer-jumbotron">
     <ul class="apartment-samples">
       @foreach ($apartments as $apartment)
@@ -38,6 +38,29 @@
       </li>
       @endforeach
     </ul>
-  </div>
-  
+
+    {{-- rotta per la create --}}
+    <a href="{{route('add')}}">
+      <button style="width: 300px">
+        NEW APARTMENT
+      </button>
+    </a>
+
+
+  </section>
+</div>
+
+<div class="outer-jumbotron">
+  <ul class="apartment-samples">
+    @foreach ($apartments as $apartment)
+    <li>
+      <a href="{{route('apartment', $apartment->id)}}">
+        {{ $apartment->id }}
+        {{ $apartment->title }}
+      </a>
+    </li>
+    @endforeach
+  </ul>
+</div>
+
 @endsection
