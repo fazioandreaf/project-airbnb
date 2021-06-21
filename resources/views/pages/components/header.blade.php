@@ -39,7 +39,7 @@
               @csrf
           </form>
           <div>
-              <a href="{{route('dashboard',3)}}">
+              <a href="{{route('dashboard',Auth::id())}}">
                   Dashboard
               </a>
           </div>
