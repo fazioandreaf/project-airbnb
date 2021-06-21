@@ -37,8 +37,8 @@ header {
 
     img {
       @include flex(row, center, center);
-      width: 150px;
-      height: 80px;
+      width: auto;
+      height: 50px;
     }
   }
 

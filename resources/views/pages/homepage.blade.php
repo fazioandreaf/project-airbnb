@@ -11,7 +11,6 @@
         <a href="{{route('login')}}">
           <h1>BoolB&B</h1>
         </a>
-<<<<<<< Updated upstream
         <span>2021</span>
       </li>
 
@@ -24,11 +23,6 @@
     </ul>
 
 
-=======
-        {{-- a href="{{route('search')}}">Search advanced</a> --}}
-      </h1>
-    </div>
->>>>>>> Stashed changes
     {{-- rotta per la create --}}
     <a href="{{route('add')}}">
       <button style="width: 300px">
