@@ -4,19 +4,21 @@
         @foreach ($apartments as $item)
 
         @endforeach
-        <li>
+        <li><strong> Firstname: </strong>
             {{$item ->firstname}}
         </li>
-        <li>
+        <li><strong> Lastname: </strong>
             {{$item ->lastname}}
         </li>
-        <li>
+        <li><strong> Email:</strong>
             {{$item ->email}}
         </li>
         <li>
+            <strong> Date of birth: </strong>
             {{$item ->date_of_birth}}
         </li>
-        <li>
+        <li><strong>
+            Numbero di case posseduto: </strong>
             {{count($apartments)}}
         </li>
     </ul>

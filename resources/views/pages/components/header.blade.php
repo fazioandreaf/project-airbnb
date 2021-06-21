@@ -29,7 +29,7 @@
             {{ Auth::user()->name }}
           </a>
           <a href="{{ route('logout')}}" onclick="
-              event.preventDefault(); 
+              event.preventDefault();
               document.getElementById('form_logout').submit();"
           >
               {{ __('Logout') }}
@@ -38,6 +38,11 @@
           <form id="form_logout" method="POST" action="{{ route('logout') }}">
               @csrf
           </form>
+          <div>
+              <a href="{{route('dashboard',3)}}">
+                  Dashboard
+              </a>
+          </div>
         @endauth
     </div>
     <div> <!-- INIZIO div in header con la navbar1 (width 100%)-->
