@@ -1,21 +1,45 @@
 .homepage {
+  height: 755px;
+  // debug
+  // background-color: $white;
 
-  background-color: black;
-  height: 60%;
 
-  section#homepage-test {
+  section:only-of-type {
     width: 100%;
+    @include container(90%);
 
-    @include flex(row, center, center);
+    ul:first-of-type {
+      height: 400px;
+      @include flex(column, flex-end, null);
+      // debug
+      // background-color: $scottish-blue;
 
-    .container {
-      background-color: $scottish-blue;
-      @include container(90%);
-      @include flex(row, center, center);
-      height: 100px;
-    }
+      li:nth-child(1) {
+        @include flex(row, flex-start, space-envely);
 
-  }
+        a {
+          margin-top: 5px;
+        }
+
+        span {
+          @include flex(row, center, center);
+          width: 70px;
+          height: 40px;
+          border-radius: 5px;
+          margin-left: 20px;
+          font-size: 20px;
+          background-color: $black;
+          color: $white;
+        }
+      }
+
+      li:nth-child(2) {
+        font-size: 30px;
+      }
+
+    } // FINE DEL PRIMO UL
+
+  } // FINE DELL'UNICO SECTION FIGLIO DI HOMEPAGE
 
   .apartment-samples {
     font-size: 20px;

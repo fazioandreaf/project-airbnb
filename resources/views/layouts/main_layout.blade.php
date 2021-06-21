@@ -25,18 +25,19 @@
 
   <body>
 
-    <header>
-      @include('pages.components.header')
-    </header>
+    <section id="header-and-main"> <!-- INIZIO DI #header-and-main (usato per il background, vedi app.css) -->
+      <header>
+        @include('pages.components.header')
+      </header>
 
-    <main>
-      @yield('content')
-    </main>
+      <main>
+        @yield('content')
+      </main>
+    </section> <!-- FINE DI #header-and-main (usato per il background, vedi app.css) -->
 
     <footer>
       @include('pages.components.footer')
     </footer>
-
 
   </body>
 

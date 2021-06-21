@@ -3,32 +3,45 @@
 @section("content")
 
 <div class="homepage">
-  <section id="homepage-test">
-    <div class="container">
-      <h1>
+  <section>
+
+    <ul>
+
+      <li>
         <a href="{{route('login')}}">
-          THIS IS THE MAIN
+          <h1>BoolB&B</h1>
         </a>
-        {{-- a href="{{route('search')}}">Search advanced</a> --}}
-      </h1>
-    </div>
+        <span>2021</span>
+      </li>
+
+      <li>
+        <h2>Ti presentiamo<div>oltre 100 novità</div></h2>
+      </li>
+
+      {{-- a href="{{route('search')}}">Search advanced</a> --}}
+
+    </ul>
+
+
     {{-- rotta per la create --}}
     <a href="{{route('add')}}">
       <button style="width: 300px">
         NEW APARTMENT
       </button>
     </a>
+
   </section>
 
   <ul class="apartment-samples">
     @foreach ($apartments as $apartment)
       <li>
         <a href="{{route('apartment', $apartment->apartment_id)}}">
-            {{ $apartment->apartment_id }}
-            {{ $apartment->title }}
+          {{ $apartment->apartment_id }}
+          {{ $apartment->title }}
         </a>
       </li>
     @endforeach
   </ul>
+
 </div>
 @endsection

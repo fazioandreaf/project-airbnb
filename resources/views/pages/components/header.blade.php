@@ -6,7 +6,7 @@
 
       <span>
         <a href="{{route('homepage')}}">
-          <img src="{{asset('storage/assets/lg_color0.png')}}" alt="logo-image">
+          <img src="{{asset('storage/assets/lg_clr2.png')}}" alt="logo-image">
         </a>
       </span>
 
@@ -45,6 +45,7 @@
           </div>
         @endauth
     </div>
+
     <div> <!-- INIZIO div in header con la navbar1 (width 100%)-->
       <div class="navbar1"> <!-- INIZIO Navbar1 (width 70%)-->
 

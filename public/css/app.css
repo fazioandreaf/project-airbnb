@@ -1,7 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);header {
   width: 100%;
-  height: 25%;
-  background-color: #121212;
+  height: 200px;
 }
 
 .outer-container {
@@ -25,7 +24,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: #f6993f;
 }
 
 .bigger-header div:first-of-type span:first-of-type {
@@ -33,12 +31,15 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #e3342f;
 }
 
 .bigger-header div:first-of-type span:first-of-type img {
-  width: 100px;
-  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 80px;
 }
 
 .bigger-header div:first-of-type span:last-of-type {
@@ -46,7 +47,15 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #38c172;
+}
+
+.bigger-header div:first-of-type span:last-of-type a:first-of-type {
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.bigger-header div:first-of-type span:last-of-type a:first-of-type:hover {
+  background-color: #FFF;
 }
 
 .bigger-header div:first-of-type span:last-of-type a:nth-child(1) {
@@ -79,7 +88,6 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: #ffed4a;
 }
 
 .bigger-header div:last-of-type .navbar1 {
@@ -97,11 +105,14 @@
   width: calc(100% / 4);
   height: 100%;
   border-radius: 50px;
-  background-color: #ededed;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+.bigger-header div:last-of-type .navbar1 div:hover {
+  background-color: #ededed;
 }
 
 .bigger-header div:last-of-type .navbar1 div:nth-child(2) {
@@ -133,36 +144,142 @@
 }
 
 footer {
-  height: 15%;
-  background-color: #e3342f;
+  border-bottom: 1px solid rgba(50, 50, 50, 0.1);
+  border-opacity: 0.7;
+  height: 500px;
+  background-color: #f7f7f7;
+}
+
+footer .bigger-footer {
+  margin: 0 auto;
+  width: 90%;
+  height: 100%;
+}
+
+footer .bigger-footer div:nth-child(1) {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  height: 85%;
+  width: 100%;
+}
+
+footer .bigger-footer div:nth-child(1) section {
+  padding-top: 30px;
+  width: calc(100% / 4);
+  height: 100%;
+  line-height: 200%;
+  border-bottom: 1px solid rgba(50, 50, 50, 0.1);
+}
+
+footer .bigger-footer div:nth-child(1) section li a:hover {
+  text-decoration: underline;
+}
+
+footer .bigger-footer div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  height: 15%;
+  width: 100%;
+}
+
+footer .bigger-footer div:nth-child(2) ul {
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  width: calc(100% / 2);
+  height: 100%;
+}
+
+footer .bigger-footer div:nth-child(2) ul:first-of-type li {
+  margin-right: 20px;
+}
+
+footer .bigger-footer div:nth-child(2) ul:first-of-type li:nth-child(2):hover,
+footer .bigger-footer div:nth-child(2) ul:first-of-type li:nth-child(3):hover,
+footer .bigger-footer div:nth-child(2) ul:first-of-type li:nth-child(4):hover,
+footer .bigger-footer div:nth-child(2) ul:first-of-type li:nth-child(5):hover {
+  text-decoration: underline;
+}
+
+footer .bigger-footer div:nth-child(2) ul:last-of-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+footer .bigger-footer div:nth-child(2) ul:last-of-type li:nth-child(1) p,
+footer .bigger-footer div:nth-child(2) ul:last-of-type li:nth-child(2) p {
+  display: inline;
+  text-decoration: underline;
+}
+
+footer .bigger-footer div:nth-child(2) ul:last-of-type li:nth-child(1):hover,
+footer .bigger-footer div:nth-child(2) ul:last-of-type li:nth-child(2):hover,
+footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-facebook-f:hover,
+footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-twitter:hover,
+footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-instagram:hover {
+  opacity: 0.4;
+}
+
+footer .bigger-footer div:nth-child(2) ul:last-of-type li {
+  margin-right: 30px;
+}
+
+footer .bigger-footer div:nth-child(2) ul:last-of-type li:last-of-type {
+  margin: 0;
+}
+
+footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-facebook-f,
+footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-twitter,
+footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-instagram {
+  font-size: 18px;
 }
 
 .homepage {
-  background-color: black;
-  height: 60%;
+  height: 755px;
 }
 
-.homepage section#homepage-test {
+.homepage section:only-of-type {
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.homepage section#homepage-test .container {
-  background-color: #0065bd;
   margin: 0 auto;
   width: 90%;
+}
+
+.homepage section:only-of-type ul:first-of-type {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.homepage section:only-of-type ul:first-of-type li:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: space-envely;
+}
+
+.homepage section:only-of-type ul:first-of-type li:nth-child(1) a {
+  margin-top: 5px;
+}
+
+.homepage section:only-of-type ul:first-of-type li:nth-child(1) span {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  width: 70px;
+  height: 40px;
+  border-radius: 5px;
+  margin-left: 20px;
+  font-size: 20px;
+  background-color: #000;
+  color: #FFF;
+}
+
+.homepage section:only-of-type ul:first-of-type li:nth-child(2) {
+  font-size: 30px;
 }
 
 .homepage .apartment-samples {
@@ -208,5 +325,10 @@ li {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+#header-and-main {
+  background: url(/images/wallpaper.jpg?abdb21d0f378fe9f5f822fbe1d8d9d15) no-repeat;
+  background-size: 100vw 100vh;
 }
 

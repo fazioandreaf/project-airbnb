@@ -1,10 +1,11 @@
 header {
   width: 100%;
-  height: 25%;
+  height: 200px;
   // debug
-  background-color: $lighter-black;
+  // background-color: $lighter-black;
 }
 
+// div più esterno
 .outer-container {
   height: 100%;
   @include container(90%);
@@ -26,18 +27,18 @@ header {
 .bigger-header div:first-of-type {
   @include flex(row, space-between, null);
   // debug
-  background-color: $orange;
+  // background-color: $orange;
 
   // LOGO
   span:first-of-type {
     @include flex(row, center, center);
-
     // debug
-    background-color: $red;
+    // background-color: $red;
 
     img {
-      width: 100px;
-      height: 100px;
+      @include flex(row, center, center);
+      width: 150px;
+      height: 80px;
     }
   }
 
@@ -45,7 +46,16 @@ header {
   span:last-of-type {
     @include flex(row, center, center);
     // debug
-    background-color: $green;
+    // background-color: $green;
+
+    a:first-of-type {
+      padding: 10px;
+      border-radius: 30px;
+    }
+
+    a:first-of-type:hover {
+      background-color: $white;
+    }
 
     a:nth-child(1) {
       margin-right: 20px;
@@ -83,7 +93,7 @@ header {
   @include flex(row, center, center);
   width:100%;
   // debug
-  background-color: $yellow;
+  // background-color: $yellow;
 
   .navbar1 {
     @include flex(row, center, center);
@@ -96,8 +106,11 @@ header {
       width: calc(100% / 4);
       height: 100%;
       border-radius: 50px;
-      background-color: $navbar1-gray;
       @include flex(column, space-around, center);
+    }
+
+    div:hover {
+      background-color: $navbar1-gray;
     }
 
     div:nth-child(2) {
