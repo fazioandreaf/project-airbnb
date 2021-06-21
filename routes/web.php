@@ -36,10 +36,6 @@ Route::get('/apartment/{id}','MainController@showApartment')->name('apartment');
 //Messaggio inviato
 ROute::get('/send/{id}','MainController@send')-> name('send');
 
-// rotta registrazione
-Route::get('/login_ui','MainController@login_ui')->name('login_ui');
-Route::get('/register','MainController@register')->name('register');
-
 
 Route::get('/statistic/{id}', 'HomeController@statistic') -> name('statistic');
 Route::get('/dashboard/{id}', 'HomeController@dashboard') -> name('dashboard');

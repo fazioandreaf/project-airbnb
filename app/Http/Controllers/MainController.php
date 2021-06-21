@@ -46,17 +46,7 @@ class MainController extends Controller {
         return view('pages.apartment',compact('apartment','statistic','sponsors'));
     }
 
-
-
     // registrazione
-    public function login_ui()
-    {
-        return view('pages.login');
-    }
-    public function register()
-    {
-        return view('auth.register');
-    }
     public function search()
     {
         return view('pages.search');
