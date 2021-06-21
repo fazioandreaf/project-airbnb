@@ -27,10 +27,10 @@
     </section>
   </div>
 
-  <div class="outer-jumbotron">
-    <ul class="apartment-samples">
+  <div class="outer-jumbotron ">
+    <ul class="apartment-samples ">
       @foreach ($apartments as $apartment)
-      <li>
+      <li class="bollino">
         <a href="{{route('apartment', $apartment->id)}}">
           {{ $apartment->id }}
           {{ $apartment->title }}
