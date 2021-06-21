@@ -21,8 +21,8 @@ class MainController extends Controller {
     $apartments = DB::table('apartments')
                   ->join('apartment_sponsor', 'apartments.id' , '=', 'apartment_sponsor.apartment_id')
                   ->join('users', 'apartments.user_id' , '=', 'users.id')
-                  ->select('apartment_sponsor.*', 'apartments.*', 'users.*')
-                  ->where('apartment_sponsor.expire_date', '>', $now)
+                  ->select('apartment_sponsor.*', 'apartments.*')
+                  ->where('apartments.deleted_at', null)
                   ->get();
 
     return view('pages.homepage', compact('apartments'));
