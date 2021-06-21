@@ -35,7 +35,6 @@ class HomeController extends Controller {
                     ->select('apartments.*','users.*')
                     ->where('apartments.user_id','=',$user->id)
                     ->get();
-
         return view('pages.dashboard',compact('apartments','user'));
     }
     public function myapartment($id){

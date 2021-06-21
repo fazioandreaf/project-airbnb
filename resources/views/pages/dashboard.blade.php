@@ -1,5 +1,7 @@
 @extends('layouts.main_layout')
 @section('content')
+@if (count($apartments)!=0)
+
     <ul style="background-color: lightgray">
         @foreach ($apartments as $item)
 
@@ -26,8 +28,16 @@
         </li>
     </ul>
     <div>
-             <a style="margin:1.5rem;padding:1rem;background-color:blue" href="{{route('add',$user->id)}}">add</a>
     </div>
+    @else
+    <div style="height: 100px">
+        <span style="background-color: white">
+            non hai inserito ancora nessun appartmento
+        </span>
+    </div>
+    @endif
+    <a style="margin:1.5rem;padding:1rem;background-color:blue" href="{{route('add',$user->id)}}">add</a>
+
 
 
 
