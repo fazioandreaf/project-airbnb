@@ -39,5 +39,50 @@
       </li>
       @endforeach
     </ul>
-  </div>
+
+
+        {{-- a href="{{route('search')}}">Search advanced</a> --}}
+      </h1>
+    </div>
+
+    {{-- rotta per la create --}}
+    <a href="{{route('add')}}">
+      <button style="width: 300px">
+        NEW APARTMENT
+      </button>
+    </a>
+
+  </section>
+
+
+</div>
+
+<div class="outer-jumbotron">
+
+  <ul class="apartment-samples">
+    @foreach ($apartments as $apartment)
+    <li>
+      <a href="{{route('apartment', $apartment->id)}}">
+        {{ $apartment->id }}
+        {{ $apartment->title }}
+      </a>
+    </li>
+    @endforeach
+  </ul>
+
+</div>
+
+<div class="bolla">  
+  <ul class="apartment-samples bolla">
+  @foreach ($apartments as $apartment)
+    <li>
+      <a href="{{route('apartment', $apartment->id)}}">
+        {{ $apartment->id }}
+        {{ $apartment->title }}
+      </a>
+    </li>
+  @endforeach
+</ul>
+</div>
+
 @endsection
