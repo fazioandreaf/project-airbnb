@@ -5,20 +5,11 @@
 
       <div> <!-- Questo div è header con logo/diventaHost/Login -->
 
-        <span>
-          <a href="{{route('homepage')}}">
-            <img src="{{asset('storage/assets/lg_color0.png')}}" alt="logo-image">
-          </a>
-        </span>
-
-        <span>
-          <!-- LOGIN NO BOOTSTRAP - DA IMPLEMENTARE <UL><LI> ESSENDO UN MENU -->
-          @guest
-            @if (Route::has('register'))
-              <a href="{{ route('register') }}">
-                {{ __('Diventa un Host') }}
-              </a>
-            @endif
+      <span>
+        <a href="{{route('homepage')}}">
+          <img src="{{asset('images/lg_color0.png')}}" alt="logo-image">
+        </a>
+      </span>
 
             <a href="{{ route('login') }}">
               <i class="fas fa-bars"></i>

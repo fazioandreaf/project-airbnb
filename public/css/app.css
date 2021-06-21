@@ -386,7 +386,7 @@ footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-instagram {
   border: none;
 }
 
-.jumbotron .apartment-samples {
+.apartment-samples {
   font-size: 20px;
   margin: 0 auto;
   width: 90%;
@@ -395,12 +395,30 @@ footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-instagram {
   justify-content: space-between;
 }
 
-.jumbotron .apartment-samples li:nth-child(odd) {
+.apartment-samples li:nth-child(odd) {
   color: #e3342f;
 }
 
-.jumbotron .apartment-samples li:nth-child(even) {
+.apartment-samples li:nth-child(even) {
   color: #38c172;
+}
+
+.apartment-samples .flags {
+  width: 250px;
+  height: 250px;
+  background-color: purple;
+  border-radius: 10px;
+}
+
+.apartment-samples .flags a {
+  color: white;
+}
+
+.host {
+  width: 800px;
+  height: 300px;
+  background-color: purple;
+  border-radius: 10px;
 }
 
 .testDanny {
@@ -448,7 +466,7 @@ a {
 }
 
 #header-and-main {
-  background: url(/images/wallpaper.jpg?abdb21d0f378fe9f5f822fbe1d8d9d15) no-repeat;
+  background: url(/images/wallpaper.jpg) no-repeat;
   background-size: 100vw 100vh;
 }
 

@@ -52,17 +52,41 @@
 
   } // FINE DELL'UNICO SECTION FIGLIO DI HOMEPAGE
 
-  .apartment-samples {
-    font-size: 20px;
-    @include container(90%);
-    @include flex(row, space-between, null);
+  
+}
 
-    li:nth-child(odd) {
-      color: $red;
-    }
+.apartment-samples {
+  font-size: 20px;
+  @include container(90%);
+  @include flex(row, space-between, null);
 
-    li:nth-child(even) {
-      color: $green;
+  li:nth-child(odd) {
+    color: $red;
+  }
+
+  li:nth-child(even) {
+    color: $green;
+  }
+
+  .flags{
+    width: 250px;
+    height: 250px;
+    background-color: purple;
+    border-radius: 10px;
+    
+    a{
+      color: white;
     }
   }
+
 }
+
+.host{
+  width: 800px;
+  height: 300px;
+  background-color: purple;
+  border-radius: 10px;
+}
+
+
+
