@@ -35,8 +35,8 @@
   <ul class="apartment-samples">
     @foreach ($apartments as $apartment)
       <li>
-        <a href="{{route('apartment', $apartment->apartment_id)}}">
-          {{ $apartment->apartment_id }}
+        <a href="{{route('apartment', $apartment->id)}}">
+          {{ $apartment->id }}
           {{ $apartment->title }}
         </a>
       </li>
