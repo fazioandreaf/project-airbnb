@@ -47,8 +47,9 @@ class MainController extends Controller {
     }
 
     // registrazione
-    public function search()
+    public function search(Request $request)
     {
+        dd($request);
         $apartments=Apartment::all();
         return view('pages.search',compact('apartments'));
     }
