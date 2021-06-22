@@ -50,35 +50,34 @@
               {{-- <a href="#"> --}}
                 <label><h3>Dove</h3></label>
                 <input type="text" name="where" id="where"
-                 value="Dove vuoi andare?">
+                 value="" placeholder="all">
                 {{-- <p>Dove vuoi andare?</p> --}}
               </a>
             </div>
             <div>
               {{-- <a href="#"> --}}
                 <label><h3>Check-In</h3></label>
-                <input type="date" name="check-In" id="check"
-                 value="Aggiungi data">
+                <input type="date" name="check_in" id="check_in"
+                 value="check_in">
                 {{-- <p>Aggiungi data</p> --}}
               </a>
             </div>
             <div>
               {{-- <a href="#"> --}}
                 <label><h3>Check-Out</h3></label>
-                <input type="date" name="check-out" id="check-out"
-                 value="Aggiungi data">
+                <input type="date" name="check_out" id="check_out"
+                 value="check_out" >
                 {{-- <p>Aggiungi data</p> --}}
               </a>
             </div>
             <div>
               {{-- <a href="#"> --}}
                 <label><h3>Ospiti</h3></label>
-                <input type="number" name="ospiti" id="ospiti"
-                 value="Aggiungi ospiti" style="width: 50px;">
+                <input type="number" name="guest" id="guest"
+                 value="1" style="width: 50px;">
                 {{-- <p>Aggiungi ospiti</p> --}}
               </a>
               <button type="submit">
-
                       <i class="fas fa-search"></i>
               </button>
             </div>

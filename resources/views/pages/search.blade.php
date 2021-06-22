@@ -88,12 +88,27 @@
           </div> <!-- FINE SECONDO DIV DI DESTRA CON DESCRIZIONE -->
 
         </figure> <!-- FINE - QUESTA è la parte di sinistra con immagine e descrizione -->
+        <div>
+            Valori passati dalla ricerca<br>
+            <strong>dove</strong>
+            {{$request-> where}}<br>
+            <strong>check_in</strong>
+            {{$request-> check_in}}<br>
+            <strong>check_out</strong>
+            {{$request-> check_out}}<br>
+            <strong>guest</strong>
+            {{$request-> guest}}<br>
+
+
+
+
+        </div>
       </div>
     </div>
 
     <!-- INIZIO PARTE DI DESTRA CON IMMAGINE GRANDE (CALABRIA)-->
     <div class="right-section">
-      <!-- <img src="{{asset('storage/assets/calabria-test.jpg')}}" alt="calabria"> -->
+       <img src="{{asset('storage/assets/calabria-test.png')}}" alt="calabria">
     </div>
     <!-- FINE PARTE DI DESTRA CON IMMAGINE GRANDE (CALABRIA)-->
 
