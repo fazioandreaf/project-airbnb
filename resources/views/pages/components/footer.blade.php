@@ -4,9 +4,78 @@
     <ul class="footer-nav-links">
       <li>
         <h3>Informazioni</h3>
-      </li>      <li>
+      </li>
+
+      <li>
         <a href="#">
           Come funziona Airbnb
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          Newsroom
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          Investitori
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          Airbnb Plus
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          Airbnb Luxe
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          HotelTonight
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          Airbnb for Work
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          Grazie agli host puoi
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          Opportunità di lavoro
+        </a>
+      </li>
+
+      <li>
+        <h3>Informazioni</h3>
+      </li>      <li>
+        <a href="#">
+          Lettera dei fondatori
+        </a>
+      </li>
+    </ul>
+    <!-- Lista Community -->
+    <ul class="footer-nav-links">
+      <li>
+        <h3>Community</h3>
+      </li>
+      <li>
+        <a href="#">
+          Diversità e appartenenza
         </a>
       </li>      <li>
         <a href="#">
@@ -135,7 +204,9 @@
         </a>
       </li>
     </ul>
-  </div>  <div class="footer-bottom-section">
+  </div>
+
+  <div class="footer-bottom-section">
     <!-- Lista Informazioni Sito -->
     <ul id="site-infos" class="footer-nav-links">
       <li>
@@ -159,7 +230,9 @@
           · Dettagli dell'azienda
         </a>
       </li>
-    </ul>    <!-- Lista Social Links -->
+    </ul>
+
+    <!-- Lista Social Links -->
     <ul id="social-links" class="footer-nav-links">
       <li>
         <a href="#">

@@ -1,11 +1,13 @@
 @extends("layouts.main_layout")
 @section("content")
 
-    <form action="{{Route('add_function')}}" method="post"
+    <form
+        action="{{Route('add_function')}}"
+        method="POST"
         enctype="multipart/form-data">
 
         @csrf
-        @method('post')
+        @method('POST')
 
         <div style="text-align: center">
 
