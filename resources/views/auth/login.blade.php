@@ -13,7 +13,7 @@
                 <label for="email">
                     {{ __('E-mail')}}
                 </label>
-                
+
                 <input type="email" name="email" id="email" value="{{ old('email')}}" autocomplete="email" required>
             </div>
 
@@ -24,13 +24,7 @@
                 <input type="password" name="password" id="password" required>
             </div>
 
-            <div class="wrapper-form-fields">
-                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : ''}}>
 
-                <label for="remember">
-                    {{ __('Remember Me')}}
-                </label>
-            </div>
 
             <div class="wrapper-form-fields">
                 <button type="submit">

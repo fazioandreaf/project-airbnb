@@ -12,6 +12,21 @@
       </li>
       <li>
         <a href="#">
+          Lettera dei fondatori
+        </a>
+      </li>
+    </ul>
+    <!-- Lista Community -->
+    <ul class="footer-nav-links">
+      <li>
+        <h3>Community</h3>
+      </li>
+      <li>
+        <a href="#">
+          Diversità e appartenenza
+        </a>
+      </li>      <li>
+        <a href="#">
           Newsroom
         </a>
       </li>
@@ -154,7 +169,9 @@
         </a>
       </li>
     </ul>
-  </div>  <div class="footer-bottom-section">
+  </div>
+
+  <div class="footer-bottom-section">
     <!-- Lista Informazioni Sito -->
     <ul id="site-infos" class="footer-nav-links">
       <li>
@@ -182,7 +199,9 @@
           · Dettagli dell'azienda
         </a>
       </li>
-    </ul>    <!-- Lista Social Links -->
+    </ul>
+
+    <!-- Lista Social Links -->
     <ul id="social-links" class="footer-nav-links">
       <li>
         <a href="#">

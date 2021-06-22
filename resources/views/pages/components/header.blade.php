@@ -40,39 +40,49 @@
             </div>
           @endauth
       </div>
-
-
-      <div> <!-- INIZIO div in header con la navbar1 (width 100%)-->
-        <div class="navbar1"> <!-- INIZIO Navbar1 (width 70%)-->
-          <div>
-            <a href="#">
-              <h3>Dove</h3>
-              <p>Dove vuoi andare?</p>
-            </a>
-          </div>
-          <div>
-            <a href="#">
-              <h3>Check-In</h3>
-              <p>Aggiungi data</p>
-            </a>
-          </div>
-          <div>
-            <a href="#">
-              <h3>Check-Out</h3>
-              <p>Aggiungi data</p>
-            </a>
-          </div>
-          <div>
-            <a href="#">
-              <h3>Ospiti</h3>
-              <p>Aggiungi ospiti</p>
-            </a>
-            <a href="{{route('search')}}">
-              <i class="fas fa-search"></i>
-            </a>
-          </div>
-        </div> <!-- FINE Navbar1 (width 70%)-->
-      </div> <!-- FINE div in header con la navbar1 (width 100%)-->
-    </div> <!-- FINE DI BIGGER HEADER -->
-  </div> <!-- FINE DI OUTER CONTAINER -->
-</header> <!-- FINE DI #header-homepage -->
+    
+    <div> <!-- INIZIO div in header con la navbar1 (width 100%)-->
+      <div class="navbar1"> <!-- INIZIO Navbar1 (width 70%)-->
+        <form action="{{Route('search')}}" method="post" enctype="multipart/form-data" style="display:flex">
+        @method('post')
+        @csrf
+            <div>
+              {{-- <a href="#"> --}}
+                <label><h3>Dove</h3></label>
+                <input type="text" name="where" id="where"
+                 value="" placeholder="all">
+                {{-- <p>Dove vuoi andare?</p> --}}
+              </a>
+            </div>
+            <div>
+              {{-- <a href="#"> --}}
+                <label><h3>Check-In</h3></label>
+                <input type="date" name="check_in" id="check_in"
+                 value="check_in">
+                {{-- <p>Aggiungi data</p> --}}
+              </a>
+            </div>
+            <div>
+              {{-- <a href="#"> --}}
+                <label><h3>Check-Out</h3></label>
+                <input type="date" name="check_out" id="check_out"
+                 value="check_out" >
+                {{-- <p>Aggiungi data</p> --}}
+              </a>
+            </div>
+            <div>
+              {{-- <a href="#"> --}}
+                <label><h3>Ospiti</h3></label>
+                <input type="number" name="guest" id="guest"
+                 value="1" style="width: 50px;">
+                {{-- <p>Aggiungi ospiti</p> --}}
+              </a>
+              <button type="submit">
+                      <i class="fas fa-search"></i>
+              </button>
+            </div>
+        </form>
+      </div> <!-- FINE Navbar1 (width 70%)-->
+    </div> <!-- FINE div in header con la navbar1 (width 100%)-->
+  </div> <!-- END OF BIGGER HEADER -->
+</div> <!-- END OF OUTER CONTAINER -->
