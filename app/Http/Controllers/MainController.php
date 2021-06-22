@@ -49,9 +49,18 @@ class MainController extends Controller {
     // registrazione
     public function search(Request $request)
     {
-        dd($request->request);
+        // dd($request -> request);
+        // $validated=$request -> validate([
+
+        //     'where'=> 'nullable|string',
+        //     'check_in'=> 'nullable|date',
+        //     'check_out'=> 'nullable|date',
+        //     'guest'=> 'nullable|numeric',
+        // ]);
+        // dd(JSON.stringify($validated));
         $apartments=Apartment::all();
-        return view('pages.search',compact('apartments'));
+        // dd($apartments);
+        return view('pages.search',compact('apartments','request'));
     }
 
 
