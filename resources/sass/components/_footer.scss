@@ -1,6 +1,5 @@
 footer {
   border-bottom: 1px solid rgba(50, 50, 50, .1);
-  border-opacity: 0.7;
   height: 500px;
   background-color: $footer-gray;
 
@@ -8,16 +7,12 @@ footer {
   .bigger-footer {
     @include container(90%);
     height: 100%;
-    // debug
-    // background-color: red;
 
     // INIZIO primo div da 85% di height
     div:nth-child(1) {
       @include flex(row, null, null);
       height: 85%;
       width: 100%;
-      // debug
-      // background-color: blue;
 
       // tutte le sezioni assieme
       section {
@@ -30,32 +25,8 @@ footer {
         li a:hover {
           text-decoration: underline;
         }
+
       } // FINE di TUTTE LE SECTION
-
-      // (1)
-      section:first-of-type {
-        // debug
-        // background-color: navy;
-      }
-
-      // (2)
-      section:nth-child(2) {
-        // debug
-        // background-color: dodgerblue;
-      }
-
-      // (3)
-      section:nth-child(3) {
-        // debug
-        // background-color: royalblue;
-      }
-
-      // (4)
-      section:last-of-type {
-        // debug
-        // background-color: $scottish-blue;
-      }
-
 
     } // FINE primo div da 85% di height
 
@@ -68,22 +39,16 @@ footer {
       @include flex(row, null, null);
       height: 15%;
       width: 100%;
-      // debug
-      // background-color: green;
 
       // Tutti e due gli UL
       ul {
         @include flex(row, null, center);
         width: calc(100% / 2);
         height: 100%;
-        // debug
-        // background-color: purple;
       }
 
       // UL di sinistra
       ul:first-of-type {
-        // debug
-        // background-color: lime;
 
         li {
           margin-right: 20px;
@@ -100,8 +65,6 @@ footer {
       // UL di destra
       ul:last-of-type {
         @include flex(row, flex-end, center);
-        // debug
-        // background-color: coral;
 
         li:nth-child(1) p,
         li:nth-child(2) p {
