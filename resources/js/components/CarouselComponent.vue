@@ -17,10 +17,10 @@ export default {
     data: function() {
         return {
             images: [
-                "/storage/assets/evelyn-paris-XJnP4L958ds-unsplash.jpg",
+                "/storage/assets/neonbrand-iAftdIcgpFc-unsplash.jpg",
+                "/storage/assets/pexels-jean-van-der-meulen-1454806.jpg",
                 "/storage/assets/pexels-max-vakhtbovych-6758529.jpg",
-                "/storage/assets/r-architecture-CCjAPxoQWgQ-unsplash.jpg",
-                "/storage/assets/pexels-jean-van-der-meulen-1454806.jpg"
+                "/storage/assets/r-architecture-CCjAPxoQWgQ-unsplash.jpg"
             ],
 
             activeImage: 0

@@ -1925,7 +1925,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      images: ["/storage/assets/evelyn-paris-XJnP4L958ds-unsplash.jpg", "/storage/assets/pexels-max-vakhtbovych-6758529.jpg", "/storage/assets/r-architecture-CCjAPxoQWgQ-unsplash.jpg", "/storage/assets/pexels-jean-van-der-meulen-1454806.jpg"],
+      images: ["/storage/assets/neonbrand-iAftdIcgpFc-unsplash.jpg", "/storage/assets/pexels-jean-van-der-meulen-1454806.jpg", "/storage/assets/pexels-max-vakhtbovych-6758529.jpg", "/storage/assets/r-architecture-CCjAPxoQWgQ-unsplash.jpg"],
       activeImage: 0
     };
   },
@@ -50205,8 +50205,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\sviluppo\php\laravel-test\project-airbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\sviluppo\php\laravel-test\project-airbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Boolean\project-airbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Boolean\project-airbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
