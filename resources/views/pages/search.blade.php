@@ -131,7 +131,12 @@
             <strong>guest</strong>
             {{$request-> guest}}<br>
 
+            @foreach ($services as $item)
+            <strong>
 
+                {{$item->service}};
+            </strong>
+            @endforeach
 
 
         </div>

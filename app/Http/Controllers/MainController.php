@@ -51,8 +51,9 @@ class MainController extends Controller {
     {
         // dd($request->request);
         $apartments=Apartment::all();
+        $services=Service::all();
         // dd($apartments);
-        return view('pages.search',compact('apartments','request'));
+        return view('pages.search',compact('apartments','request','services'));
     }
 
 
