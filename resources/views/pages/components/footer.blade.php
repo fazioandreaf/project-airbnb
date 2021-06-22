@@ -5,64 +5,12 @@
       <li>
         <h3>Informazioni</h3>
       </li>
-
       <li>
         <a href="#">
           Come funziona Airbnb
         </a>
       </li>
-
       <li>
-        <a href="#">
-          Newsroom
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          Investitori
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          Airbnb Plus
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          Airbnb Luxe
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          HotelTonight
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          Airbnb for Work
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          Grazie agli host puoi
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          Opportunità di lavoro
-        </a>
-      </li>
-
-      <li>
-        <h3>Informazioni</h3>
-      </li>      <li>
         <a href="#">
           Lettera dei fondatori
         </a>
@@ -81,35 +29,43 @@
         <a href="#">
           Newsroom
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           Investitori
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           Airbnb Plus
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           Airbnb Luxe
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           HotelTonight
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           Airbnb for Work
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           Grazie agli host puoi
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           Opportunità di lavoro
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           Lettera dei fondatori
         </a>
@@ -155,23 +111,28 @@
         <a href="#">
           Diventa un host
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           Offri un'Esperienza online
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           Offri un'Esperienza
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           Ospitare responsabilmente
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           Centro Risorse
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           Community Center
         </a>
@@ -186,19 +147,23 @@
         <a href="#">
           La nostra risposta all'emergenza COVID-19
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           Centro Assistenza
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           Opzioni di cancellazione
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           Servizio di supporto al vicinato
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           Affidabilità e sicurezza
         </a>
@@ -213,19 +178,23 @@
         <a href="#">
           © 2021 BoolB&B, Inc.
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           · Privacy
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           · Termini
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           · Mappa del sito
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           · Dettagli dell'azienda
         </a>
@@ -239,20 +208,24 @@
           <i class="fas fa-globe"></i>
           <span>ITALIANO (IT)</span>
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           <i class="fas fa-euro-sign"></i>
           <span>EUR</span>
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           <i class="fab fa-facebook-f social"></i>
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           <i class="fab fa-twitter social"></i>
         </a>
-      </li>      <li>
+      </li>
+      <li>
         <a href="#">
           <i class="fab fa-instagram social"></i>
         </a>
