@@ -8,17 +8,24 @@
 // Components
 @import 'components/header';
 @import 'components/footer';
+@import 'components/search-header';
 
 // Pages
 @import 'pages/homepage';
 @import 'pages/myapartment';
-
+@import 'pages/register';
+@import 'pages/search';
 
 // RULES FOR THE WHOLE PAGES
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+
+  font-family: "Poppins", sans-serif;
 }
 
 li {

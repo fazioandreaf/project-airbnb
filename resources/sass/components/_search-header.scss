@@ -1,0 +1,120 @@
+#header-search {
+  height: 170px;
+  @include container(97%);
+
+  div {
+    height: 50%;
+    width: 100%;
+  }
+
+  .top-header-search {
+    @include flex(row, null, center);
+
+    div {
+      width:calc(100% / 3);
+    }
+
+    div:nth-child(1) {
+
+      img {
+        height: 150%;
+        width: 25%;
+      }
+    }
+
+    // INIZIO secondo div (scelte utente)
+    div:nth-child(2) {
+      @include flex(row, null, null);
+      height: 45px;
+
+      span {
+        @include flex(row, center, center);
+        width: calc(100% / 3);
+        // box-shadow: 1px 1px 1px grey;
+      }
+
+      // (1)
+      span:first-of-type {
+        border-radius: 50px 0 0 50px;
+        border: 0.5px solid rgba(50, 50, 50, .3);
+      }
+
+      // (2)
+      span:nth-child(2) {
+        border-top: 0.5px solid rgba(50, 50, 50, .3);
+        border-bottom: 0.5px solid rgba(50, 50, 50, .3);
+      }
+
+      // (3)
+      span:last-of-type {
+        @include flex(row, space-evenly, center);
+        border-radius: 0 50px 50px 0;
+        border: 0.5px solid rgba(50, 50, 50, .3);
+
+        a:last-of-type {
+          @include flex(row, center, center);
+          background-color: $fuchsia-search;
+          color: $white;
+          font-size: 20px;
+          width: 35px;
+          height: 35px;
+          border-radius: 100%;
+        }
+      }
+
+    } // fine secondo div (scelte utente)
+
+    div:nth-child(3) {
+      @include flex(row, flex-end, null);
+
+      a {
+        @include flex(row, space-evenly, center);
+      }
+
+      a:nth-child(1) {
+        margin: 15px 30px 0px 0px;
+      }
+
+      a:nth-child(2) {
+        font-size: 15px;
+        background-color: $white;
+        width: 90px;
+        height: 60px;
+        border-radius: 30px;
+        border: 1px solid rgba(50, 50, 50, .3);
+
+        // Icona utente (omino)
+        i:last-of-type {
+          color: $white;
+          background-color: $user-gray;
+          padding: 10px;
+          border-radius: 100%;
+        }
+
+      } // Ultima a-href con "hamburger" e "omino/utente"
+
+    }
+
+  } // fine di top-header search
+
+  .lower-header-search {
+    @include flex(row, null, null);
+
+    ul {
+      width: 100%;
+      @include flex(row, space-between, center);
+
+      li {
+        padding: 13px 13px;
+        border-radius: 30px;
+        border: 1px solid rgba(50, 50, 50, .3);
+      }
+
+      li:hover {
+        border: 1px solid black;
+      }
+    }
+
+  } // fine di lower-header search
+
+} // END of header-serch
