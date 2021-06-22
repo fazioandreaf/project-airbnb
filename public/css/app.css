@@ -19,6 +19,23 @@
      object-fit: cover;
 }
 
+.landing-header .wrapper-new-apartment {
+  color: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.landing-header .wrapper-new-apartment .button-link {
+  display: inline-block;
+  background-color: #ff385c;
+  padding: 20px;
+  border-radius: 10px;
+  color: #FFF;
+}
+
 .landing-header .navbar {
   background: linear-gradient(to bottom, #000 5%, transparent);
 }

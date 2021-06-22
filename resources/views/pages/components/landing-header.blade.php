@@ -93,4 +93,17 @@
             </div>
         </div>
     </nav>
+
+    <div class="wrapper-new-apartment">
+        <h1>
+            Bool B&amp;B
+        </h1>
+        <p class="apartment-text">
+            2021 <br>
+            Ti presentiamo oltre 100 novità
+        </p>
+        <a href="{{ route('add') }}" role="button" class="button-link">
+            Aggiungi un appartamento
+        </a>
+    </div>
 </header>

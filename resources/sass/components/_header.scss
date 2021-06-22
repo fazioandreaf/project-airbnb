@@ -20,6 +20,25 @@
     object-fit: cover;
   }
 
+  .wrapper-new-apartment {
+
+    color: $black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+
+    .button-link {
+
+      display: inline-block;
+      background-color: #ff385c;
+      padding: 20px;
+      border-radius: 10px;
+      color: $white;
+    }
+  }
+
   .navbar {
 
     background: linear-gradient(to bottom, $black 5%, transparent);
