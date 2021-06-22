@@ -24,7 +24,7 @@ footer {
           font-size: 14px;
           text-transform: uppercase;
         }
-  
+
         & > li a:hover {
           text-decoration: underline;
         }
@@ -35,7 +35,7 @@ footer {
     .footer-bottom-section {
       @include flex(row, null, center);
       width: 100%;
-      padding: 20px 0;
+      padding: 40px 0;
 
       // Tutti e due gli UL
       .footer-nav-links {
