@@ -676,7 +676,6 @@ section#section-register form .form-button {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
   width: 45%;
 }
 
@@ -697,7 +696,6 @@ section#section-register form .form-button {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
   width: 55%;
 }
 
@@ -771,7 +769,7 @@ section#section-register form .form-button {
 
 .search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(5) #div2-span5 {
   width: 40%;
-  align-self: flex-start;
+  align-self: flex-end;
 }
 
 .search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(5) #div2-span5 p:first-of-type {
