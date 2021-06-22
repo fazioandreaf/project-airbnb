@@ -23,7 +23,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- CDN maps -->
     <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.13.0/maps/maps.css'>
-    
+    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css'>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js"></script>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.1.2-public-preview.15/services/services-web.min.js"></script>
+    <!-- Turf.js -->
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+
   </head>
 
   <body>
