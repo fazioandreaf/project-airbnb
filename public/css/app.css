@@ -516,6 +516,7 @@ section#register-jumbotron {
 }
 
 section#register-jumbotron .jumbotron {
+  background-color: #000;
   height: 400px;
   display: flex;
   flex-direction: row;
