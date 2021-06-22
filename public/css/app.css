@@ -71,6 +71,7 @@
 }
 
 .bigger-header div:first-of-type span:first-of-type {
+  padding-top: 20px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -87,6 +88,7 @@
 }
 
 .bigger-header div:first-of-type span:last-of-type {
+  padding-top: 20px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -140,7 +142,7 @@
   justify-content: center;
   align-items: center;
   width: 70%;
-  height: 100%;
+  height: 80px;
   background-color: #FFF;
   border-radius: 50px;
 }
@@ -779,5 +781,10 @@ a {
 #header-and-main {
   background: url(/images/wallpaper.jpg) no-repeat;
   background-size: 100vw 100vh;
+}
+
+.test img {
+  width: 200px;
+  height: 200px;
 }
 

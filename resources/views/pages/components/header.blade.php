@@ -39,6 +39,8 @@
           </div>
         @endauth
     </div>
+
+    
     <div> <!-- INIZIO div in header con la navbar1 (width 100%)-->
       <div class="navbar1"> <!-- INIZIO Navbar1 (width 70%)-->
         <form action="{{Route('search',$apartment->id)}}" method="get" enctype="multipart/form-data" style="display:flex">
