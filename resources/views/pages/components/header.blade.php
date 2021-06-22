@@ -40,7 +40,6 @@
             </div>
           @endauth
       </div>
-
     
     <div> <!-- INIZIO div in header con la navbar1 (width 100%)-->
       <div class="navbar1"> <!-- INIZIO Navbar1 (width 70%)-->
