@@ -639,6 +639,7 @@ section#section-register form .form-button {
 .search-page .left-section {
   width: 45%;
   border-top: 1px solid rgba(50, 50, 50, 0.3);
+  overflow: auto;
 }
 
 .search-page .left-section div:first-of-type {
@@ -666,7 +667,7 @@ section#section-register form .form-button {
 .search-page .left-section div:first-of-type figure {
   display: flex;
   flex-direction: row;
-  overflow: auto;
+  border-bottom: 1px solid rgba(50, 50, 50, 0.3);
 }
 
 .search-page .left-section div:first-of-type figure div {
@@ -679,7 +680,6 @@ section#section-register form .form-button {
   justify-content: center;
   align-items: center;
   width: 45%;
-  background-color: red;
 }
 
 .search-page .left-section div:first-of-type figure div:first-of-type span {
@@ -689,7 +689,10 @@ section#section-register form .form-button {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: lime;
+}
+
+.search-page .left-section div:first-of-type figure div:first-of-type #immagine-bordo {
+  border: 1px solid black;
 }
 
 .search-page .left-section div:first-of-type figure div:last-of-type {
@@ -698,7 +701,6 @@ section#section-register form .form-button {
   justify-content: center;
   align-items: center;
   width: 55%;
-  background-color: green;
 }
 
 .search-page .left-section div:first-of-type figure div:last-of-type span {
@@ -706,8 +708,6 @@ section#section-register form .form-button {
   height: 90%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
 }
 
 .search-page .left-section div:first-of-type figure div:last-of-type span div {
@@ -723,34 +723,55 @@ section#section-register form .form-button {
 
 .search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type div:first-of-type {
   width: 90%;
-  background-color: #0065bd;
+}
+
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type div:first-of-type a {
+  align-self: flex-start;
 }
 
 .search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type div:last-of-type {
   width: 10%;
-  background-color: purple;
 }
 
-.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(2) {
-  background-color: pink;
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type div:last-of-type a {
+  align-self: flex-end;
+  font-size: 25px;
 }
 
-.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(3) {
-  background-color: brown;
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(2) a {
+  align-self: flex-start;
 }
 
-.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(4) {
-  background-color: silver;
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(3) a {
+  align-self: flex-start;
 }
 
-.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(5) div:first-of-type {
-  width: 70%;
-  background-color: #0065bd;
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(4) a {
+  align-self: flex-start;
 }
 
-.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(5) div:last-of-type {
-  width: 30%;
-  background-color: purple;
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(5) {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(5) #div1-span5 {
+  width: 60%;
+}
+
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(5) #div1-span5 a {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+}
+
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(5) #div2-span5 {
+  width: 40%;
+  align-self: flex-start;
+}
+
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(5) #div2-span5 p:first-of-type {
+  text-decoration: line-through;
 }
 
 .search-page .right-section {
