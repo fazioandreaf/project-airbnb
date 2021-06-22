@@ -104,7 +104,7 @@
 
                   <div id="div2-span5">
                     <div>
-                      <a href="#">
+                      <a href="#" style="text-align: right">
                         <p>(prezzo)€/notte</p>
                         <p>(prezzo scontato)€</p>
                       </a>

@@ -40,7 +40,7 @@
             }
 
             div:first-of-type {
-            @include flex(row, center, center);
+            @include flex(row, center, null);
             width: 45%;
 
             span {
@@ -60,7 +60,7 @@
 
             // INIZIO secondo div (destra - details)
             div:last-of-type {
-            @include flex(row, center, center);
+            @include flex(row, center, null);
             width: 55%;
 
             span {
@@ -84,33 +84,33 @@
                     div:first-of-type {
                     width: 90%;
 
-                    a {
+                      a {
                         align-self: flex-start;
-                    }
+                      }
                     }
 
                     div:last-of-type {
                     width: 10%;
 
-                    // QUESTO è IL CUORE ♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥
-                    a {
+                      // QUESTO è IL CUORE ♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥
+                      a {
                         align-self: flex-end;
                         font-size: 25px;
-                    }
+                      }
                     }
 
                     #scopri-di-piu {
-                        font-size: 15px;
-                        @include flex(row, null, null);
+                      font-size: 15px;
+                      @include flex(row, null, null);
 
-                } // FINE (1 SPAN) - PRIMA RIGA
+                    } // FINE (1 SPAN) - PRIMA RIGA
 
 
                 // INIZIO (2 SPAN) - SECONDA RIGA
                 span:nth-child(2) {
 
                     a {
-                    align-self: flex-start;
+                      align-self: flex-start;
                     }
 
                 } // INIZIO (2 SPAN) - SECONDA RIGA
@@ -120,7 +120,7 @@
                 span:nth-child(3) {
 
                     a {
-                    align-self: flex-start;
+                      align-self: flex-start;
                     }
                 }
 
@@ -129,7 +129,7 @@
                 span:nth-child(4) {
 
                     a {
-                    align-self: flex-start;
+                      align-self: flex-start;
                     }
                 }
 
@@ -149,12 +149,13 @@
                     } // fine primo div in span 5
 
                     #div2-span5 {
-                    width: 40%;
-                    align-self: flex-start;
+                      width: 40%;
+                      align-self: flex-end;
 
-                    p:first-of-type {
+                      p:first-of-type {
                         text-decoration: line-through;
-                    }
+                      }
+                      
                     } // fine ultimo div in span 5
 
                 } // fine span 5
