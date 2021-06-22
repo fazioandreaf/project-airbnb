@@ -12,21 +12,6 @@
       </li>
       <li>
         <a href="#">
-          Lettera dei fondatori
-        </a>
-      </li>
-    </ul>
-    <!-- Lista Community -->
-    <ul class="footer-nav-links">
-      <li>
-        <h3>Community</h3>
-      </li>
-      <li>
-        <a href="#">
-          Diversità e appartenenza
-        </a>
-      </li>      <li>
-        <a href="#">
           Newsroom
         </a>
       </li>
@@ -70,6 +55,7 @@
           Lettera dei fondatori
         </a>
       </li>
+    </ul>
     </ul>
     <!-- Lista Community -->
     <ul class="footer-nav-links">

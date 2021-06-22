@@ -3,6 +3,147 @@
   height: 200px;
 }
 
+.landing-header {
+  height: 100vh;
+  position: relative;
+}
+
+.landing-header > img {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.landing-header .wrapper-new-apartment {
+  color: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.landing-header .wrapper-new-apartment .button-link {
+  display: inline-block;
+  background-color: #ff385c;
+  padding: 20px;
+  border-radius: 10px;
+  color: #FFF;
+}
+
+.landing-header .navbar {
+  background: linear-gradient(to bottom, #000 5%, transparent);
+}
+
+.landing-header .navbar .container {
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing-header .navbar .nav-links {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.landing-header .navbar .nav-links #wrapper-logo {
+  flex-grow: 1;
+}
+
+.landing-header .navbar .nav-links .hamburger {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF;
+  padding: 10px;
+  border-radius: 25px;
+  font-size: 20px;
+}
+
+.landing-header .navbar .nav-links .hamburger > .icon {
+  margin: 0 5px;
+}
+
+.landing-header .navbar .nav-links .has-dropdown {
+  position: relative;
+}
+
+.landing-header .navbar .nav-links .has-dropdown .dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 2px);
+  left: calc(-50% - 20px);
+  background-color: #FFF;
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.landing-header .navbar .nav-links .has-dropdown:hover .dropdown {
+  display: block;
+}
+
+.landing-header .navbar .wrapper-search-bar {
+  padding: 20px 40px;
+  border-radius: 40px;
+}
+
+.landing-header .navbar .wrapper-search-bar .search-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-header .navbar .wrapper-search-bar .search-bar .wrapper-form-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+  background-color: #FFF;
+  padding: 20px;
+}
+
+.landing-header .navbar .wrapper-search-bar .search-bar .first {
+  padding-left: 150px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.landing-header .navbar .wrapper-search-bar .search-bar .last {
+  padding-right: 150px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.landing-header .navbar .wrapper-search-bar .search-bar input {
+  border: 0;
+}
+
+.landing-header .navbar .wrapper-search-bar .search-bar input:focus {
+  outline: 0;
+}
+
+.landing-header .navbar .wrapper-search-bar .search-bar .search {
+  padding: 20px;
+  background-color: #ff385c;
+  color: #FFF;
+  border: 0;
+  border-radius: 50%;
+}
+
 .register-header {
   background-color: #000;
   height: 100px;
@@ -209,11 +350,20 @@ footer .bigger-footer .footer-top-section {
   width: 100%;
   padding: 40px 0px;
   border-bottom: 1px solid rgba(50, 50, 50, 0.1);
+  padding: 40px 0;
 }
 
 footer .bigger-footer .footer-top-section .footer-nav-links {
   width: calc(100% / 4);
   line-height: 200%;
+<<<<<<< HEAD
+=======
+}
+
+footer .bigger-footer .footer-top-section .footer-nav-links h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+>>>>>>> Gioele
 }
 
 footer .bigger-footer .footer-top-section .footer-nav-links > li a:hover {
@@ -225,14 +375,21 @@ footer .bigger-footer .footer-bottom-section {
   flex-direction: row;
   align-items: center;
   width: 100%;
+<<<<<<< HEAD
   padding: 20px 0px;
+=======
+  padding: 20px 0;
+>>>>>>> Gioele
 }
 
 footer .bigger-footer .footer-bottom-section .footer-nav-links {
   display: flex;
   flex-direction: row;
   align-items: center;
+<<<<<<< HEAD
   height: 100%;
+=======
+>>>>>>> Gioele
 }
 
 footer .bigger-footer .footer-bottom-section .footer-nav-links h3 {
@@ -799,11 +956,6 @@ li {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-#header-and-main {
-  background: url(/images/wallpaper.jpg) no-repeat;
-  background-size: 100vw 100vh;
 }
 
 .test img {

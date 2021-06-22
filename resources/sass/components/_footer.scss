@@ -12,12 +12,19 @@ footer {
       width: 100%;
       padding: 40px 0px;
       border-bottom: 1px solid rgba(50, 50, 50, .1);
+      padding: 40px 0;
 
       // UL NAV LINKS
       .footer-nav-links {
         width: calc(100% / 4);
         line-height: 200%;
 
+        h3 {
+
+          font-size: 14px;
+          text-transform: uppercase;
+        }
+  
         & > li a:hover {
           text-decoration: underline;
         }
@@ -28,10 +35,9 @@ footer {
     .footer-bottom-section {
       @include flex(row, null, center);
       width: 100%;
-      padding: 20px 0px;
+      padding: 20px 0;
 
       // Tutti e due gli UL
-
       .footer-nav-links {
         @include flex(row, null, center);
         height: 100%;
