@@ -14,7 +14,6 @@ Route::get('pages/homepage', 'MainController@homepage') -> name('homepage');
 //Ricerca avanzata
 Route::post('/search', 'MainController@search') -> name('search');
 
-
 // // Rotte per add apartment
 Route::get('/add', 'HomeController@add') -> name('add');
 Route::post('/add_function', 'HomeController@add_function')->name('add_function');
