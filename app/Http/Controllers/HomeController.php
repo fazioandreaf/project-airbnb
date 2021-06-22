@@ -70,8 +70,17 @@ class HomeController extends Controller {
             'cover_image' => 'nullable',
             'user_id' => 'required',
         ]);
+
+        $img = $request -> file('cover_image');
+        $imgExt = $img -> getClientOriginalExtension();
+        $newNameImg = time() . rand(1,1000) . $imgExt;
+        $folder = '/apartment-img/';
+        $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
+        
         $service = Service::findOrFail($request -> get('service_id'));
-        $apartment = Apartment::create($validated);
+        $apartment = Apartment::create($validated);        
+        $apartment -> img = $newNameImg;
+
         $apartment->services()->attach($request-> get('service_id'));
         $apartment->save();
         return redirect()->route('homepage');
@@ -97,11 +106,19 @@ class HomeController extends Controller {
             'address' => 'required',
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
-            'cover_image' => 'nullable',
             'user_id' => 'required',
         ]);
 
+        $img = $request -> file('cover_image');
+        $imgExt = $img -> getClientOriginalExtension();
+        $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
+        $folder = '/apartment-img/';
+        $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
+
         $apartment = Apartment::findOrFail($id);
+        // dd($img,$imgExt,$newNameIme,$imgFile);
+        $apartment -> cover_image = $newNameImg;
+
         $apartment->update($validated);
         $apartment->services()->sync($request-> get('service_id'));
 
