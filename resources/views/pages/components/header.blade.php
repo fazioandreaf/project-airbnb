@@ -40,15 +40,15 @@
         @endauth
     </div>
 
-    
+
     <div> <!-- INIZIO div in header con la navbar1 (width 100%)-->
       <div class="navbar1"> <!-- INIZIO Navbar1 (width 70%)-->
-        <form action="{{Route('search',$apartment->id)}}" method="get" enctype="multipart/form-data" style="display:flex">
+        <form action="{{Route('search')}}" method="post" enctype="multipart/form-data" style="display:flex">
+        @method('post')
         @csrf
-        @method('get')
             <div>
               {{-- <a href="#"> --}}
-                <h3>Dove</h3>
+                <label><h3>Dove</h3></label>
                 <input type="text" name="where" id="where"
                  value="Dove vuoi andare?">
                 {{-- <p>Dove vuoi andare?</p> --}}
@@ -56,32 +56,30 @@
             </div>
             <div>
               {{-- <a href="#"> --}}
-                <h3>Check-In</h3>
-                <input type="date" name="where" id="where"
+                <label><h3>Check-In</h3></label>
+                <input type="date" name="check-In" id="check"
                  value="Aggiungi data">
                 {{-- <p>Aggiungi data</p> --}}
               </a>
             </div>
             <div>
               {{-- <a href="#"> --}}
-                <h3>Check-Out</h3>
-                <input type="date" name="where" id="where"
+                <label><h3>Check-Out</h3></label>
+                <input type="date" name="check-out" id="check-out"
                  value="Aggiungi data">
                 {{-- <p>Aggiungi data</p> --}}
               </a>
             </div>
             <div>
               {{-- <a href="#"> --}}
-                <h3>Ospiti</h3>
-                <input type="number" name="where" id="where"
+                <label><h3>Ospiti</h3></label>
+                <input type="number" name="ospiti" id="ospiti"
                  value="Aggiungi ospiti" style="width: 50px;">
                 {{-- <p>Aggiungi ospiti</p> --}}
               </a>
               <button type="submit">
 
-                    <a href="{{route('search')}}">
                       <i class="fas fa-search"></i>
-                  </a>
               </button>
             </div>
         </form>
