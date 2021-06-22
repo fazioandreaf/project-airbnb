@@ -5,20 +5,25 @@ footer {
   // CONTAINER FOOTER SECTIONS (85% - 15% HEIGHT)
   .bigger-footer {
     @include container(90%);
-    height: 100%;
 
     // INIZIO FOOTER TOP SECTION (85% HEIGHT)
     .footer-top-section {
       @include flex(row, null, flex-start);
       width: 100%;
       border-bottom: 1px solid rgba(50, 50, 50, .1);
+      padding: 40px 0;
 
       // UL NAV LINKS
       .footer-nav-links {
         width: calc(100% / 4);
         line-height: 200%;
-        border-bottom: 1px solid rgba(50, 50, 50, .1);
 
+        h3 {
+
+          font-size: 14px;
+          text-transform: uppercase;
+        }
+  
         & > li a:hover {
           text-decoration: underline;
         }
@@ -27,16 +32,13 @@ footer {
 
     //INIZIO FOOTER BOTTOM SECTION (15% HEIGHT)
     .footer-bottom-section {
-      @include flex(row, null, null);
-      height: 15%;
+      @include flex(row, null, center);
       width: 100%;
+      padding: 20px 0;
 
       // Tutti e due gli UL
-
       .footer-nav-links {
         @include flex(row, null, center);
-        width: calc(100% / 2);
-        height: 100%;
       }
 
       // SITE INFOS

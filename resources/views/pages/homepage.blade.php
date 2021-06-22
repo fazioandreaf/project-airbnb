@@ -3,7 +3,7 @@
 @section("content")
 
   <div class="jumbotron">
-    <section>
+
 
       <ul>
         <li>
@@ -24,7 +24,6 @@
           NEW APARTMENT
         </button>
       </a>
-    </section>
   </div>
 
   <div class="outer-jumbotron">

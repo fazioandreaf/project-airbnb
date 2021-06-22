@@ -3,6 +3,24 @@
   height: 200px;
 }
 
+//Header Landing Page
+.landing-header {
+
+  height: 100vh;
+  position: relative;
+  
+  & > img {
+
+    position: absolute; // IMPORTANTE
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
 // Header pagina Diventa un Host
 .register-header {
 
