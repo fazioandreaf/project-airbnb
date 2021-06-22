@@ -738,44 +738,51 @@ section#section-register form .form-button {
   font-size: 25px;
 }
 
-.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(2) a {
-  align-self: flex-start;
-}
-
-.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(3) a {
-  align-self: flex-start;
-}
-
-.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(4) a {
-  align-self: flex-start;
-}
-
-.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(5) {
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type #scopri-di-piu {
+  font-size: 15px;
   display: flex;
   flex-direction: row;
 }
 
-.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(5) #div1-span5 {
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(2) a {
+  align-self: flex-start;
+}
+
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(3) a {
+  align-self: flex-start;
+}
+
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(4) a {
+  align-self: flex-start;
+}
+
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(5) {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(5) #div1-span5 {
   width: 60%;
 }
 
-.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(5) #div1-span5 a {
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(5) #div1-span5 a {
   align-self: flex-start;
   display: flex;
   flex-direction: row;
 }
 
-.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(5) #div2-span5 {
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(5) #div2-span5 {
   width: 40%;
   align-self: flex-start;
 }
 
-.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(5) #div2-span5 p:first-of-type {
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(5) #div2-span5 p:first-of-type {
   text-decoration: line-through;
 }
 
-.search-page .right-section {
+.search-page .left-section .right-section {
   width: 55%;
+  background: url(/images/calabria-test.jpg?4f3f0566f0a670a66cec42ff3b36ae0f) no-repeat;
   background-size: cover;
 }
 
