@@ -351,3 +351,8 @@ a {
   background-size: 100vw 100vh;
 }
 
+.test img {
+  width: 200px;
+  height: 200px;
+}
+

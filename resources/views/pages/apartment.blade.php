@@ -30,6 +30,10 @@
             </form>
         </div>
 
+        <div class="test">
+            <img src="{{asset('storage/apartment-img/'.$apartment -> cover_image)}}" alt="">
+        </div>
+
         <ul>
             <li>
                 Stanza :
