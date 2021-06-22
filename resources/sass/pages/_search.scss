@@ -8,6 +8,7 @@
   .left-section {
     width: 45%;
     border-top: 1px solid rgba(50, 50, 50, .3);
+    overflow: auto;
 
     div:first-of-type {
       height:100%;
@@ -32,7 +33,7 @@
 
       figure {
         @include flex(row, null, null);
-        overflow: auto;
+        border-bottom: 1px solid rgba(50, 50, 50, .3);
 
         div {
           height: 200px;
@@ -41,15 +42,16 @@
         div:first-of-type {
           @include flex(row, center, center);
           width: 45%;
-          // debug
-          background-color: red;
 
           span {
             width: 100%;
             height: 90%;
             // debug
             @include flex(row, center, center);
-            background-color: lime;
+          }
+
+          #immagine-bordo {
+            border: 1px solid black;
           }
 
         } // FINE primo div (sinistra - IMG)
@@ -60,14 +62,12 @@
         div:last-of-type {
           @include flex(row, center, center);
           width: 55%;
-          // debug
-          background-color: green;
 
           span {
             width: 95%;
             height: 90%;
             // debug
-            @include flex(row, center, center);
+            @include flex(row, null, null);
 
             div {
               height: 100%;
@@ -78,59 +78,87 @@
                 height:calc(100% / 5);
               }
 
-              // INIZIO (1 SPAN)
+              // INIZIO (1 SPAN) - PRIMA RIGA
               span:first-of-type {
 
                 div:first-of-type {
                   width: 90%;
-                  // debug
-                  background-color: $scottish-blue;
+
+                  a {
+                    align-self: flex-start;
+                  }
                 }
 
                 div:last-of-type {
                   width: 10%;
-                  // debug
-                  background-color: purple;
+
+                  // QUESTO è IL CUORE ♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥
+                  a {
+                    align-self: flex-end;
+                    font-size: 25px;
+                  }
                 }
 
 
-              } // FINE (1 SPAN)
+              } // FINE (1 SPAN) - PRIMA RIGA
 
-              // (2)
+
+              // INIZIO (2 SPAN) - SECONDA RIGA
               span:nth-child(2) {
-                // debug
-                background-color: pink;
-              }
+
+                a {
+                  align-self: flex-start;
+                }
+
+              } // INIZIO (2 SPAN) - SECONDA RIGA
+
 
               // (3)
               span:nth-child(3) {
-                // debug
-                background-color: brown;
+
+                a {
+                  align-self: flex-start;
+                }
               }
+
 
               // (4)
               span:nth-child(4) {
-                // debug
-                background-color: silver;
+
+                a {
+                  align-self: flex-start;
+                }
               }
+
 
               // (5)
               span:nth-child(5) {
+                @include flex(row, null, null);
 
-                div:first-of-type {
-                  width: 70%;
-                  // debug
-                  background-color: $scottish-blue;
-                }
+                #div1-span5 {
+                  width: 60%;
 
-                div:last-of-type {
-                  width: 30%;
-                  // debug
-                  background-color: purple;
-                }
-              }
-            }
-          }
+                  a {
+                    align-self: flex-start;
+                    @include flex(row, null, null);
+                  }
+
+                } // fine primo div in span 5
+
+                #div2-span5 {
+                  width: 40%;
+                  align-self: flex-start;
+
+                  p:first-of-type {
+                    text-decoration: line-through;
+                  }
+                } // fine ultimo div in span 5
+
+              } // fine span 5
+
+            } // FINE DIV che mette gli span che contiene in colonna
+
+          } // FINE SPAN che Riduce altezza e larghezza
 
         } // FINE secondo div (destra - details)
 
