@@ -1,26 +1,26 @@
 footer {
   border-bottom: 1px solid rgba(50, 50, 50, .1);
-  height: 500px;
   background-color: $footer-gray;
 
   // CONTAINER FOOTER SECTIONS (85% - 15% HEIGHT)
   .bigger-footer {
     @include container(90%);
-    height: 100%;
+
+    & > * {
+
+      padding: 20px 0;
+    }
 
     // INIZIO FOOTER TOP SECTION (85% HEIGHT)
     .footer-top-section {
-      @include flex(row, null, null);
-      height: 85%;
+      @include flex(row, null, flex-start);
       width: 100%;
+      border-bottom: 1px solid rgba(50, 50, 50, .1);
 
       // UL NAV LINKS
       .footer-nav-links {
-        padding-top: 30px;
         width: calc(100% / 4);
-        height: 100%;
         line-height: 200%;
-        border-bottom: 1px solid rgba(50, 50, 50, .1);
 
         & > li a:hover {
           text-decoration: underline;
@@ -30,19 +30,17 @@ footer {
     
     //INIZIO FOOTER BOTTOM SECTION (15% HEIGHT)
     .footer-bottom-section {
-      @include flex(row, null, null);
-      height: 15%;
+      @include flex(row, null, center);
       width: 100%;
 
       // Tutti e due gli UL
       .footer-nav-links {
         @include flex(row, null, center);
-        width: calc(100% / 2);
-        height: 100%;
       }
 
       // SITE INFOS
       #site-infos {
+        flex-grow: 1;
 
         li {
           margin-right: 20px;
@@ -64,7 +62,6 @@ footer {
         }
 
         span {
-
           text-decoration: underline;
         }
 
@@ -76,12 +73,10 @@ footer {
           margin: 0 15px;
 
           &:last-child {
-
             margin-right: 0;
           }
         }
       } 
     }
   } // END BIGGER FOOTER
-
 } // fine di footer
