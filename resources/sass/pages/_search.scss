@@ -2,7 +2,7 @@
     @include flex(row, null, null);
     width: 100%;
     // debug
-    height: 82.3vh;
+    height: 83.3vh;
 
 
     .left-section {
@@ -155,7 +155,7 @@
                       p:first-of-type {
                         text-decoration: line-through;
                       }
-                      
+
                     } // fine ultimo div in span 5
 
                 } // fine span 5
@@ -174,8 +174,9 @@
 
   .right-section {
     width: 55%;
+    height: 100%;
     background: url(../../../storage/app/public/assets/calabria-test.jpg)no-repeat;
-    background-size: cover;
+    background-size: contain;
 
   } // FINE del contenitore di destra
 
