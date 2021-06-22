@@ -70,7 +70,6 @@
 
   // LOGO
   span:first-of-type {
-    padding-top: 20px;
     @include flex(row, center, center);
 
     img {
