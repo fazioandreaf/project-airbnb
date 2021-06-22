@@ -36,10 +36,41 @@
     </div>
 
     <div>
-      HEADER 3
+      @guest
+        @if (Route::has('register'))
+          <a href="{{ route('register') }}">
+            {{ __('Diventa un Host') }}
+          </a>
+        @endif
+        <a href="{{ route('login') }}">
+          <i class="fas fa-bars"></i>
+          <i class="fas fa-user"></i>
+        </a>
+      @endguest
+      @auth
+        <a href="#">
+          {{ Auth::user()->name }}
+        </a>
+        <a href="{{ route('logout')}}" onclick="
+            event.preventDefault();
+            document.getElementById('form_logout').submit();"
+        >
+            {{ __('Logout') }}
+        </a>
+        <form id="form_logout" method="POST" action="{{ route('logout') }}">
+            @csrf
+        </form>
+        <div>
+            <a href="{{route('dashboard',Auth::id())}}">
+                Dashboard
+            </a>
+        </div>
+      @endauth
     </div>
 
   </div>
+
+  <!-- SECONDA PARTE DI HEADER-SEARCH -->
 
   <div class="lower-header-search">
 
@@ -47,85 +78,85 @@
 
       <li>
         <a href="#">
-          1
+          <p>Prezzo &#160;<i class="fas fa-angle-down"></i></p>
         </a>
       </li>
 
       <li>
         <a href="#">
-          2
+          <p>Tipo di alloggio &#160;<i class="fas fa-angle-down"></i></p>
         </a>
       </li>
 
       <li>
         <a href="#">
-          3
+          <p>Lungo la spiaggia</p>
         </a>
       </li>
 
       <li>
         <a href="#">
-          4
+          <p>Piscina</p>
         </a>
       </li>
 
       <li>
         <a href="#">
-          5
+          <p>Cucina</p>
         </a>
       </li>
 
       <li>
         <a href="#">
-          6
+          <p>Parcheggio gratuito</p>
         </a>
       </li>
 
       <li>
         <a href="#">
-          7
+          <p>Aria condizionata</p>
         </a>
       </li>
 
       <li>
         <a href="#">
-          8
+          <p>Animali domestici ammessi</p>
         </a>
       </li>
 
       <li>
         <a href="#">
-          9
+          <p>Lavatrice</p>
         </a>
       </li>
 
       <li>
         <a href="#">
-          10
+          <p>Wi-fi</p>
         </a>
       </li>
 
       <li>
         <a href="#">
-          11
+          <p>Palestra</p>
         </a>
       </li>
 
       <li>
         <a href="#">
-          12
+          <p>Colazione</p>
         </a>
       </li>
 
       <li>
         <a href="#">
-          13
+          <p>Spazio di lavoro</p>
         </a>
       </li>
 
       <li>
         <a href="#">
-          14
+          <p>Filtri</p>
         </a>
       </li>
 

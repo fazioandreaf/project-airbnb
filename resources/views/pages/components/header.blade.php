@@ -2,7 +2,7 @@
   <div class="bigger-header">    <div> <!-- Questo div è header con logo/diventaHost/Login -->
     <span>
         <a href="{{route('homepage')}}">
-          <img src="{{asset('images/lg_color0.png')}}" alt="logo-image">
+          <img src="{{asset('storage/assets/lg_color0.png')}}" alt="logo-image">
         </a>
       </span>
       <span>
@@ -37,7 +37,7 @@
               </a>
           </div>
         @endauth
-    </div>    
+    </div>
     <div> <!-- INIZIO div in header con la navbar1 (width 100%)-->
       <div class="navbar1"> <!-- INIZIO Navbar1 (width 70%)-->
         <div>
@@ -62,7 +62,8 @@
           <a href="#">
             <h3>Ospiti</h3>
             <p>Aggiungi ospiti</p>
-          </a>          <a href="{{route('search')}}">
+          </a>
+          <a href="{{route('search')}}">
             <i class="fas fa-search"></i>
           </a>
         </div>

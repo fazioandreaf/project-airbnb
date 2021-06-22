@@ -1,15 +1,149 @@
 .search-page {
-  height: 100%;
+  @include flex(row, null, null);
   width: 100%;
-  font-size: 25px;
+  // debug
+  height: 82.3vh;
 
-  .upper-section {
-    background-color: lime;
-    color: navy;
-  }
 
-  .lower-section {
-    background-color: blue;
-    color: lime;
-  }
-}
+  .left-section {
+    width: 45%;
+    border-top: 1px solid rgba(50, 50, 50, .3);
+
+    div:first-of-type {
+      height:100%;
+      @include container(95%);
+
+      ul {
+        margin-top: 30px;
+        line-height: 200%;
+        border-bottom: 1px solid rgba(50, 50, 50, .3);
+
+        #scopri-di-piu {
+          font-size: 15px;
+          @include flex(row, null, null);
+
+          a:last-of-type {
+            text-decoration: underline;
+          }
+
+        }
+
+      } // fine UL
+
+      figure {
+        @include flex(row, null, null);
+        overflow: auto;
+
+        div {
+          height: 200px;
+        }
+
+        div:first-of-type {
+          @include flex(row, center, center);
+          width: 45%;
+          // debug
+          background-color: red;
+
+          span {
+            width: 100%;
+            height: 90%;
+            // debug
+            @include flex(row, center, center);
+            background-color: lime;
+          }
+
+        } // FINE primo div (sinistra - IMG)
+
+        // ALTRA SEZIONE----------------------
+
+        // INIZIO secondo div (destra - details)
+        div:last-of-type {
+          @include flex(row, center, center);
+          width: 55%;
+          // debug
+          background-color: green;
+
+          span {
+            width: 95%;
+            height: 90%;
+            // debug
+            @include flex(row, center, center);
+
+            div {
+              height: 100%;
+              width: 100%;
+              @include flex(column, null, null);
+
+              span {
+                height:calc(100% / 5);
+              }
+
+              // INIZIO (1 SPAN)
+              span:first-of-type {
+
+                div:first-of-type {
+                  width: 90%;
+                  // debug
+                  background-color: $scottish-blue;
+                }
+
+                div:last-of-type {
+                  width: 10%;
+                  // debug
+                  background-color: purple;
+                }
+
+
+              } // FINE (1 SPAN)
+
+              // (2)
+              span:nth-child(2) {
+                // debug
+                background-color: pink;
+              }
+
+              // (3)
+              span:nth-child(3) {
+                // debug
+                background-color: brown;
+              }
+
+              // (4)
+              span:nth-child(4) {
+                // debug
+                background-color: silver;
+              }
+
+              // (5)
+              span:nth-child(5) {
+
+                div:first-of-type {
+                  width: 70%;
+                  // debug
+                  background-color: $scottish-blue;
+                }
+
+                div:last-of-type {
+                  width: 30%;
+                  // debug
+                  background-color: purple;
+                }
+              }
+            }
+          }
+
+        } // FINE secondo div (destra - details)
+
+      } // FINE del contenitore FIGURE
+
+    } // fine del div che contiene ul (sopra) e figure (tutti le immagini/descrizioni)
+
+  } // FINE del contenitore di sinistra
+
+  .right-section {
+    width: 55%;
+    background: url(../../../storage/app/public/assets/calabria-test.jpg)no-repeat;
+    background-size: cover;
+  } // FINE del contenitore di destra
+
+} // FINE di search-page
