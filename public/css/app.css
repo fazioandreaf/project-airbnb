@@ -630,6 +630,10 @@ section#section-register form .form-button {
   height: 82.3vh;
 }
 
+.search-page > div {
+  flex: 1;
+}
+
 .search-page .left-section {
   width: 45%;
   border-top: 1px solid rgba(50, 50, 50, 0.3);
@@ -778,6 +782,11 @@ section#section-register form .form-button {
   width: 55%;
   background: url(/images/calabria-test.jpg?4f3f0566f0a670a66cec42ff3b36ae0f) no-repeat;
   background-size: cover;
+}
+
+.search-page .right-section .map {
+  height: 100%;
+  width: 100%;
 }
 
 * {

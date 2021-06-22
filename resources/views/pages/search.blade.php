@@ -140,7 +140,17 @@
 
     <!-- INIZIO PARTE DI DESTRA CON IMMAGINE GRANDE (CALABRIA)-->
     <div class="right-section">
-       <img src="{{asset('storage/assets/calabria-test.png')}}" alt="calabria">
+           <div id='map' class='map'></div>
+           <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.13.0/maps/maps-web.min.js'></script>
+            <script>
+                var map = tt.map({
+                    key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
+                    container: 'map',
+                    // dragPan: !isMobileOrTablet()
+                });
+                map.addControl(new tt.FullscreenControl());
+                map.addControl(new tt.NavigationControl());
+            </script>
     </div>
     <!-- FINE PARTE DI DESTRA CON IMMAGINE GRANDE (CALABRIA)-->
 
