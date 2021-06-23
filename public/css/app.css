@@ -462,7 +462,19 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   border: none;
 }
 
-.apartment-samples {
+.outer-jumbotron {
+  margin: 10px auto;
+  width: 90%;
+  height: auto;
+  text-align: center;
+}
+
+.outer-jumbotron .title-outer-jmb {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.outer-jumbotron .apartment-samples {
   font-size: 20px;
   margin: 0 auto;
   width: 90%;
@@ -471,30 +483,70 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   justify-content: space-between;
 }
 
-.apartment-samples li:nth-child(odd) {
+.outer-jumbotron .apartment-samples li:nth-child(odd) {
   color: #e3342f;
 }
 
-.apartment-samples li:nth-child(even) {
+.outer-jumbotron .apartment-samples li:nth-child(even) {
   color: #38c172;
 }
 
-.apartment-samples .flags {
-  width: 250px;
-  height: 250px;
+.outer-jumbotron .apartment-samples .flags {
+  width: 220px;
+  height: 220px;
   background-color: purple;
   border-radius: 10px;
+  display: flex;
+  align-items: flex-end;
 }
 
-.apartment-samples .flags a {
+.outer-jumbotron .apartment-samples .flags a {
   color: white;
+  padding: 10px;
 }
 
-.host {
-  width: 800px;
+.outer-jumbotron .section-host {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+.outer-jumbotron .section-host .host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
   height: 300px;
-  background-color: purple;
+  background-image: url(/images/diventaHost.png) no-repeat;
+  color: black;
   border-radius: 10px;
+  padding: 20px;
+  text-align: start;
+  border: 1px solid black;
+}
+
+.outer-jumbotron .section-host .host .h1-host {
+  margin-bottom: 5px;
+}
+
+.outer-jumbotron .section-host .host .p-host {
+  margin: 5px 0;
+}
+
+.outer-jumbotron .section-host .host .btn-host_hmpages {
+  width: 100px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.outer-jumbotron .section-host .host .img-host {
+  width: 50px;
+  height: auto;
 }
 
 .testDanny {

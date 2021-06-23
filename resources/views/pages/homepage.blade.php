@@ -28,27 +28,40 @@
   </div>
 
   <div class="outer-jumbotron">
-    <h3>Una casa ovunque nel mondo</h3>
-    <ul class="apartment-samples ">
+    <h3 class="title-outer-jmb">
+      Cerca tra i preferiti
+    </h3>
+    <ul class="apartment-samples">
       @foreach ($apartments as $apartment)
-      <li class="flags">
-        <a href="{{route('apartment', $apartment->id)}}">
-          {{ $apartment->id }}
-          {{ $apartment->title }}
-        </a>
+      <li>
+        <div class="flags">
+          <a href="{{route('apartment', $apartment->id)}}">
+            {{ $apartment->id }}
+            {{ $apartment->title }}
+          </a>
+          
+        </div>
+        
       </li>
       @endforeach
     </ul>
+
+  <div class="section-host" >
+
+    <div class="host">
+      <h1 class="h1-host">
+        Diventa un Host
+      </h1>
+      <p class="p-host">
+        Condividi il tuo spazio per guadagnare in più e cogliere nuove opportunità.
+      </p>
+      <button class="btn-host_hmpages" >
+        Scopri di più
+      </button>
+    </div>
   </div>
 
-  <div>
-    <h1>Regalati un Esperienza</h1>
-    <p>che il tuo viaggio non sia solo un sogno</p>
   </div>
 
-  <div class="host">
-    <h1>Diventa un Host</h1>
-    <p>Condividi il tuo spazio per guadagnare in più e cogliere nuove opportunità.</p>
-    <button>Scopri di più</button>
-  </div>
+  
 @endsection
