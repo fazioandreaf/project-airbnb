@@ -48,7 +48,6 @@
 
   } // FINE DELL'UNICO SECTION FIGLIO DI HOMEPAGE
 
-
 }
 
 .outer-jumbotron{
@@ -66,15 +65,15 @@
     @include container(90%);
     @include flex(row, space-between, null);
 
-  
+
     li:nth-child(odd) {
       color: $red;
     }
-  
+
     li:nth-child(even) {
       color: $green;
     }
-  
+
     .flags{
       width: 220px;
       height: 220px;
@@ -82,32 +81,20 @@
       border-radius: 10px;
       display: flex;
       align-items: flex-end;
-  
+
       a{
         color: white;
         padding: 10px ;
       }
-
-  .flags{
-    width: 250px;
-    height: 250px;
-    background-color: purple;
-    border-radius: 10px;
-
-    a{
-      color: white;
-    }
-  
-  }
 
   .section-host{
     display: flex;
     justify-content: center;
     margin-top: 80px;
     margin-bottom: 40px;
-  
-  
-    .host{    
+
+
+    .host{
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -127,7 +114,7 @@
       .p-host{
         margin: 5px 0;
       }
-      
+
       .btn-host_hmpages{
         width: 100px;
         height: 30px;
@@ -144,4 +131,6 @@
       }
     }
   }
+}
+}
 }
