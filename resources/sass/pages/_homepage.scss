@@ -60,6 +60,7 @@
     margin-top: 50px;
     margin-bottom: 30px;
   }
+  
   .apartment-samples {
     font-size: 20px;
     @include container(90%);
@@ -86,17 +87,7 @@
         color: white;
         padding: 10px ;
       }
-
-  .flags{
-    width: 250px;
-    height: 250px;
-    background-color: purple;
-    border-radius: 10px;
-
-    a{
-      color: white;
     }
-  
   }
 
   .section-host{
