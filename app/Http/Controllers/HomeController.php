@@ -39,12 +39,8 @@ class HomeController extends Controller {
     }
     public function myapartment($id){
         $user = User::findOrFail($id);
-        $apartments=DB::table('apartments')
-            ->join('users','apartments.user_id','=','users.id')
-            ->select('apartments.*','users.*')
-            ->where('apartments.user_id','=',$id)
-            ->get();
-            // dd($apartments);
+        $apartments = Apartment::where('user_id','=',$id )
+                    ->get();
         return view('pages.myapartment',compact('apartments', 'user'));
     }
     // nuovo appartamento
@@ -56,8 +52,6 @@ class HomeController extends Controller {
     }
     public function add_function(Request $request)
     {
-        // da completare,
-        // manca l'immagine
         $validated = $request -> validate([
             'title' => 'required|max:128|min:4',
             'number_rooms' => 'required|numeric',
@@ -71,15 +65,17 @@ class HomeController extends Controller {
             'user_id' => 'required',
         ]);
 
-        $img = $request -> file('cover_image');
-        $imgExt = $img -> getClientOriginalExtension();
-        $newNameImg = time() . rand(1,1000) . $imgExt;
-        $folder = '/apartment-img/';
-        $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
-        
         $service = Service::findOrFail($request -> get('service_id'));
         $apartment = Apartment::create($validated);        
-        $apartment -> img = $newNameImg;
+
+        $img = $request -> file('cover_image');
+        if ($img == !null) {
+            $imgExt = $img -> getClientOriginalExtension();
+            $newNameImg = time() . rand(1,1000) . $imgExt;
+            $folder = '/apartment-img/';
+            $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
+            $apartment -> img = $newNameImg;
+        }
 
         $apartment->services()->attach($request-> get('service_id'));
         $apartment->save();
@@ -91,8 +87,7 @@ class HomeController extends Controller {
     {
         $apartment = Apartment::findOrFail($id);
         $services = Service::all();
-        $sponsors = Sponsor::all();
-        return view('pages.edit',compact('apartment','services','sponsors'));
+        return view('pages.edit',compact('apartment','services'));
     }
     // update apartment
     public function edit_function(Request $request, $id)
@@ -108,16 +103,16 @@ class HomeController extends Controller {
             'longitude' => 'required|numeric',
             'user_id' => 'required',
         ]);
-
-        $img = $request -> file('cover_image');
-        $imgExt = $img -> getClientOriginalExtension();
-        $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
-        $folder = '/apartment-img/';
-        $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
-
+        
         $apartment = Apartment::findOrFail($id);
-        // dd($img,$imgExt,$newNameIme,$imgFile);
-        $apartment -> cover_image = $newNameImg;
+        $img = $request -> file('cover_image');
+        if ($img == !null) {
+            $imgExt = $img -> getClientOriginalExtension();
+            $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
+            $folder = '/apartment-img/';
+            $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
+            $apartment -> cover_image = $newNameImg;
+        }
 
         $apartment->update($validated);
         $apartment->services()->sync($request-> get('service_id'));
