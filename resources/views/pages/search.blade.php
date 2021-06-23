@@ -36,8 +36,8 @@
 
           <div style='margin: 30px 0px'> <!-- INIZIO PRIMO DIV DI SINISTRA CON MINI-IMMAGINE -->
             <span id="immagine-bordo">
-              <a href="#">
-                <img src="" alt="immagine-qui">
+              <a href="#" style="height: 100%;width: 100%;">
+                <img src="{{$apartments[3]->cover_image}}" alt="immagine-qui" style="width: 100%;height: 100%;">
               </a>
             </span>
           </div> <!-- FINE PRIMO DIV DI SINISTRA CON MINI-IMMAGINE -->
@@ -133,16 +133,20 @@
 
             @foreach ($services as $item)
             <strong>
-
                 {{$item->service}};
             </strong>
             @endforeach
-            <a href="#" onclick="prova()">Prova</a>
+            {{$apartments[0]}}
+            <a href="#" onclick="makemarker(15.06619,37.54305)">Defautl</a>
             <ul>
                 <li>latitude e longitude </li>
                 @foreach ($apartments as $item)
                 <li>
+                  <a href="#"
+                  onclick="makemarker({{$item -> longitude}},{{$item -> latitude}})"
+                  style="background-color:lightgray;padding:0.5rem;border-radius:1rem;padding-bottom:2px; ">
                     {{$item -> latitude}} {{$item -> longitude}}
+                  </a>
                 </li>
                 @endforeach
             </ul>
@@ -175,118 +179,35 @@
                     }
                 };
 
+// esempio di creare una funzione che metta tutti i marker nella mappa
+function makemarker(LNG, LAT){
+  // console.log(LNG, LAT)
+    var marker = new tt.Marker([{height:10,width:10}])
+                    .setLngLat([LNG,LAT])
+                    .addTo(map);
+    console.log('Inserito mark');
+};
+document.addEventListener('DOMContentLoaded',function init(){
+    new Vue({
+        'el':'#app',
+        'data':{
+            address:"",
+            number_rooms:0,
+            number_beds:0,
+            guest:0,
+        },
+        mounted:function(){
+            console.log('ciao');
+        },
+        'methods':{
 
-            // var SEARCH_QUERY = 'Rome';
-
-                // function findGeometry() {
-                // tt.services.fuzzySearch({
-                //     key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
-                //     query: SEARCH_QUERY,
-                //     })
-                //     .then(getAdditionalData);
-                // }
-                // map.on('load', findGeometry());
-                // function getAdditionalData(fuzzySearchResults) {
-                // var geometryId = fuzzySearchResults.results[0].dataSources.geometry.id;
-                // tt.services.additionalData({
-                //     key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
-                //     geometries: [geometryId],
-                //     geometriesZoom: 12
-                //     })
-                //     .then(processAdditionalDataResponse);
-                // }
-                // function buildLayer(id, data) {
-                // return {
-                //     'id': id,
-                //     'type': 'fill',
-                //     'source': {
-                //         'type': 'geojson',
-                //         'data': {
-                //             'type': 'Feature',
-                //             'geometry': {
-                //                 'type': 'Polygon',
-                //                 'coordinates': data
-                //             }
-                //         }
-                //     },
-                //     'layout': {},
-                //     'paint': {
-                //         'fill-color': '#2FAAFF',
-                //         'fill-opacity': 0.8,
-                //         'fill-outline-color': 'black'
-                //     }
-                // }
-                // }
-                // function displayPolygonOnTheMap(additionalDataResult) {
-                // var geometryData = additionalDataResult.geometryData.features[0].geometry.coordinates[0];
-                // map.addLayer(buildLayer('fill_shape_id', geometryData));
-                // return geometryData;
-                // }
-                // function processAdditionalDataResponse(additionalDataResponse) {
-                // if (additionalDataResponse.additionalData && additionalDataResponse.additionalData.length) {
-                //     var geometryData = displayPolygonOnTheMap(additionalDataResponse.additionalData[0]);
-                // }
-                // }
-                // function calculateTurfArea(geometryData) {
-                // var turfPolygon = turf.polygon(geometryData);
-                // var areaInMeters = turf.area(turfPolygon);
-                // var areaInKilometers = turf.round(turf.convertArea(areaInMeters, 'meters', 'kilometers'),2);
-                // }
-                // function calculateTurfArea(geometryData) {
-                // var turfPolygon = turf.polygon(geometryData);
-                // var areaInMeters = turf.area(turfPolygon);
-                // var areaInKilometers = turf.round(turf.convertArea(areaInMeters, 'meters', 'kilometers'),2);
-                // var areaInfo = document.getElementById('area-info');
-                // areaInfo.innerText = areaInKilometers;
-                // }
-                // function processAdditionalDataResponse(additionalDataResponse) {
-                // if (additionalDataResponse.additionalData && additionalDataResponse.additionalData.length) {
-                //     var geometryData = displayPolygonOnTheMap(additionalDataResponse.additionalData[0]);
-                //     calculateTurfArea(geometryData);
-                // }
-                // }
-
-
-
-//poligono
-    // var markerCoordinates = [
-    //   [4.899431, 52.379189],
-    //   [4.8255823, 52.3734312],
-    //   [4.7483138, 52.4022803],
-    //   [4.797049, 52.435065],
-    //   [4.885911, 52.320235]
-    // ];
-    // function drawPointsInsideAndOutsideOfPolygon(geometryData) {
-    //   var customInsidePolygonMarkerIcon = 'img/inside_marker.png';
-    //   var customOutsideMarkerIcon = 'img/outside_marker.png';
-    //   var turfPolygon = turf.polygon(geometryData);
-    //   var points = turf.points(markerCoordinates);
-    //   var pointsWithinPolygon = turf.pointsWithinPolygon(points, turfPolygon);
-    //   markerCoordinates.forEach(function (markerCoordinate) {
-    //     const markerElement = document.createElement('div');
-    //     markerElement.innerHTML = createMarkerElementInnerHTML(customOutsideMarkerIcon);
-    //     pointsWithinPolygon.features.forEach(function (pointWithinPolygon) {
-    //       if (markerCoordinate[0] === pointWithinPolygon.geometry.coordinates[0] &&
-    //         markerCoordinate[1] === pointWithinPolygon.geometry.coordinates[1]) {
-    //           markerElement.innerHTML = createMarkerElementInnerHTML(customInsidePolygonMarkerIcon);
-    //       }
-    //     });
-    //     var marker = new tt.Marker({ element: markerElement}).setLngLat(markerCoordinate);
-    //     marker.addTo(map);
-    //   });
-    // }
-    // function processAdditionalDataResponse(additionalDataResponse) {
-    //   if (additionalDataResponse.additionalData && additionalDataResponse.additionalData.length) {
-    //     var geometryData = displayPolygonOnTheMap(additionalDataResponse.additionalData[0]);
-    //     calculateTurfArea(geometryData);
-    //     drawPointsInsideAndOutsideOfPolygon(geometryData);
-    //   }
-    // }
-
+        },
+    });
+});
 
                 var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
                 var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
-                document.body.appendChild(searchBoxHTML);
+                // document.body.appendChild(searchBoxHTML);
                 var map = tt.map({
                     key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
                     container: 'map',
@@ -321,7 +242,7 @@
                     if (result.type === 'category' || result.type === 'brand') {
                         return;
                     }
-                    console.log(result);
+                    // console.log(result);
                     searchMarkersManager.draw([result]);
                     fitToViewport(result);
                 }
@@ -352,66 +273,9 @@
                     searchMarkersManager.clear();
                 }
 
-// esempio di creare una funzione che metta tutti i marker nella mappa
-function prova(){
-    var results={
-            // id:'',
-            address:{
-                country: "Italia",
-                countryCode: "IT",
-                countryCodeISO3: "ITA",
-                countrySecondarySubdivision: "Catania",
-                countrySubdivision: "Sicilia",
-                freeformAddress: "Via Fratelli Bandiera 13, 95030 Gravina di Catania",
-                localName:"Gravina di Catania",
-                municipality: "Gravina di Catania",
-                municipalitySubdivision: "Sant'Agata li Battiati",
-                postalCode: "95030",
-                streetName: "Via Fratelli Bandiera",
-                streetNumber: "13",
-            },
-            boundingBox:{
-                btmRightPoint:{
-                    lng: 15.07515,
-                    lat: 37.53784,
-                },
-                topLeftPoint:{
-                    lng: 15.047,
-                    lat: 37.56919,
-                },
-            },
-            dist: 524756.315527082,
-            entryPoints:[
-                {
-                    position:{
-                        lat: 37.54219,
-                        lng: 15.06746,
-                    },
-                    type:"main",
-                },
-            ],
-            id: "IT/PAD/p0/5734564",
-            position:{
-                lat: 15.066353,
-                lng:37.542288,
-            },
-            type: "Point Address",
-            viewport:{
-                btmRightPoint:{
-                    lat: 37.54125,
-                    lng: 15.06845,
-                },
-                topLeftPoint:{
-                    lat: 37.54305,
-                    lng: 15.06619,
-                },
-            },
-        };
-    console.log(results);
-    searchMarkersManager.draw([this.result]);
-}
-//After all these predefined steps we can create SearchMarkersManager, which will be responsible for manipulation with a marker.
-// In our example it has draw and clear methods
+
+                //After all these predefined steps we can create SearchMarkersManager, which will be responsible for manipulation with a marker.
+                // In our example it has draw and clear methods
                 function SearchMarkersManager(map, options) {
                     this.map = map;
                     this._options = options || {};
@@ -419,6 +283,8 @@ function prova(){
                     this.markers = {};
                 }
                     SearchMarkersManager.prototype.draw = function (poiList) {
+
+                        console.log(poiList);
                         this._poiList = poiList;
                         this.clear();
                         this._poiList.forEach(function (poi) {
@@ -447,7 +313,7 @@ function prova(){
                         this._lastClickedMarker = null;
                     };
 
-//and SearchMarker, which will be responsible for appearance of the marker and providing possibility add/remove it from the map
+                //and SearchMarker, which will be responsible for appearance of the marker and providing possibility add/remove it from the map
                 function SearchMarker(poiData, options) {
                     this.poiData = poiData;
                     this.options = options || {};
@@ -461,13 +327,11 @@ function prova(){
                         this.poiData.position.lat
                     ]);
                 }
-
                     SearchMarker.prototype.addTo = function (map) {
                         this.marker.addTo(map);
                         this._map = map;
                         return this;
                     };
-
                     SearchMarker.prototype.createMarker = function () {
                         var elem = document.createElement('div');
                         elem.className = 'tt-icon-marker-black tt-search-marker';
@@ -480,7 +344,6 @@ function prova(){
                         elem.appendChild(innerElem);
                         return elem;
                     };
-
                     SearchMarker.prototype.remove = function () {
                         this.marker.remove();
                         this._map = null;
