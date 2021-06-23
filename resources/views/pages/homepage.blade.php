@@ -25,7 +25,9 @@
     </ul>
 
   <div class="section-host" >
-
+    <div>
+      maledetto infame Kraken
+    </div>
     <div class="host">
       <h1 class="h1-host">
         Diventa un Host
