@@ -806,7 +806,7 @@ section#section-register form .form-button {
 
 .search-page .right-section {
   width: 55%;
-  background: url(/images/calabria-test.jpg?4f3f0566f0a670a66cec42ff3b36ae0f) no-repeat;
+  background-color: black;
   background-size: cover;
 }
 

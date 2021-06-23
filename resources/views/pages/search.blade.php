@@ -93,7 +93,6 @@
 
     <!-- INIZIO PARTE DI DESTRA CON IMMAGINE GRANDE (CALABRIA)-->
     <div class="right-section">
-      <!-- <img src="{{asset('storage/assets/calabria-test.jpg')}}" alt="calabria"> -->
     </div>
     <!-- FINE PARTE DI DESTRA CON IMMAGINE GRANDE (CALABRIA)-->
 
