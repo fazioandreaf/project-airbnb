@@ -137,12 +137,16 @@
                 {{$item->service}};
             </strong>
             @endforeach
-            <a href="#" onclick="prova()">Prova</a>
+            <a href="#" onclick="prova(15.06619,37.54305)">Prova</a>
             <ul>
                 <li>latitude e longitude </li>
                 @foreach ($apartments as $item)
                 <li>
+                  <a href="#"
+                  onclick="prova({{$item -> longitude}},{{$item -> latitude}})"
+                  style="background-color:lightgray;padding:0.5rem;border-radius:1rem;padding-bottom:2px; ">
                     {{$item -> latitude}} {{$item -> longitude}}
+                  </a>
                 </li>
                 @endforeach
             </ul>
@@ -175,7 +179,15 @@
                     }
                 };
 
+// esempio di creare una funzione che metta tutti i marker nella mappa
+function prova(LNG, LAT){
+  // console.log(LNG, LAT)
+    var marker = new tt.Marker([{height:10,width:10}])
+                    .setLngLat([LNG,LAT])
+                    .addTo(map);
+    console.log('Inserito mark');
 
+}
             // var SEARCH_QUERY = 'Rome';
 
                 // function findGeometry() {
@@ -352,71 +364,7 @@
                     searchMarkersManager.clear();
                 }
 
-// esempio di creare una funzione che metta tutti i marker nella mappa
-function prova(){
-    // var results={
-    //         // id:'',
-    //         address:{
-    //             country: "Italia",
-    //             countryCode: "IT",
-    //             countryCodeISO3: "ITA",
-    //             countrySecondarySubdivision: "Catania",
-    //             countrySubdivision: "Sicilia",
-    //             freeformAddress: "Via Fratelli Bandiera 13, 95030 Gravina di Catania",
-    //             localName:"Gravina di Catania",
-    //             municipality: "Gravina di Catania",
-    //             municipalitySubdivision: "Sant'Agata li Battiati",
-    //             postalCode: "95030",
-    //             streetName: "Via Fratelli Bandiera",
-    //             streetNumber: "13",
-    //         },
-    //         // boundingBox:{
-    //         //     btmRightPoint:{
-    //         //         lng: 15.07515,
-    //         //         lat: 37.53784,
-    //         //     },
-    //         //     topLeftPoint:{
-    //         //         lng: 15.047,
-    //         //         lat: 37.56919,
-    //         //     },
-    //         // },
-    //         dist: 524756.315527082,
-    //         entryPoints:[
-    //             {
-    //                 position:{
-    //                     lat: 15.066353,
-    //                     lng: 37.542288,
-    //                 },
-    //                 type:"main",
-    //             },
-    //         ],
-    //         id: "IT/PAD/p0/5734564",
-    //         position:{
-    //             lat: 15.066353,
-    //             lng:37.542288,
-    //         },
-    //         score:14.5968856812,
-    //         type: "Point Address",
-    //         viewport:{
-    //             btmRightPoint:{
-    //                 lat: 37.54125,
-    //                 lng: 15.06845,
-    //             },
-    //             topLeftPoint:{
-    //                 lat: 37.54305,
-    //                 lng: 15.06619,
-    //             },
-    //         },
-    //     };
-    // console.log(results);
-    // searchMarkersManager.draw([result]);
-    var marker = new tt.Marker([{color:'#ff0000',scale:100,height:10000,width:1000}])
-                    .setLngLat([37.5,15])
-                    // .color(#ff0000)
-                    .addTo(map);
-    console.log('ciao');
 
-}
 //After all these predefined steps we can create SearchMarkersManager, which will be responsible for manipulation with a marker.
 // In our example it has draw and clear methods
                 function SearchMarkersManager(map, options) {
