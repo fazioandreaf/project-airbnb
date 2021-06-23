@@ -1,7 +1,9 @@
 #apartment-sample {
 
   nav {
+    @include flex(row, null, center);
     border-bottom: 0.5px solid rgba(50, 50, 50, .3);
+    height:100px;
 
     .basic-header {
       @include container(80%);
@@ -96,8 +98,95 @@
     #jumbo-container {
 
       .titolo {
+        height:60px;
+        @include flex(row, null, center);
         text-transform: uppercase;
       }
+
+      .description-apartment {
+        width:100%;
+        height:60px;
+        @include flex(row, null, null);
+
+        div {
+          @include flex(row, null, center);
+          height: 100%;
+        }
+
+        div:first-of-type {
+          width: 80%;
+          // debug
+          background-color: blue;
+        }
+
+        div:last-of-type {
+          @include flex(row, flex-end, null);
+          width: 20%;
+          // debug
+          background-color: green;
+
+          span {
+            @include flex(row, flex-end, null);
+            width:auto;
+          }
+        }
+      } // FINE DESCRIPTION-APARTMENT
+
+      // QUi ci sono le immagini dell'appartamento
+      .apartment-img-container {
+        margin: 20px 0px;
+        width: 100%;
+        height: 500px;
+        @include flex(row, null, null);
+
+        div {
+          width: 50%;
+          height: 100%;
+        }
+
+        // IMMAGINE GRANDE
+        div:first-of-type {
+          // debug
+          background-color: navy;
+        }
+
+        // 4 immagini
+        div:last-of-type {
+          @include flex(row, null, null);
+          flex-wrap: wrap;
+          // debug
+          background-color: lime;
+
+          div {
+            width: 50%;
+            height: 50%;
+
+          }
+
+          div:first-of-type {
+            // debug
+            background-color: green;
+          }
+
+          div:nth-child(2) {
+            // debug
+            background-color: purple;
+          }
+
+          div:nth-child(3) {
+            // debug
+            background-color: yellow;
+          }
+
+          div:last-of-type {
+            // debug
+            background-color: brown;
+          }
+
+
+        }
+      } // FINE DI .apartment-img-container
+
     } // FINE #jumbo-container
 
   } // FINE JUMBOTRON-APARTMENT

@@ -74,60 +74,119 @@
 
           <div class="titolo">
             <h1>
+              <a href="#">
+                {{$apartment->title}}
+              </a>
               {{-- <div>ID:[{{$apartment->id}}]</div> --}}
-              {{$apartment->title}}
             </h1>
+
           </div>
 
+          {{-- INIZIO DESCRIZIONE --}}
+          <div class="description-apartment">
 
-          {{-- <div class="test">
-            <img src="{{asset('storage/apartment-img/'.$apartment -> cover_image)}}" alt="">
+            <div>
+              <span>
+                <a href="#">
+                  CIAO1
+                </a>
+              </span>
+
+              <span>
+                <a href="#">
+                  CIAO2
+                </a>
+              </span>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                <a href="#">
+                  CIAO3
+                </a>
+              </span>
+
+
+              <span>
+                <a href="#">
+                  CIAO4
+                </a>
+              </span>
+
+            </div>
           </div>
+          {{-- FINE DESCRIZIONE --}}
 
-          <ul>
-            <li>
-              Stanza :
-              {{$apartment->number_rooms}}
-            </li>
-            <li>
-              Numero letti :
-              {{$apartment->number_beds}}
-            </li>
-            <li>
-              numero bagni :
-              {{$apartment->number_toiletes}}
-            </li>
-            <li>
-              Indirizzo :
-              [{{$apartment->address}}]
-            </li>
-            <li>
-              area :
-              {{$apartment->area}}
-            </li>
-          </ul>
+          {{-- _________FINE DESCRIZIONE - INIZIO IMMAGINI___________ --}}
 
-          <ul>
-            @foreach ($apartment->services as $service)
+          {{-- INIZIO immagini appartamento --}}
+          <div class="apartment-img-container">
+
+            <div>
+
+            </div>
+
+            <div>
+              <div>CIAO1</div>
+              <div>CIAO2</div>
+              <div>CIAO3</div>
+              <div>CIAO4</div>
+            </div>
+            {{-- <img src="{{asset('storage/apartment-img/'.$apartment -> cover_image)}}" alt=""> --}}
+          </div>
+          {{-- FINE immagini appartamento --}}
+
+
+          {{-- <div>
+            <ul>
               <li>
-                {{$service->service}}
+                Stanza :
+                {{$apartment->number_rooms}}
               </li>
-            @endforeach
-          </ul>
+              <li>
+                Numero letti :
+                {{$apartment->number_beds}}
+              </li>
+              <li>
+                numero bagni :
+                {{$apartment->number_toiletes}}
+              </li>
+              <li>
+                Indirizzo :
+                [{{$apartment->address}}]
+              </li>
+              <li>
+                area :
+                {{$apartment->area}}
+              </li>
+            </ul>
 
-          <h5>
-            @foreach ($apartment->sponsors as $apSp)
-              <p>
-                {{$apSp->sponsor_duration}} durata sponsor
-              </p>
-            @endforeach
-          </h5>
+            <ul>
+              @foreach ($apartment->services as $service)
+                <li>
+                  {{$service->service}}
+                </li>
+              @endforeach
+            </ul>
 
-          <div>
-            <h5>FORM INVIO MESSAGGIO
-              <a href="{{route('send',$apartment->id)}}"
-                >SUBMIT INVIO MESSAGGIO</a>
+            <h5>
+              @foreach ($apartment->sponsors as $apSp)
+                <p>
+                  {{$apSp->sponsor_duration}} durata sponsor
+                </p>
+              @endforeach
             </h5>
+
+            <div>
+              <h5>FORM INVIO MESSAGGIO
+                <a href="{{route('send',$apartment->id)}}"
+                  >SUBMIT INVIO MESSAGGIO</a>
+              </h5>
+            </div>
+
           </div> --}}
 
         </div>
