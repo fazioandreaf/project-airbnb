@@ -737,23 +737,23 @@ section#register-jumbotron .jumbotron .wrapper-text h2 {
   font-size: 60px;
 }
 
-section#register-jumbotron .jumbotron div#app {
+section#register-jumbotron .jumbotron #carousel {
   flex-basis: 40%;
 }
 
-section#register-jumbotron .jumbotron div#app .carousel {
+section#register-jumbotron .jumbotron #carousel .carousel {
   height: 350px;
   margin: 0 50px;
 }
 
-section#register-jumbotron .jumbotron div#app .carousel .wrapper-images {
+section#register-jumbotron .jumbotron #carousel .carousel .wrapper-images {
   width: 100%;
   height: 100%;
   position: relative;
   overflow: hidden;
 }
 
-section#register-jumbotron .jumbotron div#app .carousel .wrapper-images .slide {
+section#register-jumbotron .jumbotron #carousel .carousel .wrapper-images .slide {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -765,16 +765,16 @@ section#register-jumbotron .jumbotron div#app .carousel .wrapper-images .slide {
   left: 0;
 }
 
-section#register-jumbotron .jumbotron div#app .slide-left-enter-active,
-section#register-jumbotron .jumbotron div#app .slide-left-leave-active {
+section#register-jumbotron .jumbotron #carousel .slide-left-enter-active,
+section#register-jumbotron .jumbotron #carousel .slide-left-leave-active {
   transition: all 2s;
 }
 
-section#register-jumbotron .jumbotron div#app .slide-left-enter {
+section#register-jumbotron .jumbotron #carousel .slide-left-enter {
   transform: translateX(100%);
 }
 
-section#register-jumbotron .jumbotron div#app .slide-left-leave-to {
+section#register-jumbotron .jumbotron #carousel .slide-left-leave-to {
   transform: translate(-100%);
 }
 
@@ -998,6 +998,7 @@ section#section-register form .form-button {
   background-size: cover;
 }
 
+<<<<<<< HEAD
 #apartment-sample nav {
   border-bottom: 0.5px solid rgba(50, 50, 50, 0.3);
 }
@@ -1101,6 +1102,8 @@ section#section-register form .form-button {
   text-transform: uppercase;
 }
 
+=======
+>>>>>>> Gioele
 * {
   margin: 0;
   padding: 0;

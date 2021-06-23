@@ -49998,7 +49998,68 @@ files.keys().map(function (key) {
 
 document.addEventListener('DOMContentLoaded', function () {
   var app = new Vue({
+<<<<<<< HEAD
     el: '#app'
+=======
+    el: '#app',
+    data: {
+      registerErrors: [],
+      firstname: null,
+      lastname: null,
+      dateOfBirth: null,
+      email: null,
+      password: null,
+      confirmPassword: null
+    },
+    methods: {
+      validateRegister: function validateRegister(e) {
+        var hasNumbers = /\d/;
+        var isMailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+        this.registerErrors = []; // Name validation
+
+        if (!this.firstname) {
+          this.registerErrors.push("Il nome è un campo obbligatorio!");
+        } else if (this.firstname.length > 10) {
+          this.registerErrors.push("Hai davvero un nome così lungo?");
+        }
+
+        if (hasNumbers.test(this.firstname)) {
+          this.registerErrors.push("Il nome non può contenere numeri!");
+        } // Lastname validation
+
+
+        if (!this.lastname) {
+          this.registerErrors.push("Il campo cognome è un campo obbligatorio!");
+        } else if (this.lastname.length > 10) {
+          this.registerErrors.push("Hai davvero un cognome così lungo?");
+        }
+
+        if (hasNumbers.test(this.lastname)) {
+          this.registerErrors.push("Il cognome non può contenere numeri!");
+        } // Email validation
+
+
+        if (!isMailValid.test(this.email)) {
+          this.registerErrors.push("La mail inserita non è valida!");
+        } // Password validation
+
+
+        if (this.password.length < 8) {
+          this.registerErrors.push("La password deve contenere almeno 8 caratteri!");
+        }
+
+        if (this.confirmPassword != this.password) {
+          this.registerErrors.push("Le password non corrispondono!");
+        }
+
+        if (!this.registerErrors.length) {
+          return true;
+        }
+
+        e.preventDefault(); //!important prevents submit realod
+      }
+    }
+>>>>>>> Gioele
   });
 });
 
@@ -50205,8 +50266,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Danny\Progetti_2021\06 -2021\15-06-2021\project-airbnb\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Danny\Progetti_2021\06 -2021\15-06-2021\project-airbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\Boolean\project-airbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Boolean\project-airbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> Gioele
 
 
 /***/ })
