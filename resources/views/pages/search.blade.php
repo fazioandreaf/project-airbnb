@@ -204,117 +204,10 @@ document.addEventListener('DOMContentLoaded',function init(){
         },
     });
 });
-            // var SEARCH_QUERY = 'Rome';
-
-                // function findGeometry() {
-                // tt.services.fuzzySearch({
-                //     key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
-                //     query: SEARCH_QUERY,
-                //     })
-                //     .then(getAdditionalData);
-                // }
-                // map.on('load', findGeometry());
-                // function getAdditionalData(fuzzySearchResults) {
-                // var geometryId = fuzzySearchResults.results[0].dataSources.geometry.id;
-                // tt.services.additionalData({
-                //     key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
-                //     geometries: [geometryId],
-                //     geometriesZoom: 12
-                //     })
-                //     .then(processAdditionalDataResponse);
-                // }
-                // function buildLayer(id, data) {
-                // return {
-                //     'id': id,
-                //     'type': 'fill',
-                //     'source': {
-                //         'type': 'geojson',
-                //         'data': {
-                //             'type': 'Feature',
-                //             'geometry': {
-                //                 'type': 'Polygon',
-                //                 'coordinates': data
-                //             }
-                //         }
-                //     },
-                //     'layout': {},
-                //     'paint': {
-                //         'fill-color': '#2FAAFF',
-                //         'fill-opacity': 0.8,
-                //         'fill-outline-color': 'black'
-                //     }
-                // }
-                // }
-                // function displayPolygonOnTheMap(additionalDataResult) {
-                // var geometryData = additionalDataResult.geometryData.features[0].geometry.coordinates[0];
-                // map.addLayer(buildLayer('fill_shape_id', geometryData));
-                // return geometryData;
-                // }
-                // function processAdditionalDataResponse(additionalDataResponse) {
-                // if (additionalDataResponse.additionalData && additionalDataResponse.additionalData.length) {
-                //     var geometryData = displayPolygonOnTheMap(additionalDataResponse.additionalData[0]);
-                // }
-                // }
-                // function calculateTurfArea(geometryData) {
-                // var turfPolygon = turf.polygon(geometryData);
-                // var areaInMeters = turf.area(turfPolygon);
-                // var areaInKilometers = turf.round(turf.convertArea(areaInMeters, 'meters', 'kilometers'),2);
-                // }
-                // function calculateTurfArea(geometryData) {
-                // var turfPolygon = turf.polygon(geometryData);
-                // var areaInMeters = turf.area(turfPolygon);
-                // var areaInKilometers = turf.round(turf.convertArea(areaInMeters, 'meters', 'kilometers'),2);
-                // var areaInfo = document.getElementById('area-info');
-                // areaInfo.innerText = areaInKilometers;
-                // }
-                // function processAdditionalDataResponse(additionalDataResponse) {
-                // if (additionalDataResponse.additionalData && additionalDataResponse.additionalData.length) {
-                //     var geometryData = displayPolygonOnTheMap(additionalDataResponse.additionalData[0]);
-                //     calculateTurfArea(geometryData);
-                // }
-                // }
-
-
-
-//poligono
-    // var markerCoordinates = [
-    //   [4.899431, 52.379189],
-    //   [4.8255823, 52.3734312],
-    //   [4.7483138, 52.4022803],
-    //   [4.797049, 52.435065],
-    //   [4.885911, 52.320235]
-    // ];
-    // function drawPointsInsideAndOutsideOfPolygon(geometryData) {
-    //   var customInsidePolygonMarkerIcon = 'img/inside_marker.png';
-    //   var customOutsideMarkerIcon = 'img/outside_marker.png';
-    //   var turfPolygon = turf.polygon(geometryData);
-    //   var points = turf.points(markerCoordinates);
-    //   var pointsWithinPolygon = turf.pointsWithinPolygon(points, turfPolygon);
-    //   markerCoordinates.forEach(function (markerCoordinate) {
-    //     const markerElement = document.createElement('div');
-    //     markerElement.innerHTML = createMarkerElementInnerHTML(customOutsideMarkerIcon);
-    //     pointsWithinPolygon.features.forEach(function (pointWithinPolygon) {
-    //       if (markerCoordinate[0] === pointWithinPolygon.geometry.coordinates[0] &&
-    //         markerCoordinate[1] === pointWithinPolygon.geometry.coordinates[1]) {
-    //           markerElement.innerHTML = createMarkerElementInnerHTML(customInsidePolygonMarkerIcon);
-    //       }
-    //     });
-    //     var marker = new tt.Marker({ element: markerElement}).setLngLat(markerCoordinate);
-    //     marker.addTo(map);
-    //   });
-    // }
-    // function processAdditionalDataResponse(additionalDataResponse) {
-    //   if (additionalDataResponse.additionalData && additionalDataResponse.additionalData.length) {
-    //     var geometryData = displayPolygonOnTheMap(additionalDataResponse.additionalData[0]);
-    //     calculateTurfArea(geometryData);
-    //     drawPointsInsideAndOutsideOfPolygon(geometryData);
-    //   }
-    // }
-
 
                 var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
                 var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
-                document.body.appendChild(searchBoxHTML);
+                // document.body.appendChild(searchBoxHTML);
                 var map = tt.map({
                     key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
                     container: 'map',
@@ -381,8 +274,8 @@ document.addEventListener('DOMContentLoaded',function init(){
                 }
 
 
-//After all these predefined steps we can create SearchMarkersManager, which will be responsible for manipulation with a marker.
-// In our example it has draw and clear methods
+                //After all these predefined steps we can create SearchMarkersManager, which will be responsible for manipulation with a marker.
+                // In our example it has draw and clear methods
                 function SearchMarkersManager(map, options) {
                     this.map = map;
                     this._options = options || {};
@@ -420,7 +313,7 @@ document.addEventListener('DOMContentLoaded',function init(){
                         this._lastClickedMarker = null;
                     };
 
-//and SearchMarker, which will be responsible for appearance of the marker and providing possibility add/remove it from the map
+                //and SearchMarker, which will be responsible for appearance of the marker and providing possibility add/remove it from the map
                 function SearchMarker(poiData, options) {
                     this.poiData = poiData;
                     this.options = options || {};
@@ -434,13 +327,11 @@ document.addEventListener('DOMContentLoaded',function init(){
                         this.poiData.position.lat
                     ]);
                 }
-
                     SearchMarker.prototype.addTo = function (map) {
                         this.marker.addTo(map);
                         this._map = map;
                         return this;
                     };
-
                     SearchMarker.prototype.createMarker = function () {
                         var elem = document.createElement('div');
                         elem.className = 'tt-icon-marker-black tt-search-marker';
@@ -453,7 +344,6 @@ document.addEventListener('DOMContentLoaded',function init(){
                         elem.appendChild(innerElem);
                         return elem;
                     };
-
                     SearchMarker.prototype.remove = function () {
                         this.marker.remove();
                         this._map = null;
