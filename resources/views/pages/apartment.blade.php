@@ -3,32 +3,7 @@
     <div class="container">
         <h1>
             [{{$apartment->id}}] -- {{$apartment->title}}
-            {{-- rotta soft-delete --}}
-            <a href="{{route('delete',$apartment->id)}}">
-                <button>
-                    --delete--
-                </button>
-            </a>
-            {{-- rotta per la update --}}
-            <a href="{{route('edit',$apartment->id)}}">
-                <button>
-                --edit--
-                </button>
-            </a>
         </h1>
-                    {{-- form per l'aggiunta sponsor --}}
-        <div>
-            <form action="{{Route('sponsor_function',$apartment->id)}}" method="get">
-                <select name="sponsor_id" id="sponsor_id">
-                    @foreach ($sponsors as $sponsor)
-                        <option value="{{$sponsor->id}}">
-                            {{$sponsor->sponsor_duration}} H
-                        </option>
-                    @endforeach
-                </select>
-                <button type="submit">Get</button>
-            </form>
-        </div>
 
         <div class="test">
             <img src="{{asset('storage/apartment-img/'.$apartment -> cover_image)}}" alt="">

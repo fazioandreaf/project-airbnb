@@ -9,18 +9,18 @@
      <div>
 
          <ul>
-             @foreach ($apartments as $item)
-             <li style="margin:20px">
-                <span
-                style="background-color:white;padding:1rem"
-                >
-                {{$item->title}}
-                </span>
-                 <a style="margin:1.5rem;padding:1rem;background-color:blue" href="{{route('statistic',$item->id)}}">statistic</a>
-                 <a style="margin:1.5rem;padding:1rem;background-color:blue" href="{{route('sponsor',$item->id)}}">sponsor</a>
-                 <a style="margin:1.5rem;padding:1rem;background-color:blue" href="{{route('edit',$item->id)}}">edit</a>
+             @foreach ($apartments as $apartment)
+                <li style="margin:20px">
+                    <span style="background-color:white;padding:1rem">
+                    {{$apartment->title}}
+                    </span>
+                    <a style="margin:1.5rem;padding:1rem;background-color:blue" href="{{route('statistic',$apartment->id)}}">statistic</a>
+                    <a style="margin:1.5rem;padding:1rem;background-color:blue" href="{{route('sponsor',$apartment->id)}}">sponsor</a>
+                    <a style="margin:1.5rem;padding:1rem;background-color:blue" href="{{route('edit',$apartment->id)}}">edit</a>
+                    <a style="margin:1.5rem;padding:1rem;background-color:blue" href="{{route('delete',$apartment->id)}}">delete</a>
+                    {{-- {{dd($apartment->id)}} --}}
                 </li>
-                @endforeach
+            @endforeach
             </ul>
         </div>
 
