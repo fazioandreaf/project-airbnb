@@ -321,7 +321,7 @@
                     if (result.type === 'category' || result.type === 'brand') {
                         return;
                     }
-                    console.log(result);
+                    // console.log(result);
                     searchMarkersManager.draw([result]);
                     fitToViewport(result);
                 }
@@ -354,61 +354,68 @@
 
 // esempio di creare una funzione che metta tutti i marker nella mappa
 function prova(){
-    var results={
-            // id:'',
-            address:{
-                country: "Italia",
-                countryCode: "IT",
-                countryCodeISO3: "ITA",
-                countrySecondarySubdivision: "Catania",
-                countrySubdivision: "Sicilia",
-                freeformAddress: "Via Fratelli Bandiera 13, 95030 Gravina di Catania",
-                localName:"Gravina di Catania",
-                municipality: "Gravina di Catania",
-                municipalitySubdivision: "Sant'Agata li Battiati",
-                postalCode: "95030",
-                streetName: "Via Fratelli Bandiera",
-                streetNumber: "13",
-            },
-            boundingBox:{
-                btmRightPoint:{
-                    lng: 15.07515,
-                    lat: 37.53784,
-                },
-                topLeftPoint:{
-                    lng: 15.047,
-                    lat: 37.56919,
-                },
-            },
-            dist: 524756.315527082,
-            entryPoints:[
-                {
-                    position:{
-                        lat: 37.54219,
-                        lng: 15.06746,
-                    },
-                    type:"main",
-                },
-            ],
-            id: "IT/PAD/p0/5734564",
-            position:{
-                lat: 15.066353,
-                lng:37.542288,
-            },
-            type: "Point Address",
-            viewport:{
-                btmRightPoint:{
-                    lat: 37.54125,
-                    lng: 15.06845,
-                },
-                topLeftPoint:{
-                    lat: 37.54305,
-                    lng: 15.06619,
-                },
-            },
-        };
-    console.log(results);
-    searchMarkersManager.draw([this.result]);
+    // var results={
+    //         // id:'',
+    //         address:{
+    //             country: "Italia",
+    //             countryCode: "IT",
+    //             countryCodeISO3: "ITA",
+    //             countrySecondarySubdivision: "Catania",
+    //             countrySubdivision: "Sicilia",
+    //             freeformAddress: "Via Fratelli Bandiera 13, 95030 Gravina di Catania",
+    //             localName:"Gravina di Catania",
+    //             municipality: "Gravina di Catania",
+    //             municipalitySubdivision: "Sant'Agata li Battiati",
+    //             postalCode: "95030",
+    //             streetName: "Via Fratelli Bandiera",
+    //             streetNumber: "13",
+    //         },
+    //         // boundingBox:{
+    //         //     btmRightPoint:{
+    //         //         lng: 15.07515,
+    //         //         lat: 37.53784,
+    //         //     },
+    //         //     topLeftPoint:{
+    //         //         lng: 15.047,
+    //         //         lat: 37.56919,
+    //         //     },
+    //         // },
+    //         dist: 524756.315527082,
+    //         entryPoints:[
+    //             {
+    //                 position:{
+    //                     lat: 15.066353,
+    //                     lng: 37.542288,
+    //                 },
+    //                 type:"main",
+    //             },
+    //         ],
+    //         id: "IT/PAD/p0/5734564",
+    //         position:{
+    //             lat: 15.066353,
+    //             lng:37.542288,
+    //         },
+    //         score:14.5968856812,
+    //         type: "Point Address",
+    //         viewport:{
+    //             btmRightPoint:{
+    //                 lat: 37.54125,
+    //                 lng: 15.06845,
+    //             },
+    //             topLeftPoint:{
+    //                 lat: 37.54305,
+    //                 lng: 15.06619,
+    //             },
+    //         },
+    //     };
+    // console.log(results);
+    // searchMarkersManager.draw([result]);
+    var marker = new tt.Marker([{color:'#ff0000',scale:100,height:10000,width:1000}])
+                    .setLngLat([37.5,15])
+                    // .color(#ff0000)
+                    .addTo(map);
+    console.log('ciao');
+
 }
 //After all these predefined steps we can create SearchMarkersManager, which will be responsible for manipulation with a marker.
 // In our example it has draw and clear methods
@@ -419,6 +426,8 @@ function prova(){
                     this.markers = {};
                 }
                     SearchMarkersManager.prototype.draw = function (poiList) {
+
+                        console.log(poiList);
                         this._poiList = poiList;
                         this.clear();
                         this._poiList.forEach(function (poi) {
