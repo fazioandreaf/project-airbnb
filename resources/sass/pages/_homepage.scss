@@ -60,6 +60,7 @@
     margin-top: 50px;
     margin-bottom: 30px;
   }
+  
   .apartment-samples {
     font-size: 20px;
     @include container(90%);
@@ -86,6 +87,8 @@
         color: white;
         padding: 10px ;
       }
+    }
+  }
 
   .section-host{
     display: flex;
@@ -131,6 +134,4 @@
       }
     }
   }
-}
-}
 }
