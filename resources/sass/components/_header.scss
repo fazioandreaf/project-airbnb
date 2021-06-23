@@ -3,6 +3,153 @@
   height: 200px;
 }
 
+//Header Landing Page
+.landing-header {
+
+  height: 100vh;
+  position: relative;
+  
+  & > img {
+
+    position: absolute; // IMPORTANTE
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .wrapper-new-apartment {
+
+    color: $black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+
+    .button-link {
+
+      display: inline-block;
+      background-color: #ff385c;
+      padding: 20px;
+      border-radius: 10px;
+      color: $white;
+    }
+  }
+
+  .navbar {
+
+    background: linear-gradient(to bottom, $black 5%, transparent);
+
+    .container {
+      @include container(90%);
+      @include flex(column, null, center);
+    }
+
+    .nav-links {
+
+      width: 100%;
+      @include flex(row, space-between, center);
+
+      #wrapper-logo {
+
+        flex-grow: 1;
+      }
+
+      .hamburger {
+
+        @include flex(row, center, center);
+        background-color: $white;
+        padding: 10px;
+        border-radius: 25px;
+        font-size: 20px;
+
+        & > .icon {
+
+          margin: 0 5px;
+        }
+      }
+
+      .has-dropdown {
+
+        position: relative;
+
+        .dropdown {
+
+          display: none;
+          position: absolute;
+          top: calc(100% + 2px);
+          left: calc(-50% - 20px);
+          background-color: $white;
+          width: 200px;
+          padding: 10px;
+          border-radius: 10px;
+        }
+
+        &:hover .dropdown{
+
+          display: block;
+        }
+      }
+    }
+
+    .wrapper-search-bar {
+
+      
+      padding: 20px 40px;
+      border-radius: 40px;
+
+      .search-bar {
+
+        @include flex(row, center, center);
+
+        .wrapper-form-fields {
+
+          @include flex(column, center, center);
+          min-height: 100px;
+          background-color: $white;
+          padding: 20px;
+        }
+
+        .first {
+
+          padding-left: 150px;
+          border-top-left-radius: 50px;
+          border-bottom-left-radius: 50px;
+        }
+
+        .last {
+
+          padding-right: 150px;
+          border-top-right-radius: 50px;
+          border-bottom-right-radius: 50px;
+        }
+        
+        input {
+
+          border: 0;
+
+          &:focus {
+
+            outline: 0;
+          }
+        }
+
+        .search {
+
+          padding: 20px;
+          background-color: #ff385c;
+          color: $white;
+          border: 0;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
+
 // Header pagina Diventa un Host
 .register-header {
 
@@ -81,6 +228,7 @@
 
   // Questo span contiene "diventa un host e il login"
   span:last-of-type {
+    padding-top: 20px;
     @include flex(row, center, center);
 
     a:first-of-type {
@@ -132,7 +280,7 @@
   .navbar1 {
     @include flex(row, center, center);
     width: 70%;
-    height: 100%;
+    height: 80px;
     background-color: $white;
     border-radius: 50px;
 

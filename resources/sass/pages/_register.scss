@@ -5,6 +5,7 @@ section#register-jumbotron {
 
     .jumbotron {
 
+        background-color: $black;
         height: 400px;
         @include flex(row, center, center);
 

@@ -37,8 +37,14 @@ a {
   text-decoration: none;
 }
 
-#header-and-main {
-  background: url(/images/wallpaper.jpg) no-repeat;
-  background-size: 100vw 100vh;
-}
+// #header-and-main {
+//   background: url(/images/wallpaper.jpg) no-repeat;
+//   background-size: 100vw 100vh;
+// }
 
+.test{
+  img{
+    width: 200px;;
+    height: 200px;
+  }
+}

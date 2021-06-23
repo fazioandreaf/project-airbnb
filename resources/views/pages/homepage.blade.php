@@ -3,29 +3,7 @@
 @section("content")
 
   <div class="jumbotron">
-    <section>
 
-      <ul>
-        <li>
-          <a href="{{route('login')}}">
-            <h1>BoolB&B</h1>
-          </a>
-          <span>2021</span>
-        </li>
-
-        <li>
-          <h2>Ti presentiamo<div>oltre 100 novità</div></h2>
-        </li>
-      </ul>
-
-      {{-- rotta per la create --}}
-      <a href="{{route('add')}}">
-        <button style="width: 300px">
-          NEW APARTMENT
-        </button>
-      </a>
-    </section>
-  </div>
 
   <div class="outer-jumbotron">
     <h3 class="title-outer-jmb">

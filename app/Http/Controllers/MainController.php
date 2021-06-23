@@ -47,10 +47,12 @@ class MainController extends Controller {
     }
 
     // registrazione
-    public function search()
+    public function search(Request $request)
     {
+        // dd($request->request);
         $apartments=Apartment::all();
-        return view('pages.search',compact('apartments'));
+        // dd($apartments);
+        return view('pages.search',compact('apartments','request'));
     }
 
 
