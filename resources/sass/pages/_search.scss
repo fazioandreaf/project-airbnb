@@ -3,179 +3,167 @@
     width: 100%;
     // debug
     height: 82.3vh;
-
+    > div {
+        flex: 1;
+    }
 
     .left-section {
         width: 45%;
-        border-top: 1px solid rgba(50, 50, 50, .3);
+        border-top: 1px solid rgba(50, 50, 50, 0.3);
         overflow: auto;
 
         div:first-of-type {
-        height:100%;
-        @include container(95%);
+            height: 100%;
+            @include container(95%);
 
-        ul {
-            margin-top: 30px;
-            line-height: 200%;
-            border-bottom: 1px solid rgba(50, 50, 50, .3);
+            ul {
+                margin-top: 30px;
+                line-height: 200%;
+                border-bottom: 1px solid rgba(50, 50, 50, 0.3);
 
-            #scopri-di-piu {
-            font-size: 15px;
-            @include flex(row, null, null);
-
-            a:last-of-type {
-                text-decoration: underline;
-            }
-
-            }
-
-        } // fine UL
-
-        figure {
-            @include flex(row, null, null);
-            border-bottom: 1px solid rgba(50, 50, 50, .3);
-
-            div {
-            height: 200px;
-            }
-
-            div:first-of-type {
-            @include flex(row, center, center);
-            width: 45%;
-
-            span {
-                width: 100%;
-                height: 90%;
-                // debug
-                @include flex(row, center, center);
-            }
-
-            #immagine-bordo {
-                border: 1px solid black;
-            }
-
-            } // FINE primo div (sinistra - IMG)
-
-            // ALTRA SEZIONE----------------------
-
-            // INIZIO secondo div (destra - details)
-            div:last-of-type {
-            @include flex(row, center, center);
-            width: 55%;
-
-            span {
-                width: 95%;
-                height: 90%;
-                // debug
-                @include flex(row, null, null);
-
-                div {
-                height: 100%;
-                width: 100%;
-                @include flex(column, null, null);
-
-                span {
-                    height:calc(100% / 5);
-                }
-
-                // INIZIO (1 SPAN) - PRIMA RIGA
-                span:first-of-type {
-
-                    div:first-of-type {
-                    width: 90%;
-
-                    a {
-                        align-self: flex-start;
-                    }
-                    }
-
-                    div:last-of-type {
-                    width: 10%;
-
-                    // QUESTO è IL CUORE ♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥
-                    a {
-                        align-self: flex-end;
-                        font-size: 25px;
-                    }
-                    }
-
-                    #scopri-di-piu {
-                        font-size: 15px;
-                        @include flex(row, null, null);
-
-                } // FINE (1 SPAN) - PRIMA RIGA
-
-
-                // INIZIO (2 SPAN) - SECONDA RIGA
-                span:nth-child(2) {
-
-                    a {
-                    align-self: flex-start;
-                    }
-
-                } // INIZIO (2 SPAN) - SECONDA RIGA
-
-
-                // (3)
-                span:nth-child(3) {
-
-                    a {
-                    align-self: flex-start;
-                    }
-                }
-
-
-                // (4)
-                span:nth-child(4) {
-
-                    a {
-                    align-self: flex-start;
-                    }
-                }
-
-
-                // (5)
-                span:nth-child(5) {
+                #scopri-di-piu {
+                    font-size: 15px;
                     @include flex(row, null, null);
 
-                    #div1-span5 {
-                    width: 60%;
+                    a:last-of-type {
+                        text-decoration: underline;
+                    }
+                }
+            } // fine UL
 
-                    a {
-                        align-self: flex-start;
+            figure {
+                @include flex(row, null, null);
+                border-bottom: 1px solid rgba(50, 50, 50, 0.3);
+
+                div {
+                    height: 200px;
+                }
+
+                div:first-of-type {
+                    @include flex(row, center, center);
+                    width: 45%;
+
+                    span {
+                        width: 100%;
+                        height: 90%;
+                        // debug
+                        @include flex(row, center, center);
+                    }
+
+                    #immagine-bordo {
+                        border: 1px solid black;
+                    }
+                } // FINE primo div (sinistra - IMG)
+
+                // ALTRA SEZIONE----------------------
+
+                // INIZIO secondo div (destra - details)
+                div:last-of-type {
+                    @include flex(row, center, center);
+                    width: 55%;
+
+                    span {
+                        width: 95%;
+                        height: 90%;
+                        // debug
                         @include flex(row, null, null);
-                    }
 
-                    } // fine primo div in span 5
+                        div {
+                            height: 100%;
+                            width: 100%;
+                            @include flex(column, null, null);
 
-                    #div2-span5 {
-                    width: 40%;
-                    align-self: flex-start;
+                            span {
+                                height: calc(100% / 5);
+                            }
 
-                    p:first-of-type {
-                        text-decoration: line-through;
-                    }
-                    } // fine ultimo div in span 5
+                            // INIZIO (1 SPAN) - PRIMA RIGA
+                            span:first-of-type {
+                                div:first-of-type {
+                                    width: 90%;
 
-                } // fine span 5
+                                    a {
+                                        align-self: flex-start;
+                                    }
+                                }
 
-                } // FINE DIV che mette gli span che contiene in colonna
+                                div:last-of-type {
+                                    width: 10%;
 
-            } // FINE SPAN che Riduce altezza e larghezza
+                                    // QUESTO è IL CUORE ♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥
+                                    a {
+                                        align-self: flex-end;
+                                        font-size: 25px;
+                                    }
+                                }
 
-            } // FINE secondo div (destra - details)
+                                #scopri-di-piu {
+                                    font-size: 15px;
+                                    @include flex(row, null, null);
+                                } // FINE (1 SPAN) - PRIMA RIGA
 
-        } // FINE del contenitore FIGURE
+                                // INIZIO (2 SPAN) - SECONDA RIGA
+                                span:nth-child(2) {
+                                    a {
+                                        align-self: flex-start;
+                                    }
+                                } // INIZIO (2 SPAN) - SECONDA RIGA
 
-        } // fine del div che contiene ul (sopra) e figure (tutti le immagini/descrizioni)
+                                // (3)
+                                span:nth-child(3) {
+                                    a {
+                                        align-self: flex-start;
+                                    }
+                                }
 
-    } // FINE del contenitore di sinistra
+                                // (4)
+                                span:nth-child(4) {
+                                    a {
+                                        align-self: flex-start;
+                                    }
+                                }
 
+                                // (5)
+                                span:nth-child(5) {
+                                    @include flex(row, null, null);
+
+                                    #div1-span5 {
+                                        width: 60%;
+
+                                        a {
+                                            align-self: flex-start;
+                                            @include flex(row, null, null);
+                                        }
+                                    } // fine primo div in span 5
+
+                                    #div2-span5 {
+                                        width: 40%;
+                                        align-self: flex-start;
+
+                                        p:first-of-type {
+                                            text-decoration: line-through;
+                                        }
+                                    } // fine ultimo div in span 5
+                                } // fine span 5
+                            } // FINE DIV che mette gli span che contiene in colonna
+                        } // FINE SPAN che Riduce altezza e larghezza
+                    } // FINE secondo div (destra - details)
+                } // FINE del contenitore FIGURE
+            } // fine del div che contiene ul (sopra) e figure (tutti le immagini/descrizioni)
+        } // FINE del contenitore di sinistra
+
+        .right-section {
+            width: 55%;
+            background: url(../../../storage/app/public/assets/calabria-test.jpg)
+                no-repeat;
+            background-size: cover;
+        } // FINE del contenitore di destra
+    }
     .right-section {
-        width: 55%;
-        background: url(../../../storage/app/public/assets/calabria-test.jpg) no-repeat;
-        background-size: cover;
-    } // FINE del contenitore di destra
-
-    } // FINE di search-page
+        .map {
+            height: 100%;
+            width: 100%;
+        }
+    }
+    // FINE di search-page
 }
