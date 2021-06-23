@@ -355,6 +355,7 @@
 // esempio di creare una funzione che metta tutti i marker nella mappa
 function prova(){
     var results={
+            // id:'',
             address:{
                 country: "Italia",
                 countryCode: "IT",
@@ -406,8 +407,8 @@ function prova(){
                 },
             },
         };
-    console.log('ciao');
-    // searchMarkersManager.draw([result]);
+    console.log(results);
+    searchMarkersManager.draw([this.result]);
 }
 //After all these predefined steps we can create SearchMarkersManager, which will be responsible for manipulation with a marker.
 // In our example it has draw and clear methods
@@ -492,7 +493,9 @@ function prova(){
                             placeholder: 'Scrivi la città'
                         }
                     });
-arker.prototype.remove = function () {
-                    this.marker.remove();
-                    this._map = null;
-                };
+            </script>
+    </div>
+    <!-- FINE PARTE DI DESTRA CON IMMAGINE GRANDE (CALABRIA)-->
+
+  </div>
+@endsection
