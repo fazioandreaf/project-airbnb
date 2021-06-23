@@ -36,8 +36,8 @@
 
           <div style='margin: 30px 0px'> <!-- INIZIO PRIMO DIV DI SINISTRA CON MINI-IMMAGINE -->
             <span id="immagine-bordo">
-              <a href="#">
-                <img src="" alt="immagine-qui">
+              <a href="#" style="height: 100%;width: 100%;">
+                <img src="{{$apartments[3]->cover_image}}" alt="immagine-qui" style="width: 100%;height: 100%;">
               </a>
             </span>
           </div> <!-- FINE PRIMO DIV DI SINISTRA CON MINI-IMMAGINE -->
@@ -186,8 +186,24 @@ function makemarker(LNG, LAT){
                     .setLngLat([LNG,LAT])
                     .addTo(map);
     console.log('Inserito mark');
-}
+};
+document.addEventListener('DOMContentLoaded',function init(){
+    new Vue({
+        'el':'#app',
+        'data':{
+            address:"",
+            number_rooms:0,
+            number_beds:0,
+            guest:0,
+        },
+        mounted:function(){
+            console.log('ciao');
+        },
+        'methods':{
 
+        },
+    });
+});
             // var SEARCH_QUERY = 'Rome';
 
                 // function findGeometry() {
