@@ -656,14 +656,14 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   padding: 10px;
 }
 
-.outer-jumbotron .section-host {
+.outer-jumbotron .apartment-samples .flags .section-host {
   display: flex;
   justify-content: center;
   margin-top: 80px;
   margin-bottom: 40px;
 }
 
-.outer-jumbotron .section-host .host {
+.outer-jumbotron .apartment-samples .flags .section-host .host {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -677,15 +677,15 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   border: 1px solid black;
 }
 
-.outer-jumbotron .section-host .host .h1-host {
+.outer-jumbotron .apartment-samples .flags .section-host .host .h1-host {
   margin-bottom: 5px;
 }
 
-.outer-jumbotron .section-host .host .p-host {
+.outer-jumbotron .apartment-samples .flags .section-host .host .p-host {
   margin: 5px 0;
 }
 
-.outer-jumbotron .section-host .host .btn-host_hmpages {
+.outer-jumbotron .apartment-samples .flags .section-host .host .btn-host_hmpages {
   width: 100px;
   height: 30px;
   background-color: black;
@@ -695,7 +695,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   margin-top: 15px;
 }
 
-.outer-jumbotron .section-host .host .img-host {
+.outer-jumbotron .apartment-samples .flags .section-host .host .img-host {
   width: 50px;
   height: auto;
 }
@@ -830,7 +830,7 @@ section#section-register form .form-button {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 83.3vh;
+  height: 82.3vh;
 }
 
 .search-page > div {
@@ -879,6 +879,7 @@ section#section-register form .form-button {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   width: 45%;
 }
 
@@ -899,6 +900,7 @@ section#section-register form .form-button {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   width: 55%;
 }
 
@@ -972,7 +974,7 @@ section#section-register form .form-button {
 
 .search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(5) #div2-span5 {
   width: 40%;
-  align-self: flex-end;
+  align-self: flex-start;
 }
 
 .search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(5) #div2-span5 p:first-of-type {
@@ -981,9 +983,8 @@ section#section-register form .form-button {
 
 .search-page .left-section .right-section {
   width: 55%;
-  height: 100%;
   background: url(/images/calabria-test.jpg?4f3f0566f0a670a66cec42ff3b36ae0f) no-repeat;
-  background-size: contain;
+  background-size: cover;
 }
 
 .search-page .right-section .map {
