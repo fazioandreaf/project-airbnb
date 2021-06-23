@@ -922,7 +922,11 @@ section#section-register form .form-button {
 }
 
 #apartment-sample nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   border-bottom: 0.5px solid rgba(50, 50, 50, 0.3);
+  height: 100px;
 }
 
 #apartment-sample nav .basic-header {
@@ -1021,7 +1025,90 @@ section#section-register form .form-button {
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .titolo {
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   text-transform: uppercase;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .description-apartment {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .description-apartment div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .description-apartment div:first-of-type {
+  width: 80%;
+  background-color: blue;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .description-apartment div:last-of-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 20%;
+  background-color: green;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .description-apartment div:last-of-type span {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: auto;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container {
+  margin: 20px 0px;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div {
+  width: 50%;
+  height: 100%;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div:first-of-type {
+  background-color: navy;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div:last-of-type {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: lime;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div:last-of-type div {
+  width: 50%;
+  height: 50%;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div:last-of-type div:first-of-type {
+  background-color: green;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div:last-of-type div:nth-child(2) {
+  background-color: purple;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div:last-of-type div:nth-child(3) {
+  background-color: yellow;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div:last-of-type div:last-of-type {
+  background-color: brown;
 }
 
 * {

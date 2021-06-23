@@ -2,11 +2,6 @@
     height: 170px;
     @include container(97%);
 
-    // div {
-    //     height: 50%;
-    //     // width: 100%;
-    // }
-
     .top-header-search {
         @include flex(row, null, center);
 
