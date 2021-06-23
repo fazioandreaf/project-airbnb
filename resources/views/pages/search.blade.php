@@ -133,17 +133,17 @@
 
             @foreach ($services as $item)
             <strong>
-
                 {{$item->service}};
             </strong>
             @endforeach
-            <a href="#" onclick="prova(15.06619,37.54305)">Prova</a>
+            {{$apartments[0]}}
+            <a href="#" onclick="makemarker(15.06619,37.54305)">Defautl</a>
             <ul>
                 <li>latitude e longitude </li>
                 @foreach ($apartments as $item)
                 <li>
                   <a href="#"
-                  onclick="prova({{$item -> longitude}},{{$item -> latitude}})"
+                  onclick="makemarker({{$item -> longitude}},{{$item -> latitude}})"
                   style="background-color:lightgray;padding:0.5rem;border-radius:1rem;padding-bottom:2px; ">
                     {{$item -> latitude}} {{$item -> longitude}}
                   </a>
@@ -180,7 +180,7 @@
                 };
 
 // esempio di creare una funzione che metta tutti i marker nella mappa
-function prova(LNG, LAT){
+function makemarker(LNG, LAT){
   // console.log(LNG, LAT)
     var marker = new tt.Marker([{height:10,width:10}])
                     .setLngLat([LNG,LAT])
