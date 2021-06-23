@@ -158,8 +158,35 @@
     <!-- INIZIO PARTE DI DESTRA CON IMMAGINE GRANDE (CALABRIA)-->
     <div class="right-section">
            <div id='map' class='map'></div>
-           <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.13.0/maps/maps-web.min.js'></script>
             <script>
+                // esempio di creare una funzione che metta tutti i marker nella mappa
+                function makemarker(LNG, LAT){
+                // console.log(LNG, LAT)
+                    var marker = new tt.Marker([{height:10,width:10}])
+                                    .setLngLat([LNG,LAT])
+                                    .addTo(map);
+                    console.log('Inserito mark');
+                };
+                document.addEventListener('DOMContentLoaded',function init(){
+                    new Vue({
+                        props:{
+                            request: Object;
+                        }
+                        'el':'#app',
+                        'data':{
+                            address:"",
+                            number_rooms:0,
+                            number_beds:0,
+                            guest:0,
+                        },
+                        mounted:function(){
+                            console.log('ciao');
+                        },
+                        'methods':{
+
+                        },
+                    });
+                });
                 var map = tt.map({
                     key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
                     container: 'map',
@@ -179,31 +206,6 @@
                     }
                 };
 
-// esempio di creare una funzione che metta tutti i marker nella mappa
-function makemarker(LNG, LAT){
-  // console.log(LNG, LAT)
-    var marker = new tt.Marker([{height:10,width:10}])
-                    .setLngLat([LNG,LAT])
-                    .addTo(map);
-    console.log('Inserito mark');
-};
-document.addEventListener('DOMContentLoaded',function init(){
-    new Vue({
-        'el':'#app',
-        'data':{
-            address:"",
-            number_rooms:0,
-            number_beds:0,
-            guest:0,
-        },
-        mounted:function(){
-            console.log('ciao');
-        },
-        'methods':{
-
-        },
-    });
-});
 
                 var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
                 var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
@@ -222,11 +224,11 @@ document.addEventListener('DOMContentLoaded',function init(){
                 ttSearchBox.on('tomtom.searchbox.resultscleared', handleResultClearing);
                 map.addControl(ttSearchBox, 'top-left');
 
-//    handleResultsFound - executes when the search results are found. The event handler clears previously founded results and draws new. After that, it will try to fit drawn results on a vewport by executing fitToViewport method.
- //   handleResultSelection - executes in two cases:
-//        - results were found and a user presses arrow up/down;
-//      - results were found and a user chooses one by clicking on it;
-//    handleResultClearing - executes when a user clicks on "X" button of the SearchBox. As a result, all founded results will be cleared from the map.
+                //    handleResultsFound - executes when the search results are found. The event handler clears previously founded results and draws new. After that, it will try to fit drawn results on a vewport by executing fitToViewport method.
+                //   handleResultSelection - executes in two cases:
+                //        - results were found and a user presses arrow up/down;
+                //      - results were found and a user chooses one by clicking on it;
+                //    handleResultClearing - executes when a user clicks on "X" button of the SearchBox. As a result, all founded results will be cleared from the map.
 
                 function handleResultsFound(event) {
                     var results = event.data.results.fuzzySearch.results;

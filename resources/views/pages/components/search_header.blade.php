@@ -13,7 +13,7 @@
                         <label for="where">
                             Scrivi l'indirizzo
                         </label>
-                        <input type="text" id="where" name="where" placeholder="Scrivi l'indirizzo">
+                        <input type="text" id="where" name="where" placeholder="{{$request->where}}">
                     </div>
 
                     <div class="wrapper-form-fields first">

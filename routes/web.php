@@ -9,7 +9,7 @@ Route::get('/home', 'HomeController@index')->name('home');
     // ROTTE LIBERE
 
 // HOMEPAGE appartamenti in vetrina
-Route::get('pages/homepage', 'MainController@homepage') -> name('homepage');
+Route::get('homepage', 'MainController@homepage') -> name('homepage');
 
 //Ricerca avanzata
 Route::post('/search', 'MainController@search') -> name('search');
