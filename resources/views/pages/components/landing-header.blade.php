@@ -22,14 +22,14 @@
                                     <a href="{{ route('register') }}">
                                         {{ __('Diventa un Host') }}
                                     </a>
-                                @endif  
+                                @endif
                         </li>
                         <li>
                             <a href="{{ route('login') }}">
                                 {{ __('Login') }}
                             </a>
                             @endguest
-                        </li>  
+                        </li>
                         <li>
                             {{-- Logged view --}}
                             @auth
@@ -88,7 +88,7 @@
                         <button type="submit" class="search">
                             <i class="fas fa-search"></i>
                         </div>
-                    </div>   
+                    </div>
                 </form>
             </div>
         </div>

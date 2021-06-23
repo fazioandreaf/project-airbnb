@@ -186,8 +186,8 @@ function makemarker(LNG, LAT){
                     .setLngLat([LNG,LAT])
                     .addTo(map);
     console.log('Inserito mark');
-
 }
+
             // var SEARCH_QUERY = 'Rome';
 
                 // function findGeometry() {

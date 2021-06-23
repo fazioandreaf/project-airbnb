@@ -10,9 +10,6 @@
 
     <div class="filter">
 
-        <form class="search-bar" action="{{ route('search') }}" method="post" enctype="multipart/form-data">
-            @method('POST')
-            @csrf
             <div class="wrapper-form-fields">
                 <label for="where">
                     Scrivi l'indirizzo
@@ -43,41 +40,40 @@
                     <i class="fas fa-search"></i>
                 </div>
             </div>
-        </form>
-
-        <div>
-            @guest
-            @if (Route::has('register'))
-                <a href="{{ route('register') }}">
-                {{ __('Diventa un Host') }}
-                </a>
-            @endif
-            <a href="{{ route('login') }}">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-user"></i>
-            </a>
-            @endguest
-            @auth
-            <a href="#">
-                {{ Auth::user()->name }}
-            </a>
-            <a href="{{ route('logout')}}" onclick="
-                event.preventDefault();
-                document.getElementById('form_logout').submit();"
-            >
-                {{ __('Logout') }}
-            </a>
-            <form id="form_logout" method="POST" action="{{ route('logout') }}">
-                @csrf
-            </form>
             <div>
-                <a href="{{route('dashboard',Auth::id())}}">
-                    Dashboard
+                @guest
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}">
+                    {{ __('Diventa un Host') }}
+                    </a>
+                @endif
+                <a href="{{ route('login') }}">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-user"></i>
                 </a>
+                @endguest
+                @auth
+                <a href="#">
+                    {{ Auth::user()->name }}
+                </a>
+                <a href="{{ route('logout')}}" onclick="
+                    event.preventDefault();
+                    document.getElementById('form_logout').submit();"
+                >
+                    {{ __('Logout') }}
+                </a>
+                <form id="form_logout" method="POST" action="{{ route('logout') }}">
+                    @csrf
+                </form>
+                <div>
+                    <a href="{{route('dashboard',Auth::id())}}">
+                        Dashboard
+                    </a>
+                </div>
+                @endauth
             </div>
-            @endauth
+
         </div>
-    </div>
 
 
   </div>
