@@ -21,6 +21,41 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- CDN maps -->
+    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.13.0/maps/maps.css'>
+    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css'>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js"></script>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.1.2-public-preview.15/services/services-web.min.js"></script>
+    <!-- Turf.js -->
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+
+    <style>
+        #polygon-info-box {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  margin: 10px;
+  z-index: 1100;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.45) 2px 2px 2px 0px;
+}
+
+#polygon-info-box label {
+  font-size: 1.3em;
+  font-weight: bold;
+  line-height: 2;
+}
+
+#polygon-info-box span {
+  font-size: 1.2em;
+}
+
+#polygon-info-box {
+  text-align: right;
+}
+    </style>
   </head>
 
   <body>

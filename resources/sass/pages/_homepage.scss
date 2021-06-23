@@ -51,18 +51,42 @@
 
 }
 
-.apartment-samples {
-  font-size: 20px;
-  @include container(90%);
-  @include flex(row, space-between, null);
+.outer-jumbotron{
+  margin: 10px auto;
+  width: 90%;
+  height: auto;
+  text-align: center;
 
-  li:nth-child(odd) {
-    color: $red;
+  .title-outer-jmb{
+    margin-top: 50px;
+    margin-bottom: 30px;
   }
+  .apartment-samples {
+    font-size: 20px;
+    @include container(90%);
+    @include flex(row, space-between, null);
 
-  li:nth-child(even) {
-    color: $green;
-  }
+  
+    li:nth-child(odd) {
+      color: $red;
+    }
+  
+    li:nth-child(even) {
+      color: $green;
+    }
+  
+    .flags{
+      width: 220px;
+      height: 220px;
+      background-color: purple;
+      border-radius: 10px;
+      display: flex;
+      align-items: flex-end;
+  
+      a{
+        color: white;
+        padding: 10px ;
+      }
 
   .flags{
     width: 250px;
@@ -73,13 +97,51 @@
     a{
       color: white;
     }
+  
   }
 
-}
+  .section-host{
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    margin-bottom: 40px;
+  
+  
+    .host{    
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 90%;
+      height: 300px;
+      background-image: url(/images/diventaHost.png) no-repeat;
+      color:black;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: start;
+      border: 1px solid black;
 
-.host{
-  width: 800px;
-  height: 300px;
-  background-color: purple;
-  border-radius: 10px;
+      .h1-host{
+        margin-bottom: 5px;
+      }
+
+      .p-host{
+        margin: 5px 0;
+      }
+      
+      .btn-host_hmpages{
+        width: 100px;
+        height: 30px;
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin-top: 15px;
+      }
+
+      .img-host{
+        width: 50px;
+        height: auto;
+      }
+    }
+  }
 }
