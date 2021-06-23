@@ -656,14 +656,14 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   padding: 10px;
 }
 
-.outer-jumbotron .apartment-samples .flags .section-host {
+.outer-jumbotron .section-host {
   display: flex;
   justify-content: center;
   margin-top: 80px;
   margin-bottom: 40px;
 }
 
-.outer-jumbotron .apartment-samples .flags .section-host .host {
+.outer-jumbotron .section-host .host {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -677,15 +677,15 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   border: 1px solid black;
 }
 
-.outer-jumbotron .apartment-samples .flags .section-host .host .h1-host {
+.outer-jumbotron .section-host .host .h1-host {
   margin-bottom: 5px;
 }
 
-.outer-jumbotron .apartment-samples .flags .section-host .host .p-host {
+.outer-jumbotron .section-host .host .p-host {
   margin: 5px 0;
 }
 
-.outer-jumbotron .apartment-samples .flags .section-host .host .btn-host_hmpages {
+.outer-jumbotron .section-host .host .btn-host_hmpages {
   width: 100px;
   height: 30px;
   background-color: black;
@@ -695,7 +695,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   margin-top: 15px;
 }
 
-.outer-jumbotron .apartment-samples .flags .section-host .host .img-host {
+.outer-jumbotron .section-host .host .img-host {
   width: 50px;
   height: auto;
 }
@@ -983,13 +983,122 @@ section#section-register form .form-button {
 
 .search-page .left-section .right-section {
   width: 55%;
-  background-color: black;
+  background: url(/images/calabria-test.jpg?4f3f0566f0a670a66cec42ff3b36ae0f) no-repeat;
   background-size: cover;
 }
 
 .search-page .right-section .map {
   height: 100%;
   width: 100%;
+}
+
+.right-section {
+  width: 55%;
+  background-color: black;
+  background-size: cover;
+}
+
+#apartment-sample nav {
+  border-bottom: 0.5px solid rgba(50, 50, 50, 0.3);
+}
+
+#apartment-sample nav .basic-header {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#apartment-sample nav .basic-header div:nth-child(1) img {
+  height: 80%;
+  width: 80%;
+}
+
+#apartment-sample nav .basic-header div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+}
+
+#apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 400px;
+  height: 50px;
+  border-radius: 30px;
+}
+
+#apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca a:first-of-type {
+  margin-left: 10px;
+}
+
+#apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca a:last-of-type {
+  margin-right: 10px;
+}
+
+#apartment-sample nav .basic-header div:nth-child(2) span {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 0.5px solid rgba(50, 50, 50, 0.3);
+}
+
+#apartment-sample nav .basic-header div:nth-child(2) span a:last-of-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #e80080;
+  color: #FFF;
+  font-size: 20px;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+}
+
+#apartment-sample nav .basic-header div:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#apartment-sample nav .basic-header div:nth-child(3) a {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#apartment-sample nav .basic-header div:nth-child(3) a:nth-child(1) {
+  margin: 15px 30px 0px 0px;
+}
+
+#apartment-sample nav .basic-header div:nth-child(3) a:nth-child(2) {
+  font-size: 15px;
+  background-color: #FFF;
+  width: 90px;
+  height: 60px;
+  border-radius: 30px;
+  border: 1px solid rgba(50, 50, 50, 0.3);
+}
+
+#apartment-sample nav .basic-header div:nth-child(3) a:nth-child(2) i:last-of-type {
+  color: #FFF;
+  background-color: #6c6a6b;
+  padding: 10px;
+  border-radius: 100%;
+}
+
+#apartment-sample .jumbotron-apartment {
+  margin: 0 auto;
+  width: 80%;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .titolo {
+  text-transform: uppercase;
 }
 
 * {
