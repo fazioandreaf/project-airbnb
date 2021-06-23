@@ -1,0 +1,105 @@
+#apartment-sample {
+
+  nav {
+    border-bottom: 0.5px solid rgba(50, 50, 50, .3);
+
+    .basic-header {
+      @include container(80%);
+      @include flex(row, space-between, center);
+
+      // INIZIO PRIMO div IMMAGINE
+      div:nth-child(1) {
+
+        img {
+          height: 80%;
+          width: 80%
+        }
+      } // FINE PRIMO div IMMAGINE
+
+      // INIZIO secondo div (BARRA DI RICERCA)
+      div:nth-child(2) {
+        @include flex(row, null, null);
+
+        #barra-ricerca {
+          @include flex(row, space-between, null);
+          width: 400px;
+          height: 50px;
+          border-radius: 30px;
+
+          a:first-of-type {
+            margin-left: 10px;
+          }
+
+          a:last-of-type {
+            margin-right: 10px;
+          }
+        }
+
+        span {
+          @include flex(row, center, center);
+          border: 0.5px solid rgba(50, 50, 50, .3);
+
+          a:last-of-type {
+            @include flex(row, center, center);
+            background-color: $fuchsia-search;
+            color: $white;
+            font-size: 20px;
+            width: 35px;
+            height: 35px;
+            border-radius: 100%;
+          }
+        }
+
+      } // FINE SECONDO div (BARRA DI RICERCA)
+
+      // INIZIO terzo div (quello con omino utente)
+      div:nth-child(3) {
+        @include flex(row, flex-end, null);
+
+        a {
+          @include flex(row, space-evenly, center);
+        }
+
+        a:nth-child(1) {
+          margin: 15px 30px 0px 0px;
+        }
+
+        a:nth-child(2) {
+          font-size: 15px;
+          background-color: $white;
+          width: 90px;
+          height: 60px;
+          border-radius: 30px;
+          border: 1px solid rgba(50, 50, 50, .3);
+
+          // Icona utente (omino)
+          i:last-of-type {
+            color: $white;
+            background-color: $user-gray;
+            padding: 10px;
+            border-radius: 100%;
+          }
+
+        }
+
+      } // FINE terzo div (quello con omino utente)
+
+    } // FINE DI BASIC HEADER (width: 80%)
+
+  } // FINE NAV (100% width per border bottom)
+
+  // ---------------------------------------------------------------------------
+
+  .jumbotron-apartment {
+    @include container(80%);
+
+    #jumbo-container {
+
+      .titolo {
+        text-transform: uppercase;
+      }
+    } // FINE #jumbo-container
+
+  } // FINE JUMBOTRON-APARTMENT
+
+} // FINE #apartment-sample
