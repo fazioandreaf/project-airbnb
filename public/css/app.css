@@ -656,14 +656,14 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   padding: 10px;
 }
 
-.outer-jumbotron .apartment-samples .flags .section-host {
+.outer-jumbotron .section-host {
   display: flex;
   justify-content: center;
   margin-top: 80px;
   margin-bottom: 40px;
 }
 
-.outer-jumbotron .apartment-samples .flags .section-host .host {
+.outer-jumbotron .section-host .host {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -677,15 +677,15 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   border: 1px solid black;
 }
 
-.outer-jumbotron .apartment-samples .flags .section-host .host .h1-host {
+.outer-jumbotron .section-host .host .h1-host {
   margin-bottom: 5px;
 }
 
-.outer-jumbotron .apartment-samples .flags .section-host .host .p-host {
+.outer-jumbotron .section-host .host .p-host {
   margin: 5px 0;
 }
 
-.outer-jumbotron .apartment-samples .flags .section-host .host .btn-host_hmpages {
+.outer-jumbotron .section-host .host .btn-host_hmpages {
   width: 100px;
   height: 30px;
   background-color: black;
@@ -695,7 +695,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   margin-top: 15px;
 }
 
-.outer-jumbotron .apartment-samples .flags .section-host .host .img-host {
+.outer-jumbotron .section-host .host .img-host {
   width: 50px;
   height: auto;
 }
@@ -983,13 +983,19 @@ section#section-register form .form-button {
 
 .search-page .left-section .right-section {
   width: 55%;
-  background-color: black;
+  background: url(/images/calabria-test.jpg?4f3f0566f0a670a66cec42ff3b36ae0f) no-repeat;
   background-size: cover;
 }
 
 .search-page .right-section .map {
   height: 100%;
   width: 100%;
+}
+
+.right-section {
+  width: 55%;
+  background-color: black;
+  background-size: cover;
 }
 
 * {
