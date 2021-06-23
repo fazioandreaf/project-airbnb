@@ -21,6 +21,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
   </head>
 
   <body>
@@ -28,11 +29,11 @@
     <section id="header-and-main"> <!-- INIZIO DI #header-and-main (usato per il background, vedi app.css) -->
 
       @include('pages.components.header')
-    
-      <main>
-        @yield('content')
-      </main>
+
     </section> <!-- FINE DI #header-and-main (usato per il background, vedi app.css) -->
+    <main>
+      @yield('content')
+    </main>
 
     <footer>
       @include('pages.components.footer')

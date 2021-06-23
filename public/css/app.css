@@ -87,6 +87,7 @@
 }
 
 .bigger-header div:first-of-type span:last-of-type {
+  padding-top: 20px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -140,7 +141,7 @@
   justify-content: center;
   align-items: center;
   width: 70%;
-  height: 100%;
+  height: 80px;
   background-color: #FFF;
   border-radius: 50px;
 }
@@ -193,7 +194,6 @@
 
 footer {
   border-bottom: 1px solid rgba(50, 50, 50, 0.1);
-  height: 500px;
   background-color: #f7f7f7;
 }
 
@@ -203,33 +203,32 @@ footer .bigger-footer {
   height: 100%;
 }
 
-footer .bigger-footer div:nth-child(1) {
+footer .bigger-footer .footer-top-section {
   display: flex;
   flex-direction: row;
-  height: 85%;
+  align-items: flex-start;
   width: 100%;
+  border-bottom: 1px solid rgba(50, 50, 50, 0.1);
 }
 
-footer .bigger-footer div:nth-child(1) section {
-  padding-top: 30px;
+footer .bigger-footer .footer-top-section .footer-nav-links {
   width: calc(100% / 4);
-  height: 100%;
   line-height: 200%;
   border-bottom: 1px solid rgba(50, 50, 50, 0.1);
 }
 
-footer .bigger-footer div:nth-child(1) section li a:hover {
+footer .bigger-footer .footer-top-section .footer-nav-links > li a:hover {
   text-decoration: underline;
 }
 
-footer .bigger-footer div:nth-child(2) {
+footer .bigger-footer .footer-bottom-section {
   display: flex;
   flex-direction: row;
   height: 15%;
   width: 100%;
 }
 
-footer .bigger-footer div:nth-child(2) ul {
+footer .bigger-footer .footer-bottom-section .footer-nav-links {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -237,50 +236,44 @@ footer .bigger-footer div:nth-child(2) ul {
   height: 100%;
 }
 
-footer .bigger-footer div:nth-child(2) ul:first-of-type li {
+footer .bigger-footer .footer-bottom-section #site-infos {
+  flex-grow: 1;
+}
+
+footer .bigger-footer .footer-bottom-section #site-infos li {
   margin-right: 20px;
 }
 
-footer .bigger-footer div:nth-child(2) ul:first-of-type li:nth-child(2):hover,
-footer .bigger-footer div:nth-child(2) ul:first-of-type li:nth-child(3):hover,
-footer .bigger-footer div:nth-child(2) ul:first-of-type li:nth-child(4):hover,
-footer .bigger-footer div:nth-child(2) ul:first-of-type li:nth-child(5):hover {
+footer .bigger-footer .footer-bottom-section #site-infos li > a:hover {
   text-decoration: underline;
 }
 
-footer .bigger-footer div:nth-child(2) ul:last-of-type {
+footer .bigger-footer .footer-bottom-section #social-links {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
 }
 
-footer .bigger-footer div:nth-child(2) ul:last-of-type li:nth-child(1) p,
-footer .bigger-footer div:nth-child(2) ul:last-of-type li:nth-child(2) p {
-  display: inline;
+footer .bigger-footer .footer-bottom-section #social-links .social {
+  font-size: 18px;
+  text-decoration: none;
+}
+
+footer .bigger-footer .footer-bottom-section #social-links span {
   text-decoration: underline;
 }
 
-footer .bigger-footer div:nth-child(2) ul:last-of-type li:nth-child(1):hover,
-footer .bigger-footer div:nth-child(2) ul:last-of-type li:nth-child(2):hover,
-footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-facebook-f:hover,
-footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-twitter:hover,
-footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-instagram:hover {
+footer .bigger-footer .footer-bottom-section #social-links a:hover {
   opacity: 0.4;
 }
 
-footer .bigger-footer div:nth-child(2) ul:last-of-type li {
-  margin-right: 30px;
+footer .bigger-footer .footer-bottom-section #social-links li {
+  margin: 0 15px;
 }
 
-footer .bigger-footer div:nth-child(2) ul:last-of-type li:last-of-type {
-  margin: 0;
-}
-
-footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-facebook-f,
-footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-twitter,
-footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-instagram {
-  font-size: 18px;
+footer .bigger-footer .footer-bottom-section #social-links li:last-child {
+  margin-right: 0;
 }
 
 #header-search {
@@ -413,6 +406,7 @@ footer .bigger-footer div:nth-child(2) ul:last-of-type .fa-instagram {
 
 .jumbotron {
   height: 755px;
+  background-color: red;
 }
 
 .jumbotron section:only-of-type {
@@ -574,6 +568,7 @@ section#register-jumbotron {
 }
 
 section#register-jumbotron .jumbotron {
+  background-color: #000;
   height: 400px;
   display: flex;
   flex-direction: row;
@@ -687,9 +682,14 @@ section#section-register form .form-button {
   height: 82.3vh;
 }
 
+.search-page > div {
+  flex: 1;
+}
+
 .search-page .left-section {
   width: 45%;
   border-top: 1px solid rgba(50, 50, 50, 0.3);
+  overflow: auto;
 }
 
 .search-page .left-section div:first-of-type {
@@ -717,7 +717,7 @@ section#section-register form .form-button {
 .search-page .left-section div:first-of-type figure {
   display: flex;
   flex-direction: row;
-  overflow: auto;
+  border-bottom: 1px solid rgba(50, 50, 50, 0.3);
 }
 
 .search-page .left-section div:first-of-type figure div {
@@ -730,7 +730,6 @@ section#section-register form .form-button {
   justify-content: center;
   align-items: center;
   width: 45%;
-  background-color: red;
 }
 
 .search-page .left-section div:first-of-type figure div:first-of-type span {
@@ -740,7 +739,10 @@ section#section-register form .form-button {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: lime;
+}
+
+.search-page .left-section div:first-of-type figure div:first-of-type #immagine-bordo {
+  border: 1px solid black;
 }
 
 .search-page .left-section div:first-of-type figure div:last-of-type {
@@ -749,7 +751,6 @@ section#section-register form .form-button {
   justify-content: center;
   align-items: center;
   width: 55%;
-  background-color: green;
 }
 
 .search-page .left-section div:first-of-type figure div:last-of-type span {
@@ -757,8 +758,6 @@ section#section-register form .form-button {
   height: 90%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
 }
 
 .search-page .left-section div:first-of-type figure div:last-of-type span div {
@@ -774,40 +773,72 @@ section#section-register form .form-button {
 
 .search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type div:first-of-type {
   width: 90%;
-  background-color: #0065bd;
+}
+
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type div:first-of-type a {
+  align-self: flex-start;
 }
 
 .search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type div:last-of-type {
   width: 10%;
-  background-color: purple;
 }
 
-.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(2) {
-  background-color: pink;
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type div:last-of-type a {
+  align-self: flex-end;
+  font-size: 25px;
 }
 
-.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(3) {
-  background-color: brown;
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type #scopri-di-piu {
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
 }
 
-.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(4) {
-  background-color: silver;
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(2) a {
+  align-self: flex-start;
 }
 
-.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(5) div:first-of-type {
-  width: 70%;
-  background-color: #0065bd;
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(3) a {
+  align-self: flex-start;
 }
 
-.search-page .left-section div:first-of-type figure div:last-of-type span div span:nth-child(5) div:last-of-type {
-  width: 30%;
-  background-color: purple;
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(4) a {
+  align-self: flex-start;
 }
 
-.search-page .right-section {
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(5) {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(5) #div1-span5 {
+  width: 60%;
+}
+
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(5) #div1-span5 a {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+}
+
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(5) #div2-span5 {
+  width: 40%;
+  align-self: flex-start;
+}
+
+.search-page .left-section div:first-of-type figure div:last-of-type span div span:first-of-type span:nth-child(5) #div2-span5 p:first-of-type {
+  text-decoration: line-through;
+}
+
+.search-page .left-section .right-section {
   width: 55%;
   background: url(/images/calabria-test.jpg?4f3f0566f0a670a66cec42ff3b36ae0f) no-repeat;
   background-size: cover;
+}
+
+.search-page .right-section .map {
+  height: 100%;
+  width: 100%;
 }
 
 * {
@@ -832,5 +863,10 @@ a {
 #header-and-main {
   background: url(/images/wallpaper.jpg) no-repeat;
   background-size: 100vw 100vh;
+}
+
+.test img {
+  width: 200px;
+  height: 200px;
 }
 

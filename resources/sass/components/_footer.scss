@@ -1,103 +1,83 @@
 footer {
   border-bottom: 1px solid rgba(50, 50, 50, .1);
-  height: 500px;
   background-color: $footer-gray;
 
-  // Div grosso che contiene i div rispettivamente di height 90% e 10%
+  // CONTAINER FOOTER SECTIONS (85% - 15% HEIGHT)
   .bigger-footer {
     @include container(90%);
     height: 100%;
 
-    // INIZIO primo div da 85% di height
-    div:nth-child(1) {
-      @include flex(row, null, null);
-      height: 85%;
+    // INIZIO FOOTER TOP SECTION (85% HEIGHT)
+    .footer-top-section {
+      @include flex(row, null, flex-start);
       width: 100%;
+      border-bottom: 1px solid rgba(50, 50, 50, .1);
 
-      // tutte le sezioni assieme
-      section {
-        padding-top: 30px;
+      // UL NAV LINKS
+      .footer-nav-links {
         width: calc(100% / 4);
-        height: 100%;
         line-height: 200%;
         border-bottom: 1px solid rgba(50, 50, 50, .1);
 
-        li a:hover {
+        & > li a:hover {
           text-decoration: underline;
         }
+      }
+    }
 
-      } // FINE di TUTTE LE SECTION
-
-    } // FINE primo div da 85% di height
-
-
-    // ------ QUI INIZIA LA SEZIONE PIU' PICCOLA DEL FOOTER --------
-
-
-    // secondo div da 15% di height
-    div:nth-child(2) {
+    //INIZIO FOOTER BOTTOM SECTION (15% HEIGHT)
+    .footer-bottom-section {
       @include flex(row, null, null);
       height: 15%;
       width: 100%;
 
       // Tutti e due gli UL
-      ul {
+
+      .footer-nav-links {
         @include flex(row, null, center);
         width: calc(100% / 2);
         height: 100%;
       }
 
-      // UL di sinistra
-      ul:first-of-type {
+      // SITE INFOS
+      #site-infos {
+        flex-grow: 1;
 
         li {
           margin-right: 20px;
-        }
 
-        li:nth-child(2):hover,
-        li:nth-child(3):hover,
-        li:nth-child(4):hover,
-        li:nth-child(5):hover {
-          text-decoration: underline;
+          & > a:hover {
+
+            text-decoration: underline;
+          }
         }
       }
 
-      // UL di destra
-      ul:last-of-type {
+      // SOCIAL LINKS
+      #social-links {
         @include flex(row, flex-end, center);
 
-        li:nth-child(1) p,
-        li:nth-child(2) p {
-          display:inline;
+        .social {
+          font-size: 18px;
+          text-decoration: none;
+        }
+
+        span {
           text-decoration: underline;
         }
 
-        li:nth-child(1):hover,
-        li:nth-child(2):hover,
-        .fa-facebook-f:hover,
-        .fa-twitter:hover,
-        .fa-instagram:hover {
+        a:hover {
           opacity: 0.4;
         }
 
         li {
-          margin-right: 30px;
+          margin: 0 15px;
+
+          &:last-child {
+            margin-right: 0;
+          }
         }
-
-        li:last-of-type {
-          margin: 0;
-        }
-
-        .fa-facebook-f,
-        .fa-twitter,
-        .fa-instagram {
-          font-size: 18px;
-        }
-
-      } // fine dell'ultimo div di destra
-
-    } // fine del div 15% di hight (seconda sezione footer)
-
-  } // fine di .bigger-footer (quello che contiene entrambi i footer[85% e 15%] )
-
+      } 
+    }
+  } // END BIGGER FOOTER
 } // fine di footer
