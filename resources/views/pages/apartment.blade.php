@@ -157,27 +157,40 @@
               <ul>
 
                 <li>
-                  <a href="#">
-                    Stanza :
-                    {{$apartment->number_rooms}}
-                  </a>
+                  <span>
+                    <img src="{{asset('storage/assets/icone_stanze.png')}}" alt="stanze-img" style="width: 50px; height: 50px;">
+                    <a href="#">
+                      Stanze :
+                      {{$apartment->number_rooms}}
+                    </a>
+                  </span>
 
-                  <a href="#">
-                    Numero letti :
-                    {{$apartment->number_beds}}
-                  </a>
+                  <span>
+                    <img src="{{asset('storage/assets/icone_letto.png')}}" alt="letto-img" style="width: 50px; height: 50px;">
+                    <a href="#">
+                      Letti :
+                      {{$apartment->number_beds}}
+                    </a>
+                  </span>
                 </li>
 
                 <li>
-                  <a href="#">
-                    Numero bagni :
-                    {{$apartment->number_toiletes}}
-                  </a>
+                  <span>
+                    <img src="{{asset('storage/assets/icone_bagno.png')}}" alt="bagno-img" style="width: 50px; height: 50px;">
+                    <a href="#">
+                      Numero bagni :
+                      {{$apartment->number_toiletes}}
+                    </a>
+                  </span>
 
-                  <a href="#">
-                    Area :
-                    {{$apartment->area}}
-                  </a>
+                  <span>
+                    <img src="{{asset('storage/assets/icone_area.png')}}" alt="area-img" style="width: 50px; height: 50px;">
+                    <a href="#">
+                      Area :
+                      {{$apartment->area}}
+                    </a>
+                  </span>
+
                 </li>
 
                 <li>
@@ -185,11 +198,13 @@
                     Servizi extra :
                       @foreach ($apartment->services as $service)
                         {{$service->service}}
+                        <img src="{{asset('storage/assets/icone_'. $service->service . '.png')}}" alt="">
                       @endforeach
                   </a>
                 </li>
 
                 <li>
+                  <img src="{{asset('storage/assets/icone_sponsor.png')}}" alt="sponsor-img" style="width: 50px; height: 50px;">
                   <a href="#">
                     @foreach ($apartment->sponsors as $apSp)
                       <p>
@@ -206,6 +221,11 @@
 
             {{-- INIZIO SEZIONE DI DESTRA --}}
             <div class="destra-dettagli-flat">
+              <form action="" method="get">
+                <span>Scrivi all'host<div>Vedi se ci sono camere disponibili.</div></span>
+                <textarea rows="20" cols="30"></textarea>
+                <input type="submit" value="Submit">
+              </form>
             </div>
             {{-- INIZIO SEZIONE DI DESTRA --}}
 

@@ -1013,12 +1013,17 @@ section#section-register form .form-button {
   background-size: cover;
 }
 
+#apartment-sample {
+  background-color: #eff0f0;
+}
+
 #apartment-sample nav {
   display: flex;
   flex-direction: row;
   align-items: center;
   border-bottom: 0.5px solid rgba(50, 50, 50, 0.3);
   height: 100px;
+  background-color: #FFF;
 }
 
 #apartment-sample nav .basic-header {
@@ -1265,12 +1270,17 @@ section#section-register form .form-button {
   width: 95%;
   display: flex;
   flex-direction: column;
-  background-color: silver;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat ul li {
   width: 100%;
   height: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat ul li span {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1294,7 +1304,42 @@ section#section-register form .form-button {
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat {
   width: 30%;
-  background-color: royalblue;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #eff0f0;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form {
+  height: 500px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid #fa8a8a;
+  background-color: #FFF;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form span {
+  line-height: 200%;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form input {
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 15px 30px;
+  background-color: #e80080;
+  border: none;
+  border-radius: 10px;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form textarea {
+  border: 0.5px solid rgba(50, 50, 50, 0.2);
+  border-radius: 10px;
 }
 
 * {
