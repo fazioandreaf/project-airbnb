@@ -161,7 +161,7 @@
             <script>
                 // esempio di creare una funzione che metta tutti i marker nella mappa
                 function makemarker(LNG, LAT){
-                // console.log(LNG, LAT)
+                    // console.log(LNG, LAT)
                     var marker = new tt.Marker([{height:10,width:10}])
                                     .setLngLat([LNG,LAT])
                                     .addTo(map);
@@ -169,9 +169,9 @@
                 };
                 document.addEventListener('DOMContentLoaded',function init(){
                     new Vue({
-                        props:{
-                            request: Object;
-                        }
+                        // props:{
+                        //     request: Object;
+                        // },
                         'el':'#app',
                         'data':{
                             address:"",
