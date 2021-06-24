@@ -264,6 +264,7 @@
               span {
                 @include flex(row, null, center);
               }
+
             }
 
             li:first-of-type {
@@ -279,6 +280,10 @@
             li:nth-child(3) {
               // debug
               background-color: $cyan;
+
+              a {
+                @include flex(column, null, null);
+              }
             }
 
             li:last-of-type {
@@ -297,8 +302,7 @@
           width: 30%;
           height: 100%;
           @include flex(row, center, center);
-          // debug
-          background-color: #eff0f0;
+
 
           form {
             height: 500px;
@@ -310,7 +314,27 @@
 
             span {
               line-height: 200%;
-            }
+
+              i {
+                margin-left: 130px;
+                font-size: 30px;
+
+
+                .fa-pencil-alt {
+                  animation: matita 5s linear infinite;
+                }
+
+                @keyframes matita {
+                  0% {transform: rotate(0.00turn);}
+                  25% {transform: rotate(0.10turn);}
+                  50% {transform: rotate(0.20turn);}
+                  75% {transform: rotate(0.30turn);}
+                  100% {transform: rotate(0.00turn);}
+                }
+
+              } // FINE ICONA MATITA
+
+            } // FINE SPAN
 
             // BOTTONE SUBMIT
             input {

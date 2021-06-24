@@ -156,6 +156,7 @@
 
               <ul>
 
+                {{-- (1) --}}
                 <li>
                   <span>
                     <img src="{{asset('storage/assets/icone_stanze.png')}}" alt="stanze-img" style="width: 50px; height: 50px;">
@@ -174,6 +175,7 @@
                   </span>
                 </li>
 
+                {{-- (2) --}}
                 <li>
                   <span>
                     <img src="{{asset('storage/assets/icone_bagno.png')}}" alt="bagno-img" style="width: 50px; height: 50px;">
@@ -193,16 +195,20 @@
 
                 </li>
 
+                {{-- (3) --}}
                 <li>
-                  <a href="#">
-                    Servizi extra :
+                  <span>
+                    <a href="#">
+                      <p>Servizi extra :</p>
                       @foreach ($apartment->services as $service)
                         {{$service->service}}
-                        <img src="{{asset('storage/assets/icone_'. $service->service . '.png')}}" alt="">
+                        <img src="{{asset('storage/assets/icone_'. $service->service . '.png')}}" alt="servizio-extra" style="width: 40px; height: 40px;">
                       @endforeach
-                  </a>
+                    </a>
+                  </span>
                 </li>
 
+                {{-- (4) --}}
                 <li>
                   <img src="{{asset('storage/assets/icone_sponsor.png')}}" alt="sponsor-img" style="width: 50px; height: 50px;">
                   <a href="#">
@@ -222,7 +228,7 @@
             {{-- INIZIO SEZIONE DI DESTRA --}}
             <div class="destra-dettagli-flat">
               <form action="" method="get">
-                <span>Scrivi all'host<div>Vedi se ci sono camere disponibili.</div></span>
+                <span>Scrivi all'host<i class="fas fa-pencil-alt"></i><div>Vedi se ci sono camere disponibili.</div></span>
                 <textarea rows="20" cols="30"></textarea>
                 <input type="submit" value="Submit">
               </form>
