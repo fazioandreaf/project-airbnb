@@ -44,9 +44,8 @@ Route::get('/myapartment/{id}', 'HomeController@myapartment') -> name('myapartme
 Route::get('/sponsor/{id}', 'HomeController@sponsor') -> name('sponsor');
 Route::get('/sponsor_function/{id}', 'HomeController@sponsor_function')->name('sponsor_function');
 
-
-
-
+// rotta post braintree
+Route::post('/checkout', 'MainController@pay')->name('pay');
 
 //ROtte di debug(senza login)
 Route::get('/pages/maps', 'MainController@maps') ;

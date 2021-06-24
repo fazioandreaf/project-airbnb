@@ -8,6 +8,7 @@ Use App\User;
 Use App\Service;
 use Auth;
 use DB;
+use Braintree;
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
@@ -43,7 +44,19 @@ class MainController extends Controller {
         $statistic -> apartment() -> associate($id);
         $statistic->save();
         $sponsors=Sponsor::all();
-        return view('pages.apartment',compact('apartment','statistic','sponsors'));
+
+        // braintree 
+        $gateway = new Braintree\Gateway([
+            'environment' => config('services.braintree.environment'),
+            'merchantId' => config('services.braintree.merchantId'),
+            'publicKey' => config('services.braintree.publicKey'),
+            'privateKey' => config('services.braintree.privateKey')
+        ]);
+
+        $token = $gateway->ClientToken()->generate();
+
+
+        return view('pages.apartment',compact('apartment','statistic','sponsors','token'));
     }
 
     // registrazione
@@ -123,4 +136,47 @@ class MainController extends Controller {
         //     return view('pages.statistic',compact('statistic'));
         // }
 
+    public function pay(Request $request)
+    {
+        // dd($request);
+        $gateway = new Braintree\Gateway([
+            'environment' => config('services.braintree.environment'),
+            'merchantId' => config('services.braintree.merchantId'),
+            'publicKey' => config('services.braintree.publicKey'),
+            'privateKey' => config('services.braintree.privateKey')
+        ]);
+    
+        $amount = $request->amount;
+        $nonce = $request->payment_method_nonce;
+    
+        $result = $gateway->transaction()->sale([
+            'amount' => $amount,
+            'paymentMethodNonce' => $nonce,
+            'customer' => [
+                'firstName' => 'Tony',
+                'lastName' => 'Stark',
+                'email' => 'tony@avengers.com',
+            ],
+            'options' => [
+                'submitForSettlement' => true
+            ]
+        ]);
+    
+        if ($result->success) {
+            $transaction = $result->transaction;
+            // header("Location: transaction.php?id=" . $transaction->id);
+    
+            return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
+        } else {
+            $errorString = "";
+    
+            foreach ($result->errors->deepAll() as $error) {
+                $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+            }
+    
+            // $_SESSION["errors"] = $errorString;
+            // header("Location: index.php");
+            return back()->withErrors('An error occurred with the message: '.$result->message);
+        }
+    }
 }
