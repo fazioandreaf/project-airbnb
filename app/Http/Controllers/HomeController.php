@@ -30,11 +30,7 @@ class HomeController extends Controller {
     }
     public function dashboard($id) {
         $user= User::findOrFail($id);
-        $apartments=DB::table('apartments')
-                    ->join('users','apartments.user_id','=','users.id')
-                    ->select('apartments.*','users.*')
-                    ->where('apartments.user_id','=',$user->id)
-                    ->get();
+        $apartments= Apartment::where('user_id', '=', $id) -> get();
         return view('pages.dashboard',compact('apartments','user'));
     }
     public function myapartment($id){

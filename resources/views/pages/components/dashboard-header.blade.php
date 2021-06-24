@@ -1,5 +1,4 @@
-<header class="landing-header">
-    <img src="{{ asset('storage/assets/wallpaper2.webp') }}">
+<header id="dashboard-header">
     <nav class="navbar" id="app">
         <div class="container">
             <ul class="nav-links">
@@ -33,11 +32,11 @@
                         <li>
                             {{-- Logged view --}}
                             @auth
-                                Ciao, <strong>{{ Auth::user()->firstname }}</strong>!
+                                Ciao, <span class="username">{{ Auth::user()->firstname }}</span>!
                         </li>
                         <li>
-                            <a href="{{ route('dashboard',Auth::id()) }}">
-                                {{ __('Dashboard') }}
+                            <a href="{{ route('homepage') }}">
+                                {{ __('Homepage') }}
                             </a>
                         </li>
                         <li>
@@ -55,37 +54,6 @@
                     </ul> <!-- end dropdown -->
                 </li>
             </ul>
-
-            <div class="wrapper-search-bar">
-                <form class="search-bar" action="{{ route('search') }}" method="post" enctype="multipart/form-data">
-                    @method('POST')
-                    @csrf
-                    <div class="wrapper-form-fields first">
-                        <label for="where">
-                            Dove
-                        </label>
-                        <input type="text" id="where" name="where" placeholder="Dove vuoi andare?">
-                    </div>
-                    <div class="wrapper-form-fields last">
-                        <button type="submit" class="search">
-                            <i class="fas fa-search"></i>
-                        </div>
-                    </div>
-                </form>
-            </div>
         </div>
     </nav>
-
-    <div class="wrapper-new-apartment">
-        <h1>
-            Bool B&amp;B
-        </h1>
-        <p class="apartment-text">
-            2021 <br>
-            Ti presentiamo oltre 100 novità
-        </p>
-        <a href="{{ route('add') }}" role="button" class="button-link">
-            Aggiungi un appartamento
-        </a>
-    </div>
 </header>

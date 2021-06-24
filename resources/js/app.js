@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         el: '#app',
         data: {
 
+            dropdownActive: false,
             registerErrors: [],
             firstname: null,
             lastname: null,
@@ -42,6 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         methods: {
+
+            openDropdown: function() {
+
+                this.dropdownActive = !this.dropdownActive;
+            },
+
+            documentCloseDropdown: function() {
+
+                this.dropdownActive = false;
+            },
 
             validateRegister: function(e) {
 
@@ -99,6 +110,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 e.preventDefault(); //!important prevents submit realod
             }
+        },
+
+        created() {
+
+            document.addEventListener('click', this.documentCloseDropdown)
         }
     });
 
