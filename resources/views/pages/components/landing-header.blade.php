@@ -66,24 +66,6 @@
                         </label>
                         <input type="text" id="where" name="where" placeholder="Dove vuoi andare?">
                     </div>
-                    <div class="wrapper-form-fields">
-                        <label for="check_in">
-                            Check-in
-                        </label>
-                        <input type="date" id="check_in" name="check_in" placeholder="Aggiungi date">
-                    </div>
-                    <div class="wrapper-form-fields">
-                        <label for="check_out">
-                            Check-out
-                        </label>
-                        <input type="date" id="check_out" name="check_out" placeholder="Aggiungi date">
-                    </div>
-                    <div class="wrapper-form-fields">
-                        <label for="guest">
-                            Ospiti
-                        </label>
-                        <input type="number" min=1 id="guest" name="guest" value="1" placeholder="Aggiungi ospiti">
-                    </div>
                     <div class="wrapper-form-fields last">
                         <button type="submit" class="search">
                             <i class="fas fa-search"></i>
