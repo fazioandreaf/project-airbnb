@@ -1261,7 +1261,6 @@ section#section-register form .form-button {
   width: 95%;
   display: flex;
   flex-direction: column;
-  background-color: silver;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat ul li {
@@ -1270,6 +1269,12 @@ section#section-register form .form-button {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat ul li span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat ul li:first-of-type {
