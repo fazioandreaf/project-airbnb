@@ -3,6 +3,81 @@
   height: 200px;
 }
 
+#dashboard-header {
+  height: 100px;
+  background-color: #000;
+}
+
+#dashboard-header .container {
+  margin: 0 auto;
+  width: 90%;
+  height: 100%;
+}
+
+#dashboard-header .navbar {
+  height: 100%;
+  color: #FFF;
+}
+
+#dashboard-header .navbar .username {
+  color: #12a19a;
+  font-weight: 600;
+}
+
+#dashboard-header .navbar .nav-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#dashboard-header .navbar .nav-links #wrapper-logo {
+  flex-grow: 1;
+}
+
+#dashboard-header .navbar .nav-links #wrapper-logo a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#dashboard-header .navbar .nav-links .has-dropdown {
+  position: relative;
+}
+
+#dashboard-header .navbar .nav-links .has-dropdown .hamburger {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF;
+  padding: 10px;
+  border-radius: 25px;
+  font-size: 20px;
+  color: #000;
+}
+
+#dashboard-header .navbar .nav-links .has-dropdown .hamburger > .icon {
+  margin: 0 5px;
+}
+
+#dashboard-header .navbar .nav-links .has-dropdown .dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 2px);
+  left: calc(-50% - 20px);
+  background-color: #FFF;
+  color: #000;
+  box-shadow: 0 0 3px #6c6a6b;
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#dashboard-header .navbar .nav-links .has-dropdown:hover .dropdown {
+  display: block;
+}
+
 .landing-header {
   height: 100vh;
   position: relative;
