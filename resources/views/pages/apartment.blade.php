@@ -126,7 +126,6 @@
           <div class="apartment-img-container">
 
             <div>
-
             </div>
 
             <div>
