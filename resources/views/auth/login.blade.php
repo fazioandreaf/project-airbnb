@@ -1,4 +1,4 @@
-@extends('layouts.main_layout')
+@extends('layouts.register-layout')
 
 @section('content')
     <div class="container">
@@ -40,3 +40,4 @@
         </form>
     </div>
 @endsection
+
