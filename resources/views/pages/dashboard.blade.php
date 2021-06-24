@@ -1,5 +1,15 @@
-@extends('layouts.main_layout')
+@extends('layouts.dashboard-layout')
 @section('content')
+
+<section id="user-dashboard">
+    <div class="container">
+        <h1>
+            Hello
+        </h1>
+        {{ dd($apartments, $user)}}
+    </div>
+</section>
+{{-- 
 @if (count($apartments)!=0)
 
     <ul style="background-color: lightgray">
@@ -37,7 +47,7 @@
     </div>
     @endif
     <a style="margin:1.5rem;padding:1rem;background-color:blue" href="{{route('add',$user->id)}}">add</a>
-
+ --}}
 
 
 
