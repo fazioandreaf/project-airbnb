@@ -88,35 +88,11 @@
             <div>
               <span>
                 <a href="#">
-                  CIAO1
+                  {{$apartment->address}}
                 </a>
               </span>
-
-              <span>
-                <a href="#">
-                  CIAO2
-                </a>
-              </span>
-
             </div>
-
-
-            <div>
-
-              <span>
-                <a href="#">
-                  CIAO3
-                </a>
-              </span>
-
-
-              <span>
-                <a href="#">
-                  CIAO4
-                </a>
-              </span>
-
-            </div>
+            
           </div>
           {{-- FINE DESCRIZIONE --}}
 
@@ -125,21 +101,52 @@
           {{-- INIZIO immagini appartamento --}}
           <div class="apartment-img-container">
 
+            {{-- INIZIO IMMAGINE GRANDE --}}
             <div>
+              <a href="#">
+                <img class="immagine-grande" src="{{$apartment->cover_image}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+              </a>
             </div>
+            {{-- FINE IMMAGINE GRANDE --}}
 
+            {{-- INIZIO 4 IMMAGINI --}}
             <div>
-              <div>CIAO1</div>
-              <div>CIAO2</div>
-              <div>CIAO3</div>
-              <div>CIAO4</div>
+              <div>
+                <a href="#">
+                  <img class="immagini-piccole" src="{{$apartment->cover_image}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                </a>
+              </div>
+
+              <div>
+                <a href="#">
+                  <img class="immagini-piccole" src="{{$apartment->cover_image}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                </a>
+              </div>
+
+              <div>
+                <a href="#">
+                  <img class="immagini-piccole" src="{{$apartment->cover_image}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                </a>
+              </div>
+
+              <div>
+                <a href="#">
+                  <img class="immagini-piccole" src="{{$apartment->cover_image}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                </a>
+              </div>
             </div>
+            {{-- INIZIO 4 IMMAGINI --}}
+
             {{-- <img src="{{asset('storage/apartment-img/'.$apartment -> cover_image)}}" alt=""> --}}
           </div>
           {{-- FINE immagini appartamento --}}
 
 
-          {{-- <div>
+          {{-- INIZIO SEZIONE DETTAGLI FLAT (SOTTO IMMAGINI) --}}
+          <div class="dettagli-flat">
+            <h1>SCATOLA ROSA PROSCIUTTO</h1>
+          </div>
+          <div>
             <ul>
               <li>
                 Stanza :
@@ -183,10 +190,13 @@
               <h5>FORM INVIO MESSAGGIO
                 <a href="{{route('send',$apartment->id)}}"
                   >SUBMIT INVIO MESSAGGIO</a>
-              </h5>
-            </div>
+                </h5>
+              </div>
 
-          </div> --}}
+            </div> --}}
+          {{-- FINE SEZIONE DETTAGLI FLAT (SOTTO IMMAGINI)
+
+
 
         </div>
 
