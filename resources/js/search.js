@@ -10,23 +10,28 @@ document.addEventListener("DOMContentLoaded", () => {
             address: "",
             number_rooms: 0,
             number_beds: 0,
-            guest: 0,
+            guest: 0
         },
         mounted: function() {
-            console.log('hola');
+            console.log("hola");
         },
         methods: {
             log: function() {
-                console.log('mundo');
+                console.log("mundo");
             },
-            filter:function(){
-                axios.get('/api/filter')
-                .then(res => {
-                    if (res.status == 200){
-                        console.log('update');
-                    }
-                })
-                .catch(err => console.log(err));
+            filter: function() {
+                axios
+                    .post("api/filter", {
+                        params: {
+                            address: "catania"
+                        }
+                    })
+                    .then(res => {
+                        if (res.status == 200) {
+                            console.log("update");
+                        }
+                    })
+                    .catch(err => console.log(err));
             }
         }
     });

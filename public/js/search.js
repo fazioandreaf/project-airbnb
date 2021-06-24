@@ -2117,16 +2117,20 @@ document.addEventListener("DOMContentLoaded", function () {
       guest: 0
     },
     mounted: function mounted() {
-      console.log('hola');
+      console.log("hola");
     },
     methods: {
       log: function log() {
-        console.log('mundo');
+        console.log("mundo");
       },
       filter: function filter() {
-        axios.get('/api/filter').then(function (res) {
+        axios.post("api/filter", {
+          params: {
+            address: "catania"
+          }
+        }).then(function (res) {
           if (res.status == 200) {
-            console.log('update');
+            console.log("update");
           }
         })["catch"](function (err) {
           return console.log(err);
