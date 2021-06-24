@@ -1,0 +1,17 @@
+section#user-dashboard {
+
+    .container {
+
+        @include container(90%);
+    }
+
+    h1 {
+
+        font-size: 40px;
+    }
+
+    .username {
+
+        color: $venusaur-green;
+    }
+}

@@ -3,21 +3,31 @@
 
 <section id="user-dashboard">
     <div class="container">
+        <h1>
+            Dashboard di 
+            <span class="username">
+                {{ $user -> firstname }}
+            </span>
+        </h1>
+
+        
         @if (count($apartments))
-            @foreach ($apartments as $apartment)
-                <ul>
-                    <li>
-                        <a href="{{ route('apartment', $apartment->id) }}">
-                            {{ $apartment -> title }}
-                        </a>
-                    </li>
-                </ul>
-            @endforeach
+            <a href="{{ route('myapartment', $user->id)}}">
+                <h2>
+                    Gestisci i tuoi appartamenti
+                </h2>
+                <span class="count-apartments">
+                    {{ count($apartments) }}
+                </span>
+            </a>
         @else
             
-        <h2>
-            Non hai alcun appartamento registrato!
-        </h2>
+        <div class="wrapper-no-apartments">
+            Non hai ancora registrato un appartamento? Fallo subito!
+            <a href="#">
+                Aggiungi un appartamento
+            </a>
+        </div>
         @endif
     </div>
 </section>
