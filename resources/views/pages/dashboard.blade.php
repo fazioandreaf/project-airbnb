@@ -1,4 +1,4 @@
-@extends('layouts.dashboard-layout')
+@extends('layouts.minimal-layout')
 @section('content')
 
 <section id="user-dashboard">
@@ -10,21 +10,52 @@
             </span>
         </h1>
 
-        
         @if (count($apartments))
-            <a href="{{ route('myapartment', $user->id)}}">
-                <h2>
-                    Gestisci i tuoi appartamenti
-                </h2>
-                <span class="count-apartments">
-                    {{ count($apartments) }}
-                </span>
-            </a>
+            <div class="wrapper-with-apartments">
+                <div class="wrapper-dashboard-labels">
+                    <div class="dashboard-label" :class="(labelActive == 'profile-infos') ? 'active' : ''" v-on:click="labelActive = 'profile-infos'">
+                        Riepilogo Profilo
+                    </div>
+                    <div class="dashboard-label" :class="(labelActive == 'my-apartments') ? 'active' : ''" v-on:click="labelActive = 'my-apartments'">
+                        Gestisci appartamenti
+                    </div>
+                </div>
+                <div class="user-infos" :class="(labelActive == 'profile-infos') ? 'active' : ''">
+                    <div class="wrapper-image-placeholder">
+                        <img src="{{ asset('storage/assets/profile_placeholder.png') }}">
+                    </div>
+                    <ul>
+                        <li>
+                            <strong>Nome: </strong>
+                            {{ $user->firstname }}
+                        </li>
+                        <li>
+                            <strong>Cognome: </strong>
+                            {{ $user->lastname }}
+                        </li>
+                        <li>
+                            <strong>E-mail:</strong>
+                            {{ $user->email }}
+                        </li>
+                    </ul>
+                </div>
+                <div class="apartments-link" :class="(labelActive == 'my-apartments') ? 'active' : ''">
+                    <a href="{{ route('myapartment', $user->id)}}">
+                        <h2>
+                            Gestisci i tuoi appartamenti
+                        </h2>
+                        <span class="count-apartments">
+                            ({{ count($apartments) }})
+                        </span>
+                    </a>
+                </div>
+            </div>
+            
         @else
             
         <div class="wrapper-no-apartments">
-            Non hai ancora registrato un appartamento? Fallo subito!
-            <a href="#">
+            Non hai ancora registrato un appartamento?
+            <a class="add-apartment-link" href="{{ route('add') }}">
                 Aggiungi un appartamento
             </a>
         </div>

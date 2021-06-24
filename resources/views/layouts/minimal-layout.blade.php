@@ -25,8 +25,9 @@
   </head>
 
   <body>
-
-    @include('pages.components.dashboard-header')
+  
+  <div id="app">
+    @include('pages.components.minimal-black-header')
 
     <main>
       @yield('content')
@@ -35,7 +36,7 @@
     <footer>
       @include('pages.components.footer')
     </footer>
-
+  </div>
   </body>
 
 </html>

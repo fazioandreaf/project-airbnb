@@ -50000,6 +50000,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var app = new Vue({
     el: '#app',
     data: {
+      labelActive: "profile-infos",
       dropdownActive: false,
       registerErrors: [],
       firstname: null,
