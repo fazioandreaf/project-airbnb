@@ -8,9 +8,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    {{-- cdn --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/search.js') }}" defer></script>
 
     <!-- Google Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -30,47 +31,340 @@
     <!-- Turf.js -->
     <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
 
-    <style>
-        #polygon-info-box {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  padding: 10px;
-  margin: 10px;
-  z-index: 1100;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.45) 2px 2px 2px 0px;
-}
-
-#polygon-info-box label {
-  font-size: 1.3em;
-  font-weight: bold;
-  line-height: 2;
-}
-
-#polygon-info-box span {
-  font-size: 1.2em;
-}
-
-#polygon-info-box {
-  text-align: right;
-}
-    </style>
   </head>
 
   <body>
-    <!-- <header> -->
-      @include('pages.components.search_header')
-    <!-- </header> -->
+      <div id="app">
 
-    <main>
-      @yield('content')
-    </main>
+          <header id="header-search">
+              <div class="top-header-search">
+                  <div class="logo">
+                      <a href="{{route('homepage')}}">
+                          <img src="{{asset('storage/assets/lg_clr.png')}}" alt="logo-image">
+                      </a>
+                  </div>
+                  <div class="filter">
+                          <div>
+                              <label for="where">
+                                  Scrivi l'indirizzo
+                              </label>
+                              <input type="text" v-model="where" name="where" placeholder="{{$request->where}}">
+                          </div>
 
-    <footer>
-      @include('pages.components.footer')
-    </footer>
+                          <div class="wrapper-form-fields first">
+                              <label for="number_rooms">
+                                  Numeri di stanze
+                              </label>
+                              <input type="number" v-model="number_rooms" name="number_rooms" placeholder="1">
+                          </div>
+                          <div>
+                              <label for="number_beds">
+                                  Numeri di letti
+                              </label>
+                              <input type="number" v-model="number_beds" name="number_beds" placeholder="1">
+                          </div>
+                          <div>
+                              <label for="guest">
+                                  Ospiti
+                              </label>
+                              <input type="number" min=1 v-model="guest" name="guest" value="1" placeholder="2">
+                          </div>
+                          <div>
+                              <a href="#" @click="filter()">
+
+                                  <i class="fas fa-search"></i>
+                              </a>
+                          </div>
+                  </div>
+                  <div>
+                      @guest
+                      @if (Route::has('register'))
+                          <a href="{{ route('register') }}">
+                          {{ __('Diventa un Host') }}
+                          </a>
+                      @endif
+                      <a href="{{ route('login') }}">
+                          <i class="fas fa-bars"></i>
+                          <i class="fas fa-user"></i>
+                      </a>
+                      @endguest
+                      @auth
+                      <a href="#">
+                          {{ Auth::user()->name }}
+                      </a>
+                      <a href="{{ route('logout')}}" onclick="
+                          event.preventDefault();
+                          document.getElementById('form_logout').submit();"
+                      >
+                          {{ __('Logout') }}
+                      </a>
+                      <form id="form_logout" method="POST" action="{{ route('logout') }}">
+                          @csrf
+                      </form>
+                      <div>
+                          <a href="{{route('dashboard',Auth::id())}}">
+                              Dashboard
+                          </a>
+                      </div>
+                      @endauth
+                  </div>
+              </div>
+              <div class="lower-header-search">
+                  <ul
+                  style="display: flex;
+                  justify-content: center;">
+                      @foreach ($services as $service)
+                          <li>
+                              <a href="#">
+                                  {{$service-> service}}
+                              </a>
+                          </li>
+                      @endforeach
+                  </ul>
+              </div>
+          </header>
+          <main>
+              <div class="search-page">
+
+                  <!-- UPPER SECTION STARTS HERE -->
+                  <div class="left-section">
+                  <div>
+                    @foreach ($apartments as $item)
+                    <a href="{{route('apartment', $item->id)}}">
+
+                        {{$item->id}} -> {{$item->title}}<br>
+                    </a>
+                    @endforeach
+
+                      <div>
+                          Valori passati dalla ricerca<br>
+                          <strong>dove</strong>
+                          {{$request-> where}}<br>
+                          <strong>check_in</strong>
+                          {{$request-> check_in}}<br>
+                          <strong>check_out</strong>
+                          {{$request-> check_out}}<br>
+                          <strong>guest</strong>
+                          {{$request-> guest}}<br>
+
+                          @foreach ($services as $item)
+                          <strong>
+                              {{$item->service}};
+                          </strong>
+                          @endforeach
+                          {{$apartments[0]}}
+                          <a href="#" onclick="makemarker(15.06619,37.54305)">Defautl</a>
+                          <a href="#" @click="log()">Prova</a>
+                          <ul>
+                              <li>latitude e longitude </li>
+                              @foreach ($apartments as $item)
+                              <li>
+                              <a href="#"
+                              onclick="makemarker({{$item -> longitude}},{{$item -> latitude}})"
+                              style="background-color:lightgray;padding:0.5rem;border-radius:1rem;padding-bottom:2px; ">
+                                  {{$item -> latitude}} {{$item -> longitude}}
+                              </a>
+                              </li>
+                              @endforeach
+                          </ul>
+
+                      </div>
+                  </div>
+                  </div>
+
+                  <!-- INIZIO PARTE DI DESTRA CON IMMAGINE GRANDE (CALABRIA)-->
+                  <div class="right-section">
+                      <div id='map' class='map'></div>
+                  </div>
+                  <!-- FINE PARTE DI DESTRA CON IMMAGINE GRANDE (CALABRIA)-->
+
+              </div>
+          </main>
+          <footer>
+            @include('pages.components.footer')
+          </footer>
+      </div>
+    <script>
+        // esempio di creare una funzione che metta tutti i marker nella mappa
+        function makemarker(LNG, LAT){
+            // console.log(LNG, LAT)
+            var marker = new tt.Marker([{height:10,width:10}])
+                            .setLngLat([LNG,LAT])
+                            .addTo(map);
+            console.log('Inserito mark');
+        };
+        var map = tt.map({
+            key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
+            container: 'map',
+            // dragPan: !isMobileOrTablet()
+        });
+        map.addControl(new tt.FullscreenControl());
+        map.addControl(new tt.NavigationControl());
+        var options = {
+            searchOptions: {
+                key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
+                language: 'it-IT',
+                limit: 5
+            },
+            autocompleteOptions: {
+                key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
+                language: 'it-IT'
+            }
+        };
+
+
+        var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
+        var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
+        // document.body.appendChild(searchBoxHTML);
+        var map = tt.map({
+            key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
+            container: 'map',
+            center: [12.59, 41.86 ],
+            zoom: 5,
+        });
+        var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
+        var searchMarkersManager = new SearchMarkersManager(map);
+        ttSearchBox.on('tomtom.searchbox.resultsfound', handleResultsFound);
+        ttSearchBox.on('tomtom.searchbox.resultselected', handleResultSelection);
+        ttSearchBox.on('tomtom.searchbox.resultfocused', handleResultSelection);
+        ttSearchBox.on('tomtom.searchbox.resultscleared', handleResultClearing);
+        map.addControl(ttSearchBox, 'top-left');
+
+        //    handleResultsFound - executes when the search results are found. The event handler clears previously founded results and draws new. After that, it will try to fit drawn results on a vewport by executing fitToViewport method.
+        //   handleResultSelection - executes in two cases:
+        //        - results were found and a user presses arrow up/down;
+        //      - results were found and a user chooses one by clicking on it;
+        //    handleResultClearing - executes when a user clicks on "X" button of the SearchBox. As a result, all founded results will be cleared from the map.
+
+        function handleResultsFound(event) {
+            var results = event.data.results.fuzzySearch.results;
+
+            if (results.length === 0) {
+                searchMarkersManager.clear();
+            }
+            searchMarkersManager.draw(results);
+            fitToViewport(results);
+        }
+        function handleResultSelection(event) {
+            var result = event.data.result;
+            if (result.type === 'category' || result.type === 'brand') {
+                return;
+            }
+            // console.log(result);
+            searchMarkersManager.draw([result]);
+            fitToViewport(result);
+        }
+        function fitToViewport(markerData) {
+            if (!markerData || markerData instanceof Array && !markerData.length) {
+                return;
+            }
+            var bounds = new tt.LngLatBounds();
+            if (markerData instanceof Array) {
+                markerData.forEach(function (marker) {
+                    bounds.extend(getBounds(marker));
+                });
+            } else {
+                bounds.extend(getBounds(markerData));
+            }
+            map.fitBounds(bounds, { padding: 1000, linear: true });
+        }
+        function getBounds(data) {
+            var btmRight;
+            var topLeft;
+            if (data.viewport) {
+                btmRight = [data.viewport.btmRightPoint.lng, data.viewport.btmRightPoint.lat];
+                topLeft = [data.viewport.topLeftPoint.lng, data.viewport.topLeftPoint.lat];
+            }
+            return [btmRight, topLeft];
+        }
+        function handleResultClearing() {
+            searchMarkersManager.clear();
+        }
+
+
+        //After all these predefined steps we can create SearchMarkersManager, which will be responsible for manipulation with a marker.
+        // In our example it has draw and clear methods
+        function SearchMarkersManager(map, options) {
+            this.map = map;
+            this._options = options || {};
+            this._poiList = undefined;
+            this.markers = {};
+        }
+            SearchMarkersManager.prototype.draw = function (poiList) {
+
+                console.log(poiList);
+                this._poiList = poiList;
+                this.clear();
+                this._poiList.forEach(function (poi) {
+                    var markerId = poi.id;
+                    var poiOpts = {
+                        name: poi.poi ? poi.poi.name : undefined,
+                        address: poi.address ? poi.address.freeformAddress : '',
+                        distance: poi.dist,
+                        classification: poi.poi ? poi.poi.classifications[0].code : undefined,
+
+                        // esempio di position che arriva da result position: Object { lng: 15.08783, lat: 37.50248 }
+                        position: poi.position,
+                        entryPoints: poi.entryPoints
+                    };
+                    var marker = new SearchMarker(poiOpts, this._options);
+                    marker.addTo(this.map);
+                    this.markers[markerId] = marker;
+                }, this);
+            };
+            SearchMarkersManager.prototype.clear = function () {
+                for (var markerId in this.markers) {
+                    var marker = this.markers[markerId];
+                    marker.remove();
+                }
+                this.markers = {};
+                this._lastClickedMarker = null;
+            };
+
+        //and SearchMarker, which will be responsible for appearance of the marker and providing possibility add/remove it from the map
+        function SearchMarker(poiData, options) {
+            this.poiData = poiData;
+            this.options = options || {};
+            this.marker = new tt.Marker({
+                element: this.createMarker(),
+                anchor: 'bottom'
+            });
+            var lon = this.poiData.position.lng || this.poiData.position.lon;
+            this.marker.setLngLat([
+                lon,
+                this.poiData.position.lat
+            ]);
+        }
+            SearchMarker.prototype.addTo = function (map) {
+                this.marker.addTo(map);
+                this._map = map;
+                return this;
+            };
+            SearchMarker.prototype.createMarker = function () {
+                var elem = document.createElement('div');
+                elem.className = 'tt-icon-marker-black tt-search-marker';
+                if (this.options.markerClassName) {
+                    elem.className += ' ' + this.options.markerClassName;
+                }
+                var innerElem = document.createElement('div');
+                innerElem.setAttribute('style', 'background: white; width: 10px; height: 10px; border-radius: 50%; border: 3px solid black;');
+
+                elem.appendChild(innerElem);
+                return elem;
+            };
+            SearchMarker.prototype.remove = function () {
+                this.marker.remove();
+                this._map = null;
+            };
+
+            ttSearchBox.updateOptions({
+                minNumberOfCharacters: 5,
+                showSearchButton: false,
+                labels: {
+                    placeholder: 'Scrivi la città'
+                }
+            });
+    </script>
 
   </body>
 
