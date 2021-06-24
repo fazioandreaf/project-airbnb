@@ -158,6 +158,7 @@
 
                 <li>
                   <a href="#">
+                    <img src="{{asset('storage/assets/icone_stanze.png')}}" alt="stanze-img">
                     Stanza :
                     {{$apartment->number_rooms}}
                   </a>
@@ -206,6 +207,11 @@
 
             {{-- INIZIO SEZIONE DI DESTRA --}}
             <div class="destra-dettagli-flat">
+              <form action="" method="get">
+                <span>Scrivi all'host<div>Vedi se ci sono camere disponibili.</div></span>
+                <textarea rows="20" cols="30"></textarea>
+                <input type="submit" value="Submit">
+              </form>
             </div>
             {{-- INIZIO SEZIONE DI DESTRA --}}
 

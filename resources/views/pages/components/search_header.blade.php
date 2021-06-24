@@ -4,7 +4,7 @@
 
             <div class="logo">
                 <a href="{{route('homepage')}}">
-                    <img src="{{asset('storage/assets/lg_clr.png')}}" alt="logo-image">
+                  <img src="{{asset('storage/assets/lg_clr.png')}}" alt="logo-image">
                 </a>
             </div>
 
