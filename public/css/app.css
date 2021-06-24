@@ -3,8 +3,7 @@ section#user-dashboard .wrapper-with-apartments {
   width: 60%;
   border: 5px solid #d9d9d9;
   border-radius: 20px;
-  padding: 40px 0;
-  min-height: 300px;
+  height: 300px;
 }
 
 #header-homepage {
@@ -756,12 +755,34 @@ section#user-dashboard .wrapper-with-apartments {
   justify-content: center;
   align-items: center;
   border-top-left-radius: 0;
+  background-color: #f7f7f7;
   position: relative;
 }
 
 section#user-dashboard .wrapper-with-apartments .user-infos,
 section#user-dashboard .wrapper-with-apartments .apartments-link {
   display: none;
+}
+
+section#user-dashboard .wrapper-with-apartments .user-infos.active {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+section#user-dashboard .wrapper-with-apartments .wrapper-image-placeholder {
+  height: 100%;
+  width: 50%;
+}
+
+section#user-dashboard .wrapper-with-apartments .wrapper-image-placeholder img {
+  max-height: 100%;
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-bottom-left-radius: 15px;
 }
 
 section#user-dashboard .wrapper-with-apartments .active {
@@ -772,6 +793,7 @@ section#user-dashboard .wrapper-with-apartments .wrapper-dashboard-labels {
   position: absolute;
   top: -45px;
   left: -5px;
+  z-index: 2;
   display: flex;
   flex-direction: row;
   justify-content: center;

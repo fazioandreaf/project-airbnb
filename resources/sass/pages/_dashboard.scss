@@ -24,10 +24,32 @@ section#user-dashboard {
         @include flex(row, center, center);
         @extend %dashboard-content-label;
         border-top-left-radius: 0;
+        background-color: $footer-gray;
         position: relative;
 
         .user-infos, .apartments-link {
             display: none;
+        }
+
+        .user-infos.active {
+
+            @include flex(row, null, center);
+            height: 100%;
+            width: 100%;
+        }
+
+        .wrapper-image-placeholder {
+
+            height: 100%;
+            width: 50%;
+
+            img {
+
+                max-height: 100%;
+                max-width: 100%;
+                object-fit: cover;
+                border-bottom-left-radius: 15px;
+            }
         }
 
         .active {
@@ -38,6 +60,7 @@ section#user-dashboard {
             position: absolute;
             top: -45px;
             left: -5px;
+            z-index: 2;
             @include flex(row, center, center);
 
             .dashboard-label {

@@ -21,6 +21,9 @@
                     </div>
                 </div>
                 <div class="user-infos" :class="(labelActive == 'profile-infos') ? 'active' : ''">
+                    <div class="wrapper-image-placeholder">
+                        <img src="{{ asset('storage/assets/profile_placeholder.png') }}">
+                    </div>
                     <ul>
                         <li>
                             <strong>Nome: </strong>
@@ -36,7 +39,6 @@
                         </li>
                     </ul>
                 </div>
-
                 <div class="apartments-link" :class="(labelActive == 'my-apartments') ? 'active' : ''">
                     <a href="{{ route('myapartment', $user->id)}}">
                         <h2>
@@ -48,6 +50,7 @@
                     </a>
                 </div>
             </div>
+            
         @else
             
         <div class="wrapper-no-apartments">
