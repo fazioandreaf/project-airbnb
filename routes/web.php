@@ -45,10 +45,10 @@ Route::get('/sponsor/{id}', 'HomeController@sponsor') -> name('sponsor');
 Route::get('/sponsor_function/{id}', 'HomeController@sponsor_function')->name('sponsor_function');
 
 // rotta post braintree
-Route::post('/checkout', 'MainController@pay')->name('pay');
+Route::post('/checkout/{userId}', 'HomeController@pay')->name('pay');
 
 //ROtte di debug(senza login)
-Route::get('/pages/maps', 'MainController@maps') ;
+Route::get('/pages/maps', 'MainController@maps');
 // Route::get('/myapartment/{id}', 'MainController@myapartment') -> name('myapartment');
 // Route::get('/dashboard/{id}', 'MainController@dashboard') -> name('dashboard');
 // Route::get('/add', 'MainController@add') -> name('add');
