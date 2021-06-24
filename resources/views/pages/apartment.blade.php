@@ -158,6 +158,12 @@
 
                 {{-- (1) --}}
                 <li>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                </li>
+
+                {{-- (2) --}}
+                <li>
+
                   <span>
                     <img src="{{asset('storage/assets/icone_stanze.png')}}" alt="stanze-img" style="width: 50px; height: 50px;">
                     <a href="#">
@@ -173,10 +179,7 @@
                       {{$apartment->number_beds}}
                     </a>
                   </span>
-                </li>
 
-                {{-- (2) --}}
-                <li>
                   <span>
                     <img src="{{asset('storage/assets/icone_bagno.png')}}" alt="bagno-img" style="width: 50px; height: 50px;">
                     <a href="#">
@@ -189,7 +192,7 @@
                     <img src="{{asset('storage/assets/icone_area.png')}}" alt="area-img" style="width: 50px; height: 50px;">
                     <a href="#">
                       Area :
-                      {{$apartment->area}}
+                      {{$apartment->area}}mq
                     </a>
                   </span>
 
@@ -199,10 +202,9 @@
                 <li>
                   <span>
                     <a href="#">
-                      <p>Servizi extra :</p>
                       @foreach ($apartment->services as $service)
-                        {{$service->service}}
                         <img src="{{asset('storage/assets/icone_'. $service->service . '.png')}}" alt="servizio-extra" style="width: 40px; height: 40px;">
+                        {{$service->service}}
                       @endforeach
                     </a>
                   </span>
@@ -218,9 +220,14 @@
                       </p>
                     @endforeach
                   </a>
+                  <a href="#">
+                    <i class="fas fa-pump-soap"></i>
+                    <p>Questo host si impegna a seguire la procedura avanzata di pulizia in 5 fasi di BoolB&B.</p>
+                  </a>
                 </li>
 
               </ul>
+
 
             </div>
             {{-- FINE SEZIONE DI SINISTRA CON ICONE --}}

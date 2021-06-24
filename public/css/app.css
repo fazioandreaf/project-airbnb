@@ -1387,13 +1387,12 @@ section#section-register form .form-button {
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat {
   width: 70%;
   height: 100%;
-  background-color: gold;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat h2 {
   height: 40px;
   width: 100%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(50, 50, 50, 0.3);
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat ul {
@@ -1410,6 +1409,7 @@ section#section-register form .form-button {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat ul li span {
@@ -1418,16 +1418,9 @@ section#section-register form .form-button {
   align-items: center;
 }
 
-#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat ul li:first-of-type {
-  background-color: #f6993f;
-}
-
-#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat ul li:nth-child(2) {
-  background-color: #0065bd;
-}
-
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat ul li:nth-child(3) {
-  background-color: #6cb2eb;
+  align-self: flex-start;
+  flex-wrap: wrap;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat ul li:nth-child(3) a {
@@ -1435,8 +1428,27 @@ section#section-register form .form-button {
   flex-direction: column;
 }
 
-#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat ul li:last-of-type {
-  background-color: #4dc0b5;
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat ul li:nth-child(4) {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat ul li:nth-child(4) a:last-of-type {
+  margin-left: 310px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat ul li:nth-child(4) a:last-of-type i {
+  font-size: 30px;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat ul li:nth-child(4) a:last-of-type p {
+  font-size: 12px;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat {
@@ -1460,18 +1472,9 @@ section#section-register form .form-button {
   background-color: #FFF;
 }
 
-#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form span {
-  line-height: 200%;
-}
-
-#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form span i {
-  margin-left: 130px;
-  font-size: 30px;
-}
-
-#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form span i .fa-pencil-alt {
-  -webkit-animation: matita 5s linear infinite;
-          animation: matita 5s linear infinite;
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form .fa-pencil-alt {
+  -webkit-animation: matita 2s linear infinite;
+          animation: matita 2s linear infinite;
 }
 
 @-webkit-keyframes matita {
@@ -1480,15 +1483,15 @@ section#section-register form .form-button {
   }
 
   25% {
-    transform: rotate(0.1turn);
+    transform: rotate(0.04turn);
   }
 
   50% {
-    transform: rotate(0.2turn);
+    transform: rotate(0.08turn);
   }
 
   75% {
-    transform: rotate(0.3turn);
+    transform: rotate(0.04turn);
   }
 
   100% {
@@ -1502,20 +1505,29 @@ section#section-register form .form-button {
   }
 
   25% {
-    transform: rotate(0.1turn);
+    transform: rotate(0.04turn);
   }
 
   50% {
-    transform: rotate(0.2turn);
+    transform: rotate(0.08turn);
   }
 
   75% {
-    transform: rotate(0.3turn);
+    transform: rotate(0.04turn);
   }
 
   100% {
     transform: rotate(0turn);
   }
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form span {
+  line-height: 200%;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form span i {
+  margin-left: 130px;
+  font-size: 30px;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form input {
