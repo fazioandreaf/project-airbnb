@@ -3,7 +3,14 @@
   height: 200px;
 }
 
+// Header dashboard
 #dashboard-header {
+
+  #logo {
+
+    height: 60px;
+    width: auto;
+  }
 
   height: 100px;
   background-color: $black;
@@ -25,6 +32,7 @@
     }
 
     .nav-links {
+      height: 100%;
       @include flex(row, space-between, center);
 
       #wrapper-logo a {
@@ -71,6 +79,11 @@
 
   height: 100vh;
   position: relative;
+
+  #logo {
+    height: 60px;
+    width: auto;
+  }
   
   & > img {
 
@@ -113,6 +126,7 @@
 
     .nav-links {
 
+      height: 100%;
       width: 100%;
       @include flex(row, space-between, center);
 

@@ -5,7 +5,7 @@
             <ul class="nav-links">
                 <li id="wrapper-logo">
                     <a href="{{ route('homepage') }}">
-                        <img src="{{ asset('storage/assets/lg_color0_bianco.png')}}" alt="Logo BoolBnB">
+                        <img id="logo" src="{{ asset('storage/assets/lg_color0_bianco.png')}}" alt="Logo BoolBnB">
                     </a>
                 </li>
                 <li class="has-dropdown" v-on:click.stop="openDropdown">

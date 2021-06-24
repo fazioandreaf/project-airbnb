@@ -1,4 +1,13 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);#header-homepage {
+@import url(https://fonts.googleapis.com/css?family=Nunito);section#user-dashboard .wrapper-no-apartments,
+section#user-dashboard .wrapper-with-apartments {
+  width: 60%;
+  border: 5px solid #d9d9d9;
+  border-radius: 20px;
+  padding: 40px 0;
+  min-height: 300px;
+}
+
+#header-homepage {
   width: 100%;
   height: 200px;
 }
@@ -6,6 +15,11 @@
 #dashboard-header {
   height: 100px;
   background-color: #000;
+}
+
+#dashboard-header #logo {
+  height: 60px;
+  width: auto;
 }
 
 #dashboard-header .container {
@@ -25,6 +39,7 @@
 }
 
 #dashboard-header .navbar .nav-links {
+  height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -79,6 +94,11 @@
   position: relative;
 }
 
+.landing-header #logo {
+  height: 60px;
+  width: auto;
+}
+
 .landing-header > img {
   position: absolute;
   z-index: -1;
@@ -120,6 +140,7 @@
 }
 
 .landing-header .navbar .nav-links {
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -707,17 +728,106 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   color: purple;
 }
 
+section#user-dashboard {
+  padding: 40px 0;
+}
+
 section#user-dashboard .container {
   margin: 0 auto;
   width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 section#user-dashboard h1 {
   font-size: 40px;
+  text-align: center;
+  padding: 0 0 40px;
 }
 
 section#user-dashboard .username {
   color: #12a19a;
+}
+
+section#user-dashboard .wrapper-with-apartments {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 0;
+  position: relative;
+}
+
+section#user-dashboard .wrapper-with-apartments .user-infos,
+section#user-dashboard .wrapper-with-apartments .apartments-link {
+  display: none;
+}
+
+section#user-dashboard .wrapper-with-apartments .active {
+  display: block;
+}
+
+section#user-dashboard .wrapper-with-apartments .wrapper-dashboard-labels {
+  position: absolute;
+  top: -45px;
+  left: -5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+section#user-dashboard .wrapper-with-apartments .wrapper-dashboard-labels .dashboard-label {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #12a19a;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #FFF;
+  margin-right: 2px;
+  height: 40px;
+  transition: background-color 0.5s;
+  cursor: pointer;
+}
+
+section#user-dashboard .wrapper-with-apartments .wrapper-dashboard-labels .dashboard-label:hover {
+  background-color: #0d736e;
+}
+
+section#user-dashboard .wrapper-with-apartments .wrapper-dashboard-labels .dashboard-label.active {
+  background-color: #0d736e;
+}
+
+section#user-dashboard .wrapper-with-apartments .apartments-link a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #12a19a;
+  color: #FFF;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+section#user-dashboard .wrapper-no-apartments {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section#user-dashboard .wrapper-no-apartments .add-apartment-link {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #12a19a;
+  color: #FFF;
+  font-weight: 600;
+  margin-top: 20px;
 }
 
 section#register-jumbotron {
