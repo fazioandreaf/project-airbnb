@@ -92,7 +92,7 @@
                 </a>
               </span>
             </div>
-            
+
           </div>
           {{-- FINE DESCRIZIONE --}}
 
@@ -144,63 +144,93 @@
 
           {{-- INIZIO SEZIONE DETTAGLI FLAT (SOTTO IMMAGINI) --}}
           <div class="dettagli-flat">
-            <h1>SCATOLA ROSA PROSCIUTTO</h1>
-          </div>
-          <div>
-            <ul>
-              <li>
-                Stanza :
-                {{$apartment->number_rooms}}
-              </li>
-              <li>
-                Numero letti :
-                {{$apartment->number_beds}}
-              </li>
-              <li>
-                numero bagni :
-                {{$apartment->number_toiletes}}
-              </li>
-              <li>
-                Indirizzo :
-                [{{$apartment->address}}]
-              </li>
-              <li>
-                area :
-                {{$apartment->area}}
-              </li>
-            </ul>
 
-            <ul>
-              @foreach ($apartment->services as $service)
+            {{-- INIZIO SEZIONE DI SINISTRA CON ICONE --}}
+            <div class="sinistra-dettagli-flat">
+
+              <h2>
+                <a href="#">
+                  TITOLO ANNUNCIO
+                </a>
+              </h2>
+
+              <ul>
+
                 <li>
-                  {{$service->service}}
-                </li>
-              @endforeach
-            </ul>
+                  <a href="#">
+                    Stanza :
+                    {{$apartment->number_rooms}}
+                  </a>
 
-            <h5>
-              @foreach ($apartment->sponsors as $apSp)
-                <p>
-                  {{$apSp->sponsor_duration}} durata sponsor
-                </p>
-              @endforeach
-            </h5>
+                  <a href="#">
+                    Numero letti :
+                    {{$apartment->number_beds}}
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#">
+                    Numero bagni :
+                    {{$apartment->number_toiletes}}
+                  </a>
+
+                  <a href="#">
+                    Area :
+                    {{$apartment->area}}
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#">
+                    Servizi extra :
+                      @foreach ($apartment->services as $service)
+                        {{$service->service}}
+                      @endforeach
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#">
+                    @foreach ($apartment->sponsors as $apSp)
+                      <p>
+                        {{$apSp->sponsor_duration}} ore di sponsor
+                      </p>
+                    @endforeach
+                  </a>
+                </li>
+
+              </ul>
+
+            </div>
+            {{-- FINE SEZIONE DI SINISTRA CON ICONE --}}
+
+            {{-- INIZIO SEZIONE DI DESTRA --}}
+            <div class="destra-dettagli-flat">
+            </div>
+            {{-- INIZIO SEZIONE DI DESTRA --}}
+
+          </div> {{-- FINE DETTAGLI-FLAT (width: 100% height: 600px) --}}
+
+
+
+
+
+
+
+
+
 
             <div>
               <h5>FORM INVIO MESSAGGIO
                 <a href="{{route('send',$apartment->id)}}"
                   >SUBMIT INVIO MESSAGGIO</a>
                 </h5>
-              </div>
-
-            </div> --}}
-          {{-- FINE SEZIONE DETTAGLI FLAT (SOTTO IMMAGINI)
+            </div>
 
 
-
-        </div>
 
       </div>
+    </div>
         {{-- _________JUMBOTRON FINISCE QUI__________ --}}
 
 

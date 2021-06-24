@@ -6,7 +6,7 @@
           <a href="{{route('homepage')}}">
             <img src="{{asset('storage/assets/lg_color0.png')}}" alt="logo-image">
           </a>
-        </span>
+      </span>
         <span>
           <!-- LOGIN NO BOOTSTRAP - DA IMPLEMENTARE <UL><LI> ESSENDO UN MENU -->
           @guest
@@ -40,7 +40,7 @@
             </div>
           @endauth
       </div>
-    
+
     <div> <!-- INIZIO div in header con la navbar1 (width 100%)-->
       <div class="navbar1"> <!-- INIZIO Navbar1 (width 70%)-->
         <form action="{{Route('search')}}" method="post" enctype="multipart/form-data" style="display:flex">
