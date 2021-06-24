@@ -1,11 +1,15 @@
-@extends('layouts.main_layout')
+@extends('layouts.register-layout')
 
 @section('content')
+
+<section id='login-section'>
     <div class="container">
         {{-- Use __('Type_some_text') when you want a localizated text --}}
         {{-- Rivedere come funziona l'attributo autocomplete --}}
         {{-- Aggiungere la gestione degli errori di Laravel --}}
-        <div>{{ __('Login') }}</div>
+        <h3>
+            {{ __('Login') }}
+        </h3>
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
@@ -26,7 +30,7 @@
 
 
 
-            <div class="wrapper-form-fields">
+            <div class="wrapper-form-botton">
                 <button type="submit">
                     {{ __('Login') }}
                 </button>
@@ -39,4 +43,7 @@
             </div>
         </form>
     </div>
+</section>
+    
 @endsection
+

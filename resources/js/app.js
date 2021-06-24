@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         el: '#app',
         data: {
 
+            labelActive: "profile-infos",
             dropdownActive: false,
             registerErrors: [],
             firstname: null,

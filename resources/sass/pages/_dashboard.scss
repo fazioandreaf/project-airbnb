@@ -1,17 +1,116 @@
 section#user-dashboard {
-
+    padding: 40px 0;
+    
     .container {
 
         @include container(90%);
+        @include flex(column, null, center);
     }
 
     h1 {
 
         font-size: 40px;
+        text-align: center;
+        padding: 0 0 40px;
     }
 
     .username {
 
         color: $venusaur-green;
+    }
+
+    .wrapper-with-apartments {
+
+        @include flex(row, center, center);
+        @extend %dashboard-content-label;
+        border-top-left-radius: 0;
+        background-color: $footer-gray;
+        position: relative;
+
+        .user-infos, .apartments-link {
+            display: none;
+        }
+
+        .user-infos.active {
+
+            @include flex(row, null, center);
+            height: 100%;
+            width: 100%; 
+        }
+
+        .wrapper-image-placeholder {
+
+            height: 100%;
+            width: 50%;
+
+            img {
+
+                max-height: 100%;
+                max-width: 100%;
+                object-fit: cover;
+                border-bottom-left-radius: 15px;
+            }
+        }
+
+        .active {
+            display: block;
+        }
+
+        .wrapper-dashboard-labels {
+            position: absolute;
+            top: -45px;
+            left: -5px;
+            z-index: 2;
+            @include flex(row, center, center);
+
+            .dashboard-label {
+
+                @include flex(row, center, center);
+                padding: 10px;
+                background-color: $venusaur-green;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                color: $white;
+                margin-right: 2px;
+                height: 40px;
+                transition: background-color .5s;
+                cursor: pointer;
+
+                &:hover {
+
+                    background-color: #0d736e;
+                }
+            }
+
+            .dashboard-label.active {
+                background-color: #0d736e;
+            }
+        }
+
+        .apartments-link a {
+
+            @include flex(row, center, center);
+            background-color: $venusaur-green;
+            color: $white;
+            padding: 10px 20px;
+            border-radius: 20px;
+        }
+    }
+
+    .wrapper-no-apartments {
+
+        @extend %dashboard-content-label;
+        @include flex(column, center, center);
+
+        .add-apartment-link {
+
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: $venusaur-green;
+            color: $white;
+            font-weight: 600;
+            margin-top: 20px;
+        }
     }
 }

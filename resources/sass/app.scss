@@ -4,6 +4,7 @@
 // Helpers
 @import 'helpers/variables';
 @import 'helpers/mixins';
+@import 'helpers/placeholders';
 
 // Components
 @import 'components/header';
@@ -17,6 +18,7 @@
 @import 'pages/register';
 @import 'pages/search';
 @import 'pages/apartment';
+@import 'pages/login';
 
 // RULES FOR THE WHOLE PAGES
 * {

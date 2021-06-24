@@ -1,6 +1,6 @@
-.jumbotron {
-  height: 755px;
-  background-color: red;
+.contain-main {
+  height: 900px;
+  
 
   section:only-of-type {
     width: 100%;
@@ -57,7 +57,7 @@
   text-align: center;
 
   .title-outer-jmb{
-    margin-top: 50px;
+    margin-top: 100px;
     margin-bottom: 30px;
   }
   
@@ -93,7 +93,7 @@
   .section-host{
     display: flex;
     justify-content: center;
-    margin-top: 80px;
+    margin-top: 120px;
     margin-bottom: 40px;
 
 
@@ -102,13 +102,14 @@
       flex-direction: column;
       justify-content: center;
       width: 90%;
-      height: 300px;
-      background-image: url(/images/diventaHost.png) no-repeat;
-      color:black;
+      height: 350px;
+      background-image: url(../assets/diventaHost.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      color:white;
       border-radius: 10px;
-      padding: 20px;
+      padding: 30px;
       text-align: start;
-      border: 1px solid black;
 
       .h1-host{
         margin-bottom: 5px;
@@ -121,8 +122,10 @@
       .btn-host_hmpages{
         width: 100px;
         height: 30px;
-        background-color: black;
+        background-color: #E6007E;
         color: white;
+        font-family: "Poppins", sans-serif;
+        text-transform:uppercase;
         border: none;
         border-radius: 5px;
         margin-top: 15px;

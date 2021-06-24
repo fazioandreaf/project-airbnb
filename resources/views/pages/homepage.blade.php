@@ -2,12 +2,12 @@
 
 @section("content")
 
-  <div class="jumbotron">
+  <div class="contain-main">
 
 
   <div class="outer-jumbotron">
     <h3 class="title-outer-jmb">
-      Cerca tra i preferiti
+      Cerca tra i preferiti:
     </h3>
     <ul class="apartment-samples">
       @foreach ($apartments as $apartment)
@@ -25,15 +25,13 @@
     </ul>
 
   <div class="section-host" >
-    <div>
-      maledetto infame Kraken
-    </div>
+    
     <div class="host">
       <h1 class="h1-host">
         Diventa un Host
       </h1>
       <p class="p-host">
-        Condividi il tuo spazio per guadagnare in più e cogliere nuove opportunità.
+        Condividi il tuo Spazio per guadagnare in più e Cogliere Nuove Opportunità.
       </p>
       <button class="btn-host_hmpages" >
         Scopri di più
