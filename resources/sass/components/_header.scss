@@ -3,6 +3,69 @@
   height: 200px;
 }
 
+#dashboard-header {
+
+  height: 100px;
+  background-color: $black;
+
+  .container {
+    @include container(90%);
+    height: 100%;
+  }
+
+  .navbar {
+
+    height: 100%;
+    color: $white;
+
+    .username {
+
+      color: $venusaur-green;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      @include flex(row, space-between, center);
+
+      #wrapper-logo a {
+
+        @include flex(row, null, center);
+      }
+
+      .has-dropdown {
+        position: relative;
+
+        .hamburger {
+          @include hamburger($white);
+          color: $black;
+
+          & > .icon {
+            margin: 0 5px;
+
+          }
+        }
+
+        .dropdown {
+          display: none;
+          position: absolute;
+          top: calc(100% + 2px);
+          left: calc(-50% - 20px);
+          background-color: $white;
+          color: $black;
+          box-shadow: 0 0 3px $user-gray;
+          width: 200px;
+          padding: 10px;
+          border-radius: 10px;
+        }
+
+        .open {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
 //Header Landing Page
 .landing-header {
 
@@ -67,11 +130,7 @@
 
       .hamburger {
 
-        @include flex(row, center, center);
-        background-color: $white;
-        padding: 10px;
-        border-radius: 25px;
-        font-size: 20px;
+        @include hamburger($white);
 
         & > .icon {
 
@@ -95,7 +154,7 @@
           border-radius: 10px;
         }
 
-        &:hover .dropdown{
+        .open {
 
           display: block;
         }

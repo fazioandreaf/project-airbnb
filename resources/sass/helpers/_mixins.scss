@@ -9,3 +9,12 @@
   margin: 0 auto;
   width: $width;
 }
+
+@mixin hamburger($bg-color) {
+
+  @include flex(row, center, center);
+  background-color: $bg-color;
+  padding: 10px;
+  border-radius: 25px;
+  font-size: 20px;
+}

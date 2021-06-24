@@ -1,5 +1,37 @@
-@extends('layouts.main_layout')
+@extends('layouts.dashboard-layout')
 @section('content')
+
+<section id="user-dashboard">
+    <div class="container">
+        <h1>
+            Dashboard di 
+            <span class="username">
+                {{ $user -> firstname }}
+            </span>
+        </h1>
+
+        
+        @if (count($apartments))
+            <a href="{{ route('myapartment', $user->id)}}">
+                <h2>
+                    Gestisci i tuoi appartamenti
+                </h2>
+                <span class="count-apartments">
+                    {{ count($apartments) }}
+                </span>
+            </a>
+        @else
+            
+        <div class="wrapper-no-apartments">
+            Non hai ancora registrato un appartamento? Fallo subito!
+            <a href="#">
+                Aggiungi un appartamento
+            </a>
+        </div>
+        @endif
+    </div>
+</section>
+{{-- 
 @if (count($apartments)!=0)
 
     <ul style="background-color: lightgray">
@@ -37,7 +69,7 @@
     </div>
     @endif
     <a style="margin:1.5rem;padding:1rem;background-color:blue" href="{{route('add',$user->id)}}">add</a>
-
+ --}}
 
 
 
