@@ -50000,6 +50000,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var app = new Vue({
     el: '#app',
     data: {
+      dropdownActive: false,
       registerErrors: [],
       firstname: null,
       lastname: null,
@@ -50009,6 +50010,12 @@ document.addEventListener('DOMContentLoaded', function () {
       confirmPassword: null
     },
     methods: {
+      openDropdown: function openDropdown() {
+        this.dropdownActive = !this.dropdownActive;
+      },
+      documentCloseDropdown: function documentCloseDropdown() {
+        this.dropdownActive = false;
+      },
       validateRegister: function validateRegister(e) {
         var hasNumbers = /\d/;
         var isMailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
@@ -50055,6 +50062,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         e.preventDefault(); //!important prevents submit realod
       }
+    },
+    created: function created() {
+      document.addEventListener('click', this.documentCloseDropdown);
     }
   });
 });

@@ -1,5 +1,5 @@
 <header id="dashboard-header">
-    <nav class="navbar">
+    <nav class="navbar" id="app">
         <div class="container">
             <ul class="nav-links">
                 <li id="wrapper-logo">
@@ -7,13 +7,13 @@
                         <img src="{{ asset('storage/assets/lg_color0_bianco.png')}}" alt="Logo BoolBnB">
                     </a>
                 </li>
-                <li class="has-dropdown">
+                <li class="has-dropdown" v-on:click.stop="openDropdown">
                     <div class="hamburger">
                         <i class="fas fa-bars icon"></i>
                         <i class="fas fa-user icon"></i>
                     </div>
                     <!-- Dropdown -->
-                    <ul class="dropdown">
+                    <ul class="dropdown" v-on:click.stop v-bind:class="(dropdownActive) ? 'open' : ''">
                         <li>
                             {{-- Guest View --}}
                             @guest

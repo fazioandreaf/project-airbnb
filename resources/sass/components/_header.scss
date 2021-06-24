@@ -25,15 +25,11 @@
     }
 
     .nav-links {
-      @include flex(row, center, center);
+      @include flex(row, space-between, center);
 
-      #wrapper-logo {
-        flex-grow: 1;
+      #wrapper-logo a {
 
-        a {
-
-          @include flex(row, null, center);
-        }
+        @include flex(row, null, center);
       }
 
       .has-dropdown {
@@ -62,7 +58,7 @@
           border-radius: 10px;
         }
 
-        &:hover .dropdown {
+        .open {
           display: block;
         }
       }

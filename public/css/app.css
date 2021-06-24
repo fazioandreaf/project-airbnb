@@ -27,12 +27,8 @@
 #dashboard-header .navbar .nav-links {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-}
-
-#dashboard-header .navbar .nav-links #wrapper-logo {
-  flex-grow: 1;
 }
 
 #dashboard-header .navbar .nav-links #wrapper-logo a {
@@ -74,7 +70,7 @@
   border-radius: 10px;
 }
 
-#dashboard-header .navbar .nav-links .has-dropdown:hover .dropdown {
+#dashboard-header .navbar .nav-links .has-dropdown .open {
   display: block;
 }
 
