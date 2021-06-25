@@ -2112,20 +2112,20 @@ document.addEventListener("DOMContentLoaded", function () {
     el: "#search",
     data: {
       where: "",
-      number_rooms: 0,
-      number_beds: 0,
-      guest: 0,
+      number_rooms: 1,
+      number_beds: 1,
       currentapartment: [],
-      allservice: []
+      allservice: [],
+      activeservice: []
     },
-    mounted: function mounted() {
+    mounted: function mounted() {},
+    created: function created() {
       var _this = this;
 
-      console.log("hola");
-      axios.get("api/allservice").then(function (res) {
+      // console.log('hola');
+      axios.get("api/service").then(function (res) {
         if (res.status == 200) {
-          _this.allservice = res.data;
-          console.log(_this.allservice);
+          _this.allservice = res.data; // console.log(this.allservice);
         }
       })["catch"](function (err) {
         return console.log(err);
@@ -2142,25 +2142,55 @@ document.addEventListener("DOMContentLoaded", function () {
           params: {
             where: this.where,
             number_rooms: this.number_rooms,
-            number_beds: this.number_beds,
-            guest: this.guest
+            number_beds: this.number_beds
           }
         }).then(function (res) {
           if (res.status == 200) {
+            console.log(res.data);
+
+            if (res.data.length == 0) {
+              return _this2.currentapartment = [{
+                title: "Nessun appartamento trovato"
+              }];
+            }
+
             _this2.currentapartment = res.data;
           }
         })["catch"](function (err) {
           return console.log(err);
         });
       },
-      prova: function prova() {
-        var _this3 = this;
+      // service:function(){
+      // // console.log("hola");
+      // axios
+      //     .get("api/service")
+      //     .then(res => {
+      //         if (res.status == 200) {
+      //             this.allservice = res.data;
+      //             // console.log(this.allservice);
+      //         }
+      //     })
+      //     .catch(err => console.log(err));
+      // }
+      upservice: function upservice(id) {
+        if (!this.activeservice.includes(id)) {
+          this.activeservice.push(id);
+        } else {
+          index = this.activeservice.indexOf(id);
+          this.activeservice.splice(index, 1);
+        }
 
-        console.log("hola");
-        axios.get("api/allservice").then(function (res) {
+        axios.get("api/upservice", {
+          params: {
+            service: this.activeservice,
+            where: this.where,
+            number_rooms: this.number_rooms,
+            number_beds: this.number_beds
+          }
+        }).then(function (res) {
           if (res.status == 200) {
-            _this3.allservice = res.data;
-            console.log(_this3.allservice);
+            // this.allservice = res.data;
+            console.log(res.data);
           }
         })["catch"](function (err) {
           return console.log(err);

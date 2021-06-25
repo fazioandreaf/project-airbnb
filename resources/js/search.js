@@ -8,20 +8,21 @@ document.addEventListener("DOMContentLoaded", () => {
         el: "#search",
         data: {
             where: "",
-            number_rooms: 0,
-            number_beds: 0,
-            guest: 0,
+            number_rooms: 1,
+            number_beds: 1,
             currentapartment: [],
-            allservice: []
+            allservice: [],
+            activeservice: []
         },
-        mounted: function() {
-            console.log("hola");
+        mounted: function() {},
+        created: function() {
+            // console.log('hola');
             axios
-                .get("api/allservice")
+                .get("api/service")
                 .then(res => {
                     if (res.status == 200) {
                         this.allservice = res.data;
-                        console.log(this.allservice);
+                        // console.log(this.allservice);
                     }
                 })
                 .catch(err => console.log(err));
@@ -29,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
         methods: {
             log: function() {
                 console.log("mundo");
-
             },
             filter: function() {
                 axios
@@ -37,29 +37,59 @@ document.addEventListener("DOMContentLoaded", () => {
                         params: {
                             where: this.where,
                             number_rooms: this.number_rooms,
-                            number_beds: this.number_beds,
-                            guest: this.guest
+                            number_beds: this.number_beds
                         }
                     })
                     .then(res => {
                         if (res.status == 200) {
+                            console.log(res.data);
+                            if (res.data.length == 0) {
+                                return (this.currentapartment = [
+                                    { title: "Nessun appartamento trovato" }
+                                ]);
+                            }
                             this.currentapartment = res.data;
                         }
                     })
                     .catch(err => console.log(err));
             },
-            prova:function(){
-            console.log("hola");
-            axios
-                .get("api/allservice")
-                .then(res => {
-                    if (res.status == 200) {
-                        this.allservice = res.data;
-                        console.log(this.allservice);
-                    }
-                })
-                .catch(err => console.log(err));
+            // service:function(){
+            // // console.log("hola");
+            // axios
+            //     .get("api/service")
+            //     .then(res => {
+            //         if (res.status == 200) {
+            //             this.allservice = res.data;
+            //             // console.log(this.allservice);
+            //         }
+            //     })
+            //     .catch(err => console.log(err));
 
+            // }
+            upservice: function(id) {
+                if (!this.activeservice.includes(id)) {
+                    this.activeservice.push(id);
+                } else {
+                    index = this.activeservice.indexOf(id);
+                    this.activeservice.splice(index, 1);
+                }
+
+                axios
+                    .get("api/upservice", {
+                        params: {
+                            service: this.activeservice,
+                            where: this.where,
+                            number_rooms: this.number_rooms,
+                            number_beds: this.number_beds
+                        }
+                    })
+                    .then(res => {
+                        if (res.status == 200) {
+                            // this.allservice = res.data;
+                            console.log(res.data);
+                        }
+                    })
+                    .catch(err => console.log(err));
             }
         }
     });

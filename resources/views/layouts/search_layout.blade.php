@@ -65,12 +65,6 @@
                               <input type="number" v-model="number_beds" name="number_beds" placeholder="1">
                           </div>
                           <div>
-                              <label for="guest">
-                                  Ospiti
-                              </label>
-                              <input type="number" min=1 v-model="guest" name="guest" value="1" placeholder="2">
-                          </div>
-                          <div>
                               <a href="#" @click="filter()">
 
                                   <i class="fas fa-search"></i>
@@ -111,7 +105,7 @@
                   </div>
               </div>
               <div class="lower-header-search">
-                  <ul
+                  {{-- <ul
                   style="display: flex;
                   justify-content: center;">
                       @foreach ($services as $service)
@@ -122,13 +116,14 @@
                           </li>
                       @endforeach
 
-                  </ul>
+                  </ul> --}}
                   <span>
-                      <a href="" @click="prova()">prova</a>
+                      <a href="#" @click="service()">prova</a>
                   </span>
                   <ul>
-                      <li v-for="(elem,index) in allservice">
-                          @{{elem.name}}
+                      <li v-for="elem in allservice" @click="upservice(elem.id)">
+                          @{{elem.service}}
+
 
                       </li>
                   </ul>
