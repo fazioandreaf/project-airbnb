@@ -1,26 +1,17 @@
 section#login-section {
-    text-align: center;
-    .container{
-
-        height: calc(100vh - 690px);
-
-        h3{
-            margin: 50px 0px 10px 0px;
-        }
+    
+    .container {
+        @include container(90%);
+        @include flex(column, center, center);
     }
 
     .wrapper-form-fields {
-        margin: auto;
         margin-bottom: 10px;
-        width: 15%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        @include flex(row, space-between, center);
 
-        input{
-
-            background-color: #ededed;
+        input {
+            margin-left: 5px;
+            background-color: $aggron-light-gray;
             padding: 5px 10px;
             border: 0;
             border-radius: 20px;
@@ -28,28 +19,21 @@ section#login-section {
     }
 
     .wrapper-form-botton{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-
+        @include flex(column, space-between, center);
 
         button{
-            background-color: #12a19a;
+            background-color: $venusaur-green;
             padding: 10px 20px;
             border: 0;
             border-radius: 20px;
-            color: #FFF;
+            color: $white;
             font-weight: 600;
             margin-top: 10px;
-
         }
 
-        a{
+        a {
             font-size: 10px;
             margin-top: 10px;
         }
     }
-
-
 }
