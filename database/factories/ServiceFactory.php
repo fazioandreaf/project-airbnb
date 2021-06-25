@@ -7,17 +7,21 @@ use Faker\Generator as Faker;
 
 $factory->define(Service::class, function (Faker $faker) {
     $services=[
-        'wifi',
+        'Wifi',
         'Cucina',
         'TV',
         'Lavatrice',
         'Asciugacapelli',
-        'Forno a microonde',
         'Frigorifero',
-        'Aria condizionata',
-        'Allarme antincendio',
+        'Condizionatore',
+        'Antincendio',
+        'Animali',
+        'Microonde',
+        'Lavatrice',
+        'Parcheggio'
+
     ];
-    $index= $faker -> unique() -> numberBetween(0,8);
+    $index= $faker -> unique() -> numberBetween(0,11);
     $service= $services[$index];
 
     return [
