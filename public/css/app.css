@@ -764,7 +764,7 @@ section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-detail
 }
 
 section#my-apartments .wrapper-apartment .details {
-  height: 150px;
+  height: 200px;
 }
 
 section#my-apartments .wrapper-apartment .slide-down-enter-active,
@@ -776,6 +776,16 @@ section#my-apartments .wrapper-apartment .slide-down-enter,
 section#my-apartments .wrapper-apartment .slide-down-leave-to {
   height: 0;
   overflow: hidden;
+}
+
+section#my-apartments .wrapper-apartment .arrow {
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+section#my-apartments .wrapper-apartment .rotate {
+  transition: all 0.5s;
+  transform: rotate(180deg);
 }
 
 section#user-dashboard {

@@ -6,11 +6,13 @@
             </h1>
             <span class="apartment-details" @click="showDetails">
                 Visualizza dettagli
-                <i class="fas fa-chevron-down"></i>
+                <transition name="rotate">
+                    <i class="fas fa-chevron-down arrow" :class="(showApartmentDetails) ? 'rotate' : ''"></i>
+                </transition>
             </span>
         </div>
         <transition name="slide-down">
-            <div class="details" v-if="apartmentDetails">
+            <div class="details" ref="details" v-if="showApartmentDetails">
                 <ul>
                     <li>
                         <strong>Indirizzo: </strong>
@@ -44,7 +46,7 @@
 
             return {
                 test: "hello",
-                apartmentDetails: false
+                showApartmentDetails: false,
             }
         },
 
@@ -57,7 +59,7 @@
 
             showDetails: function() {
                 
-                this.apartmentDetails = !this.apartmentDetails;
+                this.showApartmentDetails = !this.showApartmentDetails;
             }
         },
 

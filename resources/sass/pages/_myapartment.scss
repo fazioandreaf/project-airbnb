@@ -36,7 +36,7 @@ section#my-apartments {
 
     .details {
 
-      height: 150px;
+      height: 200px;
     }
 
     .slide-down-enter-active,
@@ -47,6 +47,16 @@ section#my-apartments {
     .slide-down-enter, .slide-down-leave-to {
       height: 0;
       overflow: hidden;
+    }
+
+    .arrow {
+      transform: rotate(0);
+      transition: all .5s;
+    }
+
+    .rotate {
+      transition: all .5s;
+      transform: rotate(180deg);
     }
 
   }

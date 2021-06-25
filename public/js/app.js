@@ -2025,11 +2025,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       test: "hello",
-      apartmentDetails: false
+      showApartmentDetails: false
     };
   },
   props: {
@@ -2037,7 +2039,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     showDetails: function showDetails() {
-      this.apartmentDetails = !this.apartmentDetails;
+      this.showApartmentDetails = !this.showApartmentDetails;
     }
   },
   mounted: function mounted() {
@@ -37816,14 +37818,20 @@ var render = function() {
           { staticClass: "apartment-details", on: { click: _vm.showDetails } },
           [
             _vm._v("\n            Visualizza dettagli\n            "),
-            _c("i", { staticClass: "fas fa-chevron-down" })
-          ]
+            _c("transition", { attrs: { name: "rotate" } }, [
+              _c("i", {
+                staticClass: "fas fa-chevron-down arrow",
+                class: _vm.showApartmentDetails ? "rotate" : ""
+              })
+            ])
+          ],
+          1
         )
       ]),
       _vm._v(" "),
       _c("transition", { attrs: { name: "slide-down" } }, [
-        _vm.apartmentDetails
-          ? _c("div", { staticClass: "details" }, [
+        _vm.showApartmentDetails
+          ? _c("div", { ref: "details", staticClass: "details" }, [
               _c("ul", [
                 _c("li", [
                   _c("strong", [_vm._v("Indirizzo: ")]),

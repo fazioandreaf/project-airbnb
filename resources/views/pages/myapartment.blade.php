@@ -20,7 +20,7 @@
             <my-apartment :apartment="{{ $apartment }}">
             </my-apartment>
             <a href="{{ route('apartment', $apartment->id) }}">
-                Visualizza l'appartmanto
+                Visualizza l'appartamento
             </a>
         @endforeach
     </div>
