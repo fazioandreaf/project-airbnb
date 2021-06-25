@@ -12,7 +12,11 @@ class ApiController extends Controller
 
         // dd($request -> all());
         // $apartments=json_decode($request -> params);
-        $apartments= Apartment::where('title', 'LIKE','%'. $request->where.'%') -> get();
+        if($request->where!=''){
+            $apartments= Apartment::where('title', 'LIKE','%'. $request->where.'%') -> get();
+        }
+        else
+            $apartments= Apartment::all();
         // $apartments = Apartments::where('title', 'LIKE',$request -> )
         //             ->get();
         //             dd($apartments);

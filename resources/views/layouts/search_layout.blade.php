@@ -35,7 +35,7 @@
   </head>
 
   <body>
-      <div id="app">
+      <div id="search">
 
           <header id="header-search">
               <div class="top-header-search">
@@ -130,17 +130,17 @@
                   <!-- UPPER SECTION STARTS HERE -->
                   <div class="left-section">
                   <div>
-                    {{-- @foreach ($apartments as $item)
-                    <a href="{{route('apartment', $item->id)}}">
-
-                        {{$item->id}} -> {{$item->title}}<br>
-                    </a>
-                    @endforeach --}}
-
                       <div>
-                        <strong v-for="i in currentapartment">
-                            <a href="#">@{{ i.title }}</a>
-                        </strong><br>
+                          <div v-if="currentapartment.length<1">
+                            @foreach ($apartments as $item)
+                                <a href="{{route('apartment', $item->id)}}">
+                                    {{$item->id}} -> {{$item->title}}<br>
+                                </a>
+                            @endforeach
+                          </div>
+                        <strong else v-for="i in currentapartment">
+                            <a href="{{route('apartment', $item->id)}}">@{{ i.title }}</a><br>
+                        </strong>
                           {{-- @foreach ($services as $item)
                           <strong>
                               {{$item->service}};

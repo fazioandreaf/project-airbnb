@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // props:{
         //     request: Object;
         // },
-        el: "#app",
+        el: "#search",
         data: {
             where: "",
             number_rooms: 0,

@@ -61,10 +61,13 @@
                     @method('POST')
                     @csrf
                     <div class="wrapper-form-fields first">
-                        <label for="where">
-                            Dove
-                        </label>
-                        <input type="text" id="where" name="where" placeholder="Dove vuoi andare?">
+                        <div id="search">
+
+                            <label for="where">
+                                Dove
+                            </label>
+                            <input type="text" id="where" name="where" placeholder="Dove vuoi andare?">
+                        </div>
                     </div>
                     <div class="wrapper-form-fields last">
                         <button type="submit" class="search">

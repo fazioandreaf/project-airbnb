@@ -49,8 +49,8 @@ class MainController extends Controller {
     // registrazione
     public function search(Request $request)
     {
-        // dd($request->request);
-        $apartments=Apartment::all();
+        
+        $apartments=Apartment::where('title', 'LIKE','%'. $request->where.'%') -> get();
         $services=Service::all();
         // dd($apartments);
         return view('pages.search',compact('apartments','request','services'));
