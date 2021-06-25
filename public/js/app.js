@@ -50201,6 +50201,16 @@ document.addEventListener('DOMContentLoaded', function () {
   var app = new Vue({
     el: '#app',
     data: {
+      "immaginePiccola1": "storage/app/public/assets/danny_casa_toilet.jpg",
+      // imgArr:{
+      //   [
+      //     "name":  "casaDiDanny",
+      //     "imgPiccola1": "storage/app/public/assets/danny_casa_toilet.jpg",
+      //     "imgPiccola2": "storage/app/public/assets/danny_casa_kitchen.jpg",
+      //     "imgPiccola3": "storage/app/public/assets/danny_casa_livingroom.jpeg",
+      //     "imgPiccola4": "storage/app/public/assets/danny_casa_bedroom.jpg"
+      //   ]
+      // },
       labelActive: "profile-infos",
       dropdownActive: false,
       registerErrors: [],

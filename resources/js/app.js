@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const app = new Vue({
         el: '#app',
         data: {
-
             labelActive: "profile-infos",
             dropdownActive: false,
             registerErrors: [],
@@ -68,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else if(this.firstname.length > 10) {
 
                     this.registerErrors.push("Hai davvero un nome così lungo?")
-                } 
+                }
 
                 if(hasNumbers.test(this.firstname)) {
                     this.registerErrors.push("Il nome non può contenere numeri!")
@@ -90,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Email validation
                 if(!isMailValid.test(this.email)) {
-                    
+
                     this.registerErrors.push("La mail inserita non è valida!")
                 }
 
@@ -120,4 +119,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 })
-

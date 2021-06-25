@@ -293,7 +293,7 @@
             // (4) INIZIO SPONSOR E PULIZIA
             .riga.quattro {
               @include flex(row, space-between, center);
-              
+
               a {
                 @include flex(row, center, center);
 

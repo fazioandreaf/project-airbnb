@@ -100,6 +100,7 @@
 
           {{-- INIZIO immagini appartamento --}}
           <div class="apartment-img-container">
+            {{-- v-for="image in imgArr" --}}
 
             {{-- INIZIO IMMAGINE GRANDE --}}
             <div>
@@ -113,25 +114,25 @@
             <div>
               <div>
                 <a href="#">
-                  <img class="immagini-piccole" src="{{$apartment->cover_image}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                  <img class="immagini-piccole" src="{{asset('/storage/assets/'.$apartment->cover_image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
                 </a>
               </div>
 
               <div>
                 <a href="#">
-                  <img class="immagini-piccole" src="{{$apartment->cover_image}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                  <img class="immagini-piccole" src="{{asset('/storage/assets/'.$apartment->cover_image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
                 </a>
               </div>
 
               <div>
                 <a href="#">
-                  <img class="immagini-piccole" src="{{$apartment->cover_image}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                  <img class="immagini-piccole" src="{{asset('/storage/assets/'.$apartment->cover_image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
                 </a>
               </div>
 
               <div>
                 <a href="#">
-                  <img class="immagini-piccole" src="{{$apartment->cover_image}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                  <img class="immagini-piccole" src="{{asset('/storage/assets/'.$apartment->cover_image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
                 </a>
               </div>
             </div>
