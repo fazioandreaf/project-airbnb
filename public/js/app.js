@@ -2037,12 +2037,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37849,11 +37843,7 @@ var render = function() {
           _vm._v(" "),
           _c("li", [_vm._t("view")], 2),
           _vm._v(" "),
-          _c("li", [_vm._t("delete")], 2),
-          _vm._v(" "),
-          _c("li", [_vm._t("sponsor")], 2),
-          _vm._v(" "),
-          _c("li", [_vm._t("statistic")], 2)
+          _c("li", [_vm._t("delete")], 2)
         ])
       ]),
       _vm._v(" "),
@@ -50211,16 +50201,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var app = new Vue({
     el: '#app',
     data: {
-      "immaginePiccola1": "storage/app/public/assets/danny_casa_toilet.jpg",
-      // imgArr:{
-      //   [
-      //     "name":  "casaDiDanny",
-      //     "imgPiccola1": "storage/app/public/assets/danny_casa_toilet.jpg",
-      //     "imgPiccola2": "storage/app/public/assets/danny_casa_kitchen.jpg",
-      //     "imgPiccola3": "storage/app/public/assets/danny_casa_livingroom.jpeg",
-      //     "imgPiccola4": "storage/app/public/assets/danny_casa_bedroom.jpg"
-      //   ]
-      // },
       labelActive: "profile-infos",
       dropdownActive: false,
       registerErrors: [],
@@ -50563,8 +50543,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean\project-airbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Boolean\project-airbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Danny\Progetti_2021\06 -2021\25-06-2021\project-airbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Danny\Progetti_2021\06 -2021\25-06-2021\project-airbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

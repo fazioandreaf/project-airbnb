@@ -33,16 +33,6 @@
                         Modifica
                     </a>
                 </template>
-                <template v-slot:sponsor>
-                    <a class="button-link" href="{{ route('sponsor', $apartment->id) }}">
-                        Sponsorizza
-                    </a>
-                </template>
-                <template v-slot:statistic>
-                    <a class="button-link" href="{{ route('statistic', $apartment->id) }}">
-                        Statistiche
-                    </a>
-                </template>
             </my-apartment>
         @endforeach
     </div>
