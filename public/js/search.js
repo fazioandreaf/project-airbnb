@@ -2138,6 +2138,7 @@ document.addEventListener("DOMContentLoaded", function () {
       filter: function filter() {
         var _this2 = this;
 
+        this.activeservice = [];
         axios.get("api/filter", {
           params: {
             where: this.where,
@@ -2173,6 +2174,10 @@ document.addEventListener("DOMContentLoaded", function () {
       //     .catch(err => console.log(err));
       // }
       upservice: function upservice(id) {
+        var _this3 = this;
+
+        this.currentapartment = [];
+
         if (!this.activeservice.includes(id)) {
           this.activeservice.push(id);
         } else {
@@ -2180,6 +2185,7 @@ document.addEventListener("DOMContentLoaded", function () {
           this.activeservice.splice(index, 1);
         }
 
+        console.log(this.activeservice);
         axios.get("api/upservice", {
           params: {
             service: this.activeservice,
@@ -2188,10 +2194,15 @@ document.addEventListener("DOMContentLoaded", function () {
             number_beds: this.number_beds
           }
         }).then(function (res) {
-          if (res.status == 200) {
-            // this.allservice = res.data;
-            console.log(res.data);
+          console.log(res.data);
+
+          if (res.data.length == 0) {
+            return _this3.currentapartment = [{
+              title: "Nessun appartamento trovato"
+            }];
           }
+
+          _this3.currentapartment = res.data;
         })["catch"](function (err) {
           return console.log(err);
         });

@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log("mundo");
             },
             filter: function() {
+                this.activeservice = [];
                 axios
                     .get("api/filter", {
                         params: {
@@ -67,13 +68,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // }
             upservice: function(id) {
+                this.currentapartment = [];
                 if (!this.activeservice.includes(id)) {
                     this.activeservice.push(id);
                 } else {
                     index = this.activeservice.indexOf(id);
                     this.activeservice.splice(index, 1);
                 }
-
+                console.log(this.activeservice);
                 axios
                     .get("api/upservice", {
                         params: {
@@ -84,10 +86,13 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                     })
                     .then(res => {
-                        if (res.status == 200) {
-                            // this.allservice = res.data;
-                            console.log(res.data);
+                        console.log(res.data);
+                        if (res.data.length == 0) {
+                            return (this.currentapartment = [
+                                { title: "Nessun appartamento trovato" }
+                            ]);
                         }
+                        this.currentapartment = res.data;
                     })
                     .catch(err => console.log(err));
             }
