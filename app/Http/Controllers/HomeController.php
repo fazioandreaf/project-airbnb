@@ -65,14 +65,14 @@ class HomeController extends Controller {
         $service = Service::findOrFail($request -> get('service_id'));
         $apartment = Apartment::create($validated);
 
-        $img = $request -> file('cover_image');
         if ($request->hasFile('cover_image')) {
+            $img = $request -> file('cover_image');
             $imgExt = $img -> getClientOriginalExtension();
+            $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
+            $folder = '/assets/';
+            $apartment -> cover_image = $newNameImg;
+            $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
         }
-        $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
-        $folder = '/assets/';
-        $apartment -> cover_image = $newNameImg;
-        $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
 
         $apartment->services()->attach($request-> get('service_id'));
         $apartment->save();
