@@ -2027,6 +2027,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37809,24 +37819,32 @@ var render = function() {
     { staticClass: "wrapper-apartment" },
     [
       _c("div", { staticClass: "apartment-main-infos" }, [
-        _c("h1", [
-          _vm._v("\n            " + _vm._s(_vm.apartment.title) + "\n        ")
-        ]),
-        _vm._v(" "),
-        _c(
-          "span",
-          { staticClass: "apartment-details", on: { click: _vm.showDetails } },
-          [
-            _vm._v("\n            Visualizza dettagli\n            "),
-            _c("transition", { attrs: { name: "rotate" } }, [
-              _c("i", {
-                staticClass: "fas fa-chevron-down arrow",
-                class: _vm.showApartmentDetails ? "rotate" : ""
-              })
-            ])
-          ],
-          1
-        )
+        _c("ul", { staticClass: "infos" }, [
+          _c("li", { staticClass: "apartment-title" }, [
+            _c(
+              "h1",
+              { on: { click: _vm.showDetails } },
+              [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(_vm.apartment.title) +
+                    "\n                    "
+                ),
+                _c("transition", { attrs: { name: "rotate" } }, [
+                  _c("i", {
+                    staticClass: "fas fa-chevron-down arrow",
+                    class: _vm.showApartmentDetails ? "rotate" : ""
+                  })
+                ])
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", [_vm._t("view")], 2),
+          _vm._v(" "),
+          _c("li", [_vm._t("delete")], 2)
+        ])
       ]),
       _vm._v(" "),
       _c("transition", { attrs: { name: "slide-down" } }, [
@@ -37880,7 +37898,9 @@ var render = function() {
                       _vm._s(_vm.apartment.area) +
                       "\n                "
                   )
-                ])
+                ]),
+                _vm._v(" "),
+                _c("li", [_vm._t("edit")], 2)
               ])
             ])
           : _vm._e()

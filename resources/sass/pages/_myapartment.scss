@@ -6,8 +6,12 @@ section#my-apartments {
 
   .button-link {
 
-    display: inline-block;
-    padding: 20px
+    @extend %venusaur-green-button;
+
+    &:hover {
+
+     background-color: $grovyle-dark-green;
+    }
   }
 
   .wrapper-user-add {
@@ -19,12 +23,24 @@ section#my-apartments {
   }
 
   .wrapper-apartment {
+
     @include flex(column, null, null);
+    padding: 20px;
+
+    &:nth-child(even) {
+      background-color: $aggron-light-gray;
+    }
 
     .apartment-main-infos {
-      @include flex(row, null, center);
+      .infos {
+        @include flex(row, null, center);
+      }
+      .apartment-title {
+        flex-basis: 30%;
+      }
 
       .apartment-details {
+        margin-left: 20px;
         font-size: 12px;
         cursor: pointer;
 
@@ -35,17 +51,20 @@ section#my-apartments {
     }
 
     .details {
-
-      height: 200px;
+      max-height: 400px;
     }
 
-    .slide-down-enter-active,
+    .slide-down-enter-active {
+      transition: all 1s;
+    }
+
     .slide-down-leave-active {
       transition: all .5s;
     }
 
     .slide-down-enter, .slide-down-leave-to {
-      height: 0;
+      max-height: 0;
+      opacity: 0;
       overflow: hidden;
     }
 

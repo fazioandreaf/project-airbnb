@@ -1,15 +1,22 @@
 <template>
     <div class="wrapper-apartment">
         <div class="apartment-main-infos">
-            <h1>
-                {{ apartment.title }}
-            </h1>
-            <span class="apartment-details" @click="showDetails">
-                Visualizza dettagli
-                <transition name="rotate">
-                    <i class="fas fa-chevron-down arrow" :class="(showApartmentDetails) ? 'rotate' : ''"></i>
-                </transition>
-            </span>
+            <ul class="infos">
+                <li class="apartment-title">
+                    <h1 @click="showDetails">
+                        {{ apartment.title }}
+                        <transition name="rotate">
+                            <i class="fas fa-chevron-down arrow" :class="(showApartmentDetails) ? 'rotate' : ''"></i>
+                        </transition>
+                    </h1>
+                </li>
+                <li>
+                    <slot name="view"></slot>
+                </li>
+                <li>
+                    <slot name="delete"></slot>
+                </li>
+            </ul>
         </div>
         <transition name="slide-down">
             <div class="details" ref="details" v-if="showApartmentDetails">
@@ -33,6 +40,9 @@
                     <li>
                         <strong>M<sup>2</sup>: </strong>
                         {{ apartment.area }}
+                    </li>
+                    <li>
+                        <slot name="edit"></slot>
                     </li>
                 </ul>
             </div>

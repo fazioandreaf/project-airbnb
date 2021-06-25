@@ -12,16 +12,28 @@
             </h1>
             <a class="button-link" href="{{ route('add')}}">
                 Aggiungi un appartamento
-                <i class="fas fa-plus-square"></i>
+                <i class="fas fa-plus"></i>
             </a>
         </div>
 
         @foreach ($apartments as $apartment)
             <my-apartment :apartment="{{ $apartment }}">
+                <template v-slot:view>
+                    <a class="button-link" href="{{ route('apartment', $apartment->id) }}">
+                        Visualizza
+                    </a>
+                </template>
+                <template v-slot:delete>
+                    <a class="button-link" href="{{ route('delete', $apartment->id) }}">
+                        Elimina
+                    </a>
+                </template>
+                <template v-slot:edit>
+                    <a class="button-link" href="{{ route('edit', $apartment->id) }}">
+                        Modifica
+                    </a>
+                </template>
             </my-apartment>
-            <a href="{{ route('apartment', $apartment->id) }}">
-                Visualizza l'appartamento
-            </a>
         @endforeach
     </div>
 </section>

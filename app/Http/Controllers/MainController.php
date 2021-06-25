@@ -21,7 +21,7 @@ class MainController extends Controller {
                     ->join('apartment_sponsor', 'apartments.id' , '=', 'apartment_sponsor.apartment_id')
                     ->join('users', 'apartments.user_id' , '=', 'users.id')
                     ->select('apartment_sponsor.*', 'apartments.*')
-                    ->where('expire_date', '<', $now)
+                    ->where('expire_date', '>', $now)
                     ->where('apartments.deleted_at', null)
                     ->get();
 

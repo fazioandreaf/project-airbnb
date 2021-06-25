@@ -6,6 +6,17 @@ section#user-dashboard .wrapper-with-apartments {
   height: 300px;
 }
 
+section#user-dashboard .wrapper-with-apartments .apartments-link a,
+section#my-apartments .button-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #12a19a;
+  border-radius: 20px;
+  color: #FFF;
+  font-weight: 600;
+  transition: background-color 0.5s;
+}
+
 #header-homepage {
   width: 100%;
   height: 200px;
@@ -728,9 +739,8 @@ section#my-apartments .container {
   width: 90%;
 }
 
-section#my-apartments .button-link {
-  display: inline-block;
-  padding: 20px;
+section#my-apartments .button-link:hover {
+  background-color: #0d736e;
 }
 
 section#my-apartments .wrapper-user-add {
@@ -746,15 +756,25 @@ section#my-apartments .wrapper-user-add .username {
 section#my-apartments .wrapper-apartment {
   display: flex;
   flex-direction: column;
+  padding: 20px;
 }
 
-section#my-apartments .wrapper-apartment .apartment-main-infos {
+section#my-apartments .wrapper-apartment:nth-child(even) {
+  background-color: #ededed;
+}
+
+section#my-apartments .wrapper-apartment .apartment-main-infos .infos {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
+section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-title {
+  flex-basis: 30%;
+}
+
 section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-details {
+  margin-left: 20px;
   font-size: 12px;
   cursor: pointer;
 }
@@ -764,17 +784,21 @@ section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-detail
 }
 
 section#my-apartments .wrapper-apartment .details {
-  height: 200px;
+  max-height: 400px;
 }
 
-section#my-apartments .wrapper-apartment .slide-down-enter-active,
+section#my-apartments .wrapper-apartment .slide-down-enter-active {
+  transition: all 1s;
+}
+
 section#my-apartments .wrapper-apartment .slide-down-leave-active {
   transition: all 0.5s;
 }
 
 section#my-apartments .wrapper-apartment .slide-down-enter,
 section#my-apartments .wrapper-apartment .slide-down-leave-to {
-  height: 0;
+  max-height: 0;
+  opacity: 0;
   overflow: hidden;
 }
 
@@ -890,10 +914,10 @@ section#user-dashboard .wrapper-with-apartments .apartments-link a {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #12a19a;
-  color: #FFF;
-  padding: 10px 20px;
-  border-radius: 20px;
+}
+
+section#user-dashboard .wrapper-with-apartments .apartments-link a:hover {
+  background-color: #0d736e;
 }
 
 section#user-dashboard .wrapper-no-apartments {
