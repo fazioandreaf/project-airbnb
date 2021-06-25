@@ -203,6 +203,7 @@ class HomeController extends Controller {
         ]);
         
         $amount = $request->amount;
+        
         $nonce = $request->payment_method_nonce;
         $result = $gateway->transaction()->sale([
             'amount' => $amount,
@@ -222,10 +223,10 @@ class HomeController extends Controller {
                 'sponsor_id' => 'required'
             ]);
 
-            $this->sponsor_function($validated);
-
-        if ($result->success) {
-            $transaction = $result->transaction;
+            
+            if ($result->success) {
+                $transaction = $result->transaction;
+                $this->sponsor_function($validated);
             return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
         } else {
             $errorString = "";
