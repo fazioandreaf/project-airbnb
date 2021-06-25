@@ -234,59 +234,77 @@
         height: 600px;
         @include flex(row, null, null);
 
-        div {
-          height: 100%;
-        }
-
         // INIZIO SEZIONE SINISTRA CON ICONE
         .sinistra-dettagli-flat {
           width: 70%;
           height: 100%;
-          // debug
-          background-color: gold;
 
           h2 {
             height: 40px;
             width: 100%;
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid rgba(50, 50, 50, .3);
           }
 
-          ul {
-            height: calc(100% - 40px);
-            @include container(95%);
-            @include flex(column, null, null);
+          #all-four-rows {
+            height: 100%;
+            width: 100%;
 
-            li {
+            .riga.uno,
+            .riga.due,
+            .riga.tre,
+            .riga.quattro {
               width: 100%;
               height: 25%;
-              @include flex(column, center, null);
+            }
+
+            // (1) INIZIO PARAGRAFO LOREM
+            .riga.uno {
+              @include flex(row, null, center);
+            } // (1) FINE PARAGRAFO LOREM
+
+
+            // (2) INZIO STANZE, LETTI, BAGNI, AREA
+            .riga.due {
+              @include flex(row, space-between, null);
 
               span {
-                @include flex(row, null, center);
+                @include flex(row, center, center);
               }
-            }
 
-            li:first-of-type {
-              // debug
-              background-color: $orange;
-            }
+            } // (2) FINE STANZE, LETTI, BAGNI, AREA
 
-            li:nth-child(2) {
-              // debug
-              background-color: $scottish-blue;
-            }
+            // (3) INIZIO SERVIZI EXTRA
+            .riga.tre {
 
-            li:nth-child(3) {
-              // debug
-              background-color: $cyan;
-            }
+                .sub-list {
+                  width:100%;
+                  height: 100%;
+                  @include flex(row, space-between, center);
+                  flex-wrap: wrap;
 
-            li:last-of-type {
-              // debug
-              background-color: $teal;
-            }
+                  li {
+                    height: 60px;
+                    @include flex(column, center, center);
+                  }
+                }
 
-          } // FINE ASIDE
+            } // (3) FINE SERVIZI EXTRA
+
+            // (4) INIZIO SPONSOR E PULIZIA
+            .riga.quattro {
+              @include flex(row, space-between, center);
+              
+              a {
+                @include flex(row, center, center);
+
+                i {
+                  font-size: 35px;
+                }
+              }
+
+            } // (4) INIZIO SPONSOR E PULIZIA
+
+          } // FINE #all-four-rows
 
         } // FINE sinistra-dettagli-flat
 
@@ -297,8 +315,7 @@
           width: 30%;
           height: 100%;
           @include flex(row, center, center);
-          // debug
-          background-color: #eff0f0;
+
 
           form {
             height: 500px;
@@ -308,9 +325,28 @@
             border: 1px solid $salmon-pink;
             background-color: $white;
 
+            .fa-pencil-alt {
+              animation: matita 2s linear infinite;
+            }
+
+            @keyframes matita {
+              0% {transform: rotate(0.00turn);}
+              25% {transform: rotate(0.04turn);}
+              50% {transform: rotate(0.08turn);}
+              75% {transform: rotate(0.04turn);}
+              100% {transform: rotate(0.00turn);}
+            }
+
             span {
               line-height: 200%;
-            }
+
+              i {
+                margin-left: 130px;
+                font-size: 30px;
+
+              } // FINE ICONA MATITA
+
+            } // FINE SPAN
 
             // BOTTONE SUBMIT
             input {

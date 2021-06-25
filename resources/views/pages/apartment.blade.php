@@ -154,9 +154,16 @@
                 </a>
               </h2>
 
-              <ul>
+              <ul id="all-four-rows">
 
-                <li>
+                {{-- (1) --}}
+                <li class="riga uno">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est Danny. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                </li>
+
+                {{-- (2) --}}
+                <li class="riga due">
+
                   <span>
                     <img src="{{asset('storage/assets/icone_stanze.png')}}" alt="stanze-img" style="width: 50px; height: 50px;">
                     <a href="#">
@@ -172,9 +179,7 @@
                       {{$apartment->number_beds}}
                     </a>
                   </span>
-                </li>
 
-                <li>
                   <span>
                     <img src="{{asset('storage/assets/icone_bagno.png')}}" alt="bagno-img" style="width: 50px; height: 50px;">
                     <a href="#">
@@ -187,30 +192,42 @@
                     <img src="{{asset('storage/assets/icone_area.png')}}" alt="area-img" style="width: 50px; height: 50px;">
                     <a href="#">
                       Area :
-                      {{$apartment->area}}
+                      {{$apartment->area}}mq
                     </a>
                   </span>
 
                 </li>
 
-                <li>
-                  <a href="#">
-                    Servizi extra :
-                      @foreach ($apartment->services as $service)
-                        {{$service->service}}
-                        <img src="{{asset('storage/assets/icone_'. $service->service . '.png')}}" alt="">
-                      @endforeach
-                  </a>
+                {{-- (3) --}}
+                <li class="riga tre">
+
+                  <span>
+                    <a href="#">
+                        <ul class="sub-list">
+                          @foreach ($apartment->services as $service)
+                          <li>
+                            <img src="{{asset('storage/assets/icone_'. $service->service . '.png')}}" alt="servizio-extra" style="width: 40px; height: 40px;">
+                            {{$service->service}}
+                          </li>
+                        @endforeach
+                        </ul>
+                    </a>
+                  </span>
                 </li>
 
-                <li>
-                  <img src="{{asset('storage/assets/icone_sponsor.png')}}" alt="sponsor-img" style="width: 50px; height: 50px;">
+                {{-- (4) --}}
+                <li class="riga quattro">
                   <a href="#">
+                    <img src="{{asset('storage/assets/icone_sponsor.png')}}" alt="sponsor-img" style="width: 50px; height: 50px;">
                     @foreach ($apartment->sponsors as $apSp)
                       <p>
                         {{$apSp->sponsor_duration}} ore di sponsor
                       </p>
                     @endforeach
+                  </a>
+                  <a href="#">
+                    <i class="fas fa-pump-soap"></i>
+                    <p>Questo host si impegna a seguire la procedura avanzata di pulizia in 5 fasi di BoolB&B.</p>
                   </a>
                 </li>
 
@@ -219,40 +236,22 @@
             </div>
             {{-- FINE SEZIONE DI SINISTRA CON ICONE --}}
 
-            {{-- INIZIO SEZIONE DI DESTRA --}}
+
+            {{-- ___INIZIO SEZIONE DI DESTRA___ --}}
             <div class="destra-dettagli-flat">
               <form action="" method="get">
-                <span>Scrivi all'host<div>Vedi se ci sono camere disponibili.</div></span>
+                <span>Scrivi all'host<i class="fas fa-pencil-alt"></i><div>Vedi se ci sono camere disponibili.</div></span>
                 <textarea rows="20" cols="30"></textarea>
                 <input type="submit" value="Submit">
               </form>
             </div>
-            {{-- INIZIO SEZIONE DI DESTRA --}}
+            {{-- FINE SEZIONE DI DESTRA --}}
 
           </div> {{-- FINE DETTAGLI-FLAT (width: 100% height: 600px) --}}
 
+      </div> {{-- ______________ FINE JUMBO CONTAINER __________________ --}}
 
+    </div> {{-- ___JUMBOTRON APARTMENT FINISCE QUI (HEADER PRIMA DI QUESTO)__ --}}
 
-
-
-
-
-
-
-
-            <div>
-              <h5>FORM INVIO MESSAGGIO
-                <a href="{{route('send',$apartment->id)}}"
-                  >SUBMIT INVIO MESSAGGIO</a>
-                </h5>
-            </div>
-
-
-
-      </div>
-    </div>
-        {{-- _________JUMBOTRON FINISCE QUI__________ --}}
-
-
-    </div>
-@endsection
+  </div> {{-- _____________________ FINE APARTMENT SAMPLE ______________________ --}}
+  @endsection

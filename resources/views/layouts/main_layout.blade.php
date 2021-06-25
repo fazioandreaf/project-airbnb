@@ -9,6 +9,13 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    {{-- cdn
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
+    <!-- Scripts -->
+    <script src="{{ asset('js/search.js') }}" defer></script> --}}
+
+
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
