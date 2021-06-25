@@ -43,6 +43,7 @@ class MainController extends Controller {
         $statistic -> apartment() -> associate($id);
         $statistic->save();
         $sponsors=Sponsor::all();
+
         return view('pages.apartment',compact('apartment','statistic','sponsors'));
     }
 

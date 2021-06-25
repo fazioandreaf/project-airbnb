@@ -104,7 +104,7 @@
             {{-- INIZIO IMMAGINE GRANDE --}}
             <div>
               <a href="#">
-                <img class="immagine-grande" src="{{$apartment->cover_image}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                <img class="immagine-grande" src="{{asset('/storage/assets/'.$apartment->cover_image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
               </a>
             </div>
             {{-- FINE IMMAGINE GRANDE --}}
@@ -255,4 +255,4 @@
 
 
     </div>
-  @endsection
+@endsection
