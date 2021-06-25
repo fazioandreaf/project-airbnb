@@ -22,9 +22,6 @@ Route::post('/add_function', 'HomeController@add_function')->name('add_function'
 Route::get('/edit/{id}', 'HomeController@edit') -> name('edit');
 Route::post('/edit_function/{id}', 'HomeController@edit_function')->name('edit_function');
 
-// // Rotta Add Sponsor
-// Route::get('/add_sponsor/{id}','HomeController@addSponsor')->name('add_sponsor');
-
 // Rotta Soft-Delete
 Route::get('/delete/{id}','HomeController@deleteApartment')->name('delete');
 

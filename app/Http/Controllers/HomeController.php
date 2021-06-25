@@ -58,21 +58,20 @@ class HomeController extends Controller {
             'address' => 'required',
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
-            'cover_image' => 'nullable',
             'user_id' => 'required',
         ]);
 
         $service = Service::findOrFail($request -> get('service_id'));
         $apartment = Apartment::create($validated);        
-
+        
         $img = $request -> file('cover_image');
-        if ($img == !null) {
+        if ($request->hasFile('cover_image')) {
             $imgExt = $img -> getClientOriginalExtension();
-            $newNameImg = time() . rand(1,1000) . $imgExt;
-            $folder = '/apartment-img/';
-            $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
-            $apartment -> img = $newNameImg;
         }
+        $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
+        $folder = '/assets/';
+        $apartment -> cover_image = $newNameImg;
+        $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
 
         $apartment->services()->attach($request-> get('service_id'));
         $apartment->save();
@@ -102,11 +101,12 @@ class HomeController extends Controller {
         ]);
         
         $apartment = Apartment::findOrFail($id);
-        $img = $request -> file('cover_image');
-        if ($img == !null) {
+
+        if ($request->hasFile('cover_image')) {
+            $img = $request -> file('cover_image');
             $imgExt = $img -> getClientOriginalExtension();
             $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
-            $folder = '/apartment-img/';
+            $folder = '/assets/';
             $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
             $apartment -> cover_image = $newNameImg;
         }
