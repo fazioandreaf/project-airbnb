@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/filter','ApiController@filter')->name('filter');
+Route::get('/allservice','ApiController@allservice')->name('allservice');

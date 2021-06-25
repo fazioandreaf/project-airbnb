@@ -49,11 +49,16 @@ class MainController extends Controller {
     // registrazione
     public function search(Request $request)
     {
-        
-        $apartments=Apartment::where('title', 'LIKE','%'. $request->where.'%') -> get();
+        // dd($request->where);
+        if($request->where!=null){
+            $apartments= Apartment::where('title', 'LIKE','%'. $request->where.'%') -> get();
+        }
+        else{
+            $apartments= Apartment::all();
+        }
         $services=Service::all();
         // dd($apartments);
-        return view('pages.search',compact('apartments','request','services'));
+        return view('pages.search',compact('apartments','services'));
     }
 
 
@@ -75,52 +80,5 @@ class MainController extends Controller {
         return view('pages.message',compact('apartment','message'));
     }
 
-    // funzioni di debug
-
-        // public function myapartment($id){
-        //     $user = User::findOrFail($id);
-        //     $apartments=DB::table('apartments')
-        //         ->join('users','apartments.user_id','=','users.id')
-        //         ->select('apartments.*','users.*')
-        //         ->where('apartments.user_id','=',$id)
-        //         ->get();
-        //         // dd($apartments);
-        //     return view('pages.myapartment',compact('apartments', 'user'));
-        // }
-        // public function dashboard($id) {
-        //     $user= Auth::id();
-        //     $apartments=DB::table('apartments')
-        //                 ->join('users','apartments.user_id','=','users.id')
-        //                 ->select('apartments.*','users.*')
-        //                 ->where('apartments.user_id','=',$user)
-        //                 ->get();
-        //     // dd($id);
-        //     // $apartment-> users()->associate($id);
-        //     // $apartment= Apartment::findOrFail();
-        //     // dd($apartment);
-        //     return view('pages.dashboard',compact('apartments'));
-        // }
-        //     public function add()
-        // {
-        //     $services = Service::all();
-        //     $sponsors = Sponsor::all();
-        //     return view('pages.newapartment',compact('services','sponsors'));
-        // }
-
-        // public function sponsor($id){
-        //     $apartment = Apartment::findOrFail($id);
-        //     $sponsors = Sponsor::all();
-        //     return view('pages.sponsor',compact('sponsors','apartment'));
-        // }
-        // public function statistic($id){
-        //     // $statistic=Statistic::findOrFail($id);
-        //     $statistic=DB::table('statistics')
-        //                 ->join('apartments','statistics.apartment_id','=','apartments.id')
-        //                 ->select('statistics.*','apartments.*')
-        //                 ->where('statistics.apartment_id','=',$id)
-        //                 ->get();
-        //     //             dd(count($statistic));
-        //     return view('pages.statistic',compact('statistic'));
-        // }
 
 }

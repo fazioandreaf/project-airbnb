@@ -12,7 +12,7 @@
     {{-- cdn --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
     <!-- Scripts -->
-    <script src="{{ asset('js/search.js') }}" defer></script>
+    <script src="{{ asset('js/search.js') }}" ></script>
 
     <!-- Google Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -49,7 +49,7 @@
                               <label for="where">
                                   Scrivi l'indirizzo
                               </label>
-                              <input type="text" v-model="where" name="where" placeholder="{{$request->where}}">
+                              <input type="text" v-model="where" name="where" placeholder="dove">
                           </div>
 
                           <div class="wrapper-form-fields first">
@@ -116,11 +116,21 @@
                   justify-content: center;">
                       @foreach ($services as $service)
                           <li>
-                              <a href="#">
+                              <a href="#" @click="activeService($service)">
                                   {{$service-> service}}
                               </a>
                           </li>
                       @endforeach
+
+                  </ul>
+                  <span>
+                      <a href="" @click="prova()">prova</a>
+                  </span>
+                  <ul>
+                      <li v-for="(elem,index) in allservice">
+                          @{{elem.name}}
+
+                      </li>
                   </ul>
               </div>
           </header>
@@ -146,7 +156,6 @@
                               {{$item->service}};
                           </strong>
                           @endforeach --}}
-                          {{$apartments[0]}}
                           <a href="#" onclick="makemarker(15.06619,37.54305)">Defautl</a>
                           <a href="#" @click="log()">Prova</a>
                           <ul>

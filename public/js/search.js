@@ -2115,17 +2115,28 @@ document.addEventListener("DOMContentLoaded", function () {
       number_rooms: 0,
       number_beds: 0,
       guest: 0,
-      currentapartment: []
+      currentapartment: [],
+      allservice: []
     },
     mounted: function mounted() {
+      var _this = this;
+
       console.log("hola");
+      axios.get("api/allservice").then(function (res) {
+        if (res.status == 200) {
+          _this.allservice = res.data;
+          console.log(_this.allservice);
+        }
+      })["catch"](function (err) {
+        return console.log(err);
+      });
     },
     methods: {
       log: function log() {
         console.log("mundo");
       },
       filter: function filter() {
-        var _this = this;
+        var _this2 = this;
 
         axios.get("api/filter", {
           params: {
@@ -2136,7 +2147,20 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }).then(function (res) {
           if (res.status == 200) {
-            _this.currentapartment = res.data;
+            _this2.currentapartment = res.data;
+          }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      },
+      prova: function prova() {
+        var _this3 = this;
+
+        console.log("hola");
+        axios.get("api/allservice").then(function (res) {
+          if (res.status == 200) {
+            _this3.allservice = res.data;
+            console.log(_this3.allservice);
           }
         })["catch"](function (err) {
           return console.log(err);

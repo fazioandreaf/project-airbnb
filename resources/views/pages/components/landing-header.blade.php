@@ -57,8 +57,8 @@
             </ul>
 
             <div class="wrapper-search-bar">
-                <form class="search-bar" action="{{ route('search') }}" method="post" enctype="multipart/form-data">
-                    @method('POST')
+                <form class="search-bar" action="{{ route('search') }}" method="get" enctype="multipart/form-data">
+                    @method('get')
                     @csrf
                     <div class="wrapper-form-fields first">
                         <div id="search">
