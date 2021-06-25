@@ -1,9 +1,53 @@
-.testDanny {
-  background-color: black;
-  height: 92vh;
+section#my-apartments {
 
-  section {
-    @include flex(row, center, center);
-    color: purple;
+  .container {
+    @include container(90%);
   }
+
+  .button-link {
+
+    display: inline-block;
+    padding: 20px
+  }
+
+  .wrapper-user-add {
+    @include flex(row, null, center);
+
+    .username {
+      color: $venusaur-green;
+    }
+  }
+
+  .wrapper-apartment {
+    @include flex(column, null, null);
+
+    .apartment-main-infos {
+      @include flex(row, null, center);
+
+      .apartment-details {
+        font-size: 12px;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .details {
+      height: 200px;
+    }
+
+    .slide-down-enter-active,
+    .slide-down-leave-active {
+      transition: all .5s;
+    }
+
+    .slide-down-enter, .slide-down-leave-to {
+      height: 0;
+      overflow: hidden;
+    }
+
+  }
+
 }
