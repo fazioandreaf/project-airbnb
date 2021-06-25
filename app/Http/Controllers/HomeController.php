@@ -62,7 +62,7 @@ class HomeController extends Controller {
         ]);
 
         $service = Service::findOrFail($request -> get('service_id'));
-        $apartment = Apartment::create($validated);        
+        $apartment = Apartment::create($validated);
 
         $img = $request -> file('cover_image');
         if ($img == !null) {
@@ -99,13 +99,13 @@ class HomeController extends Controller {
             'longitude' => 'required|numeric',
             'user_id' => 'required',
         ]);
-        
+
         $apartment = Apartment::findOrFail($id);
         $img = $request -> file('cover_image');
         if ($img == !null) {
             $imgExt = $img -> getClientOriginalExtension();
             $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
-            $folder = '/apartment-img/';
+            $folder = '/assets/';
             $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
             $apartment -> cover_image = $newNameImg;
         }

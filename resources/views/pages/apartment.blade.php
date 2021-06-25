@@ -154,15 +154,15 @@
                 </a>
               </h2>
 
-              <ul>
+              <ul id="all-four-rows">
 
                 {{-- (1) --}}
-                <li>
+                <li class="riga uno">
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
                 </li>
 
                 {{-- (2) --}}
-                <li>
+                <li class="riga due">
 
                   <span>
                     <img src="{{asset('storage/assets/icone_stanze.png')}}" alt="stanze-img" style="width: 50px; height: 50px;">
@@ -199,19 +199,24 @@
                 </li>
 
                 {{-- (3) --}}
-                <li>
+                <li class="riga tre">
+
                   <span>
                     <a href="#">
-                      @foreach ($apartment->services as $service)
-                        <img src="{{asset('storage/assets/icone_'. $service->service . '.png')}}" alt="servizio-extra" style="width: 40px; height: 40px;">
-                        {{$service->service}}
-                      @endforeach
+                        <ul class="sub-list">
+                          @foreach ($apartment->services as $service)
+                          <li>
+                            <img src="{{asset('storage/assets/icone_'. $service->service . '.png')}}" alt="servizio-extra" style="width: 40px; height: 40px;">
+                            {{$service->service}}
+                          </li>
+                        @endforeach
+                        </ul>
                     </a>
                   </span>
                 </li>
 
                 {{-- (4) --}}
-                <li>
+                <li class="riga quattro">
                   <img src="{{asset('storage/assets/icone_sponsor.png')}}" alt="sponsor-img" style="width: 50px; height: 50px;">
                   <a href="#">
                     @foreach ($apartment->sponsors as $apSp)
@@ -253,7 +258,9 @@
 
 
 
-            <div>
+            <div class="altra-sezione">
+
+              <h1>CONTENITORE ROSA PROSCIUTTO</h1>
               <h5>FORM INVIO MESSAGGIO
                 <a href="{{route('send',$apartment->id)}}"
                   >SUBMIT INVIO MESSAGGIO</a>
