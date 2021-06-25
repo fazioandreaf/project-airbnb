@@ -92,7 +92,7 @@
                 <div >
                     <div>
                         <label for="amount">Amount</label>
-                        <input type="text" id="amount" name="amount" value="{{$sponsor->price}}">
+                        <input type="text" id="amount" name="amount" value="{{$price}}">
                     </div>
                 </div>
             </div>
@@ -138,13 +138,7 @@
     <script src="https://js.braintreegateway.com/web/3.38.1/js/client.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.38.1/js/hosted-fields.min.js"></script>
 
-    <!-- Load PayPal's checkout.js Library. -->
-    <script src="https://www.paypalobjects.com/api/checkout.js" data-version-4 log-level="warn"></script>
-
-    <!-- Load the PayPal Checkout component. -->
-    <script src="https://js.braintreegateway.com/web/3.38.1/js/paypal-checkout.min.js"></script>
     <script>
-
       var form = document.querySelector('#payment-form');
       var submit = document.querySelector('input[type="submit"]');
 
@@ -179,69 +173,26 @@
             },
             expirationDate: {
               selector: '#expiration-date',
-              placeholder: '10/2019'
+              placeholder: 'MM/YY'
             }
           }
         }, function (hostedFieldsErr, hostedFieldsInstance) {
-          if (hostedFieldsErr) {
-            console.error(hostedFieldsErr);
-            return;
-          }
-          form.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
-              if (tokenizeErr) {
-                console.error(tokenizeErr);
+            if (hostedFieldsErr) {
+                console.error(hostedFieldsErr);
                 return;
-              }
-              document.querySelector('#nonce').value = payload.nonce;
-              form.submit();
+            }
+             form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
+                if (tokenizeErr) {
+                    console.error(tokenizeErr);
+                    return;
+                }
+                document.querySelector('#nonce').value = payload.nonce;
+                form.submit();
             });
           }, false);
         });
-
-        // Create a PayPal Checkout component.
-        braintree.paypalCheckout.create({
-            client: clientInstance
-        }, function (paypalCheckoutErr, paypalCheckoutInstance) {
-        if (paypalCheckoutErr) {
-          console.error('Error creating PayPal Checkout:', paypalCheckoutErr);
-          return;
-        }
-
-        // Set up PayPal with the checkout.js library
-        paypal.Button.render({
-          env: 'sandbox', // or 'production'
-          commit: true,
-
-          payment: function () {
-            return paypalCheckoutInstance.createPayment({
-              flow: 'checkout', // Required
-              amount: 13.00, // Required
-              currency: 'USD', // Required
-            });
-          },
-
-          onAuthorize: function (data, actions) {
-            return paypalCheckoutInstance.tokenizePayment(data, function (err, payload) {
-
-              // Submit `payload.nonce` to your server.
-              document.querySelector('#nonce').value = payload.nonce;
-              form.submit();
-            });
-          },
-
-          onCancel: function (data) {
-            console.log('checkout.js payment cancelled', JSON.stringify(data, 0, 2));
-          },
-
-          onError: function (err) {
-            console.error('checkout.js error', err);
-          }
-        }, '#paypal-button').then(function () {
-        });
-        });
-      });
+    });
     </script>
 @endsection
