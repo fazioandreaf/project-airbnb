@@ -1544,6 +1544,10 @@ section#section-register form .form-button {
   border-radius: 10px;
 }
 
+section#login-section {
+  padding: 40px 0;
+}
+
 section#login-section .container {
   margin: 0 auto;
   width: 90%;

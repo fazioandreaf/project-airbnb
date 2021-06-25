@@ -1,5 +1,7 @@
 section#login-section {
     
+    padding: 40px 0;
+    
     .container {
         @include container(90%);
         @include flex(column, center, center);
