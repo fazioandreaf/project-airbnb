@@ -24,14 +24,8 @@
             <div>
                 @foreach ($sponsors as $sponsor)
                     <div>
-                        <label for="sponsor_id">{{$sponsor->sponsor_duration}} Ore al costo di: {{$sponsor->price}}</label>
-                        <input type="checkbox" name="sponsor_id" id="sponsor_id" value="{{$sponsor->id}}"
-                            @foreach ($apartment->sponsors as $checkedsponsor)
-                                @if ($checkedsponsor->id == $sponsor->id)
-                                    checked
-                                @endif
-                            @endforeach
-                        >
+                        <label for="sponsor_id">{{$sponsor->sponsor_duration}} Ore al costo di: <?php echo $sponsor->price / 100 ?> </label>
+                        <input type="checkbox" name="sponsor_id" id="sponsor_id" value="{{$sponsor->id}}">
                     </div>
                 @endforeach
             </div>

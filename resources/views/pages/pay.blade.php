@@ -92,7 +92,7 @@
                 <div >
                     <div>
                         <label for="amount">Amount</label>
-                        <input type="text" id="amount" name="amount" value="{{$sponsor->price}}">
+                        <input type="text" id="amount" name="amount" value="{{$price}}">
                     </div>
                 </div>
             </div>
@@ -138,13 +138,7 @@
     <script src="https://js.braintreegateway.com/web/3.38.1/js/client.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.38.1/js/hosted-fields.min.js"></script>
 
-    <!-- Load PayPal's checkout.js Library. -->
-    <script src="https://www.paypalobjects.com/api/checkout.js" data-version-4 log-level="warn"></script>
-
-    <!-- Load the PayPal Checkout component. -->
-    <script src="https://js.braintreegateway.com/web/3.38.1/js/paypal-checkout.min.js"></script>
     <script>
-
       var form = document.querySelector('#payment-form');
       var submit = document.querySelector('input[type="submit"]');
 

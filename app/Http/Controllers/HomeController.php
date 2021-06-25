@@ -170,7 +170,7 @@ class HomeController extends Controller {
         $sponsors = Sponsor::all();
         return view('pages.sponsor',compact('sponsors','apartment'));
     }
-
+    // form braintree
     public function form_pay(Request $request)
     {
         $validated = $request -> validate([
@@ -187,10 +187,11 @@ class HomeController extends Controller {
         $token = $gateway->ClientToken()->generate();
         $apartment = Apartment::findOrFail($validated['apartment_id']);
         $sponsor = Sponsor::findOrFail($validated['sponsor_id']);
+        $price = $sponsor->price / 100;
         // dd($apartment,$sponsor);
-        return view('pages.pay',compact('apartment','sponsor','token'));
+        return view('pages.pay',compact('apartment','sponsor','price','token'));
     }
-
+    // checkout braintree
     public function pay(Request $request,$userId)
     {
         $user = User::find($userId);
@@ -203,7 +204,6 @@ class HomeController extends Controller {
         ]);
         
         $amount = $request->amount;
-        
         $nonce = $request->payment_method_nonce;
         $result = $gateway->transaction()->sale([
             'amount' => $amount,
@@ -228,7 +228,7 @@ class HomeController extends Controller {
                 $transaction = $result->transaction;
                 $this->sponsor_function($validated);
             return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
-        } else {
+            } else {
             $errorString = "";
             foreach ($result->errors->deepAll() as $error) {
                 $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
