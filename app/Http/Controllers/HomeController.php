@@ -10,6 +10,7 @@ use App\Sponsor;
 Use App\Service;
 use App\SponsoredApartment;
 use Braintree;
+use Carbon\Carbon;
 
 class HomeController extends Controller {
     /**
@@ -119,27 +120,29 @@ class HomeController extends Controller {
 
     // add sponsor
     public function sponsor_function($validated)
-    {
-        // dd($validated['sponsor_id']);
-        date_default_timezone_set('Europe/Rome');
+    {   
+        $now = Carbon::now()->setTimeZone('Europe/Rome');
+        $expire = Carbon::now()->setTimeZone("Europe/Rome");
+
         switch ($validated['sponsor_id']) {
             case 1:
-                $afterDate = date('m/d/Y h:i:s a', time() + 86400);
+                $expire->modify('+24 hours');
                 break;
             case 2:
-                $afterDate = date('m/d/Y h:i:s a', time() + 259200);
+                $expire->modify('+72 hours');
                 break;
             case 3:
-                $afterDate = date('m/d/Y h:i:s a', time() + 604800);
+                $expire->modify('+144 hours');
                 break;
         }
+
         $apartment = Apartment::findOrFail($validated['apartment_id']);
         $apartment->update($validated);
         $apartment->sponsors()
             ->attach($validated['sponsor_id'],
                 [
-                    'start_date' => date('m/d/Y h:i:s a', time()),
-                    'expire_date' => $afterDate
+                    'start_date' => $now,
+                    'expire_date' => $expire
                 ]
             );
         return redirect()->route('homepage');
