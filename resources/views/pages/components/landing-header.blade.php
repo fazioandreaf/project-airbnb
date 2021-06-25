@@ -57,14 +57,17 @@
             </ul>
 
             <div class="wrapper-search-bar">
-                <form class="search-bar" action="{{ route('search') }}" method="post" enctype="multipart/form-data">
-                    @method('POST')
+                <form class="search-bar" action="{{ route('search') }}" method="get" enctype="multipart/form-data">
+                    @method('get')
                     @csrf
                     <div class="wrapper-form-fields first">
-                        <label for="where">
-                            Dove
-                        </label>
-                        <input type="text" id="where" name="where" placeholder="Dove vuoi andare?">
+                        <div id="search">
+
+                            <label for="where">
+                                Dove
+                            </label>
+                            <input type="text" id="where" name="where" placeholder="Dove vuoi andare?">
+                        </div>
                     </div>
                     <div class="wrapper-form-fields last">
                         <button type="submit" class="search">

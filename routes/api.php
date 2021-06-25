@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/filter','ApiController@filter')->name('filter');
+Route::get('/service','ApiController@service')->name('service');
+Route::get('/upservice','ApiController@upservice')->name('upservice');

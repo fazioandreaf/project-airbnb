@@ -13,26 +13,26 @@
                         <label for="where">
                             Scrivi l'indirizzo
                         </label>
-                        <input type="text" id="where" name="where" placeholder="{{$request->where}}">
+                        <input type="text" id="where" name="where" placeholder="{{$request->where}}"  v-model="where" >
                     </div>
 
                     <div class="wrapper-form-fields first">
                         <label for="number_rooms">
                             Numeri di stanze
                         </label>
-                        <input type="number" id="number_rooms" name="number_rooms" placeholder="1">
+                        <input type="number" id="number_rooms" name="number_rooms" placeholder="1" v-model="number_rooms" >
                     </div>
                     <div>
                         <label for="number_beds">
                             Numeri di letti
                         </label>
-                        <input type="number" id="number_beds" name="number_beds" placeholder="1">
+                        <input type="number" id="number_beds" name="number_beds" placeholder="1" v-model="number_beds" >
                     </div>
                     <div>
                         <label for="guest">
                             Ospiti
                         </label>
-                        <input type="number" min=1 id="guest" name="guest" value="1" placeholder="2">
+                        <input type="number" min=1 id="guest" name="guest" value="1" placeholder="2" v-model="guest" >
                     </div>
                     <div>
                         <a href="#" >

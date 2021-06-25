@@ -259,10 +259,7 @@
 
             // (1) INIZIO PARAGRAFO LOREM
             .riga.uno {
-
-              p {
-                margin-top: 20px;
-              }
+              @include flex(row, null, center);
             } // (1) FINE PARAGRAFO LOREM
 
 
@@ -295,18 +292,13 @@
 
             // (4) INIZIO SPONSOR E PULIZIA
             .riga.quattro {
-              @include flex(row, flex-start, center);
-
-              a:last-of-type {
-                margin-left: 310px;
+              @include flex(row, space-between, center);
+              
+              a {
                 @include flex(row, center, center);
 
                 i {
-                  font-size: 30px;
-                }
-
-                p {
-                  font-size: 14px;
+                  font-size: 35px;
                 }
               }
 
@@ -375,13 +367,6 @@
         } // FINE destra-dettagli-flat
 
       } // FINE DETTAGLI-FLAT (width: 100% height: 600px)
-
-      .altra-sezione {
-        margin-top: 30px;
-        width: 100%;
-        height: 300px;
-        background-color: pink;
-      }
 
     } // FINE #jumbo-container
 

@@ -12,7 +12,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('homepage', 'MainController@homepage') -> name('homepage');
 
 //Ricerca avanzata
-Route::post('/search', 'MainController@search') -> name('search');
+Route::get('/search', 'MainController@search') -> name('search');
 
 // // Rotte per add apartment
 Route::get('/add', 'HomeController@add') -> name('add');
@@ -21,9 +21,6 @@ Route::post('/add_function', 'HomeController@add_function')->name('add_function'
 // // Rotte per edit apartment
 Route::get('/edit/{id}', 'HomeController@edit') -> name('edit');
 Route::post('/edit_function/{id}', 'HomeController@edit_function')->name('edit_function');
-
-// // Rotta Add Sponsor
-// Route::get('/add_sponsor/{id}','HomeController@addSponsor')->name('add_sponsor');
 
 // Rotta Soft-Delete
 Route::get('/delete/{id}','HomeController@deleteApartment')->name('delete');
@@ -44,12 +41,12 @@ Route::get('/myapartment/{id}', 'HomeController@myapartment') -> name('myapartme
 Route::get('/sponsor/{id}', 'HomeController@sponsor') -> name('sponsor');
 Route::get('/sponsor_function/{id}', 'HomeController@sponsor_function')->name('sponsor_function');
 
-
-
-
+// rotta post braintree
+Route::get('/form_pay','HomeController@form_pay')->name('form_pay');
+Route::post('/checkout/{userId}', 'HomeController@pay')->name('pay');
 
 //ROtte di debug(senza login)
-Route::get('/pages/maps', 'MainController@maps') ;
+Route::get('/pages/maps', 'MainController@maps');
 // Route::get('/myapartment/{id}', 'MainController@myapartment') -> name('myapartment');
 // Route::get('/dashboard/{id}', 'MainController@dashboard') -> name('dashboard');
 // Route::get('/add', 'MainController@add') -> name('add');

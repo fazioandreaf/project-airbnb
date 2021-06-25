@@ -78,22 +78,23 @@ section#user-dashboard {
 
                 &:hover {
 
-                    background-color: #0d736e;
+                    background-color: $grovyle-dark-green;
                 }
             }
 
             .dashboard-label.active {
-                background-color: #0d736e;
+                background-color: $grovyle-dark-green;
             }
         }
 
         .apartments-link a {
 
             @include flex(row, center, center);
-            background-color: $venusaur-green;
-            color: $white;
-            padding: 10px 20px;
-            border-radius: 20px;
+            @extend %venusaur-green-button;
+
+            &:hover {
+                background-color: $grovyle-dark-green;
+            }
         }
     }
 

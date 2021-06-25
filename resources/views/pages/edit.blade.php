@@ -1,11 +1,11 @@
 @extends("layouts.main_layout")
 @section("content")
 
-    <form action="{{Route('edit_function',$apartment->id)}}" method="post"
+    <form action="{{Route('edit_function',$apartment->id)}}" method="POST"
         enctype="multipart/form-data">
 
         @csrf
-        @method('post')
+        @method('POST')
 
         <div style="text-align: center">
 
