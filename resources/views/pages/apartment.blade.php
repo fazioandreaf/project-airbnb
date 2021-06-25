@@ -100,6 +100,7 @@
 
           {{-- INIZIO immagini appartamento --}}
           <div class="apartment-img-container">
+            {{-- v-for="image in imgArr" --}}
 
             {{-- INIZIO IMMAGINE GRANDE --}}
             <div>
