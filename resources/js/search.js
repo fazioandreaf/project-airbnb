@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // },
         el: "#app",
         data: {
-            address: "",
+            where: "",
             number_rooms: 0,
             number_beds: 0,
             guest: 0
@@ -21,14 +21,17 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             filter: function() {
                 axios
-                    .post("api/filter", {
+                    .get("api/filter", {
                         params: {
-                            address: "catania"
+                            where: this.where,
+                            number_rooms: this.number_rooms,
+                            number_beds: this.number_beds,
+                            guest: this.guest,
                         }
                     })
                     .then(res => {
                         if (res.status == 200) {
-                            console.log("update");
+                            console.log(res);
                         }
                     })
                     .catch(err => console.log(err));

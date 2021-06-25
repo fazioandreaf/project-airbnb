@@ -2111,7 +2111,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // },
     el: "#app",
     data: {
-      address: "",
+      where: "",
       number_rooms: 0,
       number_beds: 0,
       guest: 0
@@ -2124,13 +2124,16 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("mundo");
       },
       filter: function filter() {
-        axios.post("api/filter", {
+        axios.get("api/filter", {
           params: {
-            address: "catania"
+            where: this.where,
+            number_rooms: this.number_rooms,
+            number_beds: this.number_beds,
+            guest: this.guest
           }
         }).then(function (res) {
           if (res.status == 200) {
-            console.log("update");
+            console.log(res);
           }
         })["catch"](function (err) {
           return console.log(err);
