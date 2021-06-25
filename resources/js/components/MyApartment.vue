@@ -16,6 +16,12 @@
                 <li>
                     <slot name="delete"></slot>
                 </li>
+                <li>
+                    <slot name="sponsor"></slot>
+                </li>
+                <li>
+                    <slot name="statistic"></slot>
+                </li>
             </ul>
         </div>
         <transition name="slide-down">
