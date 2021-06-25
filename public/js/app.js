@@ -2008,6 +2008,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37809,9 +37826,50 @@ var render = function() {
           ? _c("div", { staticClass: "details" }, [
               _c("ul", [
                 _c("li", [
+                  _c("strong", [_vm._v("Indirizzo: ")]),
                   _vm._v(
                     "\n                    " +
                       _vm._s(_vm.apartment.address) +
+                      "\n                "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("strong", [_vm._v("Numero di stanze: ")]),
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.apartment.number_rooms) +
+                      "\n                "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("strong", [_vm._v("Bagni: ")]),
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.apartment.number_toiletes) +
+                      "\n                "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("strong", [_vm._v("Posti letto: ")]),
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.apartment.number_beds) +
+                      "\n                "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("strong", [
+                    _vm._v("M"),
+                    _c("sup", [_vm._v("2")]),
+                    _vm._v(": ")
+                  ]),
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.apartment.area) +
                       "\n                "
                   )
                 ])
