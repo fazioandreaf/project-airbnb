@@ -2114,7 +2114,8 @@ document.addEventListener("DOMContentLoaded", function () {
       where: "",
       number_rooms: 0,
       number_beds: 0,
-      guest: 0
+      guest: 0,
+      currentapartment: []
     },
     mounted: function mounted() {
       console.log("hola");
@@ -2124,6 +2125,8 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("mundo");
       },
       filter: function filter() {
+        var _this = this;
+
         axios.get("api/filter", {
           params: {
             where: this.where,
@@ -2133,7 +2136,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }).then(function (res) {
           if (res.status == 200) {
-            console.log(res);
+            _this.currentapartment = res.data;
           }
         })["catch"](function (err) {
           return console.log(err);

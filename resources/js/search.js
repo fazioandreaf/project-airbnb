@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
             where: "",
             number_rooms: 0,
             number_beds: 0,
-            guest: 0
+            guest: 0,
+            currentapartment:[],
         },
         mounted: function() {
             console.log("hola");
@@ -31,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     })
                     .then(res => {
                         if (res.status == 200) {
-                            console.log(res);
+                            this.currentapartment=res.data;
                         }
                     })
                     .catch(err => console.log(err));

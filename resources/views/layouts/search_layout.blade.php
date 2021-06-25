@@ -130,29 +130,22 @@
                   <!-- UPPER SECTION STARTS HERE -->
                   <div class="left-section">
                   <div>
-                    @foreach ($apartments as $item)
+                    {{-- @foreach ($apartments as $item)
                     <a href="{{route('apartment', $item->id)}}">
 
                         {{$item->id}} -> {{$item->title}}<br>
                     </a>
-                    @endforeach
+                    @endforeach --}}
 
                       <div>
-                          Valori passati dalla ricerca<br>
-                          <strong>dove</strong>
-                          {{$request-> where}}<br>
-                          <strong>check_in</strong>
-                          {{$request-> check_in}}<br>
-                          <strong>check_out</strong>
-                          {{$request-> check_out}}<br>
-                          <strong>guest</strong>
-                          {{$request-> guest}}<br>
-
-                          @foreach ($services as $item)
+                        <strong v-for="i in currentapartment">
+                            <a href="#">@{{ i.title }}</a>
+                        </strong><br>
+                          {{-- @foreach ($services as $item)
                           <strong>
                               {{$item->service}};
                           </strong>
-                          @endforeach
+                          @endforeach --}}
                           {{$apartments[0]}}
                           <a href="#" onclick="makemarker(15.06619,37.54305)">Defautl</a>
                           <a href="#" @click="log()">Prova</a>
