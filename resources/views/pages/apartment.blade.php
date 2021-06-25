@@ -158,7 +158,7 @@
 
                 {{-- (1) --}}
                 <li class="riga uno">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est Danny. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
                 </li>
 
                 {{-- (2) --}}
@@ -245,23 +245,13 @@
                 <input type="submit" value="Submit">
               </form>
             </div>
-            {{-- ___FINE SEZIONE DI DESTRA___ --}}
+            {{-- FINE SEZIONE DI DESTRA --}}
 
           </div> {{-- FINE DETTAGLI-FLAT (width: 100% height: 600px) --}}
 
-      </div> {{-- FINE JUMBO CONTAINER --}}
+      </div> {{-- ______________ FINE JUMBO CONTAINER __________________ --}}
 
-      <div class="altra-sezione">
-        <h1>CONTENITORE ROSA PROSCIUTTO</h1>
-        <h5>FORM INVIO MESSAGGIO
-          <a href="{{route('send',$apartment->id)}}"
-            >SUBMIT INVIO MESSAGGIO</a>
-          </h5>
-        </div>
+    </div> {{-- ___JUMBOTRON APARTMENT FINISCE QUI (HEADER PRIMA DI QUESTO)__ --}}
 
-    </div> {{-- _________JUMBOTRON APARTMENT FINISCE QUI (HEADER PRIMA DI QUESTO)__________ --}}
-
-
-
-    </div>
+  </div> {{-- _____________________ FINE APARTMENT SAMPLE ______________________ --}}
   @endsection

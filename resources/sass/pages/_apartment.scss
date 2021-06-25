@@ -293,7 +293,7 @@
             // (4) INIZIO SPONSOR E PULIZIA
             .riga.quattro {
               @include flex(row, space-between, center);
-              border-bottom: 1px solid rgba(50, 50, 50, .3);
+              
               a {
                 @include flex(row, center, center);
 
@@ -368,14 +368,8 @@
 
       } // FINE DETTAGLI-FLAT (width: 100% height: 600px)
 
-
     } // FINE #jumbo-container
 
-    .altra-sezione {
-      width: 100%;
-      height: 800px;
-      background-color: pink;
-    }
   } // FINE JUMBOTRON-APARTMENT
 
 } // FINE #apartment-sample

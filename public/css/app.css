@@ -1446,7 +1446,6 @@ section#section-register form .form-button {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(50, 50, 50, 0.3);
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.quattro a {
@@ -1551,12 +1550,6 @@ section#section-register form .form-button {
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form textarea {
   border: 0.5px solid rgba(50, 50, 50, 0.2);
   border-radius: 10px;
-}
-
-#apartment-sample .jumbotron-apartment .altra-sezione {
-  width: 100%;
-  height: 800px;
-  background-color: pink;
 }
 
 section#login-section {
