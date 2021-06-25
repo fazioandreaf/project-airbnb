@@ -118,12 +118,9 @@ class HomeController extends Controller {
     }
 
     // add sponsor
-    public function sponsor_function(Request $request,$id)
+    public function sponsor_function($validated)
     {
-        $validated = $request -> validate([
-            'sponsor_id' => 'required'
-        ]);
-
+        // dd($validated['sponsor_id']);
         date_default_timezone_set('Europe/Rome');
         switch ($validated['sponsor_id']) {
             case 1:
@@ -136,16 +133,15 @@ class HomeController extends Controller {
                 $afterDate = date('m/d/Y h:i:s a', time() + 604800);
                 break;
         }
-        $apartment = Apartment::findOrFail($id);
+        $apartment = Apartment::findOrFail($validated['apartment_id']);
         $apartment->update($validated);
         $apartment->sponsors()
-            ->attach($request-> get('sponsor_id'),
+            ->attach($validated['sponsor_id'],
                 [
                     'start_date' => date('m/d/Y h:i:s a', time()),
                     'expire_date' => $afterDate
                 ]
             );
-
         return redirect()->route('homepage');
     }
 
@@ -172,32 +168,40 @@ class HomeController extends Controller {
     public function sponsor($id){
         $apartment = Apartment::findOrFail($id);
         $sponsors = Sponsor::all();
+        return view('pages.sponsor',compact('sponsors','apartment'));
+    }
 
-        // braintree 
+    public function form_pay(Request $request)
+    {
+        $validated = $request -> validate([
+            'apartment_id' => 'required',
+            'sponsor_id' => 'required'
+        ]);
         $gateway = new Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
             'publicKey' => config('services.braintree.publicKey'),
             'privateKey' => config('services.braintree.privateKey')
         ]);
-
+        // dd($validated);
         $token = $gateway->ClientToken()->generate();
-
-
-        return view('pages.sponsor',compact('sponsors','apartment','token'));
+        $apartment = Apartment::findOrFail($validated['apartment_id']);
+        $sponsor = Sponsor::findOrFail($validated['sponsor_id']);
+        // dd($apartment,$sponsor);
+        return view('pages.pay',compact('apartment','sponsor','token'));
     }
 
     public function pay(Request $request,$userId)
     {
         $user = User::find($userId);
-        // dd($user);
+        // dd($request);
         $gateway = new Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
             'publicKey' => config('services.braintree.publicKey'),
             'privateKey' => config('services.braintree.privateKey')
         ]);
-    
+        
         $amount = $request->amount;
         $nonce = $request->payment_method_nonce;
         $result = $gateway->transaction()->sale([
@@ -210,9 +214,16 @@ class HomeController extends Controller {
             ],
             'options' => [
                 'submitForSettlement' => true
-            ]
-        ]);
-    
+                ]
+            ]);
+
+            $validated = $request -> validate([
+                'apartment_id' => 'required',
+                'sponsor_id' => 'required'
+            ]);
+
+            $this->sponsor_function($validated);
+
         if ($result->success) {
             $transaction = $result->transaction;
             return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
