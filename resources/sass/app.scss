@@ -41,6 +41,11 @@ a {
   text-decoration: none;
 }
 
+[v-cloak] {
+
+  display: none;
+}
+
 // #header-and-main {
 //   background: url(/images/wallpaper.jpg) no-repeat;
 //   background-size: 100vw 100vh;
