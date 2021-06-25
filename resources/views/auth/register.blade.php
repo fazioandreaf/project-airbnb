@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div id="app">
+<div id="app" v-cloak>
     <section id="register-jumbotron">
 
         <div class="jumbotron">
