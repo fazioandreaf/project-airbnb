@@ -53,9 +53,10 @@ class ApiController extends Controller
                             // ->where('service_id', '=', $request->service)
                             ->get();;
 
-            $finishapartment=[];
+        $finishapartment=[];
         foreach($apartments as $item){
             // array_push($finishapartment,$item);
+            // array dei nomi delle case
             $tmp=[];
             foreach ($finishapartment as $i ) {
                 array_push($tmp,$i->title);
@@ -77,16 +78,29 @@ class ApiController extends Controller
                     //         array_splice($finishapartment,$indice,1);
                     // }
                 }
-                $prova=array_count_values($tmp);
-                $arrayvuoto=[];
-                foreach($prova as $key=> $value){
-                    if($value==count($request->service)){
-
-                        array_push($arrayvuoto,$key);
-                    }
+                // array che contiene il numero di volte che viene contato il valore
+                $tmp2=array_count_values($tmp);
+                //array che contiene l'intersezione dei nomi delle case che corrispondono a tutti i filtri
+                $intersezione_case=[];
+                foreach($tmp2 as $key=> $value){
+                    if($value==count($request->service))
+                        array_push($intersezione_case,$key);
                 }
-                // array_push($prova,sizeof($request->service));
+
+
+
+                // carico un array degli apartmenti dell intersezione
+                $intersezione_case_def=[];
+                // $tmp3=[];
+                foreach($intersezione_case as $single){
+                    $tmp3=DB::table('apartments')
+                            ->where('title', 'LIKE',$single)
+                            ->get();
+                    array_push($intersezione_case_def,$tmp3);
+                }
+
+                // array_push($tmp2,sizeof($request->service));
         }
-        return response() -> json(($arrayvuoto),200);
+        return response() -> json(($intersezione_case_def),200);
     }
 }
