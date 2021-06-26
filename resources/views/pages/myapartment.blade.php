@@ -23,11 +23,14 @@
                         Visualizza
                     </a>
                 </template>
-                <template v-slot:delete>
-                    <a class="button-link" href="{{ route('delete', $apartment->id) }}">
+                {{-- <template v-slot:delete>
+                    {{-- <a class="button-link" href="{{ route('delete', $apartment->id) }}">
+                        Elimina
+                    </a> --}}
+                    {{-- <a class="button-link" v-on:click="destroy">
                         Elimina
                     </a>
-                </template>
+                </template> --}}
                 <template v-slot:edit>
                     <a class="button-link" href="{{ route('edit', $apartment->id) }}">
                         Modifica

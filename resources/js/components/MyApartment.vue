@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper-apartment">
+    <div class="wrapper-apartment" v-if="!deleted">
         <div class="apartment-main-infos">
             <ul class="infos">
                 <li class="apartment-title">
@@ -14,7 +14,9 @@
                     <slot name="view"></slot>
                 </li>
                 <li>
-                    <slot name="delete"></slot>
+                    <a href="#" class="button-link" @click="destroy">
+                        Elimina
+                    </a>
                 </li>
                 <li>
                     <slot name="sponsor"></slot>
@@ -61,8 +63,8 @@
         data: function() {
 
             return {
-                test: "hello",
                 showApartmentDetails: false,
+                deleted: false,
             }
         },
 
@@ -76,11 +78,19 @@
             showDetails: function() {
                 
                 this.showApartmentDetails = !this.showApartmentDetails;
-            }
-        },
+            },
 
-        mounted() {
-            console.log('Component mounted.')
+            destroy: function() {
+                console.log(this.apartment.id);
+                axios
+                    .get('/api/apartment/destroy/' + this.apartment.id)
+                    .then(response => {
+                        if(response.status == 200) {
+                            this.deleted = true;
+                        }
+                    })
+                    .catch(error => console.log(error))
+            }
         }
     }
 </script>

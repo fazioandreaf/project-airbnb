@@ -2043,11 +2043,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      test: "hello",
-      showApartmentDetails: false
+      showApartmentDetails: false,
+      deleted: false
     };
   },
   props: {
@@ -2056,10 +2058,19 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     showDetails: function showDetails() {
       this.showApartmentDetails = !this.showApartmentDetails;
+    },
+    destroy: function destroy() {
+      var _this = this;
+
+      console.log(this.apartment.id);
+      axios.get('/api/apartment/destroy/' + this.apartment.id).then(function (response) {
+        if (response.status == 200) {
+          _this.deleted = true;
+        }
+      })["catch"](function (error) {
+        return console.log(error);
+      });
     }
-  },
-  mounted: function mounted() {
-    console.log('Component mounted.');
   }
 });
 
@@ -37820,104 +37831,116 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "wrapper-apartment" },
-    [
-      _c("div", { staticClass: "apartment-main-infos" }, [
-        _c("ul", { staticClass: "infos" }, [
-          _c("li", { staticClass: "apartment-title" }, [
-            _c(
-              "h1",
-              { on: { click: _vm.showDetails } },
-              [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(_vm.apartment.title) +
-                    "\n                    "
-                ),
-                _c("transition", { attrs: { name: "rotate" } }, [
-                  _c("i", {
-                    staticClass: "fas fa-chevron-down arrow",
-                    class: _vm.showApartmentDetails ? "rotate" : ""
-                  })
-                ])
-              ],
-              1
-            )
+  return !_vm.deleted
+    ? _c(
+        "div",
+        { staticClass: "wrapper-apartment" },
+        [
+          _c("div", { staticClass: "apartment-main-infos" }, [
+            _c("ul", { staticClass: "infos" }, [
+              _c("li", { staticClass: "apartment-title" }, [
+                _c(
+                  "h1",
+                  { on: { click: _vm.showDetails } },
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(_vm.apartment.title) +
+                        "\n                    "
+                    ),
+                    _c("transition", { attrs: { name: "rotate" } }, [
+                      _c("i", {
+                        staticClass: "fas fa-chevron-down arrow",
+                        class: _vm.showApartmentDetails ? "rotate" : ""
+                      })
+                    ])
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [_vm._t("view")], 2),
+              _vm._v(" "),
+              _c("li", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "button-link",
+                    attrs: { href: "#" },
+                    on: { click: _vm.destroy }
+                  },
+                  [_vm._v("\n                    Elimina\n                ")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [_vm._t("sponsor")], 2),
+              _vm._v(" "),
+              _c("li", [_vm._t("statistic")], 2)
+            ])
           ]),
           _vm._v(" "),
-          _c("li", [_vm._t("view")], 2),
-          _vm._v(" "),
-          _c("li", [_vm._t("delete")], 2),
-          _vm._v(" "),
-          _c("li", [_vm._t("sponsor")], 2),
-          _vm._v(" "),
-          _c("li", [_vm._t("statistic")], 2)
-        ])
-      ]),
-      _vm._v(" "),
-      _c("transition", { attrs: { name: "slide-down" } }, [
-        _vm.showApartmentDetails
-          ? _c("div", { ref: "details", staticClass: "details" }, [
-              _c("ul", [
-                _c("li", [
-                  _c("strong", [_vm._v("Indirizzo: ")]),
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.apartment.address) +
-                      "\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("strong", [_vm._v("Numero di stanze: ")]),
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.apartment.number_rooms) +
-                      "\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("strong", [_vm._v("Bagni: ")]),
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.apartment.number_toiletes) +
-                      "\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("strong", [_vm._v("Posti letto: ")]),
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.apartment.number_beds) +
-                      "\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("strong", [
-                    _vm._v("M"),
-                    _c("sup", [_vm._v("2")]),
-                    _vm._v(": ")
-                  ]),
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.apartment.area) +
-                      "\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [_vm._t("edit")], 2)
-              ])
-            ])
-          : _vm._e()
-      ])
-    ],
-    1
-  )
+          _c("transition", { attrs: { name: "slide-down" } }, [
+            _vm.showApartmentDetails
+              ? _c("div", { ref: "details", staticClass: "details" }, [
+                  _c("ul", [
+                    _c("li", [
+                      _c("strong", [_vm._v("Indirizzo: ")]),
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(_vm.apartment.address) +
+                          "\n                "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("strong", [_vm._v("Numero di stanze: ")]),
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(_vm.apartment.number_rooms) +
+                          "\n                "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("strong", [_vm._v("Bagni: ")]),
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(_vm.apartment.number_toiletes) +
+                          "\n                "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("strong", [_vm._v("Posti letto: ")]),
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(_vm.apartment.number_beds) +
+                          "\n                "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("strong", [
+                        _vm._v("M"),
+                        _c("sup", [_vm._v("2")]),
+                        _vm._v(": ")
+                      ]),
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(_vm.apartment.area) +
+                          "\n                "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [_vm._t("edit")], 2)
+                  ])
+                ])
+              : _vm._e()
+          ])
+        ],
+        1
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -50211,16 +50234,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var app = new Vue({
     el: '#app',
     data: {
-      "immaginePiccola1": "storage/app/public/assets/danny_casa_toilet.jpg",
-      // imgArr:{
-      //   [
-      //     "name":  "casaDiDanny",
-      //     "imgPiccola1": "storage/app/public/assets/danny_casa_toilet.jpg",
-      //     "imgPiccola2": "storage/app/public/assets/danny_casa_kitchen.jpg",
-      //     "imgPiccola3": "storage/app/public/assets/danny_casa_livingroom.jpeg",
-      //     "imgPiccola4": "storage/app/public/assets/danny_casa_bedroom.jpg"
-      //   ]
-      // },
       labelActive: "profile-infos",
       dropdownActive: false,
       registerErrors: [],
