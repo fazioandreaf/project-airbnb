@@ -449,7 +449,7 @@ footer {
 
 footer .bigger-footer {
   margin: 0 auto;
-  width: 90%;
+  width: 80%;
 }
 
 footer .bigger-footer .footer-top-section {
@@ -1305,7 +1305,7 @@ section#section-register form .form-button {
 }
 
 #apartment-sample nav .basic-header div:nth-child(3) a:nth-child(1) {
-  margin: 15px 30px 0px 0px;
+  margin: 20px 30px 0px 10px;
 }
 
 #apartment-sample nav .basic-header div:nth-child(3) a:nth-child(2) {
@@ -1504,17 +1504,22 @@ section#section-register form .form-button {
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.tre .sub-list li {
+  margin-left: 20px;
   height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.tre .sub-list li:first-of-type {
+  margin: 0;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.quattro {
@@ -1540,7 +1545,7 @@ section#section-register form .form-button {
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 

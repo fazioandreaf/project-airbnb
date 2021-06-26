@@ -10,7 +10,6 @@ use App\Sponsor;
 Use App\Service;
 use App\SponsoredApartment;
 use Braintree;
-use Carbon\Carbon;
 
 class HomeController extends Controller {
     /**
@@ -65,14 +64,14 @@ class HomeController extends Controller {
         $service = Service::findOrFail($request -> get('service_id'));
         $apartment = Apartment::create($validated);
 
+        $img = $request -> file('cover_image');
         if ($request->hasFile('cover_image')) {
-            $img = $request -> file('cover_image');
             $imgExt = $img -> getClientOriginalExtension();
-            $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
-            $folder = '/assets/';
-            $apartment -> cover_image = $newNameImg;
-            $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
         }
+        $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
+        $folder = '/assets/';
+        $apartment -> cover_image = $newNameImg;
+        $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
 
         $apartment->services()->attach($request-> get('service_id'));
         $apartment->save();
@@ -120,29 +119,27 @@ class HomeController extends Controller {
 
     // add sponsor
     public function sponsor_function($validated)
-    {   
-        $now = Carbon::now()->setTimeZone('Europe/Rome');
-        $expire = Carbon::now()->setTimeZone("Europe/Rome");
-
+    {
+        // dd($validated['sponsor_id']);
+        date_default_timezone_set('Europe/Rome');
         switch ($validated['sponsor_id']) {
             case 1:
-                $expire->modify('+24 hours');
+                $afterDate = date('m/d/Y h:i:s a', time() + 86400);
                 break;
             case 2:
-                $expire->modify('+72 hours');
+                $afterDate = date('m/d/Y h:i:s a', time() + 259200);
                 break;
             case 3:
-                $expire->modify('+144 hours');
+                $afterDate = date('m/d/Y h:i:s a', time() + 604800);
                 break;
         }
-
         $apartment = Apartment::findOrFail($validated['apartment_id']);
         $apartment->update($validated);
         $apartment->sponsors()
             ->attach($validated['sponsor_id'],
                 [
-                    'start_date' => $now,
-                    'expire_date' => $expire
+                    'start_date' => date('m/d/Y h:i:s a', time()),
+                    'expire_date' => $afterDate
                 ]
             );
         return redirect()->route('homepage');
