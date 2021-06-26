@@ -30,7 +30,7 @@ class ApiController extends Controller
         if($request->where!=''){
             $apartments= DB::table('apartments')
                             ->join('apartment_service', 'apartment_service.apartment_id' , '=', 'apartments.id')
-                            // ->join('services', 'apartment_service.service_id' , '=', 'services.id')
+                            ->join('services', 'apartment_service.service_id' , '=', 'services.id')
 
                             // ->join('apartment_service', 'service.id' , '=', 'apartment_service.service_id')
                             ->select('apartments.*','apartment_service.*')
@@ -41,33 +41,52 @@ class ApiController extends Controller
                             ->get();
         }
         else
-            $apartments= Apartment::all();
+            $apartments= DB::table('apartments')
+                            ->join('apartment_service', 'apartment_service.apartment_id' , '=', 'apartments.id')
+                            ->join('services', 'apartment_service.service_id' , '=', 'services.id')
+
+                            // ->join('apartment_service', 'service.id' , '=', 'apartment_service.service_id')
+                            ->select('apartments.*','services.*','apartment_service.*')
+                            ->where('title', 'LIKE','%'. $request->where.'%')
+                            ->where('number_rooms', '>=', $request->number_rooms)
+                            ->where('number_beds', '>=', $request->number_beds)
+                            // ->where('service_id', '=', $request->service)
+                            ->get();;
 
             $finishapartment=[];
         foreach($apartments as $item){
-
+            // array_push($finishapartment,$item);
             $tmp=[];
             foreach ($finishapartment as $i ) {
                 array_push($tmp,$i->title);
             }
                 // se il servizio sta all interno dell array del servizio
                 if(in_array($item->service_id,$request->service)){
-                        if(!in_array($item->title,$tmp))
+                        // if(!in_array($item->title,$tmp))
                         array_push($finishapartment,$item);
                 }else{
-                    //non ha servizi selezionato, è contenuto nel nella lista dei titoli?
-                    if(in_array($item->title,$tmp)){
-                        $array_di_indici=[];
-                        foreach($finishapartment as $i){
-                            array_push($array_di_indici,$i->title);
-                        }
-                        // foreach ($finishapartment as $i) {
+                    // //non ha servizi selezionato, è contenuto nel nella lista dei titoli?
+                    // if(in_array($item->title,$tmp)){
+                    //     $array_di_indici=[];
+                    //     foreach($finishapartment as $i){
+                    //         array_push($array_di_indici,$i->title);
+                    //     }
+                    //     // foreach ($finishapartment as $i) {
 
-                            $indice=array_search($item->title, $array_di_indici);
-                            array_splice($finishapartment,$indice,1);
+                    //         $indice=array_search($item->title, $array_di_indici);
+                    //         array_splice($finishapartment,$indice,1);
+                    // }
+                }
+                $prova=array_count_values($tmp);
+                $arrayvuoto=[];
+                foreach($prova as $key=> $value){
+                    if($value==count($request->service)){
+
+                        array_push($arrayvuoto,$key);
                     }
                 }
+                // array_push($prova,sizeof($request->service));
         }
-        return response() -> json(($finishapartment),200);
+        return response() -> json(($arrayvuoto),200);
     }
 }
