@@ -46,21 +46,29 @@ class ApiController extends Controller
             $finishapartment=[];
         foreach($apartments as $item){
 
-
+                // se il servizio sta all interno dell array del servizio
                 if(in_array($item->service_id,$request->service)){
 
                     // unset($apartments[$item]);
                     // array_splice($apartments,array_search($item,$apartments,true),1);
-                    if(!in_array($item,$finishapartment)){
 
-                        $tmp=array_search($item,$finishapartment);
-                        if($item->title!=$finishapartment[$tmp]->title);{
+                    // popolo un array che contengono tutti i titoli delle case
 
-                            array_push($finishapartment,$item);
+                        $tmp=[];
+                        foreach ($finishapartment as $i ) {
+                            array_push($tmp,$i->title);
                         }
-                    }
+                        if(!in_array($item->title,$tmp))
+                        array_push($finishapartment,$item);
+                        // $tmp=array_search($item,$finishapartment);
+                        // if($item->title!=$finishapartment[$tmp]->title);{
+
+                        // }
+
                     // return response() -> json(($finishapartment),200);
                 }
+                
+                // array_unique($finishapartment,  SORT_REGULAR);
 
         }
         return response() -> json(($finishapartment),200);

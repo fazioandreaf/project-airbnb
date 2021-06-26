@@ -50211,16 +50211,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var app = new Vue({
     el: '#app',
     data: {
-      "immaginePiccola1": "storage/app/public/assets/danny_casa_toilet.jpg",
-      // imgArr:{
-      //   [
-      //     "name":  "casaDiDanny",
-      //     "imgPiccola1": "storage/app/public/assets/danny_casa_toilet.jpg",
-      //     "imgPiccola2": "storage/app/public/assets/danny_casa_kitchen.jpg",
-      //     "imgPiccola3": "storage/app/public/assets/danny_casa_livingroom.jpeg",
-      //     "imgPiccola4": "storage/app/public/assets/danny_casa_bedroom.jpg"
-      //   ]
-      // },
       labelActive: "profile-infos",
       dropdownActive: false,
       registerErrors: [],
@@ -50563,8 +50553,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean\project-airbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Boolean\project-airbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Andrea\Desktop\project-airbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Andrea\Desktop\project-airbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
