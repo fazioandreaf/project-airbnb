@@ -1,5 +1,7 @@
 section#my-apartments {
 
+  padding: 40px 0;
+
   .container {
     @include container(90%);
   }
@@ -15,7 +17,8 @@ section#my-apartments {
   }
 
   .wrapper-user-add {
-    @include flex(row, null, center);
+    @include flex(row, space-between, center);
+    padding: 20px 0;
 
     .username {
       color: $venusaur-green;
@@ -34,9 +37,13 @@ section#my-apartments {
     .apartment-main-infos {
       .infos {
         @include flex(row, null, center);
+        & > li {
+          margin: 0 5px;
+        }
       }
       .apartment-title {
-        flex-basis: 30%;
+        flex-grow: 1;
+        cursor: pointer;
       }
 
       .apartment-details {

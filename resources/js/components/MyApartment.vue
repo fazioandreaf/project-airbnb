@@ -16,6 +16,7 @@
                 <li>
                     <a href="#" class="button-link" @click="destroy">
                         Elimina
+                        <i class="fas fa-trash-alt"></i>
                     </a>
                 </li>
                 <li>

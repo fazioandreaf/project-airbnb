@@ -2045,6 +2045,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37869,7 +37870,12 @@ var render = function() {
                     attrs: { href: "#" },
                     on: { click: _vm.destroy }
                   },
-                  [_vm._v("\n                    Elimina\n                ")]
+                  [
+                    _vm._v(
+                      "\n                    Elimina\n                    "
+                    ),
+                    _c("i", { staticClass: "fas fa-trash-alt" })
+                  ]
                 )
               ]),
               _vm._v(" "),
