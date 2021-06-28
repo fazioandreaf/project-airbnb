@@ -572,7 +572,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   margin-right: 30px;
 }
 
-#header-search .top-header-search .filter div input {
+#header-search .top-header-search .filter input {
   height: 35px;
   border: 1px solid rgba(50, 50, 50, 0.3);
   border-radius: 10px;
