@@ -2106,14 +2106,12 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
 
 document.addEventListener("DOMContentLoaded", function () {
   var app = new Vue({
-    // props:{
-    //     request: Object;
-    // },
     el: "#search",
     data: {
       where: "",
       number_rooms: 1,
       number_beds: 1,
+      toggle: true,
       currentapartment: [],
       allservice: [],
       activeservice: []
@@ -2122,10 +2120,9 @@ document.addEventListener("DOMContentLoaded", function () {
     created: function created() {
       var _this = this;
 
-      // console.log('hola');
       axios.get("api/service").then(function (res) {
         if (res.status == 200) {
-          _this.allservice = res.data; // console.log(this.allservice);
+          _this.allservice = res.data;
         }
       })["catch"](function (err) {
         return console.log(err);
@@ -2134,6 +2131,9 @@ document.addEventListener("DOMContentLoaded", function () {
     methods: {
       log: function log() {
         console.log("mundo");
+      },
+      addclass: function addclass() {
+        this.toggle = !this.toggle;
       },
       filter: function filter() {
         var _this2 = this;
@@ -2161,18 +2161,6 @@ document.addEventListener("DOMContentLoaded", function () {
           return console.log(err);
         });
       },
-      // service:function(){
-      // // console.log("hola");
-      // axios
-      //     .get("api/service")
-      //     .then(res => {
-      //         if (res.status == 200) {
-      //             this.allservice = res.data;
-      //             // console.log(this.allservice);
-      //         }
-      //     })
-      //     .catch(err => console.log(err));
-      // }
       upservice: function upservice(id) {
         var _this3 = this;
 

@@ -121,10 +121,10 @@
                       <a href="#" @click="service()">prova</a>
                   </span>
                   <ul>
-                      <li v-for="elem in allservice" @click="upservice(elem.id)">
+                      <li v-for="elem in allservice"
+                      :class="toggle?'':'active'"
+                      @click="upservice(elem.id),addclass()">
                           @{{elem.service}}
-
-
                       </li>
                   </ul>
               </div>
@@ -134,7 +134,9 @@
 
                   <!-- UPPER SECTION STARTS HERE -->
                   <div class="left-section"  style="display: flex; flex-direction:column">
-                    @foreach ($apartments as $item)
+                    @if (count($apartments)>0)
+                        @foreach ($apartments as $item)
+
                         <div v-if="currentapartment.length<1" style="display: flex; height:200px; margin:5px; border-bottom: 1px solid lightgray">
                             <div style="flex-basis: 50%">
                                 <img src="{{$item->cover_image}}" alt="immagine stanza" style="width:100%; border-radius:10px" >
@@ -159,7 +161,14 @@
 
 
                         </div>
-                    @endforeach
+                        @endforeach
+                    @else
+                    <div>
+                        <span>
+                            Non abbiamo trovato nessun apartamento
+                        </span>
+                    </div>
+                    @endif
                         <div else  v-for="elem in currentapartment" style="display: flex; height:200px; margin:5px; border-bottom: 1px solid lightgray">
                             <div style="flex-basis: 50%">
                                 <img :src=" elem.cover_image " alt="immagine stanza" style="width:100%; border-radius:10px" >
@@ -170,7 +179,7 @@
                                                 @{{ elem.title }}
                                             </h2>
                                         </a>
-                                        <a href="#" onclick="makemarker({{$item -> longitude}},{{$item -> latitude}})">
+                                        <a href="#" onclick="makemarker(@{{elem.longitude}},@{{elem.latitude}})">
                                             @{{elem.address}}
                                         </a>
                                         <span>Area : <span style:"font-weight:bolder">@{{elem.area}}  m^2</span></span>

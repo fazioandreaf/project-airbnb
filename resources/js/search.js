@@ -2,27 +2,23 @@ const { default: Axios } = require("axios");
 
 document.addEventListener("DOMContentLoaded", () => {
     const app = new Vue({
-        // props:{
-        //     request: Object;
-        // },
         el: "#search",
         data: {
             where: "",
             number_rooms: 1,
             number_beds: 1,
+            toggle: true,
             currentapartment: [],
             allservice: [],
             activeservice: []
         },
         mounted: function() {},
         created: function() {
-            // console.log('hola');
             axios
                 .get("api/service")
                 .then(res => {
                     if (res.status == 200) {
                         this.allservice = res.data;
-                        // console.log(this.allservice);
                     }
                 })
                 .catch(err => console.log(err));
@@ -30,6 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
         methods: {
             log: function() {
                 console.log("mundo");
+            },
+            addclass: function() {
+                this.toggle = !this.toggle;
             },
             filter: function() {
                 this.activeservice = [];
@@ -54,19 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     })
                     .catch(err => console.log(err));
             },
-            // service:function(){
-            // // console.log("hola");
-            // axios
-            //     .get("api/service")
-            //     .then(res => {
-            //         if (res.status == 200) {
-            //             this.allservice = res.data;
-            //             // console.log(this.allservice);
-            //         }
-            //     })
-            //     .catch(err => console.log(err));
-
-            // }
             upservice: function(id) {
                 this.currentapartment = [];
                 if (!this.activeservice.includes(id)) {
