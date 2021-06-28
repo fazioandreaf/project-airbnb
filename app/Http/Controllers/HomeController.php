@@ -125,13 +125,13 @@ class HomeController extends Controller {
 
         switch ($sponsorId) {
             case 1:
-                $afterDate = date('m/d/Y h:i:s a', time() + 86400);
+                $expire->modify('+24 hours');
                 break;
             case 2:
-                $afterDate = date('m/d/Y h:i:s a', time() + 259200);
+                $expire->modify('+72 hours');
                 break;
             case 3:
-                $afterDate = date('m/d/Y h:i:s a', time() + 604800);
+                $expire->modify('+144 hours');
                 break;
         }
 
@@ -140,8 +140,8 @@ class HomeController extends Controller {
         $apartment->sponsors()
             ->attach($sponsorId,
                 [
-                    'start_date' => date('m/d/Y h:i:s a', time()),
-                    'expire_date' => $afterDate
+                    'start_date' => $now,
+                    'expire_date' => $expire
                 ]
             );
         return redirect()->route('homepage');
