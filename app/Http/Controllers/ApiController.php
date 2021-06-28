@@ -31,32 +31,23 @@ class ApiController extends Controller
             $apartments= DB::table('apartments')
                             ->join('apartment_service', 'apartment_service.apartment_id' , '=', 'apartments.id')
                             ->join('services', 'apartment_service.service_id' , '=', 'services.id')
-
-                            // ->join('apartment_service', 'service.id' , '=', 'apartment_service.service_id')
                             ->select('apartments.*','apartment_service.*')
                             ->where('title', 'LIKE','%'. $request->where.'%')
                             ->where('number_rooms', '>=', $request->number_rooms)
                             ->where('number_beds', '>=', $request->number_beds)
-                            // ->where('service_id', '=', $request->service)
                             ->get();
         }
         else
             $apartments= DB::table('apartments')
                             ->join('apartment_service', 'apartment_service.apartment_id' , '=', 'apartments.id')
                             ->join('services', 'apartment_service.service_id' , '=', 'services.id')
-
-                            // ->join('apartment_service', 'service.id' , '=', 'apartment_service.service_id')
                             ->select('apartments.*','services.*','apartment_service.*')
                             ->where('title', 'LIKE','%'. $request->where.'%')
                             ->where('number_rooms', '>=', $request->number_rooms)
                             ->where('number_beds', '>=', $request->number_beds)
-                            // ->where('service_id', '=', $request->service)
                             ->get();;
-
         $finishapartment=[];
         foreach($apartments as $item){
-            // array_push($finishapartment,$item);
-            // array dei nomi delle case
             $tmp=[];
             foreach ($finishapartment as $i ) {
                 array_push($tmp,$i->title);
@@ -66,17 +57,6 @@ class ApiController extends Controller
                         // if(!in_array($item->title,$tmp))
                         array_push($finishapartment,$item);
                 }else{
-                    // //non ha servizi selezionato, è contenuto nel nella lista dei titoli?
-                    // if(in_array($item->title,$tmp)){
-                    //     $array_di_indici=[];
-                    //     foreach($finishapartment as $i){
-                    //         array_push($array_di_indici,$i->title);
-                    //     }
-                    //     // foreach ($finishapartment as $i) {
-
-                    //         $indice=array_search($item->title, $array_di_indici);
-                    //         array_splice($finishapartment,$indice,1);
-                    // }
                 }
                 // array che contiene il numero di volte che viene contato il valore
                 $tmp2=array_count_values($tmp);
@@ -86,9 +66,6 @@ class ApiController extends Controller
                     if($value==count($request->service))
                         array_push($intersezione_case,$key);
                 }
-
-
-
                 // carico un array degli apartmenti dell intersezione
                 $intersezione_case_def=[];
                 // $tmp3=[];
@@ -98,8 +75,6 @@ class ApiController extends Controller
                             ->get();
                     array_push($intersezione_case_def,$tmp3[0]);
                 }
-
-                // array_push($tmp2,sizeof($request->service));
         }
         return response() -> json(($intersezione_case_def),200);
     }
