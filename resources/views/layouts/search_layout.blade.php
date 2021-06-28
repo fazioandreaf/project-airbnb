@@ -237,7 +237,7 @@
             map.on('load', function() {
             map.addLayer({
                 'id': 'overlay',
-                'type': 'fill',
+                'type': 'circle',
                 'source': {
                     'type': 'geojson',
                     'data': {
@@ -260,9 +260,13 @@
                 },
                 'layout': {},
                 'paint': {
-                    'fill-color': '#db356c',
-                    'fill-opacity': 0.5,
-                    'fill-outline-color': 'black'
+                    'circle-radius': 6,
+                    'circle-color': '#3a3a3a',
+                    'circle-stroke-width': 2,
+                    'circle-stroke-color': '#FFF'
+                    // 'fill-color': '#db356c',
+                    // 'fill-opacity': 0.5,
+                    // 'fill-outline-color': 'black'
                 }
             });
         });
