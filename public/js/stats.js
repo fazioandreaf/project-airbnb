@@ -14449,6 +14449,8 @@ document.addEventListener("DOMContentLoaded", function () {
     data: {
       apartmentId: "",
       views: {},
+      messages: {},
+      filterType: "month",
       monthViews: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     methods: {
@@ -14463,42 +14465,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
         axios.get("/api/views/" + this.apartmentId).then(function (data) {
           _this.views = data.data;
-          console.log(_this.views);
-
-          _this.filterByMonth(_this.views);
         })["catch"](function (error) {
           return console.log(error);
         });
       },
       getMessages: function getMessages() {
+        var _this2 = this;
+
         axios.get("/api/messages/" + this.apartmentId).then(function (data) {
-          console.log(data);
+          _this2.messages = data.data;
         })["catch"](function (error) {
           return console.log(error);
         });
       },
+      filter: function filter(data, _filter) {
+        console.log(data, _filter);
+      },
+      createGraph: function createGraph(type, filter) {
+        var data;
+        type == 'views' ? data = this.views : data = this.messages;
+        this.filter(data, filter);
+      },
       filterByMonth: function filterByMonth(views) {
-        var _this2 = this;
+        var _this3 = this;
 
         views.forEach(function (view) {
           console.log(view.view_date);
           var splittedDate = view.view_date.split("-");
           var month = splittedDate[1];
-          _this2.monthViews[month - 1]++;
+          _this3.monthViews[month - 1]++;
         });
         this.createStats(this.monthViews);
       },
       createStats: function createStats(monthViews) {
-        var ctx = document.getElementById('myChart');
+        var monthsLabel = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'];
+        var ctx = document.getElementById('viewsChart');
         var myChart = new Chart(ctx, {
           type: 'bar',
           data: {
-            labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
+            labels: monthViews ? monthsLabel : '',
             datasets: [{
-              label: '# di Messaggi',
+              label: '# di Visualizzazioni',
               data: monthViews,
-              backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
-              borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+              backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+              borderColor: ['rgba(255, 99, 132, 1)'],
               borderWidth: 1
             }]
           },
@@ -14516,6 +14526,7 @@ document.addEventListener("DOMContentLoaded", function () {
       this.getApartmentId();
       this.getViews();
       this.getMessages();
+      console.log(this.filterType);
     }
   });
 });

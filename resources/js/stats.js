@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
         data: {
             apartmentId: "",
             views: {},
+            messages: {},
+            filterType: "month",
             monthViews: [0,0,0,0,0,0,0,0,0,0,0,0],
         },
 
@@ -28,8 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     .get("/api/views/" + this.apartmentId)
                     .then(data => {
                         this.views = data.data;
-                        console.log(this.views);
-                        this.filterByMonth(this.views);
                     })
                     .catch(error => console.log(error));
             },
@@ -38,9 +38,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 axios
                     .get("/api/messages/" + this.apartmentId)
                     .then(data => {
-                        console.log(data)
+                        this.messages = data.data;
                     })
                     .catch(error => console.log(error));
+            },
+
+            filter: function(data, filter) {
+
+                console.log(data, filter);
+            },
+
+            createGraph: function(type, filter) {
+
+                let data;
+                (type == 'views') ? data = this.views : data = this.messages;
+                this.filter(data, filter);
             },
 
             filterByMonth: function(views) {
@@ -56,29 +68,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
             createStats: function(monthViews) {
 
-                const ctx = document.getElementById('myChart');
+                const monthsLabel = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'];
+
+                const ctx = document.getElementById('viewsChart');
                 let myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
-                        labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
+                        labels: (monthViews) ? monthsLabel : '',
                         datasets: [{
-                            label: '# di Messaggi',
+                            label: '# di Visualizzazioni',
                             data: monthViews,
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
                             ],
                             borderColor: [
                                 'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
                             ],
                             borderWidth: 1
                         }]
@@ -99,6 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
             this.getApartmentId();
             this.getViews();
             this.getMessages();
+            console.log(this.filterType);
         }
     })
 })
