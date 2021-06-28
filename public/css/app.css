@@ -734,6 +734,10 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   height: auto;
 }
 
+section#my-apartments {
+  padding: 40px 0;
+}
+
 section#my-apartments .container {
   margin: 0 auto;
   width: 90%;
@@ -746,7 +750,9 @@ section#my-apartments .button-link:hover {
 section#my-apartments .wrapper-user-add {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  padding: 20px 0;
 }
 
 section#my-apartments .wrapper-user-add .username {
@@ -769,8 +775,13 @@ section#my-apartments .wrapper-apartment .apartment-main-infos .infos {
   align-items: center;
 }
 
+section#my-apartments .wrapper-apartment .apartment-main-infos .infos > li {
+  margin: 0 5px;
+}
+
 section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-title {
-  flex-basis: 30%;
+  flex-grow: 1;
+  cursor: pointer;
 }
 
 section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-details {
@@ -1069,8 +1080,6 @@ section#section-register form .form-button {
 
 .search-page .left-section div:first-of-type {
   height: 100%;
-  margin: 0 auto;
-  width: 95%;
 }
 
 .search-page .left-section div:first-of-type ul {

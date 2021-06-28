@@ -18,17 +18,8 @@
             </div>
         @endif
 
-        <form action="{{ url('/checkout', Auth::user()) }}" method="POST" id="payment-form">
+        <form action="{{ url('/checkout', [Auth::user(),$sponsor->id,$apartment->id]) }}" method="POST" id="payment-form">
             @csrf
-            {{-- dati non visibili da passare al form --}}
-            <div style="display: none">
-                <label for="apartment_id"></label>
-                <input type="number" name="apartment_id" id="apartment_id" value="{{$apartment->id}}">
-            </div>
-            <div style="display: none">
-                <label for="sponsor_id"></label>
-                <input type="number" name="sponsor_id" id="sponsor_id" value="{{$sponsor->id}}">
-            </div>
 
             <div>
                 <label for="email">Email Address</label>
@@ -86,15 +77,6 @@
                     </div>
                 </div>
 
-            </div>
-
-            <div>
-                <div >
-                    <div>
-                        <label for="amount">Amount</label>
-                        <input type="text" id="amount" name="amount" value="{{$price}}">
-                    </div>
-                </div>
             </div>
 
             <div>

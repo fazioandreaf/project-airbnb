@@ -56,11 +56,11 @@ class MainController extends Controller {
             $apartments= Apartment::where('title', 'LIKE','%'. $request->where.'%') -> get();
         }
         else{
-            $apartments= Apartment::all();
+            $apartments= Apartment::first()->limit(50)->get();
         }
-        $services=Service::all();
+        // $services=Service::all();
         // dd($apartments);
-        return view('pages.search',compact('apartments','services'));
+        return view('pages.search',compact('apartments'));
     }
 
 
