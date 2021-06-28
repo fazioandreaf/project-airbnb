@@ -14478,41 +14478,65 @@ document.addEventListener("DOMContentLoaded", function () {
           return console.log(error);
         });
       },
-      filter: function filter(data, type, _filter) {
-        var _this3 = this;
+      dateSplit: function dateSplit(data, type) {
+        var unfiltered = [];
+        var splittedDate = "";
 
         switch (type) {
           case "views":
-            this.monthViews = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
             data.forEach(function (view) {
-              var splittedDate = view.view_date.split("-");
-              var month = splittedDate[1];
-              console.log(view.view_date);
-              _this3.monthViews[month - 1]++;
+              splittedDate = view.view_date.split("-");
+              unfiltered.push(splittedDate);
             });
-            console.log(this.monthViews);
             break;
 
           case "messages":
             data.forEach(function (message) {
-              console.log(message.created_at);
+              splittedDate = message.created_at.split("-");
+              unfiltered.push(splittedDate);
             });
             break;
         }
+
+        return unfiltered;
+      },
+      filterDates: function filterDates(unfiltered, filter) {
+        var filtered = [];
+
+        switch (filter) {
+          case 'month':
+            unfiltered.forEach(function (date) {
+              var month = date[1];
+              filtered.push(month);
+            });
+            break;
+
+          case 'year':
+            unfiltered.forEach(function (date) {
+              var year = date[0];
+              filtered.push(year);
+            });
+            break;
+        }
+
+        return filtered;
       },
       createGraph: function createGraph(type, filter) {
         var data;
+        var unfiltered;
+        var filtered;
         type == 'views' ? data = this.views : data = this.messages;
-        this.filter(data, type, filter);
+        unfiltered = this.dateSplit(data, type, filter);
+        filtered = this.filterDates(unfiltered, filter);
       },
       filterByMonth: function filterByMonth(views) {
-        var _this4 = this;
+        var _this3 = this;
 
         views.forEach(function (view) {
           console.log(view.view_date);
           var splittedDate = view.view_date.split("-");
           var month = splittedDate[1];
-          _this4.monthViews[month - 1]++;
+          _this3.monthViews[month - 1]++;
         });
         this.createStats(this.monthViews);
       },
