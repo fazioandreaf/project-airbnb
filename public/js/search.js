@@ -2220,7 +2220,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Andrea\Desktop\project-airbnb\resources\js\search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! C:\Users\redsy\Documents\Boolean\progetto-finale\Nuova cartella\project-airbnb\resources\js\search.js */"./resources/js/search.js");
 
 
 /***/ })
