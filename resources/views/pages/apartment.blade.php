@@ -17,7 +17,7 @@
           </div>
 
           <div>
-
+            
             <span id="barra-ricerca">
               <a href="#">
                 Inizia la ricerca
