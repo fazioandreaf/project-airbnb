@@ -1,109 +1,67 @@
 #header-search {
-    height: 170px;
-    @include container(97%);
+  height: 170px;
+  @include container(90%);
 
-    .top-header-search {
-        @include flex(row, null, center);
+  .top-header-search {
+    width: 100%;
+    height: 50%;
+    @include flex(row, space-between, center);
 
-        .logo {
-            a {
-                width: 100%;
-                img {
-                    height: 100%;
-                }
-            }
+    .logo {
+
+      a {
+        width: 100%;
+
+        img {
+          margin-top: 10px;
+          height: 100%;
         }
 
-        // INIZIO secondo div (scelte utente)
-        // .filter {
-        //     @include flex(row, null, null);
-        //     flex: 1;
-            .filter {
-                flex: 1;
-                @include flex(row, center, center);
-            }
-            // span {
-            //     @include flex(row, center, center);
-            //     // width: calc(100% / 3);
-            //     // box-shadow: 1px 1px 1px grey;
-            // }
+      } // fine A-HREF
 
-            // (1)
-            // span:first-of-type {
-            //     border-radius: 50px 0 0 50px;
-            //     border: 0.5px solid rgba(50, 50, 50, 0.3);
-            // }
+    } // fine LOGO
 
-            // // (2)
-            // span:nth-child(2) {
-            //     border-top: 0.5px solid rgba(50, 50, 50, 0.3);
-            //     border-bottom: 0.5px solid rgba(50, 50, 50, 0.3);
-            // }
+    .filter {
+      flex: 1;
+      @include flex(row, center, center);
 
-            // (3)
-            // span:last-of-type {
-            //     @include flex(row, space-evenly, center);
-            //     border-radius: 0 50px 50px 0;
-            //     border: 0.5px solid rgba(50, 50, 50, 0.3);
-
-            //     a:last-of-type {
-            //         @include flex(row, center, center);
-            //         background-color: $fuchsia-search;
-            //         color: $white;
-            //         font-size: 20px;
-            //         width: 35px;
-            //         height: 35px;
-            //         border-radius: 100%;
-            //     }
-            // }
-        //}  fine secondo div (scelte utente)
-
-        // div:nth-child(3) {
-        //     @include flex(row, flex-end, null);
-        //     flex: 1;
-        //     a {
-        //         @include flex(row, space-evenly, center);
-        //     }
-
-        //     a:nth-child(1) {
-        //         margin: 15px 30px 0px 0px;
-        //     }
-
-        //     a:nth-child(2) {
-        //         font-size: 15px;
-        //         background-color: $white;
-        //         width: 90px;
-        //         height: 60px;
-        //         border-radius: 30px;
-        //         border: 1px solid rgba(50, 50, 50, 0.3);
-
-        //         // Icona utente (omino)
-        //         i:last-of-type {
-        //             color: $white;
-        //             background-color: $user-gray;
-        //             padding: 10px;
-        //             border-radius: 100%;
-        //         }
-        //     } // Ultima a-href con "hamburger" e "omino/utente"
-        // }
-    } // fine di top-header search
-
-    .lower-header-search {
-        @include flex(row, null, null);
-
-        ul {
-            width: 100%;
-            @include flex(row, space-between, center);
-
-            li {
-                padding: 13px 13px;
-                border-radius: 30px;
-                border: 1px solid rgba(50, 50, 50, 0.3);
-            }
-
-            li:hover {
-                border: 1px solid black;
-            }
+      div {
+        margin-right:30px;
         }
-    } // fine di lower-header search
+
+        input {
+          height: 35px;
+          border: 1px solid rgba(50, 50, 50, .3);
+          border-radius: 10px;
+        }
+
+
+      }
+
+    }
+
+  }// fine di top-header search
+
+  .lower-header-search {
+    height: 50%;
+    @include flex(row, null, center);
+
+    ul {
+      width: 100%;
+      @include flex(row, space-between, center);
+
+      li {
+        padding: 13px 13px;
+        border-radius: 30px;
+        border: 1px solid rgba(50, 50, 50, 0.3);
+      }
+
+      li:hover {
+        border: 1px solid black;
+      }
+
+    } // FINE UL
+
+  } // fine di lower-header search
+
 } // END of header-serch
