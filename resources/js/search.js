@@ -95,6 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         this.currentapartment = res.data;
                     })
                     .catch(err => console.log(err));
+            },
+            redirect: function(id) {
+                window.location.href = "apartments" + id;
             }
         }
     });

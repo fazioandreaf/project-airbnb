@@ -30,39 +30,61 @@ class ApiController extends Controller
         if($request->where!=''){
             $apartments= DB::table('apartments')
                             ->join('apartment_service', 'apartment_service.apartment_id' , '=', 'apartments.id')
-                            // ->join('services', 'apartment_service.service_id' , '=', 'services.id')
-
-                            // ->join('apartment_service', 'service.id' , '=', 'apartment_service.service_id')
+                            ->join('services', 'apartment_service.service_id' , '=', 'services.id')
                             ->select('apartments.*','apartment_service.*')
                             ->where('title', 'LIKE','%'. $request->where.'%')
                             ->where('number_rooms', '>=', $request->number_rooms)
                             ->where('number_beds', '>=', $request->number_beds)
-                            // ->where('service_id', '=', $request->service)
                             ->get();
         }
         else
-            $apartments= Apartment::all();
-
-            $finishapartment=[];
+            $apartments= DB::table('apartments')
+                            ->join('apartment_service', 'apartment_service.apartment_id' , '=', 'apartments.id')
+                            ->join('services', 'apartment_service.service_id' , '=', 'services.id')
+                            ->select('apartments.*','services.*','apartment_service.*')
+                            ->where('title', 'LIKE','%'. $request->where.'%')
+                            ->where('number_rooms', '>=', $request->number_rooms)
+                            ->where('number_beds', '>=', $request->number_beds)
+                            ->get();;
+        $finishapartment=[];
         foreach($apartments as $item){
-
-
+            $tmp=[];
+            foreach ($finishapartment as $i ) {
+                array_push($tmp,$i->title);
+            }
+                // se il servizio sta all interno dell array del servizio
                 if(in_array($item->service_id,$request->service)){
-
-                    // unset($apartments[$item]);
-                    // array_splice($apartments,array_search($item,$apartments,true),1);
-                    if(!in_array($item,$finishapartment)){
-
-                        $tmp=array_search($item,$finishapartment);
-                        if($item->title!=$finishapartment[$tmp]->title);{
-
-                            array_push($finishapartment,$item);
-                        }
-                    }
-                    // return response() -> json(($finishapartment),200);
+                        // if(!in_array($item->title,$tmp))
+                        array_push($finishapartment,$item);
+                }else{
                 }
-
+                // array che contiene il numero di volte che viene contato il valore
+                $tmp2=array_count_values($tmp);
+                //array che contiene l'intersezione dei nomi delle case che corrispondono a tutti i filtri
+                $intersezione_case=[];
+                foreach($tmp2 as $key=> $value){
+                    if($value==count($request->service))
+                        array_push($intersezione_case,$key);
+                }
+                // carico un array degli apartmenti dell intersezione
+                $intersezione_case_def=[];
+                // $tmp3=[];
+                foreach($intersezione_case as $single){
+                    $tmp3=DB::table('apartments')
+                            ->where('title', 'LIKE',$single)
+                            ->get();
+                    array_push($intersezione_case_def,$tmp3[0]);
+                }
         }
-        return response() -> json(($finishapartment),200);
+        return response() -> json(($intersezione_case_def),200);
+    }
+
+    public function destroy($id) {
+
+        $apartment = Apartment::findOrFail($id);
+        $apartment->delete();
+        $apartment->save();
+
+        return response() -> json("Deleted", 200);
     }
 }

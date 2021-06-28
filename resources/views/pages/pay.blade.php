@@ -1,5 +1,61 @@
-@extends('layouts.main_layout')
+@extends('layouts.pay-layout')
 @section('content')
+
+    <style>
+        .test-braintree{
+            width: 700px;
+            margin: 50px auto;
+            border: 2px solid gray;
+            border-radius: 15px;
+        }
+        form{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        form > div{
+            width: 100%;
+        }
+        .input-style{
+            margin-top: 20px;
+        }
+        .center{
+            text-align: center;
+        }
+        .mr{
+            margin-right: 20px;
+        }
+        .address-style{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        #info-card{
+            display: flex;
+            justify-content: space-around;
+            margin: 40px auto;
+        }
+        #card-number,
+        #expiration-date,
+        #cvv{
+            height: 40px;
+        }
+        #card-number{
+            width: 170px;
+        }
+        #expiration-date,
+        #cvv{
+            width: 80px
+        }
+        .btn{
+            width: 110px;
+            height: 50px;
+            margin: 20px auto;
+            border: none;
+            border-radius: 15px;
+            background-color: #f66d9b;
+        }
+    </style>
+
     <div class="test-braintree" style='[width: 500px; margin:auto]'>
 
         @if (session()->has('success_message'))
@@ -18,45 +74,36 @@
             </div>
         @endif
 
-        <form action="{{ url('/checkout', Auth::user()) }}" method="POST" id="payment-form">
+        <form action="{{ url('/checkout', [Auth::user(),$sponsor->id,$apartment->id]) }}" method="POST" id="payment-form">
             @csrf
-            {{-- dati non visibili da passare al form --}}
-            <div style="display: none">
-                <label for="apartment_id"></label>
-                <input type="number" name="apartment_id" id="apartment_id" value="{{$apartment->id}}">
-            </div>
-            <div style="display: none">
-                <label for="sponsor_id"></label>
-                <input type="number" name="sponsor_id" id="sponsor_id" value="{{$sponsor->id}}">
-            </div>
 
-            <div>
-                <label for="email">Email Address</label>
-                <input type="email" id="email">
-            </div>
-
-            <div>
+            <div class="input-style center">
                 <label for="name_on_card">Name on Card</label>
                 <input type="text" id="name_on_card" name="name_on_card">
             </div>
 
-            <div>
-                <div >
-                    <div>
+            <div class="input-style center">
+                <label for="email">Email Address</label>
+                <input type="email" id="email">
+            </div>
+
+            <div class="address-style">
+                <div>
+                    <div class="input-style mr">
                         <label for="address">Address</label>
                         <input type="text" id="address" name="address">
                     </div>
                 </div>
 
                 <div>
-                    <div>
+                    <div class="input-style">
                         <label for="city">City</label>
                         <input type="text" id="city" name="city">
                     </div>
                 </div>
 
                 <div>
-                    <div>
+                    <div class="input-style">
                         <label for="province">Province</label>
                         <input type="text" id="province" name="province">
                     </div>
@@ -65,22 +112,22 @@
             </div>
 
             <div>
-                <div class="col-md-4">
-                    <div>
+                <div>
+                    <div class="input-style center">
                         <label for="postalcode">Postal Code</label>
                         <input type="text" id="postalcode" name="postalcode">
                     </div>
                 </div>
 
-                <div class="col-md-4">
-                    <div>
+                <div>
+                    <div class="input-style center">
                         <label for="country">Country</label>
                         <input type="text" id="country" name="country">
                     </div>
                 </div>
 
-                <div class="col-md-4">
-                    <div>
+                <div>
+                    <div class="input-style center">
                         <label for="phone">Phone</label>
                         <input type="text" id="phone" name="phone">
                     </div>
@@ -88,47 +135,32 @@
 
             </div>
 
-            <div>
-                <div >
-                    <div>
-                        <label for="amount">Amount</label>
-                        <input type="text" id="amount" name="amount" value="{{$price}}">
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <div >
+            <div id='info-card'>
+                <div class="card-style">
                     <label for="cc_number">Credit Card Number</label>
-
                     <div id="card-number">
-
                     </div>
                 </div>
 
-                <div>
+                <div class="expiry-style">
                     <label for="expiry">Expiry</label>
-
                     <div id="expiration-date">
-
                     </div>
                 </div>
 
-                <div>
+                <div class="cvv-style">
                     <label for="cvv">CVV</label>
-
                     <div id="cvv">
-
                     </div>
                 </div>
 
             </div>
 
-            <div class="spacer"></div>
+            {{-- <div class="spacer"></div> --}}
 
-            <div id="paypal-button"></div>
+            {{-- <div id="paypal-button"></div> --}}
 
-            <div class="spacer"></div>
+            {{-- <div class="spacer"></div> --}}
 
             <input id="nonce" name="payment_method_nonce" type="hidden" />
             <button type="submit" class="btn btn-success">Submit Payment</button>
@@ -139,8 +171,9 @@
     <script src="https://js.braintreegateway.com/web/3.38.1/js/hosted-fields.min.js"></script>
 
     <script>
-      var form = document.querySelector('#payment-form');
-      var submit = document.querySelector('input[type="submit"]');
+
+        var form = document.querySelector('#payment-form');
+        var submit = document.querySelector('input[type="submit"]');
 
       braintree.client.create({
         authorization: '{{ $token }}'

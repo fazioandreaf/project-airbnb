@@ -1,6 +1,6 @@
 .search-page {
     @include flex(row, null, null);
-    width: 100%;
+    width: 90%;
     // debug
     height: 82.3vh;
     > div {
@@ -14,7 +14,6 @@
 
         div:first-of-type {
             height: 100%;
-            @include container(95%);
 
             ul {
                 margin-top: 30px;
@@ -167,8 +166,8 @@
     }
     // FINE di search-page
 }
-  .right-section {
+.right-section {
     width: 55%;
     background-color: black;
     background-size: cover;
-  } // FINE del contenitore di destra
+} // FINE del contenitore di destra

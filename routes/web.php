@@ -39,11 +39,13 @@ Route::get('/myapartment/{id}', 'HomeController@myapartment') -> name('myapartme
 
 // //Sponsor function
 Route::get('/sponsor/{id}', 'HomeController@sponsor') -> name('sponsor');
-Route::get('/sponsor_function/{id}', 'HomeController@sponsor_function')->name('sponsor_function');
+Route::get('/sponsor_function/{id}', 'PayController@sponsor_function')->name('sponsor_function');
 
 // rotta post braintree
-Route::get('/form_pay','HomeController@form_pay')->name('form_pay');
-Route::post('/checkout/{userId}', 'HomeController@pay')->name('pay');
+Route::get('/form_pay','PayController@form_pay')->name('form_pay');
+Route::post('/checkout/{userId}/{sponsorId}/{apartmentId}', 'PayController@pay')->name('pay');
+// redirect payment success
+Route::get('/success_message','PayController@success')->name('success');
 
 //ROtte di debug(senza login)
 Route::get('/pages/maps', 'MainController@maps');

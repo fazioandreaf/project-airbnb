@@ -9,7 +9,7 @@ use App\Apartment;
 use App\Sponsor;
 Use App\Service;
 use App\SponsoredApartment;
-use Braintree;
+
 
 class HomeController extends Controller {
     /**
@@ -67,11 +67,11 @@ class HomeController extends Controller {
         $img = $request -> file('cover_image');
         if ($request->hasFile('cover_image')) {
             $imgExt = $img -> getClientOriginalExtension();
+            $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
+            $folder = '/assets/';
+            $apartment -> cover_image = $newNameImg;
+            $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
         }
-        $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
-        $folder = '/assets/';
-        $apartment -> cover_image = $newNameImg;
-        $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
 
         $apartment->services()->attach($request-> get('service_id'));
         $apartment->save();
@@ -117,34 +117,6 @@ class HomeController extends Controller {
         return redirect()->route('homepage');
     }
 
-    // add sponsor
-    public function sponsor_function($validated)
-    {
-        // dd($validated['sponsor_id']);
-        date_default_timezone_set('Europe/Rome');
-        switch ($validated['sponsor_id']) {
-            case 1:
-                $afterDate = date('m/d/Y h:i:s a', time() + 86400);
-                break;
-            case 2:
-                $afterDate = date('m/d/Y h:i:s a', time() + 259200);
-                break;
-            case 3:
-                $afterDate = date('m/d/Y h:i:s a', time() + 604800);
-                break;
-        }
-        $apartment = Apartment::findOrFail($validated['apartment_id']);
-        $apartment->update($validated);
-        $apartment->sponsors()
-            ->attach($validated['sponsor_id'],
-                [
-                    'start_date' => date('m/d/Y h:i:s a', time()),
-                    'expire_date' => $afterDate
-                ]
-            );
-        return redirect()->route('homepage');
-    }
-
     // softDeletes
     public function deleteApartment($id)
     {
@@ -169,72 +141,6 @@ class HomeController extends Controller {
         $apartment = Apartment::findOrFail($id);
         $sponsors = Sponsor::all();
         return view('pages.sponsor',compact('sponsors','apartment'));
-    }
-    // form braintree
-    public function form_pay(Request $request)
-    {
-        $validated = $request -> validate([
-            'apartment_id' => 'required',
-            'sponsor_id' => 'required'
-        ]);
-        $gateway = new Braintree\Gateway([
-            'environment' => config('services.braintree.environment'),
-            'merchantId' => config('services.braintree.merchantId'),
-            'publicKey' => config('services.braintree.publicKey'),
-            'privateKey' => config('services.braintree.privateKey')
-        ]);
-        // dd($validated);
-        $token = $gateway->ClientToken()->generate();
-        $apartment = Apartment::findOrFail($validated['apartment_id']);
-        $sponsor = Sponsor::findOrFail($validated['sponsor_id']);
-        $price = $sponsor->price / 100;
-        // dd($apartment,$sponsor);
-        return view('pages.pay',compact('apartment','sponsor','price','token'));
-    }
-    // checkout braintree
-    public function pay(Request $request,$userId)
-    {
-        $user = User::find($userId);
-        // dd($request);
-        $gateway = new Braintree\Gateway([
-            'environment' => config('services.braintree.environment'),
-            'merchantId' => config('services.braintree.merchantId'),
-            'publicKey' => config('services.braintree.publicKey'),
-            'privateKey' => config('services.braintree.privateKey')
-        ]);
-        
-        $amount = $request->amount;
-        $nonce = $request->payment_method_nonce;
-        $result = $gateway->transaction()->sale([
-            'amount' => $amount,
-            'paymentMethodNonce' => $nonce,
-            'customer' => [
-                'firstName' => $user->firstname,
-                'lastName' => $user->lastname,
-                'email' => $user->email,
-            ],
-            'options' => [
-                'submitForSettlement' => true
-                ]
-            ]);
-
-            $validated = $request -> validate([
-                'apartment_id' => 'required',
-                'sponsor_id' => 'required'
-            ]);
-
-            
-            if ($result->success) {
-                $transaction = $result->transaction;
-                $this->sponsor_function($validated);
-            return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
-            } else {
-            $errorString = "";
-            foreach ($result->errors->deepAll() as $error) {
-                $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
-            }
-            return back()->withErrors('An error occurred with the message: '.$result->message);
-        }
     }
 
 } // END OF HomeController

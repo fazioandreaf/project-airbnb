@@ -449,7 +449,7 @@ footer {
 
 footer .bigger-footer {
   margin: 0 auto;
-  width: 90%;
+  width: 80%;
 }
 
 footer .bigger-footer .footer-top-section {
@@ -539,12 +539,15 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
 #header-search {
   height: 170px;
   margin: 0 auto;
-  width: 97%;
+  width: 90%;
 }
 
 #header-search .top-header-search {
+  width: 100%;
+  height: 50%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -553,6 +556,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
 }
 
 #header-search .top-header-search .logo a img {
+  margin-top: 10px;
   height: 100%;
 }
 
@@ -564,9 +568,21 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   align-items: center;
 }
 
+#header-search .top-header-search .filter div {
+  margin-right: 30px;
+}
+
+#header-search .top-header-search .filter input {
+  height: 35px;
+  border: 1px solid rgba(50, 50, 50, 0.3);
+  border-radius: 10px;
+}
+
 #header-search .lower-header-search {
+  height: 50%;
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 #header-search .lower-header-search ul {
@@ -734,6 +750,10 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   height: auto;
 }
 
+section#my-apartments {
+  padding: 40px 0;
+}
+
 section#my-apartments .container {
   margin: 0 auto;
   width: 90%;
@@ -746,7 +766,9 @@ section#my-apartments .button-link:hover {
 section#my-apartments .wrapper-user-add {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  padding: 20px 0;
 }
 
 section#my-apartments .wrapper-user-add .username {
@@ -769,8 +791,13 @@ section#my-apartments .wrapper-apartment .apartment-main-infos .infos {
   align-items: center;
 }
 
+section#my-apartments .wrapper-apartment .apartment-main-infos .infos > li {
+  margin: 0 5px;
+}
+
 section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-title {
-  flex-basis: 30%;
+  flex-grow: 1;
+  cursor: pointer;
 }
 
 section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-details {
@@ -1053,7 +1080,7 @@ section#section-register form .form-button {
 .search-page {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 90%;
   height: 82.3vh;
 }
 
@@ -1069,8 +1096,6 @@ section#section-register form .form-button {
 
 .search-page .left-section div:first-of-type {
   height: 100%;
-  margin: 0 auto;
-  width: 95%;
 }
 
 .search-page .left-section div:first-of-type ul {
@@ -1305,7 +1330,7 @@ section#section-register form .form-button {
 }
 
 #apartment-sample nav .basic-header div:nth-child(3) a:nth-child(1) {
-  margin: 15px 30px 0px 0px;
+  margin: 20px 30px 0px 10px;
 }
 
 #apartment-sample nav .basic-header div:nth-child(3) a:nth-child(2) {
@@ -1504,17 +1529,22 @@ section#section-register form .form-button {
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.tre .sub-list li {
+  margin-left: 20px;
   height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.tre .sub-list li:first-of-type {
+  margin: 0;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.quattro {
@@ -1540,7 +1570,7 @@ section#section-register form .form-button {
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 

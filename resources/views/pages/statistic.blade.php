@@ -1,20 +1,10 @@
-@extends('layouts.main_layout')
+@extends('layouts.statistic-layout')
 @section('content')
 <h1>Pagina statistiche</h1>
+    <div id="stats">
+        <canvas id="myChart"></canvas>
+    </div> 
+    
 
-@if (count($statistic)>0)
-
-<strong>
-    Numero di visualizzazione:
-</strong>
-{{count($statistic)}}
-
-
-@else
-
-
-Non hai ancora nessun appartamento
-@endif
-
-
+    
 @endsection
