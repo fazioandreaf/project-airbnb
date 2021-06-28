@@ -14440,18 +14440,55 @@ module.exports = g;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
-    Axios = _require["default"];
+var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 document.addEventListener("DOMContentLoaded", function () {
   window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
   var stats = new Vue({
     el: "#stats",
     data: {
-      test: "Hello world!"
+      apartmentId: "",
+      views: {},
+      monthViews: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     methods: {
-      createStats: function createStats() {
+      getApartmentId: function getApartmentId() {
+        var url = window.location.href;
+        var params = url.split("/");
+        var id = parseInt(params[params.length - 1]);
+        this.apartmentId = id;
+      },
+      getViews: function getViews() {
+        var _this = this;
+
+        axios.get("/api/views/" + this.apartmentId).then(function (data) {
+          _this.views = data.data;
+          console.log(_this.views);
+
+          _this.filterByMonth(_this.views);
+        })["catch"](function (error) {
+          return console.log(error);
+        });
+      },
+      getMessages: function getMessages() {
+        axios.get("/api/messages/" + this.apartmentId).then(function (data) {
+          console.log(data);
+        })["catch"](function (error) {
+          return console.log(error);
+        });
+      },
+      filterByMonth: function filterByMonth(views) {
+        var _this2 = this;
+
+        views.forEach(function (view) {
+          console.log(view.view_date);
+          var splittedDate = view.view_date.split("-");
+          var month = splittedDate[1];
+          _this2.monthViews[month - 1]++;
+        });
+        this.createStats(this.monthViews);
+      },
+      createStats: function createStats(monthViews) {
         var ctx = document.getElementById('myChart');
         var myChart = new Chart(ctx, {
           type: 'bar',
@@ -14459,7 +14496,7 @@ document.addEventListener("DOMContentLoaded", function () {
             labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
             datasets: [{
               label: '# di Messaggi',
-              data: [12, 19, 3, 5, 2, 3],
+              data: monthViews,
               backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
               borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
               borderWidth: 1
@@ -14476,7 +14513,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     },
     mounted: function mounted() {
-      this.createStats();
+      this.getApartmentId();
+      this.getViews();
+      this.getMessages();
     }
   });
 });

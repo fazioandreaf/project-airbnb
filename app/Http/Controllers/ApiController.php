@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Apartment;
+use App\Message;
+use App\Statistic;
 use App\Service;
 use DB;
 
@@ -86,5 +88,21 @@ class ApiController extends Controller
         $apartment->save();
 
         return response() -> json("Deleted", 200);
+    }
+
+    public function getViews($id) {
+
+        $views = Statistic::where('apartment_id', '=', $id)
+                    ->get();
+
+        return response() -> json($views, 200);
+    }
+
+    public function getMessages($id) {
+
+        $messages = Message::where('apartment_id', '=', $id)
+                    ->get();
+
+        return response() -> json($messages,200);
     }
 }

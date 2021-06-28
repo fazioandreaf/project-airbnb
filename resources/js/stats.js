@@ -1,4 +1,4 @@
-const { default: Axios } = require('axios');
+const axios = require("axios");
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -7,12 +7,54 @@ document.addEventListener("DOMContentLoaded", () => {
     const stats = new Vue({
         el: "#stats",
         data: {
-            test: "Hello world!"
+            apartmentId: "",
+            views: {},
+            monthViews: [0,0,0,0,0,0,0,0,0,0,0,0],
         },
 
         methods: {
 
-            createStats: function() {
+            getApartmentId: function() {
+
+                const url = window.location.href;
+                const params = url.split("/");
+                const id = parseInt(params[params.length -1]);
+                this.apartmentId = id;  
+            },
+
+            getViews: function() {
+
+                axios
+                    .get("/api/views/" + this.apartmentId)
+                    .then(data => {
+                        this.views = data.data;
+                        console.log(this.views);
+                        this.filterByMonth(this.views);
+                    })
+                    .catch(error => console.log(error));
+            },
+
+            getMessages: function() {
+                axios
+                    .get("/api/messages/" + this.apartmentId)
+                    .then(data => {
+                        console.log(data)
+                    })
+                    .catch(error => console.log(error));
+            },
+
+            filterByMonth: function(views) {
+                views.forEach(view => {
+                    console.log(view.view_date);
+                    let splittedDate = view.view_date.split("-");
+                    let month = splittedDate[1];
+                    this.monthViews[month-1]++;
+                });
+
+                this.createStats(this.monthViews);
+            },
+
+            createStats: function(monthViews) {
 
                 const ctx = document.getElementById('myChart');
                 let myChart = new Chart(ctx, {
@@ -21,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
                         datasets: [{
                             label: '# di Messaggi',
-                            data: [12, 19, 3, 5, 2, 3],
+                            data: monthViews,
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
                                 'rgba(54, 162, 235, 0.2)',
@@ -53,7 +95,10 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         mounted() {
-            this.createStats();
+
+            this.getApartmentId();
+            this.getViews();
+            this.getMessages();
         }
     })
 })
