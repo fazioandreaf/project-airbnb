@@ -65,4 +65,13 @@ class ApiController extends Controller
         }
         return response() -> json(($finishapartment),200);
     }
+
+    public function destroy($id) {
+
+        $apartment = Apartment::findOrFail($id);
+        $apartment->delete();
+        $apartment->save();
+
+        return response() -> json("Deleted", 200);
+    }
 }

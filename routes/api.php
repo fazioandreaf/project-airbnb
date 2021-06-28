@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/filter','ApiController@filter')->name('filter');
 Route::get('/service','ApiController@service')->name('service');
 Route::get('/upservice','ApiController@upservice')->name('upservice');
+
+Route::get('/apartment/destroy/{id}', 'ApiController@destroy') -> name('destroy');
