@@ -750,17 +750,21 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   height: auto;
 }
 
-section#my-apartments {
-  padding: 40px 0;
-}
-
 section#my-apartments .container {
   margin: 0 auto;
   width: 90%;
 }
 
+section#my-apartments .button-link {
+  margin: 0px 5px;
+}
+
 section#my-apartments .button-link:hover {
   background-color: #0d736e;
+}
+
+section#my-apartments .delete:hover {
+  background-color: #6c6a6b;
 }
 
 section#my-apartments .wrapper-user-add {
@@ -768,7 +772,9 @@ section#my-apartments .wrapper-user-add {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding-top: 60px;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 section#my-apartments .wrapper-user-add .username {
@@ -791,13 +797,8 @@ section#my-apartments .wrapper-apartment .apartment-main-infos .infos {
   align-items: center;
 }
 
-section#my-apartments .wrapper-apartment .apartment-main-infos .infos > li {
-  margin: 0 5px;
-}
-
 section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-title {
-  flex-grow: 1;
-  cursor: pointer;
+  flex-basis: 30%;
 }
 
 section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-details {
@@ -812,6 +813,11 @@ section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-detail
 
 section#my-apartments .wrapper-apartment .details {
   max-height: 400px;
+  margin-top: 20px;
+}
+
+section#my-apartments .wrapper-apartment .details .button-link {
+  margin-top: 20px;
 }
 
 section#my-apartments .wrapper-apartment .slide-down-enter-active {
@@ -832,6 +838,10 @@ section#my-apartments .wrapper-apartment .slide-down-leave-to {
 section#my-apartments .wrapper-apartment .arrow {
   transform: rotate(0);
   transition: all 0.5s;
+}
+
+section#my-apartments .wrapper-apartment .arrow:hover {
+  color: #12a19a;
 }
 
 section#my-apartments .wrapper-apartment .rotate {
@@ -1707,6 +1717,258 @@ section#login-section .wrapper-form-botton button {
 section#login-section .wrapper-form-botton a {
   font-size: 10px;
   margin-top: 10px;
+}
+
+section#edit-section {
+  width: 32%;
+  margin: auto;
+  padding-top: 50px;
+}
+
+section#edit-section h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+section#edit-section .form-complit {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+section#edit-section .form-complit .form-text {
+  display: flex;
+  flex-direction: column;
+}
+
+section#edit-section .form-complit .form-text .form-text-elem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 5px 0px;
+}
+
+section#edit-section .form-complit .form-text .form-text-elem input {
+  margin-left: 5px;
+  background-color: #ededed;
+  padding: 5px 10px;
+  border: 0;
+  border-radius: 20px;
+  margin-left: 20px;
+}
+
+section#edit-section .form-complit .form-text .form-text-elem input:hover {
+  background-color: #d9d9d9;
+  transition: 0.2s;
+}
+
+section#edit-section .form-complit .form-select {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+section#edit-section .form-complit .form-select input {
+  margin-left: 20px;
+}
+
+section#edit-section .form-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 30px 0px;
+}
+
+section#edit-section .form-btn .button-form {
+  margin-left: 5px;
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 20px;
+  background-color: #12a19a;
+  font-family: "Nunito", sans-serif;
+  color: white;
+}
+
+section#edit-section .form-btn .button-form:hover {
+  background-color: #0d736e;
+  transition: 0.2s;
+}
+
+div#sponsor-apartament {
+  height: 500px;
+  width: 60%;
+  margin: auto;
+  margin-top: 60px;
+}
+
+div#sponsor-apartament .title-sponsor {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+div#sponsor-apartament .label-sponsor-contain {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+div#sponsor-apartament .label-sponsor-contain .label-sponsor {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid lightgrey;
+  border-radius: 20px;
+}
+
+div#sponsor-apartament .label-sponsor-contain .label-sponsor:hover {
+  background-color: yellowgreen;
+  box-shadow: 5px 5px 5px #dedede;
+  transition: 0.2s;
+}
+
+div#sponsor-apartament .label-sponsor-contain .label-sponsor .title-label {
+  margin-top: 20px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+div#sponsor-apartament .label-sponsor-contain .label-sponsor .price-sponsor {
+  font-size: 50px;
+}
+
+div#sponsor-apartament .label-sponsor-contain .label-sponsor .price-sponsor .euro-price {
+  font-size: 30px;
+}
+
+div#sponsor-apartament .label-sponsor-contain .label-sponsor .btn-sponsor {
+  margin-top: 30px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #38c172;
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
+  color: white;
+}
+
+div#sponsor-apartament .bnt-spons-send {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+div#sponsor-apartament .bnt-spons-send button {
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 20px;
+  background-color: #12a19a;
+  font-family: "Nunito", sans-serif;
+  color: white;
+}
+
+section#my-apartments .container {
+  margin: 0 auto;
+  width: 90%;
+}
+
+section#my-apartments .button-link {
+  margin: 0px 5px;
+}
+
+section#my-apartments .button-link:hover {
+  background-color: #0d736e;
+}
+
+section#my-apartments .delete:hover {
+  background-color: #6c6a6b;
+}
+
+section#my-apartments .wrapper-user-add {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 60px;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+section#my-apartments .wrapper-user-add .username {
+  color: #12a19a;
+}
+
+section#my-apartments .wrapper-apartment {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+section#my-apartments .wrapper-apartment:nth-child(even) {
+  background-color: #ededed;
+}
+
+section#my-apartments .wrapper-apartment .apartment-main-infos .infos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-title {
+  flex-basis: 30%;
+}
+
+section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-details {
+  margin-left: 20px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-details:hover {
+  text-decoration: underline;
+}
+
+section#my-apartments .wrapper-apartment .details {
+  max-height: 400px;
+  margin-top: 20px;
+}
+
+section#my-apartments .wrapper-apartment .details .button-link {
+  margin-top: 20px;
+}
+
+section#my-apartments .wrapper-apartment .slide-down-enter-active {
+  transition: all 1s;
+}
+
+section#my-apartments .wrapper-apartment .slide-down-leave-active {
+  transition: all 0.5s;
+}
+
+section#my-apartments .wrapper-apartment .slide-down-enter,
+section#my-apartments .wrapper-apartment .slide-down-leave-to {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+section#my-apartments .wrapper-apartment .arrow {
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+section#my-apartments .wrapper-apartment .arrow:hover {
+  color: #12a19a;
+}
+
+section#my-apartments .wrapper-apartment .rotate {
+  transition: all 0.5s;
+  transform: rotate(180deg);
 }
 
 * {
