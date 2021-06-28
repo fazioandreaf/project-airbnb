@@ -32,6 +32,9 @@
     <!-- Turf.js -->
     <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
 
+    {{-- <script type='text/javascript' src='../assets/js/mobile-or-tablet.js'></script>
+    <link rel='stylesheet' type='text/css' href='../assets/ui-library/index.css'/> --}}
+
   </head>
 
   <body>
@@ -117,6 +120,7 @@
                       @endforeach
 
                   </ul> --}}
+
                   <ul>
                       <li v-for="elem in allservice"
                       :class="toggle?'':'active'"
@@ -145,7 +149,8 @@
                                                 {{$item->title}}
                                             </h2>
                                         </a>
-                                        <a href="#" onclick="makemarker({{$item -> longitude}},{{$item -> latitude}}),prova1({{$item -> longitude}},{{$item -> latitude}})">
+                                        <div onclick="addlayer()"> addlayer</div>
+                                        <a href="#" onclick="makemarker({{$item -> longitude}},{{$item -> latitude}}),goto({{$item -> longitude}},{{$item -> latitude}})">
                                             {{$item->address}}
                                         </a>
                                         <span>Area : <span style:"font-weight:bolder">{{$item->area}}  m^2</span></span>
@@ -218,16 +223,51 @@
     <script>
         // esempio di creare una funzione che metta tutti i marker nella mappa
         function makemarker(LNG, LAT){
-            // console.log(LNG, LAT)
             var marker = new tt.Marker([{height:10,width:10}])
                             .setLngLat([LNG,LAT])
                             .addTo(map);
-            console.log('Inserito mark');
         };
         // zoom nella porzione che voglio
-        function prova1(LNG, LAT){
+        function goto(LNG, LAT){
             var point=[LNG,LAT];
             map.easeTo({center:point,zoom:15})
+        };
+        function addlayer(){
+            console.log('ciao');
+            map.on('load', function() {
+            map.addLayer({
+                'id': 'overlay',
+                'type': 'fill',
+                'source': {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'Feature',
+                        'geometry': {
+                            'type': 'Polygon',
+                            'coordinates': [[
+                                // [LNG -1,LNT +1],
+                                // [LNG +1,LNT +1],
+                                // [LNG +1,LNT -1],
+                                // [LNG -1,LNT -1]
+                                [15.067560533884222, 38.642288177883556],
+                      [16.267560533884222, 38.642288177883556],
+                      [16.267560533884222, 36.442288177883556],
+                      [15.067560533884222, 36.442288177883556],
+
+                            ]]
+                        }
+                    }
+                },
+                'layout': {},
+                'paint': {
+                    'fill-color': '#db356c',
+                    'fill-opacity': 0.5,
+                    'fill-outline-color': 'black'
+                }
+            });
+        });
+            console.log('ciao');
+
         };
         var map = tt.map({
             key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
