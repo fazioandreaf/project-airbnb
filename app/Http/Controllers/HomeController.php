@@ -118,11 +118,12 @@ class HomeController extends Controller {
     }
 
     // add sponsor
-    public function sponsor_function($validated)
-    {
-        // dd($validated['sponsor_id']);
-        date_default_timezone_set('Europe/Rome');
-        switch ($validated['sponsor_id']) {
+    public function sponsor_function($apartmentId,$sponsorId)
+    {   
+        $now = Carbon::now()->setTimeZone('Europe/Rome');
+        $expire = Carbon::now()->setTimeZone("Europe/Rome");
+
+        switch ($sponsorId) {
             case 1:
                 $afterDate = date('m/d/Y h:i:s a', time() + 86400);
                 break;
@@ -133,10 +134,11 @@ class HomeController extends Controller {
                 $afterDate = date('m/d/Y h:i:s a', time() + 604800);
                 break;
         }
-        $apartment = Apartment::findOrFail($validated['apartment_id']);
-        $apartment->update($validated);
+
+        $apartment = Apartment::findOrFail($apartmentId);
+        $apartment->update([$apartmentId,$sponsorId]);
         $apartment->sponsors()
-            ->attach($validated['sponsor_id'],
+            ->attach($sponsorId,
                 [
                     'start_date' => date('m/d/Y h:i:s a', time()),
                     'expire_date' => $afterDate
@@ -192,18 +194,23 @@ class HomeController extends Controller {
         return view('pages.pay',compact('apartment','sponsor','price','token'));
     }
     // checkout braintree
-    public function pay(Request $request,$userId)
+    public function pay(Request $request,$userId,$sponsorId,$apartmentId)
     {
         $user = User::find($userId);
-        // dd($request);
+
+        // dd($userId,$sponsorId,$apartmentId);
+
+        $sponsor = Sponsor::findOrFail($sponsorId);
+        $sponsorPrice = $sponsor->price / 100;
+        $amount = $sponsorPrice;
+
         $gateway = new Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
             'publicKey' => config('services.braintree.publicKey'),
             'privateKey' => config('services.braintree.privateKey')
         ]);
-        
-        $amount = $request->amount;
+
         $nonce = $request->payment_method_nonce;
         $result = $gateway->transaction()->sale([
             'amount' => $amount,
@@ -217,16 +224,10 @@ class HomeController extends Controller {
                 'submitForSettlement' => true
                 ]
             ]);
-
-            $validated = $request -> validate([
-                'apartment_id' => 'required',
-                'sponsor_id' => 'required'
-            ]);
-
             
             if ($result->success) {
                 $transaction = $result->transaction;
-                $this->sponsor_function($validated);
+                $this->sponsor_function($apartmentId,$sponsorId);
             return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
             } else {
             $errorString = "";
