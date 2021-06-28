@@ -2037,8 +2037,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-<<<<<<< HEAD
-=======
 //
 //
 //
@@ -2048,7 +2046,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
->>>>>>> Gioele
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37882,81 +37879,12 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("li", [_vm._t("sponsor")], 2),
+              _c("li", [_vm._t("statistic")], 2),
               _vm._v(" "),
-              _c("li", [_vm._t("statistic")], 2)
+              _c("li", [_vm._t("sponsor")], 2)
             ])
           ]),
           _vm._v(" "),
-<<<<<<< HEAD
-          _c("li", [_vm._t("view")], 2),
-          _vm._v(" "),
-          _c("li", [_vm._t("delete")], 2)
-        ])
-      ]),
-      _vm._v(" "),
-      _c("transition", { attrs: { name: "slide-down" } }, [
-        _vm.showApartmentDetails
-          ? _c("div", { ref: "details", staticClass: "details" }, [
-              _c("ul", [
-                _c("li", [
-                  _c("strong", [_vm._v("Indirizzo: ")]),
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.apartment.address) +
-                      "\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("strong", [_vm._v("Numero di stanze: ")]),
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.apartment.number_rooms) +
-                      "\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("strong", [_vm._v("Bagni: ")]),
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.apartment.number_toiletes) +
-                      "\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("strong", [_vm._v("Posti letto: ")]),
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.apartment.number_beds) +
-                      "\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("strong", [
-                    _vm._v("M"),
-                    _c("sup", [_vm._v("2")]),
-                    _vm._v(": ")
-                  ]),
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.apartment.area) +
-                      "\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [_vm._t("edit")], 2)
-              ])
-            ])
-          : _vm._e()
-      ])
-    ],
-    1
-  )
-=======
           _c("transition", { attrs: { name: "slide-down" } }, [
             _vm.showApartmentDetails
               ? _c("div", { ref: "details", staticClass: "details" }, [
@@ -38019,7 +37947,6 @@ var render = function() {
         1
       )
     : _vm._e()
->>>>>>> Gioele
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -50655,8 +50582,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Andrea\Desktop\project-airbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Andrea\Desktop\project-airbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Boolean\project-airbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Boolean\project-airbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

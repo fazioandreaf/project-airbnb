@@ -19,6 +19,12 @@
                         <i class="fas fa-trash-alt"></i>
                     </a>
                 </li>
+                 <li>
+                    <slot name="statistic"></slot>
+                </li>
+                <li>
+                    <slot name="sponsor"></slot>
+                </li>
             </ul>
         </div>
         <transition name="slide-down">
