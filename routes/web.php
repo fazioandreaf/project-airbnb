@@ -43,7 +43,7 @@ Route::get('/sponsor_function/{id}', 'HomeController@sponsor_function')->name('s
 
 // rotta post braintree
 Route::get('/form_pay','HomeController@form_pay')->name('form_pay');
-Route::post('/checkout/{userId}', 'HomeController@pay')->name('pay');
+Route::post('/checkout/{userId}/{sponsorId}/{apartmentId}', 'HomeController@pay')->name('pay');
 
 //ROtte di debug(senza login)
 Route::get('/pages/maps', 'MainController@maps');
