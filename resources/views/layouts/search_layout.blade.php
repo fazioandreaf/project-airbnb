@@ -140,7 +140,8 @@
                                 <img src="{{$item->cover_image}}" alt="immagine stanza" style="width:100%; border-radius:10px" >
                             </div>
                             <div  style="display: flex; flex-direction:column; margin:5px; flex-basis:50%">
-                                        <a href="{{route('apartment', $item->id)}}">
+                                        {{-- <a href="{{route('apartment', $item->id)}}"> --}}
+                                        <a @click="redirect(elem.id)">
                                             <h2>
                                                 {{$item->title}}
                                             </h2>
