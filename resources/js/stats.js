@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
             views: {},
             messages: {},
             filterType: "month",
-            monthViews: [0,0,0,0,0,0,0,0,0,0,0,0],
+            monthViews: [],
         },
 
         methods: {
@@ -43,16 +43,32 @@ document.addEventListener("DOMContentLoaded", () => {
                     .catch(error => console.log(error));
             },
 
-            filter: function(data, filter) {
+            filter: function(data, type, filter) {
 
-                console.log(data, filter);
+                switch(type) {
+                    case "views":
+                        this.monthViews = [0,0,0,0,0,0,0,0,0,0,0,0];
+                        data.forEach(view => {
+                            let splittedDate = view.view_date.split("-");
+                            let month = splittedDate[1];
+                            console.log(view.view_date);
+                            this.monthViews[month-1]++;
+                        });
+                        console.log(this.monthViews);
+                    break;
+                    case "messages":
+                        data.forEach(message => {
+                            console.log(message.created_at);
+                        });
+                    break;
+                }
             },
 
             createGraph: function(type, filter) {
 
                 let data;
                 (type == 'views') ? data = this.views : data = this.messages;
-                this.filter(data, filter);
+                this.filter(data, type, filter);
             },
 
             filterByMonth: function(views) {
@@ -103,7 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
             this.getApartmentId();
             this.getViews();
             this.getMessages();
-            console.log(this.filterType);
         }
     })
 })

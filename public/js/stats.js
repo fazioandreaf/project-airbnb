@@ -14451,7 +14451,7 @@ document.addEventListener("DOMContentLoaded", function () {
       views: {},
       messages: {},
       filterType: "month",
-      monthViews: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      monthViews: []
     },
     methods: {
       getApartmentId: function getApartmentId() {
@@ -14478,22 +14478,41 @@ document.addEventListener("DOMContentLoaded", function () {
           return console.log(error);
         });
       },
-      filter: function filter(data, _filter) {
-        console.log(data, _filter);
+      filter: function filter(data, type, _filter) {
+        var _this3 = this;
+
+        switch (type) {
+          case "views":
+            this.monthViews = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            data.forEach(function (view) {
+              var splittedDate = view.view_date.split("-");
+              var month = splittedDate[1];
+              console.log(view.view_date);
+              _this3.monthViews[month - 1]++;
+            });
+            console.log(this.monthViews);
+            break;
+
+          case "messages":
+            data.forEach(function (message) {
+              console.log(message.created_at);
+            });
+            break;
+        }
       },
       createGraph: function createGraph(type, filter) {
         var data;
         type == 'views' ? data = this.views : data = this.messages;
-        this.filter(data, filter);
+        this.filter(data, type, filter);
       },
       filterByMonth: function filterByMonth(views) {
-        var _this3 = this;
+        var _this4 = this;
 
         views.forEach(function (view) {
           console.log(view.view_date);
           var splittedDate = view.view_date.split("-");
           var month = splittedDate[1];
-          _this3.monthViews[month - 1]++;
+          _this4.monthViews[month - 1]++;
         });
         this.createStats(this.monthViews);
       },
@@ -14526,7 +14545,6 @@ document.addEventListener("DOMContentLoaded", function () {
       this.getApartmentId();
       this.getViews();
       this.getMessages();
-      console.log(this.filterType);
     }
   });
 });
