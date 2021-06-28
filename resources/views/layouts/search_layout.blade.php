@@ -117,9 +117,6 @@
                       @endforeach
 
                   </ul> --}}
-                  <span>
-                      <a href="#" @click="service()">prova</a>
-                  </span>
                   <ul>
                       <li v-for="elem in allservice"
                       :class="toggle?'':'active'"
@@ -148,18 +145,13 @@
                                                 {{$item->title}}
                                             </h2>
                                         </a>
-                                        <a href="#" onclick="makemarker({{$item -> longitude}},{{$item -> latitude}})">
+                                        <a href="#" onclick="makemarker({{$item -> longitude}},{{$item -> latitude}}),prova1({{$item -> longitude}},{{$item -> latitude}})">
                                             {{$item->address}}
                                         </a>
                                         <span>Area : <span style:"font-weight:bolder">{{$item->area}}  m^2</span></span>
                                         <span>Numberi di posti letto: {{$item->number_beds}}</span>
                                         <span>Numbero di stanze: {{$item->number_rooms}}</span>
-
                             </div>
-
-
-
-
                         </div>
                         @endforeach
                     @else
@@ -231,6 +223,11 @@
                             .setLngLat([LNG,LAT])
                             .addTo(map);
             console.log('Inserito mark');
+        };
+        // zoom nella porzione che voglio
+        function prova1(LNG, LAT){
+            var point=[LNG,LAT];
+            map.easeTo({center:point,zoom:15})
         };
         var map = tt.map({
             key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
