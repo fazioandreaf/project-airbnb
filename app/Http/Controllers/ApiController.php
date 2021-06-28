@@ -96,8 +96,7 @@ class ApiController extends Controller
                     $tmp3=DB::table('apartments')
                             ->where('title', 'LIKE',$single)
                             ->get();
-                            
-                    array_push($intersezione_case_def,$tmp3);
+                    array_push($intersezione_case_def,$tmp3[0]);
                 }
 
                 // array_push($tmp2,sizeof($request->service));
