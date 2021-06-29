@@ -156,14 +156,8 @@
 
             </div>
 
-            {{-- <div class="spacer"></div> --}}
-
-            {{-- <div id="paypal-button"></div> --}}
-
-            {{-- <div class="spacer"></div> --}}
-
             <input id="nonce" name="payment_method_nonce" type="hidden" />
-            <button type="submit" class="btn btn-success">Submit Payment</button>
+            <button id="strunz" type="submit" class="btn btn-success">Submit Payment</button>
         </form>
     </div>
 
@@ -175,57 +169,72 @@
         var form = document.querySelector('#payment-form');
         var submit = document.querySelector('input[type="submit"]');
 
-      braintree.client.create({
-        authorization: '{{ $token }}'
-      }, function (clientErr, clientInstance) {
-        if (clientErr) {
-          console.error(clientErr);
-          return;
-        }
-        braintree.hostedFields.create({
-          client: clientInstance,
-          styles: {
-            'input': {
-              'font-size': '14px'
-            },
-            'input.invalid': {
-              'color': 'red'
-            },
-            'input.valid': {
-              'color': 'green'
-            }
-          },
-          fields: {
-            number: {
-              selector: '#card-number',
-              placeholder: '4111 1111 1111 1111'
-            },
-            cvv: {
-              selector: '#cvv',
-              placeholder: '123'
-            },
-            expirationDate: {
-              selector: '#expiration-date',
-              placeholder: 'MM/YY'
-            }
-          }
-        }, function (hostedFieldsErr, hostedFieldsInstance) {
-            if (hostedFieldsErr) {
-                console.error(hostedFieldsErr);
-                return;
-            }
-             form.addEventListener('submit', function (event) {
-                event.preventDefault();
-                hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
-                if (tokenizeErr) {
-                    console.error(tokenizeErr);
-                    return;
-                }
-                document.querySelector('#nonce').value = payload.nonce;
-                form.submit();
-            });
-          }, false);
+        window.addEventListener("beforeunload", function(event) {
+            window.alert('sicuro di voler lasciare la pagina?');
         });
-    });
+
+        // var send = document.getElementById('strunz').addEventListener('click',function(){
+        //     event.returnValue = "";
+        //     delete event['returnValue'];
+        // });
+
+        var send = document.getElementById('strunz');
+        send.addEventListener('click',function(event) {
+            window.beforeunload = null;
+            return true;
+        });
+
+        braintree.client.create({
+            authorization: '{{ $token }}'
+            }, function (clientErr, clientInstance) {
+            if (clientErr) {
+            console.error(clientErr);
+            return;
+            }
+            braintree.hostedFields.create({
+                client: clientInstance,
+                styles: {
+                    'input': {
+                    'font-size': '14px'
+                    },
+                    'input.invalid': {
+                    'color': 'red'
+                    },
+                    'input.valid': {
+                    'color': 'green'
+                    }
+                },
+                fields: {
+                    number: {
+                    selector: '#card-number',
+                    placeholder: '4111 1111 1111 1111'
+                    },
+                    cvv: {
+                    selector: '#cvv',
+                    placeholder: '123'
+                    },
+                    expirationDate: {
+                    selector: '#expiration-date',
+                    placeholder: 'MM/YY'
+                    }
+                }
+            }, function (hostedFieldsErr, hostedFieldsInstance) {
+                    if (hostedFieldsErr) {
+                        console.error(hostedFieldsErr);
+                        return;
+                    }   
+                    form.addEventListener('submit', function (event) {
+                        event.preventDefault();
+                        hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
+                            if (tokenizeErr) {
+                                console.error(tokenizeErr);
+                                return;
+                            }
+                            document.querySelector('#nonce').value = payload.nonce;
+                            form.submit();
+                        });
+                    }, false);
+            });
+        });
     </script>
 @endsection

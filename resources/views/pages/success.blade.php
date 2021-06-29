@@ -1,4 +1,4 @@
-@extends('layouts.main_layout')
+@extends('layouts.minimal-layout')
 @section('content')
     <style>
         #success-message{
