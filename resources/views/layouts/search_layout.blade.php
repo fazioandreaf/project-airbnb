@@ -150,6 +150,9 @@
                                             </h2>
                                         </a>
                                         <div onclick="addlayer({{$item -> longitude}},{{$item -> latitude}},{{$item->id}})"> addlayer</div>
+                                        <div onclick="calculateDistance()">
+                                            Misurare la distanza fra i punti
+                                        </div>
                                         <a href="#" onclick="makemarker({{$item -> longitude}},{{$item -> latitude}}),goto({{$item -> longitude}},{{$item -> latitude}})">
                                             {{$item->address}}
                                         </a>
@@ -269,10 +272,49 @@
                     'fill-outline-color': 'black'
                 }
             });
-        });
+            });
             console.log('ciao');
-
         };
+
+        function calculateDistance() {
+            // if (points.length < 2) {
+            //     return undefined;
+            // }
+            var totalDistance = {
+                kilometers: 0,
+                miles: 0
+            };
+            // for (var i = 1; i < points.length; ++i) {
+                // var fromPoint = points[i - 1];
+                // var toPoint = points[i];
+                var fromPoint = [15.067560533884222, 38.642288177883556];
+                var toPoint = [15.067560533884222, 36.642288177883556];
+                var kilometers = turf.distance(fromPoint, toPoint);
+                var miles = turf.distance(fromPoint, toPoint, { units: 'miles' });
+                totalDistance.kilometers = Math.round((totalDistance.kilometers + kilometers) * 100) / 100;
+                totalDistance.miles = Math.round((totalDistance.miles + miles) * 100) / 100;
+            // }
+            return console.log(totalDistance);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         var map = tt.map({
             key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
             container: 'map',
