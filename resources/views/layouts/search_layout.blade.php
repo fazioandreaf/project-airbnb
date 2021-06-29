@@ -151,7 +151,7 @@
                                         </a>
                                         <div onclick="addlayer({{$item->id}})"> addlayer</div>
                                         <div
-                                        {{-- onclick="calculateDistance()" --}}
+                                        onclick="calculateDistance()"
                                         >
                                             distanza fra i punti
                                         </div>
@@ -185,7 +185,7 @@
                                             @{{elem.address}}
                                         </a>
                                         <div @click="addlayer(elem.id)"> addlayer</div>
-                                        <div @click="calculateDistance(1,1)">
+                                        <div @click="calculateDistance()">
                                             distanza fra i punti
                                         </div>
                                         {{-- <div onclick="getLatLng('@{{$item -> address}}')">
@@ -291,7 +291,7 @@
             });
             console.log('ciao');
         };
-        function calculateDistance(pos1,pos2) {
+        function calculateDistance() {
             if(pos.length<1){
                 return alert('Non hai cliccato su nessun appartmanto')
             }

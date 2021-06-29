@@ -2255,7 +2255,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         console.log('ciao');
       },
-      calculateDistance: function calculateDistance(pos1, pos2) {
+      calculateDistance: function calculateDistance() {
         // if (points.length < 2) {
         //     return undefined;
         // }

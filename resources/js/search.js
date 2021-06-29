@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log('ciao');
             },
 
-            calculateDistance: function(pos1,pos2) {
+            calculateDistance: function() {
                 // if (points.length < 2) {
                 //     return undefined;
                 // }
