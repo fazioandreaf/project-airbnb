@@ -50,12 +50,12 @@ class MainController extends Controller {
         // dd($request->where);
         if($request->where!=null){
             $apartments= Apartment::where('address', 'LIKE','%'. $request->where.'%') -> get();
+            if(count($apartments)<1) {
+                $apartments=[];
+            }
         }
         else{
             $apartments= Apartment::first()->limit(50)->get();
-        }
-        if(count($apartments)<1) {
-            $apartments=[];
         }
         return view('pages.search',compact('apartments'));
     }

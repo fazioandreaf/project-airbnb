@@ -151,13 +151,13 @@
                                         </a>
                                         <div onclick="addlayer({{$item -> longitude}},{{$item -> latitude}},{{$item->id}})"> addlayer</div>
                                         <div onclick="calculateDistance()">
-                                            Misurare la distanza fra i punti
+                                            distanza fra i punti
                                         </div>
-                                        <div onclick="getLatLng('ciao')">
+                                        <div onclick="getLatLng('{{$item -> address}}')">
                                             prova latlng
                                         </div>
                                         <a href="#" onclick="makemarker({{$item -> longitude}},{{$item -> latitude}}),goto({{$item -> longitude}},{{$item -> latitude}})">
-                                            {{$item->address}}
+                                            {{$item -> address}}
                                         </a>
                                         <span>Area : <span style:"font-weight:bolder">{{$item->area}}  m^2</span></span>
                                         <span>Numberi di posti letto: {{$item->number_beds}}</span>
@@ -300,13 +300,14 @@
             return console.log(totalDistance);
         };
 
-        function getLatLng(prova){
+        function getLatLng(prova) {
             console.log(prova);
             let position='';
             // let lon=0;
-            let query= 'via fratelli bandiera 13 gravina di catania catania';
-            axios.get('https://api.tomtom.com/search/2/geocode/'+ query+ '.JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
+            ;
+            axios.get('https://api.tomtom.com/search/2/geocode/'+ prova+ '.JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
             .then( res=> {
+                // console.log(res.data);
                 position=res.data.results[0].position;
                 console.log(position);
             })
