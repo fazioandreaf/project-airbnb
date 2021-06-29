@@ -149,7 +149,7 @@
                                                 {{$item->title}}
                                             </h2>
                                         </a>
-                                        <div onclick="addlayer({{$item -> longitude}},{{$item -> latitude}})"> addlayer</div>
+                                        <div onclick="addlayer({{$item -> longitude}},{{$item -> latitude}},{{$item->id}})"> addlayer</div>
                                         <a href="#" onclick="makemarker({{$item -> longitude}},{{$item -> latitude}}),goto({{$item -> longitude}},{{$item -> latitude}})">
                                             {{$item->address}}
                                         </a>
@@ -232,11 +232,11 @@
             var point=[LNG,LAT];
             map.easeTo({center:point,zoom:15})
         };
-        function addlayer(LNG, LAT){
+        function addlayer(LNG, LAT,i){
             console.log('ciao');
             map.on('click', function() {
             map.addLayer({
-                'id': 'overlay',
+                'id': 'overlay'+i,
                 'type': 'fill',
                 'source': {
                     'type': 'geojson',
