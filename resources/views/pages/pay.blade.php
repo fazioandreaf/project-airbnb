@@ -170,18 +170,7 @@
         var submit = document.querySelector('input[type="submit"]');
 
         window.addEventListener("beforeunload", function(event) {
-            window.alert('sicuro di voler lasciare la pagina?');
-        });
-
-        // var send = document.getElementById('strunz').addEventListener('click',function(){
-        //     event.returnValue = "";
-        //     delete event['returnValue'];
-        // });
-
-        var send = document.getElementById('strunz');
-        send.addEventListener('click',function(event) {
-            window.beforeunload = null;
-            return true;
+            event.returnValue = "";
         });
 
         braintree.client.create({
