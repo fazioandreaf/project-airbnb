@@ -537,7 +537,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
 }
 
 #header-search {
-  height: 170px;
+  height: 220px;
   margin: 0 auto;
   width: 90%;
 }
@@ -590,6 +590,10 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   border-radius: 50px;
 }
 
+#header-search .top-header-search .filter #lente:hover {
+  background-color: #e6007e;
+}
+
 #header-search .top-header-search .has-dropdown {
   position: relative;
 }
@@ -621,6 +625,11 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   width: 200px;
   padding: 10px;
   border-radius: 10px;
+  background-color: #FFF;
+}
+
+#header-search .top-header-search .has-dropdown .dropdown a:hover {
+  opacity: 0.3;
 }
 
 #header-search .top-header-search .has-dropdown .open {

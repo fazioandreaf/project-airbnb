@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // },
         el: "#search",
         data: {
+            dropdownActive: false,
             where: "",
             number_rooms: 1,
             number_beds: 1,
@@ -31,6 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
             log: function() {
                 console.log("mundo");
             },
+
+            openDropdown: function() {
+
+                this.dropdownActive = !this.dropdownActive;
+                console.log("LALLERO");
+            },
+
             filter: function() {
                 this.activeservice = [];
                 axios

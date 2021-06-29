@@ -2111,6 +2111,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // },
     el: "#search",
     data: {
+      dropdownActive: false,
       where: "",
       number_rooms: 1,
       number_beds: 1,
@@ -2134,6 +2135,10 @@ document.addEventListener("DOMContentLoaded", function () {
     methods: {
       log: function log() {
         console.log("mundo");
+      },
+      openDropdown: function openDropdown() {
+        this.dropdownActive = !this.dropdownActive;
+        console.log("LALLERO");
       },
       filter: function filter() {
         var _this2 = this;
