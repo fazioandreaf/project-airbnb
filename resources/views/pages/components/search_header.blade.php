@@ -25,7 +25,7 @@
           <input type="number" v-model="number_beds" name="number_beds" placeholder="1">
         </div>
 
-        <div>
+        <div id="lente">
           <a href="#" @click="filter()">
             <i class="fas fa-search"></i>
           </a>
@@ -33,40 +33,60 @@
 
       </div> {{-- FINE DI FILTERS --}}
 
-      <div>
-        @guest
+      <div class="has-dropdown" v-on:click.stop="openDropdown">
 
-        @if (Route::has('register'))
-          <a href="{{ route('register') }}">
-            {{ __('Diventa un Host') }}
-          </a>
-        @endif
-
-        <a href="{{ route('login') }}">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-user"></i>
-        </a>
-        @endguest
-        @auth
-          <a href="#">
-            {{ Auth::user()->name }}
-          </a>
-          <a href="{{ route('logout')}}" onclick="
-          event.preventDefault();
-          document.getElementById('form_logout').submit();"
-          >
-          {{ __('Logout') }}
-        </a>
-        <form id="form_logout" method="POST" action="{{ route('logout') }}">
-          @csrf
-        </form>
-        <div>
-          <a href="{{route('dashboard',Auth::id())}}">
-            Dashboard
-          </a>
+        <div class="hamburger">
+          <i class="fas fa-bars icon"></i>
+          <i class="fas fa-user icon"></i>
         </div>
-      @endauth
-    </div>
+
+        <!-- Dropdown -->
+        <ul class="dropdown" v-on:click.stop v-bind:class="(dropdownActive) ? 'open' : ''">
+          <li>
+            {{-- Guest View --}}
+          @guest
+              @if (Route::has('register'))
+                <a href="{{ route('register') }}">
+                    {{ __('Diventa un Host') }}
+                </a>
+              @endif
+          </li>
+
+          <li>
+            <a href="{{ route('login') }}">
+              {{ __('Login') }}
+            </a>
+          @endguest
+          </li>
+
+          <li>
+          {{-- Logged view --}}
+            @auth
+            Ciao, <strong>{{ Auth::user()->firstname }}</strong>!
+          </li>
+
+          <li>
+            <a href="{{ route('dashboard',Auth::id()) }}">
+              {{ __('Dashboard') }}
+            </a>
+          </li>
+
+          <li>
+            <a href="{{ route('logout')}}" onclick="
+              event.preventDefault();
+              document.getElementById('form_logout').submit();"
+              >
+              {{ __('Logout') }}
+            </a>
+
+            <form id="form_logout" method="POST" action="{{ route('logout') }}">
+              @csrf
+            </form>
+              @endauth
+          </li>
+
+        </ul> <!-- end dropdown -->
+      </div>
 
   </div> {{-- FINE DI top-header-search --}}
 

@@ -27,16 +27,55 @@
 
       div {
         margin-right:30px;
-        }
-
-        input {
-          height: 35px;
-          border: 1px solid rgba(50, 50, 50, .3);
-          border-radius: 10px;
-        }
-
-
       }
+
+      input {
+        height: 35px;
+        border: 1px solid rgba(50, 50, 50, .3);
+        border-radius: 10px;
+      }
+
+      #lente {
+        @include flex(row, center, center);
+        width: 50px;
+        height: 50px;
+        color: $white;
+        background-color: $search-fuchsia;
+        border-radius: 50px;
+      }
+
+    } // fine filtri
+
+    .has-dropdown {
+      position: relative;
+
+      .hamburger {
+        @include hamburger($white);
+        color: $black;
+        border: 1px solid rgba(50, 50, 50, .3);
+
+        & > .icon {
+          margin: 0 5px;
+        }
+
+      } // FINE HAMBURGER
+
+      .dropdown {
+        display: none;
+        position: absolute;
+        top: calc(100% + 2px);
+        left: calc(-50% - 20px);
+        color: $black;
+        box-shadow: 0 0 3px $user-gray;
+        width: 200px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .open {
+        display: block;
+      }
+    }
 
   }
 
@@ -61,5 +100,5 @@
     } // FINE UL
 
   } // fine di lower-header search
-  
+
 }// fine di top-header search
