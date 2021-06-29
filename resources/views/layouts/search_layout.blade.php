@@ -298,12 +298,18 @@
                 totalDistance.miles = Math.round((totalDistance.miles + miles) * 100) / 100;
             // }
             return console.log(totalDistance);
-        }
+        };
 
         function getLatLng(){
+
+            let position='';
+            // let lon=0;
             let query= 'via fratelli bandiera 13 gravina di catania catania'
             axios.get('https://api.tomtom.com/search/2/geocode/'+ query+ '.JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
-            .then(res=> console.log(res.data))
+            .then( res=> {
+                position=res.data.results[0].position;
+                console.log(position);
+            })
             .catch(err=> console.log(err))
         };
 
