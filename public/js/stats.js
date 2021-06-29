@@ -14533,9 +14533,25 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log(months);
         } else {
           filtered.forEach(function (year) {
+            // Create a label for every year inside the array
             if (!yearsLabels.includes(year)) yearsLabels.push(year);
           });
-          console.log(yearsLabels);
+
+          var _loop = function _loop(i) {
+            var search = yearsLabels[i];
+            var count = filtered.reduce(function (n, year) {
+              // n + (true) == n + 1
+              // n + (false) = n + 0
+              return n + (year === search);
+            }, 0);
+            yearsCount.push(count);
+          };
+
+          for (var i = 0; i <= yearsLabels.length - 1; i++) {
+            _loop(i);
+          }
+
+          console.log(yearsLabels, yearsCount);
         }
       },
       createGraph: function createGraph(type, filter) {

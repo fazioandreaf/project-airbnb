@@ -103,6 +103,6 @@ class ApiController extends Controller
         $messages = Message::where('apartment_id', '=', $id)
                     ->get();
 
-        return response() -> json($messages,200);
+        return response() -> json($messages, 200);
     }
 }

@@ -100,11 +100,25 @@ document.addEventListener("DOMContentLoaded", () => {
                     console.log(months);
                 } else {
                     filtered.forEach(year => {
+                        // Create a label for every year inside the array
                         if(!yearsLabels.includes(year))
                             yearsLabels.push(year);
                     })
+                    
+                   for(let i=0; i<=yearsLabels.length-1; i++) {
 
-                    console.log(yearsLabels);
+                        let search = yearsLabels[i];
+                        
+                        let count = filtered.reduce((n,year) => {
+                            // n + (true) == n + 1
+                            // n + (false) = n + 0
+                            return n + (year === search)
+                        }, 0);
+
+                        yearsCount.push(count);
+                   } 
+
+                    console.log(yearsLabels, yearsCount);
                 }
             },
 
