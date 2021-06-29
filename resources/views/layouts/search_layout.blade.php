@@ -159,8 +159,8 @@
                                             {{$item -> address}}
                                         </a>
                                         <span>Area : <span style:"font-weight:bolder">{{$item->area}}  m^2</span></span>
-                                        <span>Numberi di posti letto: {{$item->number_beds}}</span>
-                                        <span>Numbero di stanze: {{$item->number_rooms}}</span>
+                                        <span>Numeri di posti letto: {{$item->number_beds}}</span>
+                                        <span>Numero di stanze: {{$item->number_rooms}}</span>
                             </div>
                         </div>
                         @endforeach
@@ -188,16 +188,14 @@
                                         <div @click="calculateDistance()">
                                             distanza fra i punti
                                         </div>
-                                        {{-- <div onclick="getLatLng('@{{$item -> address}}')">
-                                            prova latlng
+                                        <div style="background-color:lightblue" @click="prova(elem)">
+                                            funzione prova
                                         </div>
-                                        <a href="#" onclick="makemarker({{$item -> longitude}},{{$item -> latitude}}),goto({{$item -> longitude}},{{$item -> latitude}})">
-                                            {{$item -> address}}
-                                        </a> --}}
+
 
                                         <span>Area : <span style:"font-weight:bolder">@{{elem.area}}  m^2</span></span>
-                                        <span>Numberi di posti letto: @{{elem.number_beds}}</span>
-                                        <span>Numbero di stanze: @{{elem.number_rooms}}</span>
+                                        <span>Numeri di posti letto: @{{elem.number_beds}}</span>
+                                        <span>Numero di stanze: @{{elem.number_rooms}}</span>
                             {{-- <strong else v-for="i in currentapartment">
                                 <a href="{{route('apartment', $item->id)}}">@{{ i.title }}</a><br>
                             </strong> --}}
