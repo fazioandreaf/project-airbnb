@@ -153,6 +153,9 @@
                                         <div onclick="calculateDistance()">
                                             Misurare la distanza fra i punti
                                         </div>
+                                        <div onclick="getLatLng()">
+                                            prova latlng
+                                        </div>
                                         <a href="#" onclick="makemarker({{$item -> longitude}},{{$item -> latitude}}),goto({{$item -> longitude}},{{$item -> latitude}})">
                                             {{$item->address}}
                                         </a>
@@ -296,6 +299,13 @@
             // }
             return console.log(totalDistance);
         }
+
+        function getLatLng(){
+            let query= 'via fratelli bandiera 13 gravina di catania catania'
+            axios.get('https://api.tomtom.com/search/2/geocode/'+ query+ '.JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
+            .then(res=> console.log(res.data))
+            .catch(err=> console.log(err))
+        };
 
 
 
