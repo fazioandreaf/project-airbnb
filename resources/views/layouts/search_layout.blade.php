@@ -314,7 +314,7 @@
         function getLatLng(address) {
             console.log(address);
             // let lon=0;
-            ;
+            
             axios.get('https://api.tomtom.com/search/2/geocode/'+ address+ '.JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
             .then( res=> {
                 if(res.data.results.length>0){
