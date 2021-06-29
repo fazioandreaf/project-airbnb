@@ -310,8 +310,10 @@
                 // console.log(res.data);
                 position=res.data.results[0].position;
                 console.log(position);
+                goto(position.lon,position.lat);
+                makemarker(position.lon,position.lat);
             })
-            .catch(err=> console.log(err))
+            .catch(err=> console.log(err));
         };
 
 
