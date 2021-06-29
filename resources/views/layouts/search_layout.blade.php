@@ -149,7 +149,7 @@
                                                 {{$item->title}}
                                             </h2>
                                         </a>
-                                        <div onclick="addlayer()"> addlayer</div>
+                                        <div onclick="addlayer({{$item -> longitude}},{{$item -> latitude}})"> addlayer</div>
                                         <a href="#" onclick="makemarker({{$item -> longitude}},{{$item -> latitude}}),goto({{$item -> longitude}},{{$item -> latitude}})">
                                             {{$item->address}}
                                         </a>
@@ -232,12 +232,12 @@
             var point=[LNG,LAT];
             map.easeTo({center:point,zoom:15})
         };
-        function addlayer(){
+        function addlayer(LNG, LAT){
             console.log('ciao');
-            map.on('load', function() {
+            map.on('click', function() {
             map.addLayer({
                 'id': 'overlay',
-                'type': 'circle',
+                'type': 'fill',
                 'source': {
                     'type': 'geojson',
                     'data': {
@@ -245,14 +245,14 @@
                         'geometry': {
                             'type': 'Polygon',
                             'coordinates': [[
-                                // [LNG -1,LNT +1],
-                                // [LNG +1,LNT +1],
-                                // [LNG +1,LNT -1],
-                                // [LNG -1,LNT -1]
-                                [15.067560533884222, 38.642288177883556],
-                      [16.267560533884222, 38.642288177883556],
-                      [16.267560533884222, 36.442288177883556],
-                      [15.067560533884222, 36.442288177883556],
+                                [LNG -1,LAT +1],
+                                [LNG +1,LAT +1],
+                                [LNG +1,LAT -1],
+                                [LNG -1,LAT -1]
+                    //             [15.067560533884222, 38.642288177883556],
+                    //   [16.267560533884222, 38.642288177883556],
+                    //   [16.267560533884222, 36.442288177883556],
+                    //   [15.067560533884222, 36.442288177883556],
 
                             ]]
                         }
@@ -260,13 +260,13 @@
                 },
                 'layout': {},
                 'paint': {
-                    'circle-radius': 6,
-                    'circle-color': '#3a3a3a',
-                    'circle-stroke-width': 2,
-                    'circle-stroke-color': '#FFF'
-                    // 'fill-color': '#db356c',
-                    // 'fill-opacity': 0.5,
-                    // 'fill-outline-color': 'black'
+                    // 'circle-radius': 6,
+                    // 'circle-color': '#3a3a3a',
+                    // 'circle-stroke-width': 2,
+                    // 'circle-stroke-color': '#FFF'
+                    'fill-color': '#db356c',
+                    'fill-opacity': 0.5,
+                    'fill-outline-color': 'black'
                 }
             });
         });
