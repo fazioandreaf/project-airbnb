@@ -44,7 +44,6 @@ class PayController extends Controller
                     'expire_date' => $expire
                 ]
             );
-        // return redirect()->route('homepage');
     }
 
     // form braintree
@@ -73,9 +72,6 @@ class PayController extends Controller
     public function pay(Request $request,$userId,$sponsorId,$apartmentId)
     {
         $user = User::find($userId);
-
-        // dd($userId,$sponsorId,$apartmentId);
-
         $sponsor = Sponsor::findOrFail($sponsorId);
         $sponsorPrice = $sponsor->price / 100;
         $amount = $sponsorPrice;
@@ -98,15 +94,15 @@ class PayController extends Controller
             ],
             'options' => [
                 'submitForSettlement' => true
-                ]
-            ]);
+            ]
+        ]);
             
-            if ($result->success) {
-                $transaction = $result->transaction;
-                $this->sponsor_function($apartmentId,$sponsorId);
-                $idTransaction = $transaction->id;
-                return view('pages.success',compact('idTransaction'));
-            } else {
+        if ($result->success) {
+            $transaction = $result->transaction;
+            $this->sponsor_function($apartmentId,$sponsorId);
+            $idTransaction = $transaction->id;
+            return view('pages.success',compact('idTransaction'));
+        } else {
             $errorString = "";
             foreach ($result->errors->deepAll() as $error) {
                 $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
