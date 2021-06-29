@@ -94,15 +94,15 @@ class PayController extends Controller
             ],
             'options' => [
                 'submitForSettlement' => true
-                ]
-            ]);
+            ]
+        ]);
             
-            if ($result->success) {
-                $transaction = $result->transaction;
-                $this->sponsor_function($apartmentId,$sponsorId);
-                $idTransaction = $transaction->id;
-                return view('pages.success',compact('idTransaction'));
-            } else {
+        if ($result->success) {
+            $transaction = $result->transaction;
+            $this->sponsor_function($apartmentId,$sponsorId);
+            $idTransaction = $transaction->id;
+            return view('pages.success',compact('idTransaction'));
+        } else {
             $errorString = "";
             foreach ($result->errors->deepAll() as $error) {
                 $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
