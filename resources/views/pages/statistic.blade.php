@@ -4,22 +4,15 @@
     <div id="stats">
         <ul>
             <li>
-                <button v-on:click="createGraph('views','month')">Visualizzazioni per mesi</button>
+                <button v-on:click="createGraph('views')">Visualizzazioni per mesi</button>
             </li>
             <li>
-                <button v-on:click="createGraph('views','year')">Visualizzazioni per anni</button>
+                <button v-on:click="createGraph('messages')">Messaggi per mesi</button>
             </li>
-            <li>
-                <button v-on:click="createGraph('messages','month')">Messaggi per mesi</button>
-            </li>
-            <li>
-                <button v-on:click="createGraph('messages','year')">Messaggi per anni</button>
-            </li>
-        </ul>
-        <canvas id="viewsChart"></canvas>
 
-        <canvas id="messagesChart"></canvas>
-    </div> 
+        </ul>
+        <canvas id="statsChart"></canvas>
+   </div> 
     
 
     

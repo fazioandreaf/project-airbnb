@@ -8,6 +8,7 @@ use App\Message;
 use App\Statistic;
 use App\Service;
 use DB;
+use Carbon\Carbon;
 
 class ApiController extends Controller
 {
@@ -95,7 +96,19 @@ class ApiController extends Controller
         $views = Statistic::where('apartment_id', '=', $id)
                     ->get();
 
-        return response() -> json($views, 200);
+        $stats = [];
+
+        foreach ($views as $view) {
+                
+            $dateString = date('Y-m', strtotime($view->view_date));
+            $dateArray = explode("-", $dateString);
+            [$year,$month] = $dateArray;
+
+            $stats[$year][$month] []= $view;
+
+        };
+
+        return response() -> json($stats, 200);
     }
 
     public function getMessages($id) {

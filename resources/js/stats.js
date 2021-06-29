@@ -1,4 +1,7 @@
 const axios = require("axios");
+import { Chart, registerables } from 'chart.js';
+import { indexOf } from 'lodash';
+Chart.register(...registerables);
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -29,7 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 axios
                     .get("/api/views/" + this.apartmentId)
                     .then(data => {
+                        
                         this.views = data.data;
+                        console.log(this.views);
                     })
                     .catch(error => console.log(error));
             },
@@ -50,13 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 switch(type) {
                     case "views":
                         data.forEach(view => {
-                            splittedDate = view.view_date.split("-");
+                            splittedDate = view.view_date.split("-").slice(0,2);
                             unfiltered.push(splittedDate);
                         });
                     break;
                     case "messages":
                         data.forEach(message => {
-                            splittedDate = message.created_at.split("-");
+                            splittedDate = message.created_at.split("-").slice(0,2);
                             unfiltered.push(splittedDate);
                         });
                     break;
@@ -65,28 +70,31 @@ document.addEventListener("DOMContentLoaded", () => {
                 return unfiltered;
             },
 
-            filterDates: function(unfiltered, filter) {
+            filterDatesByYear: function(unfiltered) {
 
                 let filtered = [];
+                let years = [];
+                let test = [];
+                console.log(unfiltered);
+                            
+                // switch(filter) {
+                //     case 'month':
+                //         unfiltered.forEach(date => {
 
-                switch(filter) {
-                    case 'month':
-                        unfiltered.forEach(date => {
+                //             let month = date[1];
+                //             filtered.push(month);
+                //         });
+                //     break;
+                //     case 'year':
+                //         unfiltered.forEach(date => {
 
-                            let month = date[1];
-                            filtered.push(month);
-                        });
-                    break;
-                    case 'year':
-                        unfiltered.forEach(date => {
+                //             let year = date[0];
+                //             filtered.push(year);
+                //         });
+                //     break;
+                // }
 
-                            let year = date[0];
-                            filtered.push(year);
-                        });
-                    break;
-                }
-
-                return filtered
+                return unfiltered
             },
             
             generateData: function(filtered, filter) {
@@ -97,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if(filter == "month") {
                     filtered.forEach(month => months[month-1]++);
-                    console.log(months);
+                    return months
                 } else {
                     filtered.forEach(year => {
                         // Create a label for every year inside the array
@@ -109,58 +117,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         let search = yearsLabels[i];
                         
-                        let count = filtered.reduce((n,year) => {
+                        let count = filtered.reduce((total,year) => {
                             // n + (true) == n + 1
                             // n + (false) = n + 0
-                            return n + (year === search)
+                            return total + (year === search)
                         }, 0);
 
                         yearsCount.push(count);
+                        
                    } 
-
-                    console.log(yearsLabels, yearsCount);
+                   return [yearsLabels, yearsCount]
                 }
             },
 
-            createGraph: function(type, filter) {
+            createGraph: function(type) {
 
                 let data;
                 let unfiltered;
                 let filtered;
+                let result;
+                let yearsLabels;
+                let years;
+                const monthsLabels = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'];
                 (type == 'views') ? data = this.views : data = this.messages;
-                unfiltered = this.dateSplit(data, type, filter);
-                filtered = this.filterDates(unfiltered, filter);
-                filtered.sort();
-                this.generateData(filtered, filter);
 
-                // let months = [0,0,0,0,0,0,0,0,0,0,0,0];
-                // filtered.forEach(item => months[item-1]++);
-                // console.log(months);
-            },
+                unfiltered = this.dateSplit(data,type);
 
-            filterByMonth: function(views) {
-                views.forEach(view => {
-                    console.log(view.view_date);
-                    let splittedDate = view.view_date.split("-");
-                    let month = splittedDate[1];
-                    this.monthViews[month-1]++;
-                });
-
-                this.createStats(this.monthViews);
-            },
-
-            createStats: function(monthViews) {
-
-                const monthsLabel = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'];
-
-                const ctx = document.getElementById('viewsChart');
+                filtered = this.filterDatesByYear(unfiltered);
+                // Chart.js graph
+                const ctx = document.getElementById('statsChart').getContext('2d');
                 let myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
-                        labels: (monthViews) ? monthsLabel : '',
+                        labels: monthsLabels,
                         datasets: [{
-                            label: '# di Visualizzazioni',
-                            data: monthViews,
+                            label: (type == 'views') ? '# di Visualizzazioni' : '# di Messaggi',
+                            data: unfiltered,
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
                             ],
@@ -178,6 +170,42 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                     }
                 });
+
+
+
+
+
+                // unfiltered = this.dateSplit(data, type);
+                // filtered = this.filterDates(unfiltered);
+                // filtered.sort();
+                // result = this.generateData(filtered);
+
+                // Chart.js graph
+                // const ctx = document.getElementById('statsChart').getContext('2d');
+                // let myChart = new Chart(ctx, {
+                //     type: 'bar',
+                //     data: {
+                //         labels: (filter == "month") ? monthsLabels : yearsLabels,
+                //         datasets: [{
+                //             label: (type == 'views') ? '# di Visualizzazioni' : '# di Messaggi',
+                //             data: (filter == "month") ? result : years,
+                //             backgroundColor: [
+                //                 'rgba(255, 99, 132, 0.2)',
+                //             ],
+                //             borderColor: [
+                //                 'rgba(255, 99, 132, 1)',
+                //             ],
+                //             borderWidth: 1
+                //         }]
+                //     },
+                //     options: {
+                //         scales: {
+                //             y: {
+                //                 beginAtZero: true
+                //             }
+                //         }
+                //     }
+                // });
             }
         },
 
