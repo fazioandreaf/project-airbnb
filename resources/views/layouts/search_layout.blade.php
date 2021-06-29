@@ -149,14 +149,13 @@
                                                 {{$item->title}}
                                             </h2>
                                         </a>
-                                        <div onclick="addlayer({{$item -> longitude}},{{$item -> latitude}},{{$item->id}})"> addlayer</div>
-                                        <div onclick="calculateDistance()">
+                                        <div onclick="addlayer({{$item->id}})"> addlayer</div>
+                                        <div
+                                        {{-- onclick="calculateDistance()" --}}
+                                        >
                                             distanza fra i punti
                                         </div>
-                                        <div onclick="getLatLng('{{$item -> address}}')">
-                                            prova latlng
-                                        </div>
-                                        <a href="#" onclick="makemarker({{$item -> longitude}},{{$item -> latitude}}),goto({{$item -> longitude}},{{$item -> latitude}})">
+                                        <a href="#" onclick="getLatLng('{{$item -> address}}')">
                                             {{$item -> address}}
                                         </a>
                                         <span>Area : <span style:"font-weight:bolder">{{$item->area}}  m^2</span></span>
@@ -182,9 +181,20 @@
                                                 @{{ elem.title }}
                                             </h2>
                                         </a>
-                                        <a href="#" onclick="makemarker(@{{elem.longitude}},@{{elem.latitude}})">
+                                        <a href="#" @click="getLatLng(elem.address)">
                                             @{{elem.address}}
                                         </a>
+                                        <div @click="addlayer(elem.id)"> addlayer</div>
+                                        <div @click="calculateDistance(1,1)">
+                                            distanza fra i punti
+                                        </div>
+                                        {{-- <div onclick="getLatLng('@{{$item -> address}}')">
+                                            prova latlng
+                                        </div>
+                                        <a href="#" onclick="makemarker({{$item -> longitude}},{{$item -> latitude}}),goto({{$item -> longitude}},{{$item -> latitude}})">
+                                            {{$item -> address}}
+                                        </a> --}}
+
                                         <span>Area : <span style:"font-weight:bolder">@{{elem.area}}  m^2</span></span>
                                         <span>Numberi di posti letto: @{{elem.number_beds}}</span>
                                         <span>Numbero di stanze: @{{elem.number_rooms}}</span>
@@ -238,7 +248,10 @@
             var point=[LNG,LAT];
             map.easeTo({center:point,zoom:15})
         };
-        function addlayer(LNG, LAT,i){
+        function addlayer(i){
+            if(pos.length<1){
+                return alert('Non hai cliccato su nessun appartmanto')
+            }
             console.log('ciao');
             map.on('click', function() {
             map.addLayer({
@@ -251,10 +264,10 @@
                         'geometry': {
                             'type': 'Polygon',
                             'coordinates': [[
-                                [LNG -1,LAT +1],
-                                [LNG +1,LAT +1],
-                                [LNG +1,LAT -1],
-                                [LNG -1,LAT -1]
+                                [pos[pos.length-1].lon -0.1,pos[pos.length-1].lat +0.1],
+                                [pos[pos.length-1].lon +0.1,pos[pos.length-1].lat +0.1],
+                                [pos[pos.length-1].lon +0.1,pos[pos.length-1].lat -0.1],
+                                [pos[pos.length-1].lon -0.1,pos[pos.length-1].lat -0.1]
                     //             [15.067560533884222, 38.642288177883556],
                     //   [16.267560533884222, 38.642288177883556],
                     //   [16.267560533884222, 36.442288177883556],
@@ -278,11 +291,10 @@
             });
             console.log('ciao');
         };
-
         function calculateDistance(pos1,pos2) {
-            // if (points.length < 2) {
-            //     return undefined;
-            // }
+            if(pos.length<1){
+                return alert('Non hai cliccato su nessun appartmanto')
+            }
             var totalDistance = {
                 kilometers: 0,
                 miles: 0
@@ -305,7 +317,7 @@
             console.log(address);
             // let lon=0;
             ;
-            axios.get('https://api.tomtom.com/search/2/geocode/'+ prova+ '.JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
+            axios.get('https://api.tomtom.com/search/2/geocode/'+ address+ '.JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
             .then( res=> {
                 // console.log(res.data);
                 if(pos.length>1){

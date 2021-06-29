@@ -2197,6 +2197,85 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       redirect: function redirect(id) {
         window.location.href = "apartments" + id;
+      },
+      getLatLng: function getLatLng(address) {
+        console.log(address); // let lon=0;
+
+        ;
+        axios.get('https://api.tomtom.com/search/2/geocode/' + address + '.JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC').then(function (res) {
+          // console.log(res.data);
+          if (pos.length > 1) {
+            var tmp = pos[1];
+            pos = [tmp];
+          }
+
+          pos.push(res.data.results[0].position);
+          console.log(pos);
+          goto(pos[pos.length - 1].lon, pos[pos.length - 1].lat);
+          makemarker(pos[pos.length - 1].lon, pos[pos.length - 1].lat);
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      },
+      addlayer: function addlayer(i) {
+        if (pos.length < 1) {
+          return alert('Non hai cliccato su nessun appartmanto');
+        }
+
+        console.log('ciao');
+        map.on('click', function () {
+          map.addLayer({
+            'id': 'overlay' + i,
+            'type': 'fill',
+            'source': {
+              'type': 'geojson',
+              'data': {
+                'type': 'Feature',
+                'geometry': {
+                  'type': 'Polygon',
+                  'coordinates': [[[pos[pos.length - 1].lon - 0.1, pos[pos.length - 1].lat + 0.1], [pos[pos.length - 1].lon + 0.1, pos[pos.length - 1].lat + 0.1], [pos[pos.length - 1].lon + 0.1, pos[pos.length - 1].lat - 0.1], [pos[pos.length - 1].lon - 0.1, pos[pos.length - 1].lat - 0.1] //             [15.067560533884222, 38.642288177883556],
+                  //   [16.267560533884222, 38.642288177883556],
+                  //   [16.267560533884222, 36.442288177883556],
+                  //   [15.067560533884222, 36.442288177883556],
+                  ]]
+                }
+              }
+            },
+            'layout': {},
+            'paint': {
+              // 'circle-radius': 6,
+              // 'circle-color': '#3a3a3a',
+              // 'circle-stroke-width': 2,
+              // 'circle-stroke-color': '#FFF'
+              'fill-color': '#db356c',
+              'fill-opacity': 0.5,
+              'fill-outline-color': 'black'
+            }
+          });
+        });
+        console.log('ciao');
+      },
+      calculateDistance: function calculateDistance(pos1, pos2) {
+        // if (points.length < 2) {
+        //     return undefined;
+        // }
+        var totalDistance = {
+          kilometers: 0,
+          miles: 0
+        }; // for (var i = 1; i < points.length; ++i) {
+        // var fromPoint = points[i - 1];
+        // var toPoint = points[i];
+
+        var fromPoint = [pos[0].lon, pos[0].lat];
+        var toPoint = [pos[1].lon, pos[1].lat];
+        var kilometers = turf.distance(fromPoint, toPoint);
+        var miles = turf.distance(fromPoint, toPoint, {
+          units: 'miles'
+        });
+        totalDistance.kilometers = Math.round((totalDistance.kilometers + kilometers) * 100) / 100;
+        totalDistance.miles = Math.round((totalDistance.miles + miles) * 100) / 100; // }
+
+        return console.log(totalDistance);
       }
     }
   });
