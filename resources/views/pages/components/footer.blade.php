@@ -7,7 +7,7 @@
       </li>
       <li>
         <a href="#">
-          Come funziona Airbnb
+          Come funziona BoolB&B
         </a>
       </li>
       <li>
@@ -22,12 +22,12 @@
       </li>
       <li>
         <a href="#">
-          Airbnb Plus
+          BoolB&B Plus
         </a>
       </li>
       <li>
         <a href="#">
-          Airbnb Luxe
+          BoolB&B Luxe
         </a>
       </li>
       <li>
@@ -37,7 +37,7 @@
       </li>
       <li>
         <a href="#">
-          Airbnb for Work
+          BoolB&B for Work
         </a>
       </li>
       <li>
@@ -72,7 +72,7 @@
         </a>
       </li>      <li>
         <a href="#">
-          Airbnb Associates
+          BoolB&B Associates
         </a>
       </li>      <li>
         <a href="#">
@@ -84,7 +84,7 @@
         </a>
       </li>      <li>
         <a href="#">
-          Boolb&b.org
+          BoolB&B.org
         </a>
       </li>
     </ul>
