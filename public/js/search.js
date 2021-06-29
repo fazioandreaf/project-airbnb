@@ -2281,7 +2281,9 @@ document.addEventListener("DOMContentLoaded", function () {
         return console.log(totalDistance);
       },
       prova: function prova(elem) {
-        console.log("funzione prova");
+        console.log(elem);
+        var posizione_elem = pos[pos.length - 1];
+        console.log(posizione_elem);
       }
     }
   });
