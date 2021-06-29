@@ -193,12 +193,33 @@ document.addEventListener("DOMContentLoaded", () => {
                 totalDistance.miles =
                     Math.round((totalDistance.miles + miles) * 100) / 100;
                 // }
-                return console.log(totalDistance);
+                return totalDistance;
             },
             prova: function(elem) {
                 console.log(elem);
                 let posizione_elem = pos[pos.length - 1];
-                console.log(posizione_elem);
+                console.log("posizione_elem", posizione_elem);
+
+                console.log("currentapartment", this.currentapartment);
+                let distanza = [];
+                for (let i = 0; i < this.currentapartment.length; i++) {
+                    axios
+                        .get(
+                            "https://api.tomtom.com/search/2/geocode/" +
+                                this.currentapartment[i].address +
+                                ".JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC"
+                        )
+                        .then(res => {
+                            // console.log(res.data);
+                            pos[1] = res.data.results[0].position;
+                            console.log("pos di 1", pos[1]);
+                        })
+                        .catch(err => console.log(err));
+
+                    // console.log(pos);
+                    // distance = calculateDistance();
+                    // console.log(distance);
+                }
             }
         }
     });

@@ -262,10 +262,10 @@
                         'geometry': {
                             'type': 'Polygon',
                             'coordinates': [[
-                                [pos[pos.length-1].lon -0.1,pos[pos.length-1].lat +0.1],
-                                [pos[pos.length-1].lon +0.1,pos[pos.length-1].lat +0.1],
-                                [pos[pos.length-1].lon +0.1,pos[pos.length-1].lat -0.1],
-                                [pos[pos.length-1].lon -0.1,pos[pos.length-1].lat -0.1]
+                                [pos[pos.length-1].lon -0.001,pos[pos.length-1].lat +0.001],
+                                [pos[pos.length-1].lon +0.001,pos[pos.length-1].lat +0.001],
+                                [pos[pos.length-1].lon +0.001,pos[pos.length-1].lat -0.001],
+                                [pos[pos.length-1].lon -0.001,pos[pos.length-1].lat -0.001]
                     //             [15.067560533884222, 38.642288177883556],
                     //   [16.267560533884222, 38.642288177883556],
                     //   [16.267560533884222, 36.442288177883556],
@@ -317,15 +317,18 @@
             ;
             axios.get('https://api.tomtom.com/search/2/geocode/'+ address+ '.JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
             .then( res=> {
-                // console.log(res.data);
-                if(pos.length>1){
-                    let tmp=pos[1];
-                    pos=[tmp];
+                if(res.data.results.length>0){
+
+                    if(pos.length>1){
+                        let tmp=pos[1];
+                        pos=[tmp];
+                    }
+                    pos.push(res.data.results[0].position);
+                    console.log(pos);
+                    goto(pos[pos.length-1].lon,pos[pos.length-1].lat);
+                    makemarker(pos[pos.length-1].lon,pos[pos.length-1].lat);
                 }
-                pos.push(res.data.results[0].position);
-                console.log(pos);
-                goto(pos[pos.length-1].lon,pos[pos.length-1].lat);
-                makemarker(pos[pos.length-1].lon,pos[pos.length-1].lat);
+                // console.log(res.data.results.length);
             })
             .catch(err=> console.log(err));
         };

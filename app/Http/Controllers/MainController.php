@@ -38,7 +38,7 @@ class MainController extends Controller {
         ]);
         // dd($ip);
         $apartment = Apartment::findOrFail($id);
-        $statistic=Statistic::make($validate);
+        $statistic = Statistic::make($validate);
         $statistic -> apartment() -> associate($id);
         $statistic->save();
         $sponsors=Sponsor::all();
