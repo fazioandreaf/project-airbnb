@@ -88,6 +88,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 return filtered
             },
+            
+            generateData: function(filtered, filter) {
+
+                let months = [0,0,0,0,0,0,0,0,0,0,0,0];
+                let yearsLabels = [];
+                let yearsCount = [];
+
+                if(filter == "month") {
+                    filtered.forEach(month => months[month-1]++);
+                    console.log(months);
+                } else {
+                    filtered.forEach(year => {
+                        if(!yearsLabels.includes(year))
+                            yearsLabels.push(year);
+                    })
+
+                    console.log(yearsLabels);
+                }
+            },
 
             createGraph: function(type, filter) {
 
@@ -97,6 +116,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 (type == 'views') ? data = this.views : data = this.messages;
                 unfiltered = this.dateSplit(data, type, filter);
                 filtered = this.filterDates(unfiltered, filter);
+                filtered.sort();
+                this.generateData(filtered, filter);
+
+                // let months = [0,0,0,0,0,0,0,0,0,0,0,0];
+                // filtered.forEach(item => months[item-1]++);
+                // console.log(months);
             },
 
             filterByMonth: function(views) {

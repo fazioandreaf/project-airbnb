@@ -14521,6 +14521,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
         return filtered;
       },
+      generateData: function generateData(filtered, filter) {
+        var months = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var yearsLabels = [];
+        var yearsCount = [];
+
+        if (filter == "month") {
+          filtered.forEach(function (month) {
+            return months[month - 1]++;
+          });
+          console.log(months);
+        } else {
+          filtered.forEach(function (year) {
+            if (!yearsLabels.includes(year)) yearsLabels.push(year);
+          });
+          console.log(yearsLabels);
+        }
+      },
       createGraph: function createGraph(type, filter) {
         var data;
         var unfiltered;
@@ -14528,6 +14545,10 @@ document.addEventListener("DOMContentLoaded", function () {
         type == 'views' ? data = this.views : data = this.messages;
         unfiltered = this.dateSplit(data, type, filter);
         filtered = this.filterDates(unfiltered, filter);
+        filtered.sort();
+        this.generateData(filtered, filter); // let months = [0,0,0,0,0,0,0,0,0,0,0,0];
+        // filtered.forEach(item => months[item-1]++);
+        // console.log(months);
       },
       filterByMonth: function filterByMonth(views) {
         var _this3 = this;
