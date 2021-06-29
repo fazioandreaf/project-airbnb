@@ -301,8 +301,8 @@
         };
 
         let pos=[];
-        function getLatLng(prova) {
-            console.log(prova);
+        function getLatLng(address) {
+            console.log(address);
             // let lon=0;
             ;
             axios.get('https://api.tomtom.com/search/2/geocode/'+ prova+ '.JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
