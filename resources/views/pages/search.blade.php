@@ -9,7 +9,9 @@
           <div class="row-with-img-text" v-if="currentapartment.length<1">
 
             <div class="sinistra-img">
-              <img src="{{$item->cover_image}}" alt="immagine stanza">
+              <a href="#">
+                <img src="{{$item->cover_image}}" alt="immagine stanza">
+              </a>
             </div>
 
 
@@ -20,12 +22,13 @@
               </a>
 
               <a href="#" onclick="makemarker({{$item -> longitude}},{{$item -> latitude}})">
+                <strong>Address:</strong>
                 {{$item->address}}
               </a>
 
-              <span>Area : <span style:"font-weight:bolder">{{$item->area}}  m^2</span></span>
-              <span>Numberi di posti letto: {{$item->number_beds}}</span>
-              <span>Numbero di stanze: {{$item->number_rooms}}</span>
+              <span><strong>Area : </strong><span style:"font-weight:bolder">{{$item->area}}  m^2</span></span>
+              <span><strong>Numberi di posti letto: </strong>{{$item->number_beds}}</span>
+              <span><strong>Numbero di stanze: </strong>{{$item->number_rooms}}</span>
 
             </div>
 

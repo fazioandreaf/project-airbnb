@@ -100,6 +100,7 @@
     #jumbo-container {
 
       .titolo {
+        margin-top: 20px;
         height:60px;
         @include flex(row, null, center);
         text-transform: uppercase;

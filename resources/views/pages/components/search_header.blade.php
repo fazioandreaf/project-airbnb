@@ -1,6 +1,6 @@
 <header id="header-search">
 
-  <div class="top-header-search">
+  <div class="top-header-search" id="app" >
 
     <div class="logo">
       <a href="{{route('homepage')}}">
@@ -47,7 +47,7 @@
           @guest
               @if (Route::has('register'))
                 <a href="{{ route('register') }}">
-                    {{ __('Diventa un Host') }}
+                  {{ __('Diventa un Host') }}
                 </a>
               @endif
           </li>
@@ -90,12 +90,12 @@
 
   </div> {{-- FINE DI top-header-search --}}
 
-    <div class="lower-header-search">
-      <ul>
-        <li v-for="elem in allservice" @click="upservice(elem.id)">
-          @{{elem.service}}
-        </li>
-      </ul>
-    </div>
+  <div class="lower-header-search">
+    <ul>
+      <li v-for="elem in allservice" @click="upservice(elem.id)">
+        @{{elem.service}}
+      </li>
+    </ul>
+  </div>
 
 </header>

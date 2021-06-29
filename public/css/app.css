@@ -1147,30 +1147,36 @@ section#section-register form .form-button {
 }
 
 .search-page .left-section .row-with-img-text {
-  height: 200px;
+  height: 300px;
   display: flex;
-  border-bottom: 1px solid lightgray;
+  flex-direction: row;
+  border-bottom: 1px solid rgba(50, 50, 50, 0.3);
 }
 
 .search-page .left-section .row-with-img-text .sinistra-img {
   display: flex;
   flex-direction: row;
   align-items: center;
-  flex-basis: 50%;
-  margin: 5px 0px;
+  flex-basis: 40%;
 }
 
-.search-page .left-section .row-with-img-text .sinistra-img img {
+.search-page .left-section .row-with-img-text .sinistra-img a {
+  margin: 20px 0px;
+}
+
+.search-page .left-section .row-with-img-text .sinistra-img a img {
   width: 100%;
   height: 100%;
   border-radius: 10px;
 }
 
 .search-page .left-section .row-with-img-text .destra-testo {
+  margin: 20px 0px 20px 20px;
   display: flex;
   flex-direction: column;
-  flex-basis: 50%;
-  margin: 5px 0px 5px 10px;
+  justify-content: flex-start;
+  flex-basis: 60%;
+  line-height: 200%;
 }
 
 .search-page .right-section {
@@ -1292,6 +1298,7 @@ section#section-register form .form-button {
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .titolo {
+  margin-top: 20px;
   height: 60px;
   display: flex;
   flex-direction: row;
