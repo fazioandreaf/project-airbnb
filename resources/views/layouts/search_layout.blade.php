@@ -153,7 +153,7 @@
                                         <div onclick="calculateDistance()">
                                             Misurare la distanza fra i punti
                                         </div>
-                                        <div onclick="getLatLng()">
+                                        <div onclick="getLatLng('ciao')">
                                             prova latlng
                                         </div>
                                         <a href="#" onclick="makemarker({{$item -> longitude}},{{$item -> latitude}}),goto({{$item -> longitude}},{{$item -> latitude}})">
@@ -300,11 +300,11 @@
             return console.log(totalDistance);
         };
 
-        function getLatLng(){
-
+        function getLatLng(prova){
+            console.log(prova);
             let position='';
             // let lon=0;
-            let query= 'via fratelli bandiera 13 gravina di catania catania'
+            let query= 'via fratelli bandiera 13 gravina di catania catania';
             axios.get('https://api.tomtom.com/search/2/geocode/'+ query+ '.JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
             .then( res=> {
                 position=res.data.results[0].position;
