@@ -279,7 +279,7 @@
             console.log('ciao');
         };
 
-        function calculateDistance() {
+        function calculateDistance(pos1,pos2) {
             // if (points.length < 2) {
             //     return undefined;
             // }
@@ -290,8 +290,8 @@
             // for (var i = 1; i < points.length; ++i) {
                 // var fromPoint = points[i - 1];
                 // var toPoint = points[i];
-                var fromPoint = [15.067560533884222, 38.642288177883556];
-                var toPoint = [15.067560533884222, 36.642288177883556];
+                var fromPoint = [pos[0].lon,pos[0].lat];
+                var toPoint = [pos[1].lon,pos[1].lat];
                 var kilometers = turf.distance(fromPoint, toPoint);
                 var miles = turf.distance(fromPoint, toPoint, { units: 'miles' });
                 totalDistance.kilometers = Math.round((totalDistance.kilometers + kilometers) * 100) / 100;
@@ -300,18 +300,22 @@
             return console.log(totalDistance);
         };
 
+        let pos=[];
         function getLatLng(prova) {
             console.log(prova);
-            let position='';
             // let lon=0;
             ;
             axios.get('https://api.tomtom.com/search/2/geocode/'+ prova+ '.JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
             .then( res=> {
                 // console.log(res.data);
-                position=res.data.results[0].position;
-                console.log(position);
-                goto(position.lon,position.lat);
-                makemarker(position.lon,position.lat);
+                if(pos.length>1){
+                    let tmp=pos[1];
+                    pos=[tmp];
+                }
+                pos.push(res.data.results[0].position);
+                console.log(pos);
+                goto(pos[pos.length-1].lon,pos[pos.length-1].lat);
+                makemarker(pos[pos.length-1].lon,pos[pos.length-1].lat);
             })
             .catch(err=> console.log(err));
         };
