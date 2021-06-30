@@ -31,6 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const app = new Vue({
         el: '#app',
         data: {
+
+            "activeImg": 0,
+            "images": [
+              '/storage/assets/casa_danny.jpg',
+              '/storage/assets/wallpaper.jpg',
+              '/storage/assets/danny_casa_toilet.jpg'
+            ],
+
             labelActive: "profile-infos",
             dropdownActive: false,
             registerErrors: [],
@@ -53,6 +61,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 this.dropdownActive = false;
             },
+
+            // __________ INIZIO DANNY SLIDER_____________
+
+            forward: function() {
+              if (this.activeImg == (this.images.length - 1)) {
+                this.activeImg = 0;
+              } else {
+                this.activeImg++;
+              }
+            }, // END OF FORWARD
+
+            backwards: function() {
+
+              if (this.activeImg == 0) {
+                this.activeImg = this.images.length - 1;
+              } else {
+                this.activeImg--;
+              }
+            }, // END OF BACKWARDS
+
+            // __________ FINE DANNY SLIDER _____________
 
             validateRegister: function(e) {
 
