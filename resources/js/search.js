@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
             currentapartment: [],
             allservice: [],
             activeservice: [],
-            pos1: [],
-            pos2: [],
+            pos1: {},
+            pos2: {},
             apartmentrange: [],
-            km: []
+            km: 0
         },
         mounted: function() {},
         created: function() {
@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
             },
 
             openDropdown: function() {
-
                 this.dropdownActive = !this.dropdownActive;
                 console.log("LALLERO");
             },
@@ -211,8 +210,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     kilometers: 0,
                     miles: 0
                 };
-                var fromPoint = [pos1[0].lon, pos1[0].lat];
-                var toPoint = [pos2[0].lon, pos2[0].lat];
+                var fromPoint = [pos1.lon, pos1.lat];
+                var toPoint = [pos2.lon, pos2.lat];
                 // console.log(fromPoint, toPoint);
                 var kilometers = turf.distance(fromPoint, toPoint);
                 var miles = turf.distance(fromPoint, toPoint, {
@@ -233,9 +232,12 @@ document.addEventListener("DOMContentLoaded", () => {
                             ".JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC"
                     )
                     .then(res => {
-                        this.pos1.push(res.data.results[0].position);
-                        makemarker(this.pos1[0].lon, this.pos1[0].lat);
-                        goto(this.pos1[0].lon, this.pos1[0].lat);
+                        this.pos1 = {
+                            lat: res.data.results[0].position.lat,
+                            lon: res.data.results[0].position.lon
+                        };
+                        makemarker(this.pos1.lon, this.pos1.lat);
+                        goto(this.pos1.lon, this.pos1.lat);
                     })
                     .catch(err => console.log(err));
             },
@@ -244,28 +246,29 @@ document.addEventListener("DOMContentLoaded", () => {
                     .get(
                         "https://api.tomtom.com/search/2/geocode/" +
                             elem.address +
-                            ".JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC"
+                            ".JSON?extendedPostalCodesFor=Str&view=Unified&key=k1fTAPbKkU0oOi0V5dHOHuW4J0oAMIy4"
                     )
                     .then(res => {
                         if (this.pos2.length > 0) {
-                            this.pos2.pop();
+                            this.pos2 = {};
                         }
-                        this.pos2.push(res.data.results[0].position);
+                        this.pos2 = {
+                            lat: res.data.results[0].position.lat,
+                            lon: res.data.results[0].position.lon
+                        };
                         tmp = this.provdist(this.pos1, this.pos2);
                         // console.log(this.pos1, this.pos2, tmp);
-                        this.km.push(tmp);
-                        // console.log(tmp);
-                        if (this.km[0].kilometers < 20) {
-                            this.pos2[0].distanza = this.km;
+                        this.km = tmp.kilometers;
+
+                        // console.log('km',this.km, 'pos1', this.pos1, 'pos2', this.pos2);
+                        if (this.km < 20) {
+                            this.pos2.address = elem.address;
+                            this.pos2.km = this.km;
                             this.apartmentrange.push(this.pos2);
                         }
-                        this.pos2 = [];
-                        this.km = [];
-                        // console.log(
-                        //     "fine then",
-                        //     this.pos1,
-                        //     this.apartmentrange
-                        // );
+                        this.pos2 = {};
+                        this.km = 0;
+                        // console.log(this.apartmentrange);
                     })
                     .catch(err => console.log(err));
             },
@@ -279,13 +282,21 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (
                         city === city_target &&
                         elem.address != this.currentapartment[i].address
-                    ) {
+                    )
                         this.latlngpos2(this.currentapartment[i]);
-
-                    }
                 }
+                setTimeout(() => {
+                    console.log("time1", this.apartmentrange);
 
-                // console.log(this.apartmentrange);
+                    this.apartmentrange.sort(function(a, b) {
+                        return a.km - b.km;
+                    });
+                    console.log("time2", this.apartmentrange);
+                    this.currentapartment = this.apartmentrange;
+                    this.apartmentrange = [];
+                    console.log("time3", this.apartmentrange,this.currentapartment);
+
+                }, 1000);
             }
         }
     });
