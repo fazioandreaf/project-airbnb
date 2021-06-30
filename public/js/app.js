@@ -50240,6 +50240,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var app = new Vue({
     el: '#app',
     data: {
+      "activeImg": 0,
+      "images": ['/storage/assets/casa_danny.jpg', '/storage/assets/wallpaper.jpg', '/storage/assets/danny_casa_toilet.jpg'],
       labelActive: "profile-infos",
       dropdownActive: false,
       registerErrors: [],
@@ -50257,6 +50259,24 @@ document.addEventListener('DOMContentLoaded', function () {
       documentCloseDropdown: function documentCloseDropdown() {
         this.dropdownActive = false;
       },
+      // __________ INIZIO DANNY SLIDER_____________
+      forward: function forward() {
+        if (this.activeImg == this.images.length - 1) {
+          this.activeImg = 0;
+        } else {
+          this.activeImg++;
+        }
+      },
+      // END OF FORWARD
+      backwards: function backwards() {
+        if (this.activeImg == 0) {
+          this.activeImg = this.images.length - 1;
+        } else {
+          this.activeImg--;
+        }
+      },
+      // END OF BACKWARDS
+      // __________ FINE DANNY SLIDER _____________
       validateRegister: function validateRegister(e) {
         var hasNumbers = /\d/;
         var isMailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
@@ -50582,8 +50602,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean\project-airbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Boolean\project-airbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Danny\Progetti_2021\06 -2021\25-06-2021\project-airbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Danny\Progetti_2021\06 -2021\25-06-2021\project-airbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

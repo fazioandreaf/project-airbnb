@@ -61,17 +61,46 @@
     margin-bottom: 30px;
   }
 
+  // ------------------------ INIZIO DANNY SLIDER ------------------------------
+  .danny-slider {
+    @include flex(row, center, center);
+
+    .freccia-sinistra .fa-chevron-left {
+      padding-right: 50px;
+      font-size: 30px;
+    }
+
+    .freccia-destra .fa-chevron-right {
+      padding-left: 50px;
+      font-size: 30px;
+    }
+
+    .foto {
+      @include flex(row, center, center);
+      flex-flow: column wrap;
+      scroll-behavior: smooth;
+    }
+
+    .picture {
+      width: 800px;
+      height: 500px;
+      border-radius: 10px;
+      display: none;
+    }
+
+    .active {
+      display: block;
+    }
+  }
+  
+  // ------------------------ FINE DANNY SLIDER ------------------------------
+
+
+
   .apartment-samples {
     font-size: 20px;
     @include container(90%);
-    @include flex(row, flex-start, null);
-    overflow-x: auto;
-    white-space: nowrap;
-
-    li {
-      margin-right: 30px;
-    }
-
+    @include flex(row, space-between, center);
 
     li:nth-child(odd) {
       color: $red;
