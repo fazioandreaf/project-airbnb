@@ -120,7 +120,7 @@
         document.getElementById('payment-form').onsubmit = function (event){
             window.onbeforeunload = null;
             return true;
-        }
+        };
 
         braintree.client.create({
             authorization: '{{ $token }}'

@@ -47,8 +47,10 @@ class HomeController extends Controller {
         $sponsors = Sponsor::all();
         return view('pages.newapartment',compact('services','sponsors'));
     }
-    public function add_function(Request $request)
+    public function add_function(Request $request,$idUser)
     {
+        $data = $request->all();   
+        // dd($data);
         $validated = $request -> validate([
             'title' => 'required|max:128|min:4',
             'number_rooms' => 'required|numeric',
@@ -56,16 +58,18 @@ class HomeController extends Controller {
             'number_beds' => 'required|numeric',
             'area' => 'required|numeric',
             'address' => 'required',
-            'latitude' => 'required|numeric',
-            'longitude' => 'required|numeric',
+            // 'latitude' => 'required|numeric',
+            // 'longitude' => 'required|numeric',
             'user_id' => 'required',
         ]);
 
+        $validated->user_id = $idUser;
+        dd($validated->user_id);
         $service = Service::findOrFail($request -> get('service_id'));
         $apartment = Apartment::create($validated);
 
-        $img = $request -> file('cover_image');
         if ($request->hasFile('cover_image')) {
+            $img = $request -> file('cover_image');
             $imgExt = $img -> getClientOriginalExtension();
             $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
             $folder = '/assets/';
@@ -95,9 +99,9 @@ class HomeController extends Controller {
             'number_beds' => 'required|numeric',
             'area' => 'required|numeric',
             'address' => 'required',
-            'latitude' => 'required|numeric',
-            'longitude' => 'required|numeric',
-            'user_id' => 'required',
+            // 'latitude' => 'required|numeric',
+            // 'longitude' => 'required|numeric',
+            // 'user_id' => 'required',
         ]);
 
         $apartment = Apartment::findOrFail($id);

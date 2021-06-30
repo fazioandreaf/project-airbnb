@@ -48,7 +48,7 @@
                         <input type="text" name="address" id="address" value="{{$apartment->address}}" required>
                     </div>
             
-                    <div class="form-text-elem">
+                    {{-- <div class="form-text-elem">
                         <label for="latitude">Latitudine</label>
                         <input type="number" name="latitude" id="latitude" value="{{$apartment->latitude}}" required>
                     </div>
@@ -56,7 +56,7 @@
                     <div class="form-text-elem">
                         <label for="longitude">Longitudine</label>
                         <input type="number" name="longitude" id="longitude" value="{{$apartment->longitude}}" required>
-                    </div>
+                    </div> --}}
             
                     <div class="form-text-elem">
                         <label for="cover_image">Immagine</label>
