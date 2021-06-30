@@ -9,12 +9,13 @@
             <li>
                 <button v-on:click="generateData('messages')">Messaggi per mesi</button>
             </li>
-
+            <li v-if="noStats">Non ci sono statistiche da visualizzare!</li>
         </ul>
-        <canvas id="statsChart"></canvas>
         <button v-for="year in years" v-on:click="generateStats(year)">
             @{{ year }}
         </button>
+        <canvas id="statsChart"></canvas>
+        
    </div> 
     
 

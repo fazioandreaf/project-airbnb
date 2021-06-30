@@ -44706,7 +44706,10 @@ document.addEventListener("DOMContentLoaded", function () {
       statsData: {},
       years: [],
       selectedYear: "",
-      graphType: ""
+      graphType: "",
+      activeGraph: false,
+      noStats: false,
+      graph: {}
     },
     methods: {
       getApartmentId: function getApartmentId() {
@@ -44735,72 +44738,11 @@ document.addEventListener("DOMContentLoaded", function () {
           return console.log(error);
         });
       },
-      // dateSplit: function(data, type) {
-      //     let unfiltered = [];
-      //     let splittedDate = "";
-      //     switch(type) {
-      //         case "views":
-      //             data.forEach(view => {
-      //                 splittedDate = view.view_date.split("-").slice(0,2);
-      //                 unfiltered.push(splittedDate);
-      //             });
-      //         break;
-      //         case "messages":
-      //             data.forEach(message => {
-      //                 splittedDate = message.created_at.split("-").slice(0,2);
-      //                 unfiltered.push(splittedDate);
-      //             });
-      //         break;
-      //     }
-      //     return unfiltered;
-      // },
-      // filterDatesByYear: function(unfiltered) {
-      //     let filtered = [];
-      //     let years = [];
-      //     let test = [];
-      //     console.log(unfiltered);
-      //     // switch(filter) {
-      //     //     case 'month':
-      //     //         unfiltered.forEach(date => {
-      //     //             let month = date[1];
-      //     //             filtered.push(month);
-      //     //         });
-      //     //     break;
-      //     //     case 'year':
-      //     //         unfiltered.forEach(date => {
-      //     //             let year = date[0];
-      //     //             filtered.push(year);
-      //     //         });
-      //     //     break;
-      //     // }
-      //     return unfiltered
-      // },
-      // generateData: function(filtered, filter) {
-      //     let months = [0,0,0,0,0,0,0,0,0,0,0,0];
-      //     let yearsLabels = [];
-      //     let yearsCount = [];
-      //     if(filter == "month") {
-      //         filtered.forEach(month => months[month-1]++);
-      //         return months
-      //     } else {
-      //         filtered.forEach(year => {
-      //             // Create a label for every year inside the array
-      //             if(!yearsLabels.includes(year))
-      //                 yearsLabels.push(year);
-      //         })
-      //        for(let i=0; i<=yearsLabels.length-1; i++) {
-      //             let search = yearsLabels[i];
-      //             let count = filtered.reduce((total,year) => {
-      //                 // n + (true) == n + 1
-      //                 // n + (false) = n + 0
-      //                 return total + (year === search)
-      //             }, 0);
-      //             yearsCount.push(count);
-      //        } 
-      //        return [yearsLabels, yearsCount]
-      //     }
-      // },
       generateStats: function generateStats(year) {
+        if (this.activeGraph) {
+          this.graph.destroy();
+        }
+
         this.selectedYear = year;
         var months = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'];
         var stats = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -44829,41 +44771,24 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           }
         });
+        this.activeGraph = true;
+        this.graph = myChart;
       },
       generateData: function generateData(type) {
         this.graphType = type;
         this.graphType == 'views' ? this.statsData = this.views : this.statsData = this.messages;
-        this.years = Object.keys(this.statsData); // unfiltered = this.dateSplit(data,type);
-        // unfiltered = this.dateSplit(data, type);
-        // filtered = this.filterDates(unfiltered);
-        // filtered.sort();
-        // result = this.generateData(filtered);
-        // Chart.js graph
-        // const ctx = document.getElementById('statsChart').getContext('2d');
-        // let myChart = new Chart(ctx, {
-        //     type: 'bar',
-        //     data: {
-        //         labels: (filter == "month") ? monthsLabels : yearsLabels,
-        //         datasets: [{
-        //             label: (type == 'views') ? '# di Visualizzazioni' : '# di Messaggi',
-        //             data: (filter == "month") ? result : years,
-        //             backgroundColor: [
-        //                 'rgba(255, 99, 132, 0.2)',
-        //             ],
-        //             borderColor: [
-        //                 'rgba(255, 99, 132, 1)',
-        //             ],
-        //             borderWidth: 1
-        //         }]
-        //     },
-        //     options: {
-        //         scales: {
-        //             y: {
-        //                 beginAtZero: true
-        //             }
-        //         }
-        //     }
-        // });
+        this.years = Object.keys(this.statsData);
+        this.noStats = false;
+
+        if (Object.entries(this.statsData).length === 0) {
+          this.noStats = true;
+
+          if (this.activeGraph) {
+            this.graph.destroy();
+          }
+
+          return;
+        }
       }
     },
     mounted: function mounted() {
