@@ -170,7 +170,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
                 console.log("ciao");
             },
-
             calculateDistance: function() {
                 // if (points.length < 2) {
                 //     return undefined;
@@ -200,7 +199,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 return totalDistance;
             },
             provdist: function(pos1, pos2) {
-
                 var totalDistance = {
                     kilometers: 0,
                     miles: 0
@@ -276,29 +274,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         elem.address != this.currentapartment[i].address
                     ) {
                         console.log("inizio if", this.pos1, this.pos2);
-                        // this.km = [];
+                        /
                         this.latlngpos2(this.currentapartment[i]);
                     }
                 }
-                // let distanza = [];
-                // for (let i = 0; i < this.currentapartment.length; i++) {
-                //     axios
-                //         .get(
-                //             "https://api.tomtom.com/search/2/geocode/" +
-                //                 this.currentapartment[i].address +
-                //                 ".JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC"
-                //         )
-                //         .then(res => {
-                //             // console.log(res.data);
-                //             pos[1] = res.data.results[0].position;
-                //             console.log("pos di 1", pos[1]);
-                //         })
-                //         .catch(err => console.log(err));
-
-                //     // console.log(pos);
-                //     // distance = calculateDistance();
-                //     // console.log(distance);
-                // }
             }
         }
     });
