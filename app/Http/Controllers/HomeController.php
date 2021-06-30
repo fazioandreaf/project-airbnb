@@ -49,33 +49,36 @@ class HomeController extends Controller {
     }
     public function add_function(Request $request)
     {
-        $validated = $request -> validate([
-            'title' => 'required|max:128|min:4',
-            'number_rooms' => 'required|numeric',
-            'number_toiletes' => 'required|numeric',
-            'number_beds' => 'required|numeric',
-            'area' => 'required|numeric',
-            'address' => 'required',
-            'latitude' => 'required|numeric',
-            'longitude' => 'required|numeric',
-            'user_id' => 'required',
-        ]);
+        if ($request->user_id == Auth::id()) {
+            
+            $validated = $request -> validate([
+                'title' => 'required|max:128|min:4',
+                'number_rooms' => 'required|numeric',
+                'number_toiletes' => 'required|numeric',
+                'number_beds' => 'required|numeric',
+                'area' => 'required|numeric',
+                'address' => 'required',
+                'user_id' => 'required|integer',
+            ]);
+            $service = Service::findOrFail($request -> get('service_id'));
+            $apartment = Apartment::create($validated);
 
-        $service = Service::findOrFail($request -> get('service_id'));
-        $apartment = Apartment::create($validated);
+            if ($request->hasFile('cover_image')) {
+                $img = $request -> file('cover_image');
+                $imgExt = $img -> getClientOriginalExtension();
+                $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
+                $folder = '/assets/';
+                $apartment -> cover_image = $newNameImg;
+                $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
+            }
 
-        $img = $request -> file('cover_image');
-        if ($request->hasFile('cover_image')) {
-            $imgExt = $img -> getClientOriginalExtension();
-            $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
-            $folder = '/assets/';
-            $apartment -> cover_image = $newNameImg;
-            $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
+            $apartment->services()->attach($request-> get('service_id'));
+            $apartment->save();
+            return redirect()->route('apartment',$apartment->id);
+        }else{
+            return back();
         }
 
-        $apartment->services()->attach($request-> get('service_id'));
-        $apartment->save();
-        return redirect()->route('homepage');
     }
 
     // edit apartment
@@ -95,9 +98,6 @@ class HomeController extends Controller {
             'number_beds' => 'required|numeric',
             'area' => 'required|numeric',
             'address' => 'required',
-            'latitude' => 'required|numeric',
-            'longitude' => 'required|numeric',
-            'user_id' => 'required',
         ]);
 
         $apartment = Apartment::findOrFail($id);
@@ -114,7 +114,7 @@ class HomeController extends Controller {
         $apartment->update($validated);
         $apartment->services()->sync($request-> get('service_id'));
 
-        return redirect()->route('homepage');
+        return redirect()->route('apartment',$apartment->id);
     }
 
     // softDeletes
@@ -123,7 +123,7 @@ class HomeController extends Controller {
         $apartment = Apartment::findOrFail($id);
         $apartment->delete();
         $apartment->save();
-        return redirect()->route('homepage');
+        return redirect()->route('myapartment',Auth::id());
     }
 
     public function statistic($id){

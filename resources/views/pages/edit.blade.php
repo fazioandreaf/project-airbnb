@@ -13,10 +13,6 @@
     
             <div class="form-complit">
                 <div class="form-text">
-                    {{-- <div class="form-text-elem">
-                        <label for="user_id">User</label>
-                        <input type="number" name='user_id' id="user_id" value="{{Auth::id()}}">
-                    </div> --}}
             
                     <div class="form-text-elem">
                         <label for="title">Titolo</label>
@@ -46,16 +42,6 @@
                     <div class="form-text-elem">
                         <label for="address">Indirizzo</label>
                         <input type="text" name="address" id="address" value="{{$apartment->address}}" required>
-                    </div>
-            
-                    <div class="form-text-elem">
-                        <label for="latitude">Latitudine</label>
-                        <input type="number" name="latitude" id="latitude" value="{{$apartment->latitude}}" required>
-                    </div>
-            
-                    <div class="form-text-elem">
-                        <label for="longitude">Longitudine</label>
-                        <input type="number" name="longitude" id="longitude" value="{{$apartment->longitude}}" required>
                     </div>
             
                     <div class="form-text-elem">
