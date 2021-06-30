@@ -1,50 +1,82 @@
 @extends('layouts.search_layout')
 @section('content')
-  <main>
     <div class="search-page">
 
-      <div class="left-section">
-        @foreach ($apartments as $item)
+        <div class="left-section">
+            @if (count($apartments)>0)
+                @foreach ($apartments as $item)
+                    <div v-if="currentapartment.length<1" class="row-with-img-text" >
+                        <div class="sinistra-img">
+                            <a href="#">
+                                <img src="{{$item->cover_image}}" alt="immagine stanza">
+                            </a>
+                        </div>
+                        <div class="destra-testo">
+                            <a href="{{route('apartment', $item->id)}}">
+                            {{-- <a @click="redirect(elem.id)"> --}}
+                                <h2>{{$item->title}}</h2>
+                            </a>
 
-          <div class="row-with-img-text" v-if="currentapartment.length<1">
+                            {{-- debug --}}
+                                </a>
+                                <div onclick="addlayer({{$item->id}})"> addlayer</div>
+                                <div onclick="calculateDistance()">
+                                    distanza fra i punti
+                                </div>
+                            {{-- fine --}}
+                            <a href="#" onclick="getLatLng('{{$item -> address}}')">
+                                <strong>Address:</strong>
+                                {{$item->address}}
+                            </a>
+                            <span><strong>Area : </strong><span style:"font-weight:bolder">{{$item->area}}  m^2</span></span>
+                            <span><strong>Numberi di posti letto: </strong>{{$item->number_beds}}</span>
+                            <span><strong>Numbero di stanze: </strong>{{$item->number_rooms}}</span>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <div>
+                    <span>
+                        Non abbiamo trovato nessun apartamento
+                    </span>
+                </div>
+            @endif
+            <div else  v-for="elem in currentapartment" style="display: flex; height:200px; margin:5px; border-bottom: 1px solid lightgray">
+                <div style="flex-basis: 50%">
+                    <img :src=" elem.cover_image " alt="immagine stanza" style="width:100%; border-radius:10px" >
+                </div>
+                <div  style="display: flex; flex-direction:column; margin:5px; flex-basis:50%">
+                            <a href="{{route('apartment',1)}}" >
+                                <h2>
+                                    @{{ elem.title }}
+                                </h2>
+                            </a>
+                            <a href="#" @click="getLatLng(elem.address)">
+                                @{{elem.address}}
+                            </a>
+                            <div @click="addlayer(elem.id)"> addlayer</div>
+                            <div @click="calculateDistance()">
+                                distanza fra i punti
+                            </div>
+                            <div style="background-color:lightblue" @click="prova(elem)">
+                                funzione prova
+                            </div>
 
-            <div class="sinistra-img">
-              <a href="#">
-                <img src="{{$item->cover_image}}" alt="immagine stanza">
-              </a>
+
+                            <span>Area : <span style:"font-weight:bolder">@{{elem.area}}  m^2</span></span>
+                            <span>Numeri di posti letto: @{{elem.number_beds}}</span>
+                            <span>Numero di stanze: @{{elem.number_rooms}}</span>
+
+                </div>
             </div>
 
 
-            <div class="destra-testo">
-              {{-- <a href="{{route('apartment', $item->id)}}"> --}}
-              <a @click="redirect(elem.id)">
-                <h2>{{$item->title}}</h2>
-              </a>
+        </div>
+        <div class="right-section">
+            <div id='map' class='map'>
 
-              <a href="#" onclick="makemarker({{$item -> longitude}},{{$item -> latitude}})">
-                <strong>Address:</strong>
-                {{$item->address}}
-              </a>
-
-              <span><strong>Area : </strong><span style:"font-weight:bolder">{{$item->area}}  m^2</span></span>
-              <span><strong>Numberi di posti letto: </strong>{{$item->number_beds}}</span>
-              <span><strong>Numbero di stanze: </strong>{{$item->number_rooms}}</span>
-
-            </div>
-
-          </div>
-        @endforeach
-
-      </div> {{-- FIN DI LEFT-SECTION --}}
-
-      <div class="right-section">
-
-        <div id='map' class='map'>
         </div>
 
-      </div>
-
     </div>
-  </main>
 
 @endsection

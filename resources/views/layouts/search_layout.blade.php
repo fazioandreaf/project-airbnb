@@ -32,6 +32,9 @@
     <!-- Turf.js -->
     <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
 
+    {{-- <script type='text/javascript' src='../assets/js/mobile-or-tablet.js'></script>
+    <link rel='stylesheet' type='text/css' href='../assets/ui-library/index.css'/> --}}
+
   </head>
 
   <body>
@@ -48,19 +51,125 @@
       <footer>
         @include('pages.components.footer')
       </footer>
-
-    </div> {{-- FINE DI "SEARCH" --}}
-
+    </div>
 
     <script>
         // esempio di creare una funzione che metta tutti i marker nella mappa
         function makemarker(LNG, LAT){
-            // console.log(LNG, LAT)
             var marker = new tt.Marker([{height:10,width:10}])
                             .setLngLat([LNG,LAT])
                             .addTo(map);
-            console.log('Inserito mark');
         };
+        // zoom nella porzione che voglio
+        function goto(LNG, LAT){
+            var point=[LNG,LAT];
+            map.easeTo({center:point,zoom:15})
+        };
+        function addlayer(i){
+            if(pos.length<1){
+                return alert('Non hai cliccato su nessun appartmanto')
+            }
+            console.log('ciao');
+            map.on('click', function() {
+            map.addLayer({
+                'id': 'overlay'+i,
+                'type': 'fill',
+                'source': {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'Feature',
+                        'geometry': {
+                            'type': 'Polygon',
+                            'coordinates': [[
+                                [pos[pos.length-1].lon -0.001,pos[pos.length-1].lat +0.001],
+                                [pos[pos.length-1].lon +0.001,pos[pos.length-1].lat +0.001],
+                                [pos[pos.length-1].lon +0.001,pos[pos.length-1].lat -0.001],
+                                [pos[pos.length-1].lon -0.001,pos[pos.length-1].lat -0.001]
+                    //             [15.067560533884222, 38.642288177883556],
+                    //   [16.267560533884222, 38.642288177883556],
+                    //   [16.267560533884222, 36.442288177883556],
+                    //   [15.067560533884222, 36.442288177883556],
+
+                            ]]
+                        }
+                    }
+                },
+                'layout': {},
+                'paint': {
+                    // 'circle-radius': 6,
+                    // 'circle-color': '#3a3a3a',
+                    // 'circle-stroke-width': 2,
+                    // 'circle-stroke-color': '#FFF'
+                    'fill-color': '#db356c',
+                    'fill-opacity': 0.5,
+                    'fill-outline-color': 'black'
+                }
+            });
+            });
+            console.log('ciao');
+        };
+        function calculateDistance() {
+            if(pos.length<1){
+                return alert('Non hai cliccato su nessun appartmanto')
+            }
+            var totalDistance = {
+                kilometers: 0,
+                miles: 0
+            };
+            // for (var i = 1; i < points.length; ++i) {
+                // var fromPoint = points[i - 1];
+                // var toPoint = points[i];
+                var fromPoint = [pos[0].lon,pos[0].lat];
+                var toPoint = [pos[1].lon,pos[1].lat];
+                var kilometers = turf.distance(fromPoint, toPoint);
+                var miles = turf.distance(fromPoint, toPoint, { units: 'miles' });
+                totalDistance.kilometers = Math.round((totalDistance.kilometers + kilometers) * 100) / 100;
+                totalDistance.miles = Math.round((totalDistance.miles + miles) * 100) / 100;
+            // }
+            return console.log(totalDistance);
+        };
+
+        let pos=[];
+        function getLatLng(address) {
+            console.log(address);
+            // let lon=0;
+
+            axios.get('https://api.tomtom.com/search/2/geocode/'+ address+ '.JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
+            .then( res=> {
+                if(res.data.results.length>0){
+
+                    if(pos.length>1){
+                        let tmp=pos[1];
+                        pos=[tmp];
+                    }
+                    pos.push(res.data.results[0].position);
+                    console.log(pos);
+                    goto(pos[pos.length-1].lon,pos[pos.length-1].lat);
+                    makemarker(pos[pos.length-1].lon,pos[pos.length-1].lat);
+                }
+                // console.log(res.data.results.length);
+            })
+            .catch(err=> console.log(err));
+        };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         var map = tt.map({
             key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
             container: 'map',
@@ -233,7 +342,6 @@
                 }
             });
     </script>
-
   </body>
 
 </html>

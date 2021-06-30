@@ -10,10 +10,10 @@
                 The ID is: {{$idTransaction}}
             </strong>
         </p>
-        <a href="{{route('homepage')}}">
+        <a href="{{route('myapartment',Auth::id())}}">
             <button>
                 <b>
-                    HomePage
+                    Dashboard 
                 </b>
             </button>
         </a>

@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 class MainController extends Controller {
 
     public function homepage() {
-    //Filtro appartamenti sponsorizzati
+        //Filtro appartamenti sponsorizzati
         $now = Carbon::now()->setTimeZone("Europe/Rome");
         $apartments = DB::table('apartments')
                     ->join('apartment_sponsor', 'apartments.id' , '=', 'apartment_sponsor.apartment_id')
@@ -25,12 +25,10 @@ class MainController extends Controller {
                     ->where('apartments.deleted_at', null)
                     ->get();
 
-    return view('pages.homepage', compact('apartments'));
+        return view('pages.homepage', compact('apartments'));
     }
-
     // dettagli appartamento
-    public function showApartment(Request $request, $id)
-    {
+    public function showApartment(Request $request, $id){
         // dd(\Request::getClientIp(true));
         // dd($request);
         $now = Carbon::now()->setTimeZone("Europe/Rome");
@@ -39,38 +37,30 @@ class MainController extends Controller {
             'ip'=>$ip,
             'view_date'=> $now,
         ]);
-        // dd($ip);
+        // dd($now);
         $apartment = Apartment::findOrFail($id);
-        $statistic=Statistic::make($validate);
+        $statistic = Statistic::make($validate);
         $statistic -> apartment() -> associate($id);
         $statistic->save();
         $sponsors=Sponsor::all();
-
         return view('pages.apartment',compact('apartment','statistic','sponsors'));
     }
 
     // registrazione
-    public function search(Request $request)
-    {
+    public function search(Request $request){
         // dd($request->where);
         if($request->where!=null){
-            $apartments= Apartment::where('title', 'LIKE','%'. $request->where.'%') -> get();
+            $apartments= Apartment::where('address', 'LIKE','%'. $request->where.'%') -> get();
+            if(count($apartments)<1) {
+                $apartments=[];
+            }
         }
         else{
             $apartments= Apartment::first()->limit(50)->get();
         }
-        // $services=Service::all();
-        // dd($apartments);
         return view('pages.search',compact('apartments'));
     }
-
-
-    public function maps(){
-        return view('pages.maps');
-    }
-
     public function send(Request $request,$id){
-
         $validate=$request->validate([
             'email'=>'required|string',
             'text_message'=>'required|string',
@@ -81,7 +71,4 @@ class MainController extends Controller {
         $message -> apartment() -> associate($id);
         $message->save();
         return view('pages.message',compact('apartment','message'));
-    }
-
-
-}
+    }}
