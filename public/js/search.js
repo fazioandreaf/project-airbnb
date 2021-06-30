@@ -2106,27 +2106,28 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
 
 document.addEventListener("DOMContentLoaded", function () {
   var app = new Vue({
-    // props:{
-    //     request: Object;
-    // },
     el: "#search",
     data: {
       dropdownActive: false,
       where: "",
       number_rooms: 1,
       number_beds: 1,
+      toggle: true,
       currentapartment: [],
       allservice: [],
-      activeservice: []
+      activeservice: [],
+      pos1: [],
+      pos2: [],
+      apartmentrange: [],
+      km: []
     },
     mounted: function mounted() {},
     created: function created() {
       var _this = this;
 
-      // console.log('hola');
       axios.get("api/service").then(function (res) {
         if (res.status == 200) {
-          _this.allservice = res.data; // console.log(this.allservice);
+          _this.allservice = res.data;
         }
       })["catch"](function (err) {
         return console.log(err);
@@ -2135,6 +2136,9 @@ document.addEventListener("DOMContentLoaded", function () {
     methods: {
       log: function log() {
         console.log("mundo");
+      },
+      addclass: function addclass() {
+        this.toggle = !this.toggle;
       },
       openDropdown: function openDropdown() {
         this.dropdownActive = !this.dropdownActive;
@@ -2166,18 +2170,6 @@ document.addEventListener("DOMContentLoaded", function () {
           return console.log(err);
         });
       },
-      // service:function(){
-      // // console.log("hola");
-      // axios
-      //     .get("api/service")
-      //     .then(res => {
-      //         if (res.status == 200) {
-      //             this.allservice = res.data;
-      //             // console.log(this.allservice);
-      //         }
-      //     })
-      //     .catch(err => console.log(err));
-      // }
       upservice: function upservice(id) {
         var _this3 = this;
 
@@ -2214,6 +2206,162 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       redirect: function redirect(id) {
         window.location.href = "apartments" + id;
+      },
+      getLatLng: function getLatLng(address) {
+        console.log(address); // let lon=0;
+
+        axios.get("https://api.tomtom.com/search/2/geocode/" + address + ".JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC").then(function (res) {
+          // console.log(res.data);
+          if (pos.length > 1) {
+            var _tmp = pos[1];
+            pos = [_tmp];
+          }
+
+          pos.push(res.data.results[0].position);
+          console.log(pos);
+          goto(pos[pos.length - 1].lon, pos[pos.length - 1].lat);
+          makemarker(pos[pos.length - 1].lon, pos[pos.length - 1].lat);
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      },
+      addlayer: function addlayer(i) {
+        if (pos.length < 1) {
+          return alert("Non hai cliccato su nessun appartmanto");
+        }
+
+        console.log("ciao");
+        map.on("click", function () {
+          map.addLayer({
+            id: "overlay" + i,
+            type: "fill",
+            source: {
+              type: "geojson",
+              data: {
+                type: "Feature",
+                geometry: {
+                  type: "Polygon",
+                  coordinates: [[[pos[pos.length - 1].lon - 0.1, pos[pos.length - 1].lat + 0.1], [pos[pos.length - 1].lon + 0.1, pos[pos.length - 1].lat + 0.1], [pos[pos.length - 1].lon + 0.1, pos[pos.length - 1].lat - 0.1], [pos[pos.length - 1].lon - 0.1, pos[pos.length - 1].lat - 0.1] //             [15.067560533884222, 38.642288177883556],
+                  //   [16.267560533884222, 38.642288177883556],
+                  //   [16.267560533884222, 36.442288177883556],
+                  //   [15.067560533884222, 36.442288177883556],
+                  ]]
+                }
+              }
+            },
+            layout: {},
+            paint: {
+              // 'circle-radius': 6,
+              // 'circle-color': '#3a3a3a',
+              // 'circle-stroke-width': 2,
+              // 'circle-stroke-color': '#FFF'
+              "fill-color": "#db356c",
+              "fill-opacity": 0.5,
+              "fill-outline-color": "black"
+            }
+          });
+        });
+        console.log("ciao");
+      },
+      calculateDistance: function calculateDistance() {
+        // if (points.length < 2) {
+        //     return undefined;
+        // }
+        if (pos.length < 1) {
+          return alert("Non hai cliccato su nessun appartmanto");
+        }
+
+        var totalDistance = {
+          kilometers: 0,
+          miles: 0
+        }; // for (var i = 1; i < points.length; ++i) {
+        // var fromPoint = points[i - 1];
+        // var toPoint = points[i];
+
+        var fromPoint = [pos[0].lon, pos[0].lat];
+        var toPoint = [pos[1].lon, pos[1].lat];
+        var kilometers = turf.distance(fromPoint, toPoint);
+        var miles = turf.distance(fromPoint, toPoint, {
+          units: "miles"
+        });
+        totalDistance.kilometers = Math.round((totalDistance.kilometers + kilometers) * 100) / 100;
+        totalDistance.miles = Math.round((totalDistance.miles + miles) * 100) / 100; // }
+
+        return totalDistance;
+      },
+      provdist: function provdist(pos1, pos2) {
+        var totalDistance = {
+          kilometers: 0,
+          miles: 0
+        };
+        var fromPoint = [pos1[0].lon, pos1[0].lat];
+        var toPoint = [pos2[0].lon, pos2[0].lat]; // console.log(fromPoint, toPoint);
+
+        var kilometers = turf.distance(fromPoint, toPoint);
+        var miles = turf.distance(fromPoint, toPoint, {
+          units: "miles"
+        });
+        totalDistance.kilometers = Math.round((totalDistance.kilometers + kilometers) * 100) / 100;
+        totalDistance.miles = Math.round((totalDistance.miles + miles) * 100) / 100;
+        return totalDistance;
+      },
+      latlng: function latlng(elem) {
+        var _this4 = this;
+
+        axios.get("https://api.tomtom.com/search/2/geocode/" + elem.address + ".JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC").then(function (res) {
+          _this4.pos1.push(res.data.results[0].position);
+
+          makemarker(_this4.pos1[0].lon, _this4.pos1[0].lat);
+          goto(_this4.pos1[0].lon, _this4.pos1[0].lat);
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      },
+      latlngpos2: function latlngpos2(elem) {
+        var _this5 = this;
+
+        axios.get("https://api.tomtom.com/search/2/geocode/" + elem.address + ".JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC").then(function (res) {
+          if (_this5.pos2.length > 0) {
+            _this5.pos2.pop();
+          }
+
+          _this5.pos2.push(res.data.results[0].position);
+
+          tmp = _this5.provdist(_this5.pos1, _this5.pos2); // console.log(this.pos1, this.pos2, tmp);
+
+          _this5.km.push(tmp); // console.log(tmp);
+
+
+          if (_this5.km[0].kilometers < 20) {
+            _this5.pos2[0].distanza = _this5.km;
+
+            _this5.apartmentrange.push(_this5.pos2);
+          }
+
+          _this5.pos2 = [];
+          _this5.km = []; // console.log(
+          //     "fine then",
+          //     this.pos1,
+          //     this.apartmentrange
+          // );
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      },
+      prova: function prova(elem) {
+        this.latlng(elem);
+        ar = elem.address.split("-");
+        city_target = ar[2];
+
+        for (i = 0; i < this.currentapartment.length - 1; i++) {
+          arr = this.currentapartment[i].address.split("-");
+          city = arr[2];
+
+          if (city === city_target && elem.address != this.currentapartment[i].address) {
+            this.latlngpos2(this.currentapartment[i]);
+          }
+        } // console.log(this.apartmentrange);
+
       }
     }
   });
@@ -2228,7 +2376,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\redsy\Documents\Boolean\progetto-finale\Nuova cartella\project-airbnb\resources\js\search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! C:\Users\Andrea\Desktop\project-airbnb\resources\js\search.js */"./resources/js/search.js");
 
 
 /***/ })

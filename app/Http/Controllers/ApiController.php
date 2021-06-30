@@ -12,7 +12,7 @@ class ApiController extends Controller
     public function filter(Request $request){
         if($request->where!=''){
             $apartments= DB::table('apartments')
-                            ->where('title', 'LIKE','%'. $request->where.'%')
+                            ->where('address', 'LIKE','%'. $request->where.'%')
                             ->where('number_rooms', '>=', $request->number_rooms)
                             ->where('number_beds', '>=', $request->number_beds)
                             ->get();
@@ -32,7 +32,7 @@ class ApiController extends Controller
                             ->join('apartment_service', 'apartment_service.apartment_id' , '=', 'apartments.id')
                             ->join('services', 'apartment_service.service_id' , '=', 'services.id')
                             ->select('apartments.*','apartment_service.*')
-                            ->where('title', 'LIKE','%'. $request->where.'%')
+                            ->where('address', 'LIKE','%'. $request->where.'%')
                             ->where('number_rooms', '>=', $request->number_rooms)
                             ->where('number_beds', '>=', $request->number_beds)
                             ->get();
@@ -42,7 +42,7 @@ class ApiController extends Controller
                             ->join('apartment_service', 'apartment_service.apartment_id' , '=', 'apartments.id')
                             ->join('services', 'apartment_service.service_id' , '=', 'services.id')
                             ->select('apartments.*','services.*','apartment_service.*')
-                            ->where('title', 'LIKE','%'. $request->where.'%')
+                            ->where('address', 'LIKE','%'. $request->where.'%')
                             ->where('number_rooms', '>=', $request->number_rooms)
                             ->where('number_beds', '>=', $request->number_beds)
                             ->get();;
@@ -50,11 +50,11 @@ class ApiController extends Controller
         foreach($apartments as $item){
             $tmp=[];
             foreach ($finishapartment as $i ) {
-                array_push($tmp,$i->title);
+                array_push($tmp,$i->address);
             }
                 // se il servizio sta all interno dell array del servizio
                 if(in_array($item->service_id,$request->service)){
-                        // if(!in_array($item->title,$tmp))
+                        // if(!in_array($item->address,$tmp))
                         array_push($finishapartment,$item);
                 }else{
                 }
@@ -71,7 +71,7 @@ class ApiController extends Controller
                 // $tmp3=[];
                 foreach($intersezione_case as $single){
                     $tmp3=DB::table('apartments')
-                            ->where('title', 'LIKE',$single)
+                            ->where('address', 'LIKE',$single)
                             ->get();
                     array_push($intersezione_case_def,$tmp3[0]);
                 }
