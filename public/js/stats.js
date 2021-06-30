@@ -44703,8 +44703,9 @@ document.addEventListener("DOMContentLoaded", function () {
       apartmentId: "",
       views: {},
       messages: {},
-      filterType: "month",
-      monthViews: []
+      statsData: {},
+      years: [],
+      selectedYear: ""
     },
     methods: {
       getApartmentId: function getApartmentId() {
@@ -44728,53 +44729,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
         axios.get("/api/messages/" + this.apartmentId).then(function (data) {
           _this2.messages = data.data;
+          console.log(_this2.messages);
         })["catch"](function (error) {
           return console.log(error);
         });
       },
-      dateSplit: function dateSplit(data, type) {
-        var unfiltered = [];
-        var splittedDate = "";
-
-        switch (type) {
-          case "views":
-            data.forEach(function (view) {
-              splittedDate = view.view_date.split("-").slice(0, 2);
-              unfiltered.push(splittedDate);
-            });
-            break;
-
-          case "messages":
-            data.forEach(function (message) {
-              splittedDate = message.created_at.split("-").slice(0, 2);
-              unfiltered.push(splittedDate);
-            });
-            break;
-        }
-
-        return unfiltered;
-      },
-      filterDatesByYear: function filterDatesByYear(unfiltered) {
-        var filtered = [];
-        var years = [];
-        var test = [];
-        console.log(unfiltered); // switch(filter) {
-        //     case 'month':
-        //         unfiltered.forEach(date => {
-        //             let month = date[1];
-        //             filtered.push(month);
-        //         });
-        //     break;
-        //     case 'year':
-        //         unfiltered.forEach(date => {
-        //             let year = date[0];
-        //             filtered.push(year);
-        //         });
-        //     break;
-        // }
-
-        return unfiltered;
-      },
+      // dateSplit: function(data, type) {
+      //     let unfiltered = [];
+      //     let splittedDate = "";
+      //     switch(type) {
+      //         case "views":
+      //             data.forEach(view => {
+      //                 splittedDate = view.view_date.split("-").slice(0,2);
+      //                 unfiltered.push(splittedDate);
+      //             });
+      //         break;
+      //         case "messages":
+      //             data.forEach(message => {
+      //                 splittedDate = message.created_at.split("-").slice(0,2);
+      //                 unfiltered.push(splittedDate);
+      //             });
+      //         break;
+      //     }
+      //     return unfiltered;
+      // },
+      // filterDatesByYear: function(unfiltered) {
+      //     let filtered = [];
+      //     let years = [];
+      //     let test = [];
+      //     console.log(unfiltered);
+      //     // switch(filter) {
+      //     //     case 'month':
+      //     //         unfiltered.forEach(date => {
+      //     //             let month = date[1];
+      //     //             filtered.push(month);
+      //     //         });
+      //     //     break;
+      //     //     case 'year':
+      //     //         unfiltered.forEach(date => {
+      //     //             let year = date[0];
+      //     //             filtered.push(year);
+      //     //         });
+      //     //     break;
+      //     // }
+      //     return unfiltered
+      // },
       generateData: function generateData(filtered, filter) {
         var months = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         var yearsLabels = [];
@@ -44808,39 +44807,17 @@ document.addEventListener("DOMContentLoaded", function () {
           return [yearsLabels, yearsCount];
         }
       },
+      getYear: function getYear(year) {
+        this.selectedYear = year;
+        console.log(this.selectedYear);
+        console.log([this.statsData[this.selectedYear]]);
+      },
       createGraph: function createGraph(type) {
-        var data;
-        var unfiltered;
-        var filtered;
-        var result;
-        var yearsLabels;
-        var years;
         var monthsLabels = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'];
-        type == 'views' ? data = this.views : data = this.messages;
-        unfiltered = this.dateSplit(data, type);
-        filtered = this.filterDatesByYear(unfiltered); // Chart.js graph
-
-        var ctx = document.getElementById('statsChart').getContext('2d');
-        var myChart = new chart_js__WEBPACK_IMPORTED_MODULE_0__["Chart"](ctx, {
-          type: 'bar',
-          data: {
-            labels: monthsLabels,
-            datasets: [{
-              label: type == 'views' ? '# di Visualizzazioni' : '# di Messaggi',
-              data: unfiltered,
-              backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-              borderColor: ['rgba(255, 99, 132, 1)'],
-              borderWidth: 1
-            }]
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
-          }
-        }); // unfiltered = this.dateSplit(data, type);
+        type == 'views' ? this.statsData = this.views : this.statsData = this.messages;
+        this.years = Object.keys(this.statsData);
+        console.log(this.years); // unfiltered = this.dateSplit(data,type);
+        // unfiltered = this.dateSplit(data, type);
         // filtered = this.filterDates(unfiltered);
         // filtered.sort();
         // result = this.generateData(filtered);

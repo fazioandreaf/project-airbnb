@@ -13,8 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
             apartmentId: "",
             views: {},
             messages: {},
-            filterType: "month",
-            monthViews: [],
+            statsData: {},
+            years: [],
+            selectedYear: ""
         },
 
         methods: {
@@ -44,58 +45,59 @@ document.addEventListener("DOMContentLoaded", () => {
                     .get("/api/messages/" + this.apartmentId)
                     .then(data => {
                         this.messages = data.data;
+                        console.log(this.messages);
                     })
                     .catch(error => console.log(error));
             },
 
-            dateSplit: function(data, type) {
+            // dateSplit: function(data, type) {
 
-                let unfiltered = [];
-                let splittedDate = "";
-                switch(type) {
-                    case "views":
-                        data.forEach(view => {
-                            splittedDate = view.view_date.split("-").slice(0,2);
-                            unfiltered.push(splittedDate);
-                        });
-                    break;
-                    case "messages":
-                        data.forEach(message => {
-                            splittedDate = message.created_at.split("-").slice(0,2);
-                            unfiltered.push(splittedDate);
-                        });
-                    break;
-                }
+            //     let unfiltered = [];
+            //     let splittedDate = "";
+            //     switch(type) {
+            //         case "views":
+            //             data.forEach(view => {
+            //                 splittedDate = view.view_date.split("-").slice(0,2);
+            //                 unfiltered.push(splittedDate);
+            //             });
+            //         break;
+            //         case "messages":
+            //             data.forEach(message => {
+            //                 splittedDate = message.created_at.split("-").slice(0,2);
+            //                 unfiltered.push(splittedDate);
+            //             });
+            //         break;
+            //     }
 
-                return unfiltered;
-            },
+            //     return unfiltered;
+            // },
 
-            filterDatesByYear: function(unfiltered) {
+            // filterDatesByYear: function(unfiltered) {
 
-                let filtered = [];
-                let years = [];
-                let test = [];
-                console.log(unfiltered);
+            //     let filtered = [];
+            //     let years = [];
+            //     let test = [];
+            //     console.log(unfiltered);
                             
-                // switch(filter) {
-                //     case 'month':
-                //         unfiltered.forEach(date => {
+            //     // switch(filter) {
+            //     //     case 'month':
+            //     //         unfiltered.forEach(date => {
 
-                //             let month = date[1];
-                //             filtered.push(month);
-                //         });
-                //     break;
-                //     case 'year':
-                //         unfiltered.forEach(date => {
+            //     //             let month = date[1];
+            //     //             filtered.push(month);
+            //     //         });
+            //     //     break;
+            //     //     case 'year':
+            //     //         unfiltered.forEach(date => {
 
-                //             let year = date[0];
-                //             filtered.push(year);
-                //         });
-                //     break;
-                // }
+            //     //             let year = date[0];
+            //     //             filtered.push(year);
+            //     //         });
+            //     //     break;
+            //     // }
 
-                return unfiltered
-            },
+            //     return unfiltered
+            // },
             
             generateData: function(filtered, filter) {
 
@@ -130,51 +132,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             },
 
+            getYear: function(year) {
+                this.selectedYear = year;
+                console.log(this.selectedYear);
+                console.log([this.statsData[this.selectedYear]]);
+            },
+
             createGraph: function(type) {
-
-                let data;
-                let unfiltered;
-                let filtered;
-                let result;
-                let yearsLabels;
-                let years;
                 const monthsLabels = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'];
-                (type == 'views') ? data = this.views : data = this.messages;
+                (type == 'views') ? this.statsData = this.views : this.statsData = this.messages;
+                this.years = Object.keys(this.statsData);
+                console.log(this.years);
+                // unfiltered = this.dateSplit(data,type);
 
-                unfiltered = this.dateSplit(data,type);
-
-                filtered = this.filterDatesByYear(unfiltered);
-                // Chart.js graph
-                const ctx = document.getElementById('statsChart').getContext('2d');
-                let myChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: monthsLabels,
-                        datasets: [{
-                            label: (type == 'views') ? '# di Visualizzazioni' : '# di Messaggi',
-                            data: unfiltered,
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-
-
-
-
-
+    
                 // unfiltered = this.dateSplit(data, type);
                 // filtered = this.filterDates(unfiltered);
                 // filtered.sort();

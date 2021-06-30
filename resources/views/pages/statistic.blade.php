@@ -12,6 +12,9 @@
 
         </ul>
         <canvas id="statsChart"></canvas>
+        <button v-for="year in years" v-on:click="getYear(year)">
+            @{{ year }}
+        </button>
    </div> 
     
 

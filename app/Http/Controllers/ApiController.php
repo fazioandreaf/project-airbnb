@@ -114,6 +114,16 @@ class ApiController extends Controller
         $messages = Message::where('apartment_id', '=', $id)
                     ->get();
 
-        return response() -> json($messages, 200);
+        $stats = [];
+
+        foreach ($messages as $message) {
+                
+            $dateString = $message->created_at;
+            $date = explode("-", $dateString);
+            [$year, $month, $day] = $date;
+            $stats[$year] []= $month;
+        };
+
+        return response() -> json($stats, 200);
     }
 }
