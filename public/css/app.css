@@ -2026,6 +2026,75 @@ section#newapartment-section button {
   color: #12a19a;
 }
 
+section#pay-section {
+  max-width: 600px;
+  max-height: 1000px;
+  margin: auto;
+  padding-top: 60px;
+}
+
+section#pay-section h3,
+section#pay-section p {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+section#pay-section .form-style {
+  background-color: #ededed;
+  padding: 15px;
+  border-radius: 20px;
+  border: 1px solid #12a19a;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+section#pay-section .form-style .date-form {
+  width: 300px;
+  margin: auto;
+}
+
+section#pay-section .form-style .date-form .date-elm-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 7px;
+}
+
+section#pay-section .form-style .date-form .date-elm-form input {
+  background-color: white;
+  border: 1px solid #12a19a;
+  border-radius: 20px;
+  padding-left: 5px;
+}
+
+section#pay-section .form-style #info-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+section#pay-section .form-style #info-card .card-style {
+  width: 180px;
+  height: 20px;
+  margin: auto;
+  background-color: white;
+  border: 1px solid #12a19a;
+  border-radius: 20px;
+  padding-left: 5px;
+}
+
+section#pay-section button {
+  margin-top: 30px;
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 20px;
+  background-color: #12a19a;
+  font-family: "Nunito", sans-serif;
+  color: white;
+}
+
 * {
   margin: 0;
   padding: 0;
