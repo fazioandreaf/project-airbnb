@@ -5,24 +5,32 @@
         <div class="left-section">
             @if (count($apartments)>0)
                 @foreach ($apartments as $item)
-                    <div class="row-with-img-text" v-if="currentapartment.length<1">
+                    <div v-if="currentapartment.length<1" class="row-with-img-text" >
                         <div class="sinistra-img">
-                        <a href="#">
-                            <img src="{{$item->cover_image}}" alt="immagine stanza">
-                        </a>
+                            <a href="#">
+                                <img src="{{$item->cover_image}}" alt="immagine stanza">
+                            </a>
                         </div>
                         <div class="destra-testo">
-                        {{-- <a href="{{route('apartment', $item->id)}}"> --}}
-                        <a @click="redirect(elem.id)">
-                            <h2>{{$item->title}}</h2>
-                        </a>
-                        <a href="#" onclick="getLatLng('{{$item -> address}}')">
-                            <strong>Address:</strong>
-                            {{$item->address}}
-                        </a>
-                        <span><strong>Area : </strong><span style:"font-weight:bolder">{{$item->area}}  m^2</span></span>
-                        <span><strong>Numberi di posti letto: </strong>{{$item->number_beds}}</span>
-                        <span><strong>Numbero di stanze: </strong>{{$item->number_rooms}}</span>
+                            <a href="{{route('apartment', $item->id)}}">
+                            {{-- <a @click="redirect(elem.id)"> --}}
+                                <h2>{{$item->title}}</h2>
+                            </a>
+
+                            {{-- debug --}}
+                                </a>
+                                <div onclick="addlayer({{$item->id}})"> addlayer</div>
+                                <div onclick="calculateDistance()">
+                                    distanza fra i punti
+                                </div>
+                            {{-- fine --}}
+                            <a href="#" onclick="getLatLng('{{$item -> address}}')">
+                                <strong>Address:</strong>
+                                {{$item->address}}
+                            </a>
+                            <span><strong>Area : </strong><span style:"font-weight:bolder">{{$item->area}}  m^2</span></span>
+                            <span><strong>Numberi di posti letto: </strong>{{$item->number_beds}}</span>
+                            <span><strong>Numbero di stanze: </strong>{{$item->number_rooms}}</span>
                         </div>
                     </div>
                 @endforeach
