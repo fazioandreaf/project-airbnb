@@ -2116,10 +2116,10 @@ document.addEventListener("DOMContentLoaded", function () {
       currentapartment: [],
       allservice: [],
       activeservice: [],
-      pos1: [],
-      pos2: [],
+      pos1: {},
+      pos2: {},
       apartmentrange: [],
-      km: []
+      km: 0
     },
     mounted: function mounted() {},
     created: function created() {
@@ -2294,8 +2294,8 @@ document.addEventListener("DOMContentLoaded", function () {
           kilometers: 0,
           miles: 0
         };
-        var fromPoint = [pos1[0].lon, pos1[0].lat];
-        var toPoint = [pos2[0].lon, pos2[0].lat]; // console.log(fromPoint, toPoint);
+        var fromPoint = [pos1.lon, pos1.lat];
+        var toPoint = [pos2.lon, pos2.lat]; // console.log(fromPoint, toPoint);
 
         var kilometers = turf.distance(fromPoint, toPoint);
         var miles = turf.distance(fromPoint, toPoint, {
@@ -2309,10 +2309,12 @@ document.addEventListener("DOMContentLoaded", function () {
         var _this4 = this;
 
         axios.get("https://api.tomtom.com/search/2/geocode/" + elem.address + ".JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC").then(function (res) {
-          _this4.pos1.push(res.data.results[0].position);
-
-          makemarker(_this4.pos1[0].lon, _this4.pos1[0].lat);
-          goto(_this4.pos1[0].lon, _this4.pos1[0].lat);
+          _this4.pos1 = {
+            lat: res.data.results[0].position.lat,
+            lon: res.data.results[0].position.lon
+          };
+          makemarker(_this4.pos1.lon, _this4.pos1.lat);
+          goto(_this4.pos1.lon, _this4.pos1.lat);
         })["catch"](function (err) {
           return console.log(err);
         });
@@ -2320,35 +2322,35 @@ document.addEventListener("DOMContentLoaded", function () {
       latlngpos2: function latlngpos2(elem) {
         var _this5 = this;
 
-        axios.get("https://api.tomtom.com/search/2/geocode/" + elem.address + ".JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC").then(function (res) {
+        axios.get("https://api.tomtom.com/search/2/geocode/" + elem.address + ".JSON?extendedPostalCodesFor=Str&view=Unified&key=k1fTAPbKkU0oOi0V5dHOHuW4J0oAMIy4").then(function (res) {
           if (_this5.pos2.length > 0) {
-            _this5.pos2.pop();
+            _this5.pos2 = {};
           }
 
-          _this5.pos2.push(res.data.results[0].position);
-
+          _this5.pos2 = {
+            lat: res.data.results[0].position.lat,
+            lon: res.data.results[0].position.lon
+          };
           tmp = _this5.provdist(_this5.pos1, _this5.pos2); // console.log(this.pos1, this.pos2, tmp);
 
-          _this5.km.push(tmp); // console.log(tmp);
+          _this5.km = tmp.kilometers; // console.log('km',this.km, 'pos1', this.pos1, 'pos2', this.pos2);
 
-
-          if (_this5.km[0].kilometers < 20) {
-            _this5.pos2[0].distanza = _this5.km;
+          if (_this5.km < 20) {
+            _this5.pos2.address = elem.address;
+            _this5.pos2.km = _this5.km;
 
             _this5.apartmentrange.push(_this5.pos2);
           }
 
-          _this5.pos2 = [];
-          _this5.km = []; // console.log(
-          //     "fine then",
-          //     this.pos1,
-          //     this.apartmentrange
-          // );
+          _this5.pos2 = {};
+          _this5.km = 0; // console.log(this.apartmentrange);
         })["catch"](function (err) {
           return console.log(err);
         });
       },
       prova: function prova(elem) {
+        var _this6 = this;
+
         this.latlng(elem);
         ar = elem.address.split("-");
         city_target = ar[2];
@@ -2356,12 +2358,21 @@ document.addEventListener("DOMContentLoaded", function () {
         for (i = 0; i < this.currentapartment.length - 1; i++) {
           arr = this.currentapartment[i].address.split("-");
           city = arr[2];
+          if (city === city_target && elem.address != this.currentapartment[i].address) this.latlngpos2(this.currentapartment[i]);
+        }
 
-          if (city === city_target && elem.address != this.currentapartment[i].address) {
-            this.latlngpos2(this.currentapartment[i]);
-          }
-        } // console.log(this.apartmentrange);
+        setTimeout(function () {
+          console.log("time1", _this6.apartmentrange);
 
+          _this6.apartmentrange.sort(function (a, b) {
+            return a.km - b.km;
+          });
+
+          console.log("time2", _this6.apartmentrange);
+          _this6.currentapartment = _this6.apartmentrange;
+          _this6.apartmentrange = [];
+          console.log("time3", _this6.apartmentrange, _this6.currentapartment);
+        }, 1000);
       }
     }
   });
