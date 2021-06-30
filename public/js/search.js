@@ -2116,7 +2116,9 @@ document.addEventListener("DOMContentLoaded", function () {
       allservice: [],
       activeservice: [],
       pos1: [],
-      pos2: []
+      pos2: [],
+      apartmentrange: [],
+      km: []
     },
     mounted: function mounted() {},
     created: function created() {
@@ -2206,8 +2208,8 @@ document.addEventListener("DOMContentLoaded", function () {
         axios.get("https://api.tomtom.com/search/2/geocode/" + address + ".JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC").then(function (res) {
           // console.log(res.data);
           if (pos.length > 1) {
-            var tmp = pos[1];
-            pos = [tmp];
+            var _tmp = pos[1];
+            pos = [_tmp];
           }
 
           pos.push(res.data.results[0].position);
@@ -2283,9 +2285,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return totalDistance;
       },
       provdist: function provdist(pos1, pos2) {
-        // if (points.length < 2) {
-        //     return undefined;
-        // }
         if (pos.length < 1) {
           return alert("Non hai cliccato su nessun appartmanto");
         }
@@ -2293,47 +2292,68 @@ document.addEventListener("DOMContentLoaded", function () {
         var totalDistance = {
           kilometers: 0,
           miles: 0
-        }; // for (var i = 1; i < points.length; ++i) {
-        // var fromPoint = points[i - 1];
-        // var toPoint = points[i];
-
-        var fromPoint = [pos1.lon, pos1.lat];
-        var toPoint = [pos2.lon, pos2.lat];
+        };
+        var fromPoint = [pos1[0].lon, pos1[0].lat];
+        var toPoint = [pos2[0].lon, pos2[0].lat];
+        console.log(fromPoint, toPoint);
         var kilometers = turf.distance(fromPoint, toPoint);
         var miles = turf.distance(fromPoint, toPoint, {
           units: "miles"
         });
         totalDistance.kilometers = Math.round((totalDistance.kilometers + kilometers) * 100) / 100;
-        totalDistance.miles = Math.round((totalDistance.miles + miles) * 100) / 100; // }
-
+        totalDistance.miles = Math.round((totalDistance.miles + miles) * 100) / 100;
         return totalDistance;
       },
-      prova: function prova(elem) {
+      latlng: function latlng(elem) {
         var _this4 = this;
 
-        ar = elem.address.split("-");
-        city_target = ar[2];
         axios.get("https://api.tomtom.com/search/2/geocode/" + elem.address + ".JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC").then(function (res) {
-          _this4.pos1 = res.data.results[0].position;
-          makemarker(_this4.pos1.lon, _this4.pos1.lat);
-          goto(_this4.pos1.lon, _this4.pos1.lat);
+          _this4.pos1.push(res.data.results[0].position);
+
+          makemarker(_this4.pos1[0].lon, _this4.pos1[0].lat);
+          goto(_this4.pos1[0].lon, _this4.pos1[0].lat);
         })["catch"](function (err) {
           return console.log(err);
         });
+      },
+      latlngpos2: function latlngpos2(elem) {
+        var _this5 = this;
+
+        axios.get("https://api.tomtom.com/search/2/geocode/" + elem.address + ".JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC").then(function (res) {
+          if (_this5.pos2.length > 0) {
+            _this5.pos2.pop();
+          }
+
+          _this5.pos2.push(res.data.results[0].position);
+
+          tmp = _this5.provdist(_this5.pos1, _this5.pos2); // console.log(this.pos1, this.pos2, tmp);
+
+          _this5.km.push(tmp); // console.log(tmp);
+
+
+          if (_this5.km[0].kilometers < 20) {
+            _this5.apartmentrange.push(_this5.pos2);
+          } else _this5.pos2 = [];
+
+          console.log("fine then", _this5.pos1, _this5.pos2, _this5.apartmentrange);
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      },
+      prova: function prova(elem) {
+        this.latlng(elem);
+        ar = elem.address.split("-");
+        city_target = ar[2];
         console.log("posizione_elem", this.pos1);
 
-        for (i = 0; i < 1; i++) {
+        for (i = 0; i < 10; i++) {
           arr = this.currentapartment[i].address.split("-");
           city = arr[2];
 
-          if (city === city_target && elem.address != this.currentapartment[i]) {
-            console.log("inizio if", this.pos1, this.pos2);
-            axios.get("https://api.tomtom.com/search/2/geocode/" + elem.address + ".JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC").then(function (res) {
-              _this4.pos2 = res.data.results[0].position;
-              console.log("fine then", _this4.pos1, _this4.pos2);
-            })["catch"](function (err) {
-              return console.log(err);
-            });
+          if (city === city_target && elem.address != this.currentapartment[i].address) {
+            console.log("inizio if", this.pos1, this.pos2); // this.km = [];
+
+            this.latlngpos2(this.currentapartment[i]);
           }
         } // let distanza = [];
         // for (let i = 0; i < this.currentapartment.length; i++) {
