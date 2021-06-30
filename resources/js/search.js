@@ -200,9 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return totalDistance;
             },
             provdist: function(pos1, pos2) {
-                if (pos.length < 1) {
-                    return alert("Non hai cliccato su nessun appartmanto");
-                }
+
                 var totalDistance = {
                     kilometers: 0,
                     miles: 0
@@ -254,6 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         if (this.km[0].kilometers < 20) {
                             this.apartmentrange.push(this.pos2);
                         } else this.pos2 = [];
+                        this.pos1=[]
                         console.log(
                             "fine then",
                             this.pos1,
@@ -269,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 city_target = ar[2];
                 console.log("posizione_elem", this.pos1);
 
-                for (i = 0; i < 10; i++) {
+                for (i = 0; i < this.currentapartment.length-1; i++) {
                     arr = this.currentapartment[i].address.split("-");
                     city = arr[2];
                     if (

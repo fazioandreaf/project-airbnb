@@ -2285,10 +2285,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return totalDistance;
       },
       provdist: function provdist(pos1, pos2) {
-        if (pos.length < 1) {
-          return alert("Non hai cliccato su nessun appartmanto");
-        }
-
         var totalDistance = {
           kilometers: 0,
           miles: 0
@@ -2335,6 +2331,7 @@ document.addEventListener("DOMContentLoaded", function () {
             _this5.apartmentrange.push(_this5.pos2);
           } else _this5.pos2 = [];
 
+          _this5.pos1 = [];
           console.log("fine then", _this5.pos1, _this5.pos2, _this5.apartmentrange);
         })["catch"](function (err) {
           return console.log(err);
@@ -2346,7 +2343,7 @@ document.addEventListener("DOMContentLoaded", function () {
         city_target = ar[2];
         console.log("posizione_elem", this.pos1);
 
-        for (i = 0; i < 10; i++) {
+        for (i = 0; i < this.currentapartment.length - 1; i++) {
           arr = this.currentapartment[i].address.split("-");
           city = arr[2];
 
