@@ -9,19 +9,16 @@
     <title></title>
 </head>
 <body>
-    @include('pages.components.minimal-black-header')
+    <a href="{{route('homepage')}}">
+        <button>
+            HomePage
+        </button>
+    </a>
 
     @yield('content')
 
     <footer>
         @include('pages.components.footer')
     </footer>
-
-    <script>
-        window.addEventListener("beforeunload", function(event) {
-            event.returnValue = "";
-        });
-    </script>
-
 </body>
 </html>

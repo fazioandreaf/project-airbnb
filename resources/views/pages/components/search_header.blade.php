@@ -1,6 +1,6 @@
 <header id="header-search">
 
-  <div class="top-header-search" id="app" >
+  <div class="top-header-search" id="app">
 
     <div class="logo">
       <a href="{{route('homepage')}}">

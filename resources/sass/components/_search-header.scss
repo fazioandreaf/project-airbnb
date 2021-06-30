@@ -1,5 +1,5 @@
 #header-search {
-  height: 170px;
+  height: 220px;
   @include container(90%);
 
   .top-header-search {
@@ -44,6 +44,11 @@
         border-radius: 50px;
       }
 
+      #lente:hover {
+        background-color: #e6007e;
+      }
+
+
     } // fine filtri
 
     .has-dropdown {
@@ -70,6 +75,11 @@
         width: 200px;
         padding: 10px;
         border-radius: 10px;
+        background-color: $white;
+
+        a:hover {
+          opacity: 0.3;
+        }
       }
 
       .open {

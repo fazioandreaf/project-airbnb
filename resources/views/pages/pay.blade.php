@@ -1,61 +1,6 @@
 @extends('layouts.pay-layout')
 @section('content')
 
-    <style>
-        .test-braintree{
-            width: 700px;
-            margin: 50px auto;
-            border: 2px solid gray;
-            border-radius: 15px;
-        }
-        form{
-            display: flex;
-            flex-wrap: wrap;
-        }
-        form > div{
-            width: 100%;
-        }
-        .input-style{
-            margin-top: 20px;
-        }
-        .center{
-            text-align: center;
-        }
-        .mr{
-            margin-right: 20px;
-        }
-        .address-style{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        #info-card{
-            display: flex;
-            justify-content: space-around;
-            margin: 40px auto;
-        }
-        #card-number,
-        #expiration-date,
-        #cvv{
-            height: 40px;
-        }
-        #card-number{
-            width: 170px;
-        }
-        #expiration-date,
-        #cvv{
-            width: 80px
-        }
-        .btn{
-            width: 110px;
-            height: 50px;
-            margin: 20px auto;
-            border: none;
-            border-radius: 15px;
-            background-color: #f66d9b;
-        }
-    </style>
-
     <div class="test-braintree" style='[width: 500px; margin:auto]'>
 
         @if (session()->has('success_message'))
@@ -156,14 +101,8 @@
 
             </div>
 
-            {{-- <div class="spacer"></div> --}}
-
-            {{-- <div id="paypal-button"></div> --}}
-
-            {{-- <div class="spacer"></div> --}}
-
             <input id="nonce" name="payment_method_nonce" type="hidden" />
-            <button type="submit" class="btn btn-success">Submit Payment</button>
+            <button id="strunz" type="submit" class="btn btn-success">Submit Payment</button>
         </form>
     </div>
 
@@ -175,57 +114,65 @@
         var form = document.querySelector('#payment-form');
         var submit = document.querySelector('input[type="submit"]');
 
-      braintree.client.create({
-        authorization: '{{ $token }}'
-      }, function (clientErr, clientInstance) {
-        if (clientErr) {
-          console.error(clientErr);
-          return;
+        window.onbeforeunload = function (event) {
+            return '...';
+        };
+        document.getElementById('payment-form').onsubmit = function (event){
+            window.onbeforeunload = null;
+            return true;
         }
-        braintree.hostedFields.create({
-          client: clientInstance,
-          styles: {
-            'input': {
-              'font-size': '14px'
-            },
-            'input.invalid': {
-              'color': 'red'
-            },
-            'input.valid': {
-              'color': 'green'
+
+        braintree.client.create({
+            authorization: '{{ $token }}'
+            }, function (clientErr, clientInstance) {
+            if (clientErr) {
+            console.error(clientErr);
+            return;
             }
-          },
-          fields: {
-            number: {
-              selector: '#card-number',
-              placeholder: '4111 1111 1111 1111'
-            },
-            cvv: {
-              selector: '#cvv',
-              placeholder: '123'
-            },
-            expirationDate: {
-              selector: '#expiration-date',
-              placeholder: 'MM/YY'
-            }
-          }
-        }, function (hostedFieldsErr, hostedFieldsInstance) {
-            if (hostedFieldsErr) {
-                console.error(hostedFieldsErr);
-                return;
-            }
-             form.addEventListener('submit', function (event) {
-                event.preventDefault();
-                hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
-                if (tokenizeErr) {
-                    console.error(tokenizeErr);
-                    return;
+            braintree.hostedFields.create({
+                client: clientInstance,
+                styles: {
+                    'input': {
+                    'font-size': '14px'
+                    },
+                    'input.invalid': {
+                    'color': 'red'
+                    },
+                    'input.valid': {
+                    'color': 'green'
+                    }
+                },
+                fields: {
+                    number: {
+                    selector: '#card-number',
+                    placeholder: '4111 1111 1111 1111'
+                    },
+                    cvv: {
+                    selector: '#cvv',
+                    placeholder: '123'
+                    },
+                    expirationDate: {
+                    selector: '#expiration-date',
+                    placeholder: 'MM/YY'
+                    }
                 }
-                document.querySelector('#nonce').value = payload.nonce;
-                form.submit();
+            }, function (hostedFieldsErr, hostedFieldsInstance) {
+                    if (hostedFieldsErr) {
+                        console.error(hostedFieldsErr);
+                        return;
+                    }   
+                    form.addEventListener('submit', function (event) {
+                        event.preventDefault();
+                        hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
+                            if (tokenizeErr) {
+                                console.error(tokenizeErr);
+                                return;
+                            }
+                            document.querySelector('#nonce').value = payload.nonce;
+                            form.submit();
+                        });
+                    }, false);
             });
-          }, false);
         });
-    });
     </script>
 @endsection
