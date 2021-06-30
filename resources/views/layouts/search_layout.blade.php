@@ -66,9 +66,9 @@
             map.easeTo({center:point,zoom:15})
         };
         function addlayer(i){
-            if(pos.length<1){
-                return alert('Non hai cliccato su nessun appartmanto')
-            }
+            // if(pos.length<1){
+            //     return alert('Non hai cliccato su nessun appartmanto')
+            // }
             console.log('ciao');
             map.on('click', function() {
             map.addLayer({
@@ -109,9 +109,9 @@
             console.log('ciao');
         };
         function calculateDistance() {
-            if(pos.length<1){
-                return alert('Non hai cliccato su nessun appartmanto')
-            }
+            // if(pos.length<1){
+            //     return alert('Non hai cliccato su nessun appartmanto')
+            // }
             var totalDistance = {
                 kilometers: 0,
                 miles: 0

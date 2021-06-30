@@ -10,6 +10,6 @@ $factory->define(Message::class, function (Faker $faker) {
 
     return [
         'email' => $faker->email,
-        'text_message' => $faker->sentence,
+        'text_message' => $faker->realText($maxNbChars = 200, $indexSize = 2),
     ];
 });

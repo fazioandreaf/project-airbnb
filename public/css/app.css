@@ -578,7 +578,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   border-radius: 10px;
 }
 
-#header-search .top-header-search .filter #lente {
+#header-search .top-header-search .filter #lente a {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -590,7 +590,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   border-radius: 50px;
 }
 
-#header-search .top-header-search .filter #lente:hover {
+#header-search .top-header-search .filter #lente a:hover {
   background-color: #e6007e;
 }
 
