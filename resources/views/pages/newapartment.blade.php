@@ -2,7 +2,7 @@
 @section("content")
 
     <form
-        action="{{Route('add_function',Auth::id())}}"
+        action="{{Route('add_function')}}"
         method="POST"
         enctype="multipart/form-data">
 
@@ -11,10 +11,10 @@
 
         <div style="text-align: center">
 
-            {{-- <div style="display: none">
+            <div style="display: none">
                 <label for="user_id">User</label>
                 <input type="number" name='user_id' id="user_id" value="{{Auth::id()}}">
-            </div> --}}
+            </div>
     
             <div style="margin-top: 20px">
                 <label for="title">Title</label>
@@ -45,16 +45,6 @@
                 <label for="address">Address</label>
                 <input type="text" name="address" id="address" required>
             </div>
-    
-            {{-- <div>
-                <label for="latitude">Latitude</label>
-                <input type="number" name="latitude" id="latitude" required>
-            </div>
-    
-            <div>
-                <label for="longitude">Longitude</label>
-                <input type="number" name="longitude" id="longitude" required>
-            </div> --}}
     
             <div style="margin: 20px">
                 <label for="cover_image">Image</label>

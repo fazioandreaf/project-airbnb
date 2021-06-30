@@ -13,8 +13,6 @@ $factory->define(Apartment::class, function (Faker $faker) {
         'number_beds' => rand(1,4),
         'area' => rand(15,100),
         'address' => $faker->address,
-        // 'latitude' => $faker->latitude($min=-50,$max=50),
-        // 'longitude' => $faker->longitude($min=-50,$max=50),
         'cover_image' => $faker->imageUrl(800,600, 'city'),
     ];
 });
