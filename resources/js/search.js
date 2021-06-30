@@ -32,11 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
             log: function() {
                 console.log("mundo");
             },
-<<<<<<< HEAD
             addclass: function() {
                 this.toggle = !this.toggle;
             },
-=======
 
             openDropdown: function() {
 
@@ -44,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log("LALLERO");
             },
 
->>>>>>> master
             filter: function() {
                 this.activeservice = [];
                 axios
