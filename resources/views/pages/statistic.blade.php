@@ -4,15 +4,15 @@
     <div id="stats">
         <ul>
             <li>
-                <button v-on:click="createGraph('views')">Visualizzazioni per mesi</button>
+                <button v-on:click="generateData('views')">Visualizzazioni per mesi</button>
             </li>
             <li>
-                <button v-on:click="createGraph('messages')">Messaggi per mesi</button>
+                <button v-on:click="generateData('messages')">Messaggi per mesi</button>
             </li>
 
         </ul>
         <canvas id="statsChart"></canvas>
-        <button v-for="year in years" v-on:click="getYear(year)">
+        <button v-for="year in years" v-on:click="generateStats(year)">
             @{{ year }}
         </button>
    </div> 

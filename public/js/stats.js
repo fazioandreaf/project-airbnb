@@ -44705,7 +44705,8 @@ document.addEventListener("DOMContentLoaded", function () {
       messages: {},
       statsData: {},
       years: [],
-      selectedYear: ""
+      selectedYear: "",
+      graphType: ""
     },
     methods: {
       getApartmentId: function getApartmentId() {
@@ -44774,49 +44775,65 @@ document.addEventListener("DOMContentLoaded", function () {
       //     // }
       //     return unfiltered
       // },
-      generateData: function generateData(filtered, filter) {
-        var months = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        var yearsLabels = [];
-        var yearsCount = [];
-
-        if (filter == "month") {
-          filtered.forEach(function (month) {
-            return months[month - 1]++;
-          });
-          return months;
-        } else {
-          filtered.forEach(function (year) {
-            // Create a label for every year inside the array
-            if (!yearsLabels.includes(year)) yearsLabels.push(year);
-          });
-
-          var _loop = function _loop(i) {
-            var search = yearsLabels[i];
-            var count = filtered.reduce(function (total, year) {
-              // n + (true) == n + 1
-              // n + (false) = n + 0
-              return total + (year === search);
-            }, 0);
-            yearsCount.push(count);
-          };
-
-          for (var i = 0; i <= yearsLabels.length - 1; i++) {
-            _loop(i);
-          }
-
-          return [yearsLabels, yearsCount];
-        }
-      },
-      getYear: function getYear(year) {
+      // generateData: function(filtered, filter) {
+      //     let months = [0,0,0,0,0,0,0,0,0,0,0,0];
+      //     let yearsLabels = [];
+      //     let yearsCount = [];
+      //     if(filter == "month") {
+      //         filtered.forEach(month => months[month-1]++);
+      //         return months
+      //     } else {
+      //         filtered.forEach(year => {
+      //             // Create a label for every year inside the array
+      //             if(!yearsLabels.includes(year))
+      //                 yearsLabels.push(year);
+      //         })
+      //        for(let i=0; i<=yearsLabels.length-1; i++) {
+      //             let search = yearsLabels[i];
+      //             let count = filtered.reduce((total,year) => {
+      //                 // n + (true) == n + 1
+      //                 // n + (false) = n + 0
+      //                 return total + (year === search)
+      //             }, 0);
+      //             yearsCount.push(count);
+      //        } 
+      //        return [yearsLabels, yearsCount]
+      //     }
+      // },
+      generateStats: function generateStats(year) {
         this.selectedYear = year;
-        console.log(this.selectedYear);
-        console.log([this.statsData[this.selectedYear]]);
+        var months = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'];
+        var stats = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        this.statsData[this.selectedYear].forEach(function (month) {
+          stats[month - 1]++;
+        }); // Chart.js
+
+        var ctx = document.getElementById('statsChart').getContext('2d');
+        var myChart = new chart_js__WEBPACK_IMPORTED_MODULE_0__["Chart"](ctx, {
+          type: 'bar',
+          data: {
+            labels: months,
+            datasets: [{
+              label: this.graphType == 'views' ? '# di Visualizzazioni' : '# di Messaggi',
+              data: stats,
+              backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+              borderColor: ['rgba(255, 99, 132, 1)'],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
       },
-      createGraph: function createGraph(type) {
-        var monthsLabels = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'];
-        type == 'views' ? this.statsData = this.views : this.statsData = this.messages;
-        this.years = Object.keys(this.statsData);
-        console.log(this.years); // unfiltered = this.dateSplit(data,type);
+      generateData: function generateData(type) {
+        this.graphType = type;
+        this.graphType == 'views' ? this.statsData = this.views : this.statsData = this.messages;
+        this.years = Object.keys(this.statsData); // unfiltered = this.dateSplit(data,type);
         // unfiltered = this.dateSplit(data, type);
         // filtered = this.filterDates(unfiltered);
         // filtered.sort();
