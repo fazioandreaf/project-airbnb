@@ -1,61 +1,6 @@
 @extends('layouts.pay-layout')
 @section('content')
 
-    <style>
-        .test-braintree{
-            width: 700px;
-            margin: 50px auto;
-            border: 2px solid gray;
-            border-radius: 15px;
-        }
-        form{
-            display: flex;
-            flex-wrap: wrap;
-        }
-        form > div{
-            width: 100%;
-        }
-        .input-style{
-            margin-top: 20px;
-        }
-        .center{
-            text-align: center;
-        }
-        .mr{
-            margin-right: 20px;
-        }
-        .address-style{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        #info-card{
-            display: flex;
-            justify-content: space-around;
-            margin: 40px auto;
-        }
-        #card-number,
-        #expiration-date,
-        #cvv{
-            height: 40px;
-        }
-        #card-number{
-            width: 170px;
-        }
-        #expiration-date,
-        #cvv{
-            width: 80px
-        }
-        .btn{
-            width: 110px;
-            height: 50px;
-            margin: 20px auto;
-            border: none;
-            border-radius: 15px;
-            background-color: #f66d9b;
-        }
-    </style>
-
     <div class="test-braintree" style='[width: 500px; margin:auto]'>
 
         @if (session()->has('success_message'))
@@ -169,9 +114,13 @@
         var form = document.querySelector('#payment-form');
         var submit = document.querySelector('input[type="submit"]');
 
-        window.addEventListener("beforeunload", function(event) {
-            event.returnValue = "";
-        });
+        window.onbeforeunload = function (event) {
+            return '...';
+        };
+        document.getElementById('payment-form').onsubmit = function (event){
+            window.onbeforeunload = null;
+            return true;
+        }
 
         braintree.client.create({
             authorization: '{{ $token }}'
