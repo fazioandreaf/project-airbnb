@@ -1924,6 +1924,108 @@ section#my-apartments .wrapper-apartment .rotate {
   transform: rotate(180deg);
 }
 
+section#newapartment-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: #12a19a;
+  color: white;
+  text-align: center;
+}
+
+section#newapartment-section h2 {
+  margin: 30px 0px;
+}
+
+section#newapartment-section .form-nw-apartment {
+  display: flex;
+  justify-content: center;
+  width: 800px;
+  margin: auto;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+section#newapartment-section .form-nw-apartment:hover {
+  border: 1px solid #0d736e;
+  transition: 0.2s;
+}
+
+section#newapartment-section .form-nw-apartment .form-nw-apartment-elm-tot {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: auto;
+  padding: 20px 0px;
+}
+
+section#newapartment-section .form-nw-apartment .form-nw-apartment-elm-tot .elm-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+section#newapartment-section .form-nw-apartment .form-nw-apartment-elm-tot .elm-form input {
+  background-color: #ededed;
+  padding: 5px 10px;
+  border: 0;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+section#newapartment-section .form-nw-apartment .form-nw-apartment-elm-tot .elm-form input:hover {
+  background-color: #d9d9d9;
+  transition: 0.2s;
+}
+
+section#newapartment-section .form-nw-apartment .form-nw-apartment-elm-tot .elm-form-img {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+section#newapartment-section .form-elem-service-tot {
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+section#newapartment-section .form-elem-service-tot:hover {
+  border: 1px solid #0d736e;
+  transition: 0.2s;
+}
+
+section#newapartment-section .form-elem-service-tot .form-service-container {
+  margin: auto;
+}
+
+section#newapartment-section .form-elem-service-tot .form-service-container .form-elem-service-elm {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2px;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+section#newapartment-section .form-elem-service-tot .form-service-container .form-elem-service-elm:hover {
+  background-color: darkslategrey;
+  transition: 0.2s;
+}
+
+section#newapartment-section button {
+  margin-top: 50px;
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 20px;
+  background-color: white;
+  font-family: "Nunito", sans-serif;
+  color: #12a19a;
+}
+
 * {
   margin: 0;
   padding: 0;
