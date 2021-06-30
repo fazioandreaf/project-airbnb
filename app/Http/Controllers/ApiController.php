@@ -100,12 +100,10 @@ class ApiController extends Controller
 
         foreach ($views as $view) {
                 
-            $dateString = date('Y-m', strtotime($view->view_date));
-            $dateArray = explode("-", $dateString);
-            [$year,$month] = $dateArray;
-
-            $stats[$year][$month] []= $view;
-
+            $dateString = $view->view_date;
+            $date = explode("-", $dateString);
+            [$year, $month, $day] = $date;
+            $stats[$year] []= $month;
         };
 
         return response() -> json($stats, 200);
