@@ -869,7 +869,8 @@ section#my-apartments .wrapper-apartment .apartment-main-infos .infos {
 }
 
 section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-title {
-  flex-basis: 30%;
+  flex-grow: 1;
+  cursor: pointer;
 }
 
 section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-details {
@@ -1926,7 +1927,8 @@ section#my-apartments .wrapper-apartment .apartment-main-infos .infos {
 }
 
 section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-title {
-  flex-basis: 30%;
+  flex-grow: 1;
+  cursor: pointer;
 }
 
 section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-details {

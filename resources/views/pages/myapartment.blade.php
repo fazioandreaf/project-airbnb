@@ -22,6 +22,7 @@
                 <template v-slot:view>
                     <a class="button-link" href="{{ route('apartment', $apartment->id) }}">
                         Visualizza
+                        <i class="fas fa-eye"></i>
                     </a>
                 </template>
                 <template v-slot:delete>
@@ -32,6 +33,19 @@
                 <template v-slot:edit>
                     <a class="button-link" href="{{ route('edit', $apartment->id) }}">
                         Modifica
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </template>
+                <template v-slot:statistic>
+                    <a class="button-link" href="{{ route('statistic', $apartment->id) }}">
+                        Statistiche
+                        <i class="fas fa-chart-bar"></i>
+                    </a>
+                </template>
+                <template v-slot:sponsor>
+                    <a class="button-link" href="{{ route('sponsor', $apartment->id) }}">
+                        Sponsor
+                        <i class="fas fa-euro-sign"></i>
                     </a>
                 </template>
             </my-apartment>
