@@ -248,9 +248,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         this.km.push(tmp);
                         // console.log(tmp);
                         if (this.km[0].kilometers < 20) {
+                            this.pos2[0].distanza = this.km;
                             this.apartmentrange.push(this.pos2);
                         } else this.pos2 = [];
-                        this.pos1=[]
+                        this.pos1 = [];
+                        this.km = [];
                         console.log(
                             "fine then",
                             this.pos1,
@@ -264,17 +266,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 this.latlng(elem);
                 ar = elem.address.split("-");
                 city_target = ar[2];
-                console.log("posizione_elem", this.pos1);
-
-                for (i = 0; i < this.currentapartment.length-1; i++) {
+                for (i = 0; i < this.currentapartment.length - 1; i++) {
                     arr = this.currentapartment[i].address.split("-");
                     city = arr[2];
                     if (
                         city === city_target &&
                         elem.address != this.currentapartment[i].address
                     ) {
-                        console.log("inizio if", this.pos1, this.pos2);
-                        /
                         this.latlngpos2(this.currentapartment[i]);
                     }
                 }
