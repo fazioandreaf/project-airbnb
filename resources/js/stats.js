@@ -100,7 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 this.activeGraph = true;
                 this.graph = myChart;
-                
             },
 
             generateData: function(type) {
