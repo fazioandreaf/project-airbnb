@@ -34,9 +34,8 @@ class MainController extends Controller {
         $ip=\Request::ip();
         $validate=([
             'ip'=>$ip,
-            'view_date'=>'2020-05-10',
         ]);
-        // dd($ip);
+        // dd($now);
         $apartment = Apartment::findOrFail($id);
         $statistic = Statistic::make($validate);
         $statistic -> apartment() -> associate($id);
