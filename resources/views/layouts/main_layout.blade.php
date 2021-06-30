@@ -14,8 +14,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/search.js') }}" defer></script> --}}
 
-
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 

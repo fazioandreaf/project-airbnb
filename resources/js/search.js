@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const app = new Vue({
         el: "#search",
         data: {
+            dropdownActive: false,
             where: "",
             number_rooms: 1,
             number_beds: 1,
@@ -31,9 +32,19 @@ document.addEventListener("DOMContentLoaded", () => {
             log: function() {
                 console.log("mundo");
             },
+<<<<<<< HEAD
             addclass: function() {
                 this.toggle = !this.toggle;
             },
+=======
+
+            openDropdown: function() {
+
+                this.dropdownActive = !this.dropdownActive;
+                console.log("LALLERO");
+            },
+
+>>>>>>> master
             filter: function() {
                 this.activeservice = [];
                 axios
