@@ -25,9 +25,17 @@
                 @foreach ($sponsors as $sponsor)
                     <div class="label-sponsor">
                         <label for="" class="title-label"> 
-                            
-                                TipoSpon
-                                       
+                            @switch($sponsor->id)
+                                @case(1)
+                                    SMART 
+                                    @break
+                                @case(2)
+                                    PREMIUM
+                                    @break
+                                @case(3)
+                                    BUSINESS 
+                                    @break
+                            @endswitch 
                         </label>
                         <span class="price-sponsor">
                            <span class="euro-price">
@@ -39,7 +47,7 @@
                         </span>
                         <label for="sponsor_id">{{$sponsor->sponsor_duration}} Ore </label>
                         <div>
-                            <input type="checkbox" name="sponsor_id" id="sponsor_id" value="{{$sponsor->id}}" class="btn-sponsor">
+                            <input type="radio" name="sponsor_id" id="sponsor_id" value="{{$sponsor->id}}" class="btn-sponsor">
                             <span>Seleziona</span>
                         </div>                    
 
