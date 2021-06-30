@@ -1,4 +1,7 @@
-const { default: Axios } = require('axios');
+const axios = require("axios");
+import { Chart, registerables } from 'chart.js';
+import { indexOf } from 'lodash';
+Chart.register(...registerables);
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -7,36 +10,77 @@ document.addEventListener("DOMContentLoaded", () => {
     const stats = new Vue({
         el: "#stats",
         data: {
-            test: "Hello world!"
+            apartmentId: "",
+            views: {},
+            messages: {},
+            statsData: {},
+            years: [],
+            selectedYear: "",
+            graphType: "",
+            activeGraph: false,
+            graph: {},
+            noStats: false,
         },
 
         methods: {
 
-            createStats: function() {
+            getApartmentId: function() {
 
-                const ctx = document.getElementById('myChart');
+                const url = window.location.href;
+                const params = url.split("/");
+                const id = parseInt(params[params.length -1]);
+                this.apartmentId = id;  
+            },
+
+            getViews: function() {
+
+                axios
+                    .get("/api/views/" + this.apartmentId)
+                    .then(data => {
+                        
+                        this.views = data.data;
+                        console.log(this.views);
+                    })
+                    .catch(error => console.log(error));
+            },
+
+            getMessages: function() {
+                axios
+                    .get("/api/messages/" + this.apartmentId)
+                    .then(data => {
+                        this.messages = data.data;
+                        console.log(this.messages);
+                    })
+                    .catch(error => console.log(error));
+            },
+
+            generateStats: function(year) {
+                
+                if(this.activeGraph) {
+                    this.graph.destroy();
+                }
+
+                this.selectedYear = year;
+                const months = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'];
+                let stats = [0,0,0,0,0,0,0,0,0,0,0,0];
+                this.statsData[this.selectedYear].forEach(month => {
+                    stats[month-1]++;
+                });
+                
+                // Chart.js
+                const ctx = document.getElementById('statsChart').getContext('2d');
                 let myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
-                        labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
+                        labels: months, 
                         datasets: [{
-                            label: '# di Messaggi',
-                            data: [12, 19, 3, 5, 2, 3],
+                            label: (this.graphType == 'views') ? '# di Visualizzazioni' : '# di Messaggi',
+                            data: stats,
                             backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
+                                '#12a19a',
                             ],
                             borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
+                                '#0d736e',
                             ],
                             borderWidth: 1
                         }]
@@ -46,14 +90,40 @@ document.addEventListener("DOMContentLoaded", () => {
                             y: {
                                 beginAtZero: true
                             }
-                        }
+                        },
+
+                        layout: {
+                            padding: 100
+                        },
                     }
                 });
+
+                this.activeGraph = true;
+                this.graph = myChart;
+            },
+
+            generateData: function(type) {
+                
+                this.graphType = type;
+                (this.graphType == 'views') ? this.statsData = this.views : this.statsData = this.messages;
+                this.years = Object.keys(this.statsData);
+                this.noStats = false;
+
+                if(Object.entries(this.statsData).length === 0) {
+                    this.noStats = true;
+                    if(this.activeGraph) {
+                        this.graph.destroy();
+                    }
+                    return 
+                }
             }
         },
 
         mounted() {
-            this.createStats();
+
+            this.getApartmentId();
+            this.getViews();
+            this.getMessages();
         }
     })
 })

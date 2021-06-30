@@ -33,10 +33,11 @@ class MainController extends Controller {
     {
         // dd(\Request::getClientIp(true));
         // dd($request);
+        $now = Carbon::now()->setTimeZone("Europe/Rome");
         $ip=\Request::ip();
         $validate=([
             'ip'=>$ip,
-            'view_date'=>'2020-05-10',
+            'view_date'=> $now,
         ]);
         // dd($ip);
         $apartment = Apartment::findOrFail($id);

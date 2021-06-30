@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Apartment;
+use App\Message;
+use App\Statistic;
 use App\Service;
 use DB;
+use Carbon\Carbon;
 
 class ApiController extends Controller
 {
@@ -86,5 +89,41 @@ class ApiController extends Controller
         $apartment->save();
 
         return response() -> json("Deleted", 200);
+    }
+
+    public function getViews($id) {
+
+        $views = Statistic::where('apartment_id', '=', $id)
+                    ->get();
+
+        $stats = [];
+
+        foreach ($views as $view) {
+                
+            $dateString = $view->view_date;
+            $date = explode("-", $dateString);
+            [$year, $month, $day] = $date;
+            $stats[$year] []= $month;
+        };
+
+        return response() -> json($stats, 200);
+    }
+
+    public function getMessages($id) {
+
+        $messages = Message::where('apartment_id', '=', $id)
+                    ->get();
+
+        $stats = [];
+
+        foreach ($messages as $message) {
+                
+            $dateString = $message->created_at;
+            $date = explode("-", $dateString);
+            [$year, $month, $day] = $date;
+            $stats[$year] []= $month;
+        };
+
+        return response() -> json($stats, 200);
     }
 }
