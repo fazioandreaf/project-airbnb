@@ -1,6 +1,6 @@
 .contain-main {
   height: 900px;
-  
+
 
   section:only-of-type {
     width: 100%;
@@ -60,11 +60,17 @@
     margin-top: 100px;
     margin-bottom: 30px;
   }
-  
+
   .apartment-samples {
     font-size: 20px;
     @include container(90%);
-    @include flex(row, space-between, null);
+    @include flex(row, flex-start, null);
+    overflow-x: auto;
+    white-space: nowrap;
+
+    li {
+      margin-right: 30px;
+    }
 
 
     li:nth-child(odd) {
@@ -79,9 +85,9 @@
       width: 220px;
       height: 220px;
       background-color: purple;
-      border-radius: 10px;
       display: flex;
       align-items: flex-end;
+      border-radius: 10px;
 
       a{
         color: white;

@@ -1,5 +1,6 @@
 #apartment-sample {
   background-color: $dirty-white;
+  padding-bottom: 30px;
 
   nav {
     @include flex(row, null, center);
@@ -15,8 +16,8 @@
       div:nth-child(1) {
 
         img {
-          height:80%;
-          width: 80%
+          height: auto;
+          width: 120px;
         }
       } // FINE PRIMO div IMMAGINE
 
@@ -98,10 +99,11 @@
     @include container(80%);
 
     #jumbo-container {
+      margin-bottom: 50px;
 
       .titolo {
-        margin-top: 20px;
-        height:60px;
+        margin-top: 40px;
+        height: 60px;
         @include flex(row, null, center);
         text-transform: uppercase;
       }
@@ -232,7 +234,7 @@
 
       .dettagli-flat {
         width: 100%;
-        height: 600px;
+        height: 700px;
         @include flex(row, null, null);
 
         // INIZIO SEZIONE SINISTRA CON ICONE
@@ -243,7 +245,7 @@
           h2 {
             height: 40px;
             width: 100%;
-            border-bottom: 1px solid rgba(50, 50, 50, .3);
+            border-bottom: 0.5px solid rgba(50, 50, 50, .3);
           }
 
           #all-four-rows {
@@ -256,6 +258,18 @@
             .riga.quattro {
               width: 100%;
               height: 25%;
+
+              h3 {
+                text-transform: uppercase;
+                border-bottom: 1px solid rgba(50, 50, 50, .3);
+                padding-bottom: 20px;
+              }
+
+              img {
+                width: 40px;
+                height: auto;
+              }
+
             }
 
             // (1) INIZIO PARAGRAFO LOREM
@@ -268,6 +282,10 @@
             .riga.due {
               @include flex(row, space-between, null);
 
+              img {
+                margin-right: 10px;
+              }
+
               span {
                 @include flex(row, center, center);
               }
@@ -277,36 +295,52 @@
             // (3) INIZIO SERVIZI EXTRA
             .riga.tre {
 
-                .sub-list {
-                  width:100%;
-                  height: 100%;
-                  @include flex(row, flex-start, center);
-                  flex-wrap: wrap;
+              .sub-list {
+                width:100%;
+                height: 100%;
+                @include flex(row, flex-start, center);
+                flex-wrap: wrap;
+                padding-bottom: 50px;
 
-                  li {
-                    margin-left: 20px;
-                    height: 60px;
-                    @include flex(column, center, center);
-                  }
-
-                  li:first-of-type {
-                    margin: 0;
-                  }
+                li {
+                  margin-left: 20px;
+                  height: 60px;
+                  @include flex(column, center, center);
                 }
+
+                li:first-of-type {
+                  margin: 0;
+                }
+
+                img {
+                  margin-top: 10px;
+                }
+
+              } // FINE SUB-LIST
 
             } // (3) FINE SERVIZI EXTRA
 
             // (4) INIZIO SPONSOR E PULIZIA
             .riga.quattro {
-              @include flex(row, space-between, center);
 
-              a {
-                @include flex(row, center, center);
+              h3 {
+                padding-top: 30px;
+              }
 
-                i {
-                  font-size: 35px;
+              .test {
+                width: 100%;
+                height: 100%;
+                @include flex(row, space-between, center);
+
+                a {
+                  @include flex(row, center, center);
+
+                  i {
+                    font-size: 35px;
+                  }
                 }
               }
+
 
             } // (4) INIZIO SPONSOR E PULIZIA
 
@@ -324,11 +358,11 @@
 
 
           form {
-            height: 500px;
+            height: 650px;
             width: 80%;
             @include flex(column, center, center);
             border-radius: 20px;
-            border: 1px solid $salmon-pink;
+            box-shadow: 2px 2px lightgray;
             background-color: $white;
 
             .fa-pencil-alt {
@@ -362,10 +396,13 @@
               background-color: $fuchsia-search;
               border: none;
               border-radius: 10px;
+              color: $white;
             }
 
             // SCATOLA DI TESTO (LOL)
             textarea {
+              max-width: 80%;
+              min-height: 60%;
               border: 0.5px solid rgba(50, 50, 50, .2);
               border-radius: 10px;
             }
