@@ -2290,8 +2290,8 @@ document.addEventListener("DOMContentLoaded", function () {
           miles: 0
         };
         var fromPoint = [pos1[0].lon, pos1[0].lat];
-        var toPoint = [pos2[0].lon, pos2[0].lat];
-        console.log(fromPoint, toPoint);
+        var toPoint = [pos2[0].lon, pos2[0].lat]; // console.log(fromPoint, toPoint);
+
         var kilometers = turf.distance(fromPoint, toPoint);
         var miles = turf.distance(fromPoint, toPoint, {
           units: "miles"
@@ -2331,11 +2331,14 @@ document.addEventListener("DOMContentLoaded", function () {
             _this5.pos2[0].distanza = _this5.km;
 
             _this5.apartmentrange.push(_this5.pos2);
-          } else _this5.pos2 = [];
+          }
 
-          _this5.pos1 = [];
-          _this5.km = [];
-          console.log("fine then", _this5.pos1, _this5.pos2, _this5.apartmentrange);
+          _this5.pos2 = [];
+          _this5.km = []; // console.log(
+          //     "fine then",
+          //     this.pos1,
+          //     this.apartmentrange
+          // );
         })["catch"](function (err) {
           return console.log(err);
         });
@@ -2352,7 +2355,8 @@ document.addEventListener("DOMContentLoaded", function () {
           if (city === city_target && elem.address != this.currentapartment[i].address) {
             this.latlngpos2(this.currentapartment[i]);
           }
-        }
+        } // console.log(this.apartmentrange);
+
       }
     }
   });

@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
                 var fromPoint = [pos1[0].lon, pos1[0].lat];
                 var toPoint = [pos2[0].lon, pos2[0].lat];
-                console.log(fromPoint, toPoint);
+                // console.log(fromPoint, toPoint);
                 var kilometers = turf.distance(fromPoint, toPoint);
                 var miles = turf.distance(fromPoint, toPoint, {
                     units: "miles"
@@ -250,15 +250,14 @@ document.addEventListener("DOMContentLoaded", () => {
                         if (this.km[0].kilometers < 20) {
                             this.pos2[0].distanza = this.km;
                             this.apartmentrange.push(this.pos2);
-                        } else this.pos2 = [];
-                        this.pos1 = [];
+                        }
+                        this.pos2 = [];
                         this.km = [];
-                        console.log(
-                            "fine then",
-                            this.pos1,
-                            this.pos2,
-                            this.apartmentrange
-                        );
+                        // console.log(
+                        //     "fine then",
+                        //     this.pos1,
+                        //     this.apartmentrange
+                        // );
                     })
                     .catch(err => console.log(err));
             },
@@ -274,8 +273,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         elem.address != this.currentapartment[i].address
                     ) {
                         this.latlngpos2(this.currentapartment[i]);
+
                     }
                 }
+
+                // console.log(this.apartmentrange);
             }
         }
     });
