@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
             selectedYear: "",
             graphType: "",
             activeGraph: false,
+            graph: {},
             noStats: false,
-            graph: {}
         },
 
         methods: {
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 let stats = [0,0,0,0,0,0,0,0,0,0,0,0];
                 this.statsData[this.selectedYear].forEach(month => {
                     stats[month-1]++;
-                })
+                });
                 
                 // Chart.js
                 const ctx = document.getElementById('statsChart').getContext('2d');
@@ -77,10 +77,10 @@ document.addEventListener("DOMContentLoaded", () => {
                             label: (this.graphType == 'views') ? '# di Visualizzazioni' : '# di Messaggi',
                             data: stats,
                             backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
+                                '#12a19a',
                             ],
                             borderColor: [
-                                'rgba(255, 99, 132, 1)',
+                                '#0d736e',
                             ],
                             borderWidth: 1
                         }]
@@ -90,7 +90,11 @@ document.addEventListener("DOMContentLoaded", () => {
                             y: {
                                 beginAtZero: true
                             }
-                        }
+                        },
+
+                        layout: {
+                            padding: 100
+                        },
                     }
                 });
 

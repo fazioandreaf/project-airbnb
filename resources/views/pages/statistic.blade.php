@@ -1,7 +1,7 @@
 @extends('layouts.statistic-layout')
 @section('content')
 <h1>Pagina statistiche</h1>
-    <div id="stats">
+    <div id="stats" v-cloak>
         <ul>
             <li>
                 <button v-on:click="generateData('views')">Visualizzazioni per mesi</button>
@@ -14,7 +14,9 @@
         <button v-for="year in years" v-on:click="generateStats(year)">
             @{{ year }}
         </button>
-        <canvas id="statsChart"></canvas>
+        <canvas id="statsChart" aria-label="Statistiche">
+            <p>Il tuo dispositivo non supporta il canvas</p>
+        </canvas>
         
    </div> 
     

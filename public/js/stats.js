@@ -44708,8 +44708,8 @@ document.addEventListener("DOMContentLoaded", function () {
       selectedYear: "",
       graphType: "",
       activeGraph: false,
-      noStats: false,
-      graph: {}
+      graph: {},
+      noStats: false
     },
     methods: {
       getApartmentId: function getApartmentId() {
@@ -44758,8 +44758,8 @@ document.addEventListener("DOMContentLoaded", function () {
             datasets: [{
               label: this.graphType == 'views' ? '# di Visualizzazioni' : '# di Messaggi',
               data: stats,
-              backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-              borderColor: ['rgba(255, 99, 132, 1)'],
+              backgroundColor: ['#12a19a'],
+              borderColor: ['#0d736e'],
               borderWidth: 1
             }]
           },
@@ -44768,6 +44768,9 @@ document.addEventListener("DOMContentLoaded", function () {
               y: {
                 beginAtZero: true
               }
+            },
+            layout: {
+              padding: 100
             }
           }
         });
