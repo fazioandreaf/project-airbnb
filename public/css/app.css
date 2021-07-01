@@ -663,7 +663,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
 }
 
 .contain-main {
-  height: 1100px;
+  height: 100%;
 }
 
 .contain-main section:only-of-type {
