@@ -1,17 +1,12 @@
 @extends("layouts.main_layout")
-
 @section("content")
-
   <div class="contain-main">
-
-
   <div class="outer-jumbotron">
     <h3 class="title-outer-jmb">
       Cerca tra i preferiti:
     </h3>
-
-    {{--------------------- INIZIO DANNY SLIDER ----------------------}}
-    <div class="danny-slider" id="app">
+    {{-- ------------------- INIZIO DANNY SLIDER ----------------------}}
+    {{-- <div class="danny-slider" id="app">
 
       <!---__________ FRECCIA SINISTRA __________ -->
       <div class="freccia-sinistra">
@@ -32,13 +27,9 @@
         </a>
       </div>
 
-    </div>
-    {{--------------------- FINE DANNY SLIDER ----------------------}}
-
-
-
-
-    {{-- <ul class="apartment-samples">
+    </div> --}}
+    {{--------------------- FINE DANNY SLIDER -------------------- --}}
+    <ul class="apartment-samples" style="overflow: auto;">
 
       <span>
         <a href="#">
@@ -48,7 +39,8 @@
 
       @foreach ($apartments as $apartment)
       <li>
-        <div class="flags">
+        <div class="flags" style="display: flex;flex-direction: column; align-items: center; background: rgba(255, 56, 92, 0.8); box-shadow: lightgray 0px 6px 10px; margin: 5px;">
+        <img src="{{$apartment->cover_image}}" alt="" style="width:100%; padding: 10px; border-radius: 5px; ">
           <a href="{{route('apartment', $apartment->id)}}">
             {{ $apartment->id }}
             {{ $apartment->title }}
@@ -63,10 +55,8 @@
           <i class="fas fa-chevron-right"></i>
         </a>
       </span>
-    </ul> --}}
-
+    </ul>
   <div class="section-host" >
-
     <div class="host">
       <h1 class="h1-host">
         Diventa un Host
