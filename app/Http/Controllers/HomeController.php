@@ -133,7 +133,10 @@ class HomeController extends Controller {
                     ->where('statistics.apartment_id','=',$id)
                     ->get();
         //             dd(count($statistic));
-        return view('pages.statistic',compact('statistic'));
+
+        $user_id = Auth::id();
+        $user = User::findOrFail($user_id);
+        return view('pages.statistic',compact('statistic', 'user'));
     }
 
     // init braintree

@@ -93,8 +93,12 @@ document.addEventListener("DOMContentLoaded", () => {
                         },
 
                         layout: {
-                            padding: 100
+                            padding: {
+                                left: 20
+                            }
                         },
+
+                        responsive: false
                     }
                 });
 

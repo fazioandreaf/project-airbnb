@@ -32,7 +32,8 @@
     {{--------------------- FINE DANNY SLIDER -------------------- --}}
     <ul class="apartment-samples" style="display:flex; align-items:center">
 
-      <span>
+      <span id="slider">
+        @{{ test }}
         <a href="#">
           <i class="fas fa-chevron-left"></i>
         </a>
