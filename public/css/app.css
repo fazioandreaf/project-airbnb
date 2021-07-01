@@ -731,44 +731,14 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   margin-bottom: 30px;
 }
 
-.outer-jumbotron .danny-slider {
+.outer-jumbotron .slider-main {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.outer-jumbotron .danny-slider .freccia-sinistra .fa-chevron-left {
-  padding-right: 50px;
-  font-size: 30px;
-}
-
-.outer-jumbotron .danny-slider .freccia-destra .fa-chevron-right {
-  padding-left: 50px;
-  font-size: 30px;
-}
-
-.outer-jumbotron .danny-slider .foto {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column wrap;
-  scroll-behavior: smooth;
-}
-
-.outer-jumbotron .danny-slider .picture {
-  width: 800px;
-  height: 500px;
-  border-radius: 10px;
-  display: none;
-}
-
-.outer-jumbotron .danny-slider .active {
-  display: block;
-}
-
-.outer-jumbotron .apartment-samples {
+.outer-jumbotron .slider-main .apartment-samples {
   font-size: 20px;
   margin: 0 auto;
   width: 90%;
@@ -776,28 +746,38 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  overflow-x: auto;
 }
 
-.outer-jumbotron .apartment-samples li:nth-child(odd) {
+.outer-jumbotron .slider-main .apartment-samples li:nth-child(odd) {
   color: #e3342f;
 }
 
-.outer-jumbotron .apartment-samples li:nth-child(even) {
+.outer-jumbotron .slider-main .apartment-samples li:nth-child(even) {
   color: #38c172;
 }
 
-.outer-jumbotron .apartment-samples .flags {
+.outer-jumbotron .slider-main .apartment-samples .flags {
   width: 220px;
   height: 220px;
   background-color: purple;
   display: flex;
   align-items: flex-end;
   border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
 }
 
-.outer-jumbotron .apartment-samples .flags a {
+.outer-jumbotron .slider-main .apartment-samples .flags a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   color: white;
-  padding: 10px;
 }
 
 .outer-jumbotron .section-host {
