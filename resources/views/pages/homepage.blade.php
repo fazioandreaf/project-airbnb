@@ -30,7 +30,7 @@
 
     </div> --}}
     {{--------------------- FINE DANNY SLIDER -------------------- --}}
-    <ul class="apartment-samples" style="sisplay:flex; align-items:center">
+    <ul class="apartment-samples" style="display:flex; align-items:center">
 
       <span>
         <a href="#">
