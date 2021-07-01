@@ -13,6 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Scripts -->
     <script src="{{ asset('js/stats.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -28,8 +29,9 @@
 
   <body>
   
-
-    @include('pages.components.minimal-black-header')
+    <div id="app">
+      @include('pages.components.minimal-black-header')
+    </div>
 
     <main>
       @yield('content')
@@ -38,6 +40,7 @@
     <footer>
       @include('pages.components.footer')
     </footer>
+    
 
   </body>
 

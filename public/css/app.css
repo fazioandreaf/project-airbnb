@@ -2157,7 +2157,7 @@ section#pay-section button {
 }
 
 #stats {
-  padding: 40px 0;
+  padding: 50px 0;
 }
 
 #stats .container {
@@ -2189,6 +2189,7 @@ section#pay-section button {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.5s;
 }
 
 #stats .stats-menu > li:hover {
@@ -2207,6 +2208,18 @@ section#pay-section button {
 
 #stats .wrapper-statistics aside .years-list li:nth-child(odd) {
   background-color: #ededed;
+}
+
+#stats .wrapper-statistics aside .years-list li a {
+  display: inline-block;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+#stats .wrapper-statistics aside .years-list li a:hover {
+  color: #0d736e;
 }
 
 #stats .wrapper-statistics .wrapper-graph {
