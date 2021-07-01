@@ -17,15 +17,7 @@
                             {{-- <a @click="redirect(elem.id)"> --}}
                                 <h2>{{$item->title}}</h2>
                             </a>
-
-                            {{-- debug --}}
-                                </a>
-                                <div onclick="addlayer({{$item->id}})"> addlayer</div>
-                                <div onclick="calculateDistance()">
-                                    distanza fra i punti
-                                </div>
-                            {{-- fine --}}
-                            <a href="#" onclick="getLatLng('{{$item -> address}}')">
+                            <a href="#" onclick="getLatLng('{{$item -> address}}')" @click="prova(@{{ elem.title }}))">
                                 <strong>Address:</strong>
                                 {{$item->address}}
                             </a>

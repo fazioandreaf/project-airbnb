@@ -131,9 +131,6 @@
 
         let pos=[];
         function getLatLng(address) {
-            console.log(address);
-            // let lon=0;
-
             axios.get('https://api.tomtom.com/search/2/geocode/'+ address+ '.JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
             .then( res=> {
                 if(res.data.results.length>0){
@@ -150,8 +147,6 @@
             .catch(err=> console.log(err));
         };
         window.addEventListener("DOMContentLoaded",firstsearch('{{$first_search}}'))
-        // window.onload=formarker({{$apartments}});
-        // window.addEventListener("DOMContentLoaded",formarker({{$apartments}}))
         function firstsearch(item){
             if(item!=''){
                 axios.get('https://api.tomtom.com/search/2/search/'+ item+ '.JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
@@ -163,27 +158,18 @@
             }
         };
         function formarker(item){
-
-            // console.log(item.address);
-            // if(item.address!=''){
-            //     axios.get('https://api.tomtom.com/search/2/search/'+ item.address+ '.JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
-            //     .then( res=>{
-            //         tmp=res.data.results[0].position;
-            //         makemarker(tmp.lon , tmp.lat);
-            //         console.log(tmp.lat,tmp.lon)
-            //     })
-            //     .catch(err=> console.log(err));
-            for(i=0;i<item.length;i++){
-                if(item[i].address!=''){
-                axios.get('https://api.tomtom.com/search/2/search/'+ item[i].address+ '.JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
-                .then( res=>{
-                    tmp=res.data.results[0].position;
-                    makemarker(tmp.lon , tmp.lat);
-                    console.log(tmp.lat,tmp.lon)
-                })
-                .catch(err=> console.log(err));
-
-            }}
+            if(item.length<30){
+                for(i=0;i<item.length;i++){
+                    if(item[i].address!=''){
+                    axios.get('https://api.tomtom.com/search/2/search/'+ item[i].address+ '.JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
+                    .then( res=>{
+                        tmp=res.data.results[0].position;
+                        makemarker(tmp.lon , tmp.lat);
+                    })
+                    .catch(err=> console.log(err));
+                    }
+                }
+            }
         }
 
 
