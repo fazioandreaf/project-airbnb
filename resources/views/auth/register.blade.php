@@ -1,4 +1,4 @@
-@extends('layouts.register-layout')
+@extends('layouts.minimal-layout')
 
 @section('content')
 
@@ -75,7 +75,7 @@
                         {{ __('Registrati') }}
                     </button>
                 </div>
-                
+
                 <ul v-if="registerErrors.length">
                     <li v-for="error in registerErrors">
                         @{{ error }}

@@ -12627,14 +12627,23 @@ module.exports = g;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-document.addEventListener("DOMContentLoaded", function () {
-  window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+document.addEventListener('DOMContentLoaded', function () {
   var slider = new Vue({
     el: "#slider",
-    data: {
-      test: "Hello world!"
-    }
-  });
+    data: {},
+    methods: {
+      forward: function forward() {
+        document.getElementById('slider2').scrollLeft += 240;
+      },
+      // END OF FORWARD
+      backwards: function backwards() {
+        document.getElementById('slider2').scrollLeft -= 240;
+      } // END OF BACKWARDS
+
+    } // END OF methods
+
+  }); // END OF NEW VUE
 });
 
 /***/ }),

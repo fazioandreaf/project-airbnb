@@ -32,12 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         el: '#app',
         data: {
 
-          "activeImg": 0,
-            "images": [
-              '/storage/assets/casa_danny.jpg',
-              '/storage/assets/wallpaper.jpg',
-              '/storage/assets/danny_casa_toilet.jpg'
-            ],
+            messaggio:"hello world",
 
             labelActive: "profile-infos",
             dropdownActive: false,
@@ -61,27 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 this.dropdownActive = false;
             },
-
-            // __________ INIZIO DANNY SLIDER _____________
-
-            forward: function() {
-              if (this.activeImg == (this.images.length - 1)) {
-                this.activeImg = 0;
-              } else {
-                this.activeImg++;
-              }
-            }, // END OF FORWARD
-
-            backwards: function() {
-
-              if (this.activeImg == 0) {
-                this.activeImg = this.images.length - 1;
-              } else {
-                this.activeImg--;
-              }
-            }, // END OF BACKWARDS
-
-            // __________ FINE DANNY SLIDER _____________
 
             validateRegister: function(e) {
 

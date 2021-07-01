@@ -738,6 +738,13 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   align-items: center;
 }
 
+.outer-jumbotron .slider-main .fa-chevron-left,
+.outer-jumbotron .slider-main .fa-chevron-right {
+  cursor: pointer;
+  font-size: 40px;
+  color: #ff385c;
+}
+
 .outer-jumbotron .slider-main .apartment-samples {
   font-size: 20px;
   margin: 0 auto;
@@ -746,23 +753,14 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  overflow-x: auto;
-}
-
-.outer-jumbotron .slider-main .apartment-samples li:nth-child(odd) {
-  color: #e3342f;
-}
-
-.outer-jumbotron .slider-main .apartment-samples li:nth-child(even) {
-  color: #38c172;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .outer-jumbotron .slider-main .apartment-samples .flags {
   width: 220px;
   height: 220px;
-  background-color: purple;
-  display: flex;
-  align-items: flex-end;
+  background-color: navy;
   border-radius: 10px;
   display: flex;
   flex-direction: row;
@@ -811,9 +809,13 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
 }
 
 .outer-jumbotron .section-host .host .btn-host_hmpages {
-  width: 100px;
-  height: 30px;
-  background-color: #E6007E;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 40px;
+  background-color: #ff385c;
   color: white;
   font-family: "Poppins", sans-serif;
   text-transform: uppercase;
