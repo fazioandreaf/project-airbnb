@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.dropdownActive = false;
             },
 
-            // __________ INIZIO DANNY SLIDER_____________
+            // __________ INIZIO DANNY SLIDER _____________
 
             forward: function() {
               if (this.activeImg == (this.images.length - 1)) {

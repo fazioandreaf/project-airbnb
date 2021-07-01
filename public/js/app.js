@@ -50259,7 +50259,7 @@ document.addEventListener('DOMContentLoaded', function () {
       documentCloseDropdown: function documentCloseDropdown() {
         this.dropdownActive = false;
       },
-      // __________ INIZIO DANNY SLIDER_____________
+      // __________ INIZIO DANNY SLIDER _____________
       forward: function forward() {
         if (this.activeImg == this.images.length - 1) {
           this.activeImg = 0;

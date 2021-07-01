@@ -5,7 +5,12 @@
     <h3 class="title-outer-jmb">
       Cerca tra i preferiti:
     </h3>
+<<<<<<< HEAD
     {{-- ------------------- INIZIO DANNY SLIDER ----------------------}}
+=======
+
+    {{--------------------- INIZIO DANNY SLIDER ----------------------}}
+>>>>>>> master
     {{-- <div class="danny-slider" id="app">
 
       <!---__________ FRECCIA SINISTRA __________ -->
@@ -16,7 +21,7 @@
       </div>
 
       <!---__________ FOTO __________ -->
-      <div class="foto" data-options="step: 0; speed: 4000;">
+      <div class="foto">
         <img class="picture active" :src="images[activeImg]">
       </div>
 
@@ -48,8 +53,8 @@
         </div>
       </li>
 
+      </ul>
 
-      @endforeach
       <span>
         <a href="#">
           <i class="fas fa-chevron-right"></i>
@@ -68,7 +73,6 @@
         Scopri di più
       </button>
     </div>
-  </div>
 
   </div>
 
