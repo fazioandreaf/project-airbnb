@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         mounted: function() {},
         created: function() {
+            setTimeout(() => {
+                this.filtro();
+            }, 1000);
             axios
                 .get("api/service")
                 .then(res => {
@@ -41,7 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log("LALLERO");
             },
 
-            filter: function() {
+            filtro: function() {
+                console.log("ciao");
                 this.activeservice = [];
                 axios
                     .get("api/filter", {
@@ -162,35 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
                 console.log("ciao");
             },
-            calculateDistance: function() {
-                // if (points.length < 2) {
-                //     return undefined;
-                // }
-                // if (pos.length < 1) {
-                //     return alert("Non hai cliccato su nessun appartmanto");
-                // }
-                var totalDistance = {
-                    kilometers: 0,
-                    miles: 0
-                };
-                // for (var i = 1; i < points.length; ++i) {
-                // var fromPoint = points[i - 1];
-                // var toPoint = points[i];
-                var fromPoint = [pos[0].lon, pos[0].lat];
-                var toPoint = [pos[1].lon, pos[1].lat];
-                var kilometers = turf.distance(fromPoint, toPoint);
-                var miles = turf.distance(fromPoint, toPoint, {
-                    units: "miles"
-                });
-                totalDistance.kilometers =
-                    Math.round((totalDistance.kilometers + kilometers) * 100) /
-                    100;
-                totalDistance.miles =
-                    Math.round((totalDistance.miles + miles) * 100) / 100;
-                // }
-                return totalDistance;
-            },
-            provdist: function(pos1, pos2) {
+            distcustom: function(pos1, pos2) {
                 var totalDistance = {
                     kilometers: 0,
                     miles: 0
@@ -226,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     })
                     .catch(err => console.log(err));
             },
-            latlngpos2: function(elem) {
+            latlngcustom: function(elem) {
                 axios
                     .get(
                         "https://api.tomtom.com/search/2/geocode/" +
@@ -241,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             lat: res.data.results[0].position.lat,
                             lon: res.data.results[0].position.lon
                         };
-                        tmp = this.provdist(this.pos1, this.pos2);
+                        tmp = this.distcustom(this.pos1, this.pos2);
                         // console.log(this.pos1, this.pos2, tmp);
                         this.km = tmp.kilometers;
 
@@ -268,7 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     })
                     .catch(err => console.log(err));
             },
-            prova: function(elem) {
+            addresrange: function(elem) {
                 this.latlng(elem);
                 ar = elem.address.split("-");
                 city_target = ar[2];
@@ -281,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         //  &&
                         // elem.address != this.currentapartment[i].address
                     )
-                        this.latlngpos2(this.currentapartment[i]);
+                        this.latlngcustom(this.currentapartment[i]);
                 }
                 setTimeout(() => {
                     console.log("time1", this.apartmentrange);
