@@ -1,7 +1,7 @@
 <header id="header-search">
 
   <div class="top-header-search" id="app">
-
+    <a href="#" onclick="firstsearch('{{$first_search}}')">prova</a>
     <div class="logo">
       <a href="{{route('homepage')}}">
         <img src="{{asset('storage/assets/lg_clr.png')}}" alt="logo-image">

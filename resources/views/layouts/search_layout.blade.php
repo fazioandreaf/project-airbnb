@@ -151,20 +151,29 @@
             })
             .catch(err=> console.log(err));
         };
+        // var prova={}
+        window.addEventListener("DOMContentLoaded",firstsearch('milano'))
+        function firstsearch(item){
+            if(item!=''){
+                // position={}
+                console.log(item);
+                axios.get('https://api.tomtom.com/search/2/search/'+ item+ '.JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
+                .then( res=>  {
+                    console.log(res.data.results[0].position);
+                    // position.lat=res.data.results[0].position.lat;
+                    // position.lon=res.data.results[0].position.lon;
+                    var map = tt.map({
+                        key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
+                        container: 'map',
+                        center: [res.data.results[0].position.lon, res.data.results[0].position.lat ],
+                        zoom: 5,
+                    });
+                })
+                .catch(err=> console.log(err));
+            }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        };
+        // $firstsearchMap=firstsearch()
 
 
 
@@ -181,6 +190,7 @@
             searchOptions: {
                 key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
                 language: 'it-IT',
+                // center:[]
                 limit: 5
             },
             autocompleteOptions: {
@@ -193,12 +203,7 @@
         var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
         var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
         // document.body.appendChild(searchBoxHTML);
-        var map = tt.map({
-            key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
-            container: 'map',
-            center: [12.59, 41.86 ],
-            zoom: 5,
-        });
+
         var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
         var searchMarkersManager = new SearchMarkersManager(map);
         ttSearchBox.on('tomtom.searchbox.resultsfound', handleResultsFound);

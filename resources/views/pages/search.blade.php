@@ -28,6 +28,7 @@
                                 <strong>Address:</strong>
                                 {{$item->address}}
                             </a>
+
                             <span><strong>Area : </strong><span style:"font-weight:bolder">{{$item->area}}  m^2</span></span>
                             <span><strong>Numberi di posti letto: </strong>{{$item->number_beds}}</span>
                             <span><strong>Numbero di stanze: </strong>{{$item->number_rooms}}</span>
