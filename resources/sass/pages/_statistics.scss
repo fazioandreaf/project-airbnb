@@ -1,23 +1,80 @@
 #stats {
 
-    .button-link {
-        @extend %venusaur-green-button;
+    padding: 50px 0;
+
+    .container {
+        @include container(90%)
+    }
+
+    .username {
+        color: $venusaur-green;
     }
 
     .stats-menu {
-        @include flex(row, center, center);
+        @include flex(row, flex-start, center);
+        height: 40px;
+        width: 100%;
+        background-color: $venusaur-green;
+
         & > li {
-            margin: 10px;
+            
             cursor: pointer;
+            color: $white;
+            font-weight: 600;
+            height: 100%;
+            @include flex(row, center, center);
+            transition: background-color .5s;
+
+            // .button-link {
+            //     height: 100%;
+            // }
+
+            &:hover {
+                background-color: $grovyle-dark-green;
+            }
+
+            a {
+                display: inline-block;
+                padding: 10px;
+            }
+        }
+        
+        .active {
+            background-color: $grovyle-dark-green;
         }
     }
 
     .wrapper-statistics {
-        @include flex(column, center, center);
+        @include flex(row, null, flex-start);
 
-        .button-link {
-            background-color: $steelix-gray;
-            cursor: pointer;
+        aside {
+            flex-basis: 30%;
+
+            .years-list li:nth-child(odd) {
+                background-color: $aggron-light-gray;
+            }
+
+            .years-list li {
+                
+                a {
+                    display: inline-block;
+                    text-align: center;
+                    height: 100%;
+                    width: 100%;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $grovyle-dark-green
+                    }
+                }
+            }
+
+        }
+
+        .wrapper-graph {
+
+            flex-basis: 70%;
+            @include flex(row, center, center);
         }
     }
 }

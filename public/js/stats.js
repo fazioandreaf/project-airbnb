@@ -44770,8 +44770,11 @@ document.addEventListener("DOMContentLoaded", function () {
               }
             },
             layout: {
-              padding: 100
-            }
+              padding: {
+                left: 20
+              }
+            },
+            responsive: false
           }
         });
         this.activeGraph = true;
