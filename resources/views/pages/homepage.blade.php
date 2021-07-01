@@ -54,8 +54,6 @@
           <i class="fas fa-chevron-right"></i>
         </a>
       </span>
-      </ul>
-
     </ul>
   <div class="section-host" >
     <div class="host">
