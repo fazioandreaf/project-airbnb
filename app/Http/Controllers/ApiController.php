@@ -99,8 +99,8 @@ class ApiController extends Controller
         $stats = [];
 
         foreach ($views as $view) {
-                
-            $dateString = $view->view_date;
+
+            $dateString = $view->created_at;
             $date = explode("-", $dateString);
             [$year, $month, $day] = $date;
             $stats[$year] []= $month;
@@ -117,7 +117,7 @@ class ApiController extends Controller
         $stats = [];
 
         foreach ($messages as $message) {
-                
+
             $dateString = $message->created_at;
             $date = explode("-", $dateString);
             [$year, $month, $day] = $date;
