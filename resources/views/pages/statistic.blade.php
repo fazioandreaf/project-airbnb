@@ -10,10 +10,10 @@
         </h1>
 
         <ul class="stats-menu">
-            <li>
+            <li v-bind:class="(graphType == 'views') ? 'active' : ''">
                 <a class="button-link" v-on:click="generateData('views')">Visualizzazioni</a>
             </li>
-            <li>
+            <li v-bind:class="(graphType == 'messages') ? 'active' : ''">
                 <a class="button-link" v-on:click="generateData('messages')">Messaggi</a>
             </li>
         </ul>

@@ -2186,7 +2186,6 @@ section#pay-section button {
 }
 
 #stats .stats-menu > li {
-  padding: 10px;
   cursor: pointer;
   color: #FFF;
   font-weight: 600;
@@ -2199,6 +2198,15 @@ section#pay-section button {
 }
 
 #stats .stats-menu > li:hover {
+  background-color: #0d736e;
+}
+
+#stats .stats-menu > li a {
+  display: inline-block;
+  padding: 10px;
+}
+
+#stats .stats-menu .active {
   background-color: #0d736e;
 }
 
