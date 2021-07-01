@@ -5,12 +5,8 @@
     <h3 class="title-outer-jmb">
       Cerca tra i preferiti:
     </h3>
-<<<<<<< HEAD
-    {{-- ------------------- INIZIO DANNY SLIDER ----------------------}}
-=======
 
     {{--------------------- INIZIO DANNY SLIDER ----------------------}}
->>>>>>> master
     {{-- <div class="danny-slider" id="app">
 
       <!---__________ FRECCIA SINISTRA __________ -->
@@ -52,7 +48,7 @@
           </a>
         </div>
       </li>
-
+      @endforeach
       </ul>
 
       <span>
