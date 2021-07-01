@@ -2127,7 +2127,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       setTimeout(function () {
         _this.filtro();
-      }, 10000);
+      }, 1000);
       axios.get("api/service").then(function (res) {
         if (res.status == 200) {
           _this.allservice = res.data;
@@ -2263,32 +2263,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         console.log("ciao");
       },
-      calculateDistance: function calculateDistance() {
-        // if (points.length < 2) {
-        //     return undefined;
-        // }
-        // if (pos.length < 1) {
-        //     return alert("Non hai cliccato su nessun appartmanto");
-        // }
-        var totalDistance = {
-          kilometers: 0,
-          miles: 0
-        }; // for (var i = 1; i < points.length; ++i) {
-        // var fromPoint = points[i - 1];
-        // var toPoint = points[i];
-
-        var fromPoint = [pos[0].lon, pos[0].lat];
-        var toPoint = [pos[1].lon, pos[1].lat];
-        var kilometers = turf.distance(fromPoint, toPoint);
-        var miles = turf.distance(fromPoint, toPoint, {
-          units: "miles"
-        });
-        totalDistance.kilometers = Math.round((totalDistance.kilometers + kilometers) * 100) / 100;
-        totalDistance.miles = Math.round((totalDistance.miles + miles) * 100) / 100; // }
-
-        return totalDistance;
-      },
-      provdist: function provdist(pos1, pos2) {
+      distcustom: function distcustom(pos1, pos2) {
         var totalDistance = {
           kilometers: 0,
           miles: 0
@@ -2318,7 +2293,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return console.log(err);
         });
       },
-      latlngpos2: function latlngpos2(elem) {
+      latlngcustom: function latlngcustom(elem) {
         var _this5 = this;
 
         axios.get("https://api.tomtom.com/search/2/geocode/" + elem.address + ".JSON?extendedPostalCodesFor=Str&view=Unified&key=k1fTAPbKkU0oOi0V5dHOHuW4J0oAMIy4").then(function (res) {
@@ -2330,7 +2305,7 @@ document.addEventListener("DOMContentLoaded", function () {
             lat: res.data.results[0].position.lat,
             lon: res.data.results[0].position.lon
           };
-          tmp = _this5.provdist(_this5.pos1, _this5.pos2); // console.log(this.pos1, this.pos2, tmp);
+          tmp = _this5.distcustom(_this5.pos1, _this5.pos2); // console.log(this.pos1, this.pos2, tmp);
 
           _this5.km = tmp.kilometers; // console.log('km',this.km, 'pos1', this.pos1, 'pos2', this.pos2);
 
@@ -2358,7 +2333,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return console.log(err);
         });
       },
-      prova: function prova(elem) {
+      addresrange: function addresrange(elem) {
         var _this6 = this;
 
         this.latlng(elem);
@@ -2371,7 +2346,7 @@ document.addEventListener("DOMContentLoaded", function () {
           city = arr[2];
           if (city === city_target //  &&
           // elem.address != this.currentapartment[i].address
-          ) this.latlngpos2(this.currentapartment[i]);
+          ) this.latlngcustom(this.currentapartment[i]);
         }
 
         setTimeout(function () {

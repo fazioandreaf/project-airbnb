@@ -7,7 +7,6 @@
                 @foreach ($apartments as $item)
                     <div v-if="currentapartment.length<1" class="row-with-img-text" onload="formarker('ciao')">
                         <div class="sinistra-img">
-                            <a href="#" onclick="formarker({{$item}})">prova</a>
                             <a href="#">
                                 <img src="{{$item->cover_image}}" alt="immagine stanza">
                             </a>
@@ -17,7 +16,7 @@
                             {{-- <a @click="redirect(elem.id)"> --}}
                                 <h2>{{$item->title}}</h2>
                             </a>
-                            <a href="#" onclick="getLatLng('{{$item -> address}}')" @click="prova(@{{ elem.title }}))">
+                            <a href="#" onclick="getLatLng('{{$item -> address}}')" @click="addresrange(@{{ elem.title }}))">
                                 <strong>Address:</strong>
                                 {{$item->address}}
                             </a>
@@ -47,16 +46,15 @@
                             @{{ elem.title }}
                         </h2>
                     </a>
-                    <a href="#" @click="getLatLng(elem.address)">
+                    {{-- <a href="#" @click="getLatLng(elem.address)">
+                        @{{elem.address}}
+                    </a> --}}
+                    <a href="#" @click="addresrange(elem)">
                         @{{elem.address}}
                     </a>
-                    <div @click="addlayer(elem.id)"> addlayer</div>
-                    <div @click="calculateDistance()">
-                        distanza fra i punti
-                    </div>
-                    <div style="background-color:lightblue" @click="prova(elem)">
+                    {{-- <div style="background-color:lightblue" @click="addresrange(elem)">
                         funzione prova
-                    </div>
+                    </div> --}}
 
 
                     <span>Area : <span style:"font-weight:bolder">@{{elem.area}}  m^2</span></span>
