@@ -51,13 +51,11 @@ class MainController extends Controller {
         $first_search=$request->where;
         if($request->where!=null){
             $apartments= Apartment::where('address', 'LIKE','%'. $request->where.'%') -> get();
-            if(count($apartments)<1) {
-                $apartments=[];
-            }
         }
         else{
             $apartments= Apartment::first()->limit(50)->get();
         }
+        // dd($apartments,$first_search);
         return view('pages.search',compact('apartments','first_search'));
     }
     public function send(Request $request,$id){
