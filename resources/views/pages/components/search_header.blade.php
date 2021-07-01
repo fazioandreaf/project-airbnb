@@ -11,7 +11,7 @@
 
         <div>
           <label for="where">Dove vuoi andare?</label>
-          <input type="text" v-model="where" name="where" placeholder="Roma">
+          <input type="text" v-model="where" name="where" placeholder="Roma" value={{$first_search}}>
         </div>
 
         <div class="wrapper-form-fields first">

@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         created: function() {
             setTimeout(() => {
                 this.filtro();
-            }, 4000);
+            }, 10000);
             axios
                 .get("api/service")
                 .then(res => {

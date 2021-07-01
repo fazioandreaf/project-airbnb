@@ -2127,7 +2127,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       setTimeout(function () {
         _this.filtro();
-      }, 4000);
+      }, 10000);
       axios.get("api/service").then(function (res) {
         if (res.status == 200) {
           _this.allservice = res.data;
