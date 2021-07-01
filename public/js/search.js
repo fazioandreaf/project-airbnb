@@ -2225,11 +2225,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return console.log(err);
         });
       },
-      addlayer: function addlayer(i) {
-        if (pos.length < 1) {
-          return alert("Non hai cliccato su nessun appartmanto");
-        }
-
+      addlayer: function addlayer(i, pos) {
         console.log("ciao");
         map.on("click", function () {
           map.addLayer({
@@ -2241,7 +2237,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 type: "Feature",
                 geometry: {
                   type: "Polygon",
-                  coordinates: [[[pos[pos.length - 1].lon - 0.1, pos[pos.length - 1].lat + 0.1], [pos[pos.length - 1].lon + 0.1, pos[pos.length - 1].lat + 0.1], [pos[pos.length - 1].lon + 0.1, pos[pos.length - 1].lat - 0.1], [pos[pos.length - 1].lon - 0.1, pos[pos.length - 1].lat - 0.1] //             [15.067560533884222, 38.642288177883556],
+                  coordinates: [[[pos.lon - 0.001, pos.lat + 0.001], [pos.lon + 0.001, pos.lat + 0.001], [pos.lon + 0.001, pos.lat - 0.001], [pos.lon - 0.001, pos.lat - 0.001] //             [15.067560533884222, 38.642288177883556],
                   //   [16.267560533884222, 38.642288177883556],
                   //   [16.267560533884222, 36.442288177883556],
                   //   [15.067560533884222, 36.442288177883556],
@@ -2255,7 +2251,7 @@ document.addEventListener("DOMContentLoaded", function () {
               // 'circle-color': '#3a3a3a',
               // 'circle-stroke-width': 2,
               // 'circle-stroke-color': '#FFF'
-              "fill-color": "#db356c",
+              "fill-color": "#12a19a",
               "fill-opacity": 0.5,
               "fill-outline-color": "black"
             }
@@ -2267,10 +2263,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // if (points.length < 2) {
         //     return undefined;
         // }
-        if (pos.length < 1) {
-          return alert("Non hai cliccato su nessun appartmanto");
-        }
-
+        // if (pos.length < 1) {
+        //     return alert("Non hai cliccato su nessun appartmanto");
+        // }
         var totalDistance = {
           kilometers: 0,
           miles: 0
@@ -2337,6 +2332,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
           if (_this5.km < 20) {
             _this5.pos2.address = elem.address;
+            _this5.pos2.area = elem.area;
+            _this5.pos2.cover_image = elem.cover_image;
+            _this5.pos2.created_at = elem.created_at;
+            _this5.pos2.deleted_at = elem.deleted_at;
+            _this5.pos2.id = elem.id;
+            _this5.pos2.number_beds = elem.number_beds;
+            _this5.pos2.number_rooms = elem.number_rooms;
+            _this5.pos2.number_toiletes = elem.number_toiletes;
+            _this5.pos2.title = elem.title;
+            _this5.pos2.updated_at = elem.updated_at;
+            _this5.pos2.user_id = elem.user_id;
             _this5.pos2.km = _this5.km;
 
             _this5.apartmentrange.push(_this5.pos2);
@@ -2354,11 +2360,14 @@ document.addEventListener("DOMContentLoaded", function () {
         this.latlng(elem);
         ar = elem.address.split("-");
         city_target = ar[2];
+        addlayer(elem.id, this.pos1);
 
         for (i = 0; i < this.currentapartment.length - 1; i++) {
           arr = this.currentapartment[i].address.split("-");
           city = arr[2];
-          if (city === city_target && elem.address != this.currentapartment[i].address) this.latlngpos2(this.currentapartment[i]);
+          if (city === city_target //  &&
+          // elem.address != this.currentapartment[i].address
+          ) this.latlngpos2(this.currentapartment[i]);
         }
 
         setTimeout(function () {
