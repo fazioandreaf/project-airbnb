@@ -1,8 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);section#user-dashboard .wrapper-no-apartments,
 section#user-dashboard .wrapper-with-apartments {
   width: 60%;
-  border: 5px solid #d9d9d9;
-  border-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   height: 300px;
 }
 
@@ -931,7 +931,7 @@ section#my-apartments .wrapper-apartment .rotate {
 }
 
 section#user-dashboard {
-  padding: 40px 0;
+  padding: 50px 0;
 }
 
 section#user-dashboard .container {
@@ -994,13 +994,15 @@ section#user-dashboard .wrapper-with-apartments .active {
 
 section#user-dashboard .wrapper-with-apartments .wrapper-dashboard-labels {
   position: absolute;
-  top: -45px;
-  left: -5px;
+  top: -40px;
+  left: 0;
   z-index: 2;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  background-color: #12a19a;
+  width: 100%;
 }
 
 section#user-dashboard .wrapper-with-apartments .wrapper-dashboard-labels .dashboard-label {
@@ -1010,10 +1012,7 @@ section#user-dashboard .wrapper-with-apartments .wrapper-dashboard-labels .dashb
   align-items: center;
   padding: 10px;
   background-color: #12a19a;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
   color: #FFF;
-  margin-right: 2px;
   height: 40px;
   transition: background-color 0.5s;
   cursor: pointer;
