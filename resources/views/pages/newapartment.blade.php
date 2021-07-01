@@ -82,9 +82,10 @@
                         <input id="cover_image" type="file" name="cover_image" class="eml-img">
                     </div>
                 </div>
-
+                {{-- <input type="latitude"  name="latitude" type="number" value="1">
+                <input type="longitude" style="display: none" name="longitude" type="number" value="1"> --}}
             </div>
-    
+
             <h2 style="margin: 20px">
                 services
             </h2>
