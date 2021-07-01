@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         el: '#app',
         data: {
 
-            "activeImg": 0,
+          "activeImg": 0,
             "images": [
               '/storage/assets/casa_danny.jpg',
               '/storage/assets/wallpaper.jpg',
