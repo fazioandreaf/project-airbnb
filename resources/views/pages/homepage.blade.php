@@ -30,7 +30,7 @@
 
     </div> --}}
     {{--------------------- FINE DANNY SLIDER -------------------- --}}
-    <ul class="apartment-samples" style="overflow: auto;">
+    <ul class="apartment-samples" style="sisplay:flex; align-items:center">
 
       <span>
         <a href="#">
@@ -49,13 +49,13 @@
         </div>
       </li>
       @endforeach
-      </ul>
-
       <span>
         <a href="#">
           <i class="fas fa-chevron-right"></i>
         </a>
       </span>
+      </ul>
+
     </ul>
   <div class="section-host" >
     <div class="host">
