@@ -1152,6 +1152,7 @@ section#section-register form label {
 }
 
 section#section-register form input {
+  width: 150px;
   background-color: #ededed;
   padding: 5px 10px;
   border: 0;

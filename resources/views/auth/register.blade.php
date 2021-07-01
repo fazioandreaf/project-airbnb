@@ -47,7 +47,7 @@
                     <label for="date_of_birth">
                         {{ __('Data di nascita') }}
                     </label>
-                    <input type="text" name="date_of_birth" id="date_of_birth" name="date_of_birth" v-model="dateOfBirth"  required>
+                    <input type="date" name="date_of_birth" id="date_of_birth" name="date_of_birth" v-model="dateOfBirth"  required>
                 </div>
                 <div class="form-wrapper-fields">
                     <label for="email">

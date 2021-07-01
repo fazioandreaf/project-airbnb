@@ -62,12 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const hasNumbers = /\d/;
                 const isMailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
                 this.registerErrors = [];
+                const now = Date.now();
 
                 // Name validation
                 if(!this.firstname) {
 
-                    this.registerErrors.push("Il nome è un campo obbligatorio!");
-                } else if(this.firstname.length > 10) {
+                    this.registerErrors.push("Il campo nome è obbligatorio!");
+                } else if(this.firstname.length > 128) {
 
                     this.registerErrors.push("Hai davvero un nome così lungo?")
                 }
@@ -79,8 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Lastname validation
                 if(!this.lastname) {
 
-                    this.registerErrors.push("Il campo cognome è un campo obbligatorio!")
-                } else if(this.lastname.length > 10) {
+                    this.registerErrors.push("Il campo cognome è obbligatorio!")
+                } else if(this.lastname.length > 128) {
 
                     this.registerErrors.push("Hai davvero un cognome così lungo?")
                 }
@@ -97,11 +98,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 // Password validation
-                if(this.password.length < 8) {
+                if(!this.password) {
+                    this.registerErrors.push("Il campo password è obbligatorio!")
+                } else if(this.password.length < 8) {
 
                     this.registerErrors.push("La password deve contenere almeno 8 caratteri!")
                 }
-
+                
                 if(this.confirmPassword != this.password) {
 
                     this.registerErrors.push("Le password non corrispondono!")
@@ -109,6 +112,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if(!this.registerErrors.length) {
                     return true
+                }
+
+                if(!this.dateOfBirth) {
+                    
+                    this.registerErrors.push("Non hai inserito una data dei nascita valida!")
+                } else {
+
+                    const date = new Date(this.dateOfBirth).getTime();
+                    if (date > now) 
+                        this.registerErrors.push("Vieni davvero dal futuro?")
                 }
 
                 e.preventDefault(); //!important prevents submit realod
