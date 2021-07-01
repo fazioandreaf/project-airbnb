@@ -5,8 +5,9 @@
         <div class="left-section">
             @if (count($apartments)>0)
                 @foreach ($apartments as $item)
-                    <div v-if="currentapartment.length<1" class="row-with-img-text" >
+                    <div v-if="currentapartment.length<1" class="row-with-img-text" onload="formarker('ciao')">
                         <div class="sinistra-img">
+                            <a href="#" onclick="formarker({{$item}})">prova</a>
                             <a href="#">
                                 <img src="{{$item->cover_image}}" alt="immagine stanza">
                             </a>

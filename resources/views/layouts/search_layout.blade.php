@@ -37,7 +37,7 @@
 
   </head>
 
-  <body>
+  <body onload="formarker({{$apartments}})">
     <div id="search">
 
       <header>
@@ -56,7 +56,7 @@
     <script>
         // esempio di creare una funzione che metta tutti i marker nella mappa
         function makemarker(LNG, LAT){
-            var marker = new tt.Marker([{height:10,width:10}])
+            var marker = new tt.Marker([{height:100000,width:100000}])
                             .setLngLat([LNG,LAT])
                             .addTo(map);
         };
@@ -137,45 +137,54 @@
             axios.get('https://api.tomtom.com/search/2/geocode/'+ address+ '.JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
             .then( res=> {
                 if(res.data.results.length>0){
-
                     if(pos.length>1){
                         let tmp=pos[1];
                         pos=[tmp];
                     }
                     pos.push(res.data.results[0].position);
                     console.log(pos);
-                    goto(pos[pos.length-1].lon,pos[pos.length-1].lat);
-                    makemarker(pos[pos.length-1].lon,pos[pos.length-1].lat);
+                    goto(res.data.results[0].position.lon,res.data.results[0].position.lat);
+                    makemarker(res.data.results[0].position.lon,res.data.results[0].position.lat);
                 }
-                // console.log(res.data.results.length);
             })
             .catch(err=> console.log(err));
         };
-        // var prova={}
-        window.addEventListener("DOMContentLoaded",firstsearch('milano'))
+        window.addEventListener("DOMContentLoaded",firstsearch('{{$first_search}}'))
+        // window.onload=formarker({{$apartments}});
+        // window.addEventListener("DOMContentLoaded",formarker({{$apartments}}))
         function firstsearch(item){
             if(item!=''){
-                // position={}
-                console.log(item);
                 axios.get('https://api.tomtom.com/search/2/search/'+ item+ '.JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
-                .then( res=>  {
-                    console.log(res.data.results[0].position);
-                    // position.lat=res.data.results[0].position.lat;
-                    // position.lon=res.data.results[0].position.lon;
-                    var map = tt.map({
-                        key: 'v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC',
-                        container: 'map',
-                        center: [res.data.results[0].position.lon, res.data.results[0].position.lat ],
-                        zoom: 5,
-                    });
-                })
+                .then( res=>{
+                var point=[res.data.results[0].position.lon,res.data.results[0].position.lat];
+                map.easeTo({center:point,zoom:10});
+                makemarker(res.data.results[0].position.lon, res.data.results[0].position.lat)})
                 .catch(err=> console.log(err));
             }
-
         };
-        // $firstsearchMap=firstsearch()
+        function formarker(item){
 
+            // console.log(item.address);
+            // if(item.address!=''){
+            //     axios.get('https://api.tomtom.com/search/2/search/'+ item.address+ '.JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
+            //     .then( res=>{
+            //         tmp=res.data.results[0].position;
+            //         makemarker(tmp.lon , tmp.lat);
+            //         console.log(tmp.lat,tmp.lon)
+            //     })
+            //     .catch(err=> console.log(err));
+            for(i=0;i<item.length;i++){
+                if(item[i].address!=''){
+                axios.get('https://api.tomtom.com/search/2/search/'+ item[i].address+ '.JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
+                .then( res=>{
+                    tmp=res.data.results[0].position;
+                    makemarker(tmp.lon , tmp.lat);
+                    console.log(tmp.lat,tmp.lon)
+                })
+                .catch(err=> console.log(err));
 
+            }}
+        }
 
 
 
