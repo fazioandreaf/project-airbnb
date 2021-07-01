@@ -827,6 +827,10 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   height: auto;
 }
 
+section#my-apartments {
+  padding: 40px 0;
+}
+
 section#my-apartments .container {
   margin: 0 auto;
   width: 90%;
@@ -890,12 +894,11 @@ section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-detail
 }
 
 section#my-apartments .wrapper-apartment .details {
-  max-height: 400px;
-  margin-top: 20px;
+  max-height: 420px;
 }
 
 section#my-apartments .wrapper-apartment .details .button-link {
-  margin-top: 20px;
+  margin: 20px 0 20px;
 }
 
 section#my-apartments .wrapper-apartment .slide-down-enter-active {
@@ -1885,6 +1888,10 @@ div#sponsor-apartament .bnt-spons-send button {
   color: white;
 }
 
+section#my-apartments {
+  padding: 40px 0;
+}
+
 section#my-apartments .container {
   margin: 0 auto;
   width: 90%;
@@ -1948,12 +1955,11 @@ section#my-apartments .wrapper-apartment .apartment-main-infos .apartment-detail
 }
 
 section#my-apartments .wrapper-apartment .details {
-  max-height: 400px;
-  margin-top: 20px;
+  max-height: 420px;
 }
 
 section#my-apartments .wrapper-apartment .details .button-link {
-  margin-top: 20px;
+  margin: 20px 0 20px;
 }
 
 section#my-apartments .wrapper-apartment .slide-down-enter-active {
