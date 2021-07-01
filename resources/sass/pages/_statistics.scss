@@ -1,0 +1,23 @@
+#stats {
+
+    .button-link {
+        @extend %venusaur-green-button;
+    }
+
+    .stats-menu {
+        @include flex(row, center, center);
+        & > li {
+            margin: 10px;
+            cursor: pointer;
+        }
+    }
+
+    .wrapper-statistics {
+        @include flex(column, center, center);
+
+        .button-link {
+            background-color: $steelix-gray;
+            cursor: pointer;
+        }
+    }
+}

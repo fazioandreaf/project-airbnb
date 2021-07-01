@@ -2396,11 +2396,15 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 module.exports = __webpack_require__(/*! C:\Users\Andrea\Desktop\project-airbnb\resources\js\search.js */"./resources/js/search.js");
 =======
 module.exports = __webpack_require__(/*! C:\Boolean\project-airbnb\resources\js\search.js */"./resources/js/search.js");
 >>>>>>> Stashed changes
+=======
+module.exports = __webpack_require__(/*! C:\Boolean\project-airbnb\resources\js\search.js */"./resources/js/search.js");
+>>>>>>> Gioele
 
 
 /***/ })
