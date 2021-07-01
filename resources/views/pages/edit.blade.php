@@ -18,6 +18,13 @@
                         <label for="title">Titolo</label>
                         <input type="text" name="title" id="title" value="{{$apartment->title}}" required>
                     </div>
+
+                    <div class="form-text-elem">
+                        <label for="description">
+                            Descrizione Struttura
+                        </label>
+                        <textarea name="description" id="description" cols="30" rows="10">{{$apartment->description}}</textarea>
+                    </div>
             
                     <div class="form-text-elem">
                         <label for="number_rooms">Numero Camere</label>

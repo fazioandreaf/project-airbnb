@@ -17,6 +17,7 @@ class CreateApartmentsTable extends Migration
             $table->id();
 
             $table->string('title',128);
+            $table->mediumText('description')->nullable();
             $table->smallInteger('number_rooms');
             $table->smallInteger('number_toiletes');
             $table->smallInteger('number_beds');
