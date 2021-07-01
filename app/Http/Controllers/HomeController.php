@@ -61,9 +61,11 @@ class HomeController extends Controller {
                 'address' => 'required',
                 'user_id' => 'required|integer',
             ]);
+            
             if (!is_null($request->service_id)) {
                 $service = Service::findOrFail($request -> get('service_id'));
             }
+
             $apartment = Apartment::create($validated);
             if ($request->hasFile('cover_image')) {
                 $img = $request -> file('cover_image');
