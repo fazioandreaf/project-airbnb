@@ -85,6 +85,7 @@ section#my-apartments .button-link {
 #dashboard-header .navbar .nav-links .has-dropdown .dropdown {
   display: none;
   position: absolute;
+  z-index: 9001;
   top: calc(100% + 2px);
   left: calc(-50% - 20px);
   background-color: #FFF;
@@ -191,6 +192,7 @@ section#my-apartments .button-link {
 .landing-header .navbar .nav-links .has-dropdown .dropdown {
   display: none;
   position: absolute;
+  z-index: 9001;
   top: calc(100% + 2px);
   left: calc(-50% - 20px);
   background-color: #FFF;
@@ -1712,6 +1714,10 @@ section#login-section .wrapper-form-fields input {
   padding: 5px 10px;
   border: 0;
   border-radius: 20px;
+}
+
+section#login-section .wrapper-form-fields input:focus {
+  outline: 0;
 }
 
 section#login-section .wrapper-form-botton {

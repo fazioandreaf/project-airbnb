@@ -26,17 +26,17 @@
   <body>
 
 
+    <div id="app">
+      @include('pages.components.minimal-black-header')
+      
+      <main>
+      @yield('content')
+      </main>
 
-    @include('pages.components.register-header')
-    
-    <main>
-    @yield('content')
-    </main>
-
-    <footer>
-      @include('pages.components.footer')
-    </footer>
-
+      <footer>
+        @include('pages.components.footer')
+      </footer>
+    </div>
   </body>
 
 </html>

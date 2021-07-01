@@ -12634,11 +12634,11 @@ document.addEventListener('DOMContentLoaded', function () {
     data: {},
     methods: {
       forward: function forward() {
-        document.getElementById('slider2').scrollLeft += 240;
+        document.getElementById('slider2').scrollLeft += 220;
       },
       // END OF FORWARD
       backwards: function backwards() {
-        document.getElementById('slider2').scrollLeft -= 240;
+        document.getElementById('slider2').scrollLeft -= 220;
       } // END OF BACKWARDS
 
     } // END OF methods
@@ -12655,7 +12655,7 @@ document.addEventListener('DOMContentLoaded', function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Danny\Progetti_2021\06 -2021\25-06-2021\project-airbnb\resources\js\homepage.js */"./resources/js/homepage.js");
+module.exports = __webpack_require__(/*! C:\Boolean\project-airbnb\resources\js\homepage.js */"./resources/js/homepage.js");
 
 
 /***/ })

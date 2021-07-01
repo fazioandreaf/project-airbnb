@@ -10,11 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
     methods: {
 
       forward: function() {
-        document.getElementById('slider2').scrollLeft += 240;
+        document.getElementById('slider2').scrollLeft += 220;
       }, // END OF FORWARD
 
       backwards: function() {
-        document.getElementById('slider2').scrollLeft -= 240;
+        document.getElementById('slider2').scrollLeft -= 220;
       } // END OF BACKWARDS
 
     } // END OF methods

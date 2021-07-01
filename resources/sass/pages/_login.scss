@@ -17,6 +17,10 @@ section#login-section {
             padding: 5px 10px;
             border: 0;
             border-radius: 20px;
+
+            &:focus {
+                outline: 0;
+            }
         }
     }
 
