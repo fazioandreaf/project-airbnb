@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         mounted: function() {},
         created: function() {
+            setTimeout(() => {
+                this.filtro();
+            }, 4000);
             axios
                 .get("api/service")
                 .then(res => {
@@ -41,7 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log("LALLERO");
             },
 
-            filter: function() {
+            filtro: function() {
+                console.log("ciao");
                 this.activeservice = [];
                 axios
                     .get("api/filter", {

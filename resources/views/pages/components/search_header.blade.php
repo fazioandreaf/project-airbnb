@@ -25,7 +25,7 @@
         </div>
 
         <div id="lente">
-          <a href="#" @click="filter()">
+          <a href="#" @click="filtro()">
             <i class="fas fa-search"></i>
           </a>
         </div>

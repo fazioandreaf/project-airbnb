@@ -2125,6 +2125,9 @@ document.addEventListener("DOMContentLoaded", function () {
     created: function created() {
       var _this = this;
 
+      setTimeout(function () {
+        _this.filtro();
+      }, 4000);
       axios.get("api/service").then(function (res) {
         if (res.status == 200) {
           _this.allservice = res.data;
@@ -2144,9 +2147,10 @@ document.addEventListener("DOMContentLoaded", function () {
         this.dropdownActive = !this.dropdownActive;
         console.log("LALLERO");
       },
-      filter: function filter() {
+      filtro: function filtro() {
         var _this2 = this;
 
+        console.log("ciao");
         this.activeservice = [];
         axios.get("api/filter", {
           params: {
