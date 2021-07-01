@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const isMailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
                 this.registerErrors = [];
-                
+
                 // Email validation
                 if(!isMailValid.test(this.email)) {
 
@@ -146,12 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     this.registerErrors.push("La password deve contenere almeno 8 caratteri!")
                 }
-                
-                if(this.confirmPassword != this.password) {
-
-                    this.registerErrors.push("Le password non corrispondono!")
-                }
-
+            
                 if(!this.registerErrors.length) {
                     return true
                 }

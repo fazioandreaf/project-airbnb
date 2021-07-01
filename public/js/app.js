@@ -50330,10 +50330,6 @@ document.addEventListener('DOMContentLoaded', function () {
           this.registerErrors.push("La password deve contenere almeno 8 caratteri!");
         }
 
-        if (this.confirmPassword != this.password) {
-          this.registerErrors.push("Le password non corrispondono!");
-        }
-
         if (!this.registerErrors.length) {
           return true;
         }
