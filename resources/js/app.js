@@ -110,21 +110,53 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.registerErrors.push("Le password non corrispondono!")
                 }
 
-                if(!this.registerErrors.length) {
-                    return true
-                }
-
+                // Date of birth validation
                 if(!this.dateOfBirth) {
                     
                     this.registerErrors.push("Non hai inserito una data dei nascita valida!")
                 } else {
-
+                    
                     const date = new Date(this.dateOfBirth).getTime();
                     if (date > now) 
-                        this.registerErrors.push("Vieni davvero dal futuro?")
+                    this.registerErrors.push("Vieni davvero dal futuro?")
+                }
+                
+                if(!this.registerErrors.length) {
+                    return true
                 }
 
                 e.preventDefault(); //!important prevents submit realod
+            },
+
+            validateLogin: function(e) {
+
+                const isMailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+                this.registerErrors = [];
+                
+                // Email validation
+                if(!isMailValid.test(this.email)) {
+
+                    this.registerErrors.push("La mail inserita non è valida!")
+                }
+
+                // Password validation
+                if(!this.password) {
+                    this.registerErrors.push("Il campo password è obbligatorio!")
+                } else if(this.password.length < 8) {
+
+                    this.registerErrors.push("La password deve contenere almeno 8 caratteri!")
+                }
+                
+                if(this.confirmPassword != this.password) {
+
+                    this.registerErrors.push("Le password non corrispondono!")
+                }
+
+                if(!this.registerErrors.length) {
+                    return true
+                }
+
+                e.preventDefault();
             }
         },
 

@@ -26,7 +26,7 @@
   <body>
 
 
-    <div id="app">
+    <div id="app" v-cloak>
       @include('pages.components.minimal-black-header')
       
       <main>

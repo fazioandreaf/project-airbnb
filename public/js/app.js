@@ -50299,11 +50299,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (this.confirmPassword != this.password) {
           this.registerErrors.push("Le password non corrispondono!");
-        }
+        } // Date of birth validation
 
-        if (!this.registerErrors.length) {
-          return true;
-        }
 
         if (!this.dateOfBirth) {
           this.registerErrors.push("Non hai inserito una data dei nascita valida!");
@@ -50312,7 +50309,36 @@ document.addEventListener('DOMContentLoaded', function () {
           if (date > now) this.registerErrors.push("Vieni davvero dal futuro?");
         }
 
+        if (!this.registerErrors.length) {
+          return true;
+        }
+
         e.preventDefault(); //!important prevents submit realod
+      },
+      validateLogin: function validateLogin(e) {
+        var isMailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+        this.registerErrors = []; // Email validation
+
+        if (!isMailValid.test(this.email)) {
+          this.registerErrors.push("La mail inserita non è valida!");
+        } // Password validation
+
+
+        if (!this.password) {
+          this.registerErrors.push("Il campo password è obbligatorio!");
+        } else if (this.password.length < 8) {
+          this.registerErrors.push("La password deve contenere almeno 8 caratteri!");
+        }
+
+        if (this.confirmPassword != this.password) {
+          this.registerErrors.push("Le password non corrispondono!");
+        }
+
+        if (!this.registerErrors.length) {
+          return true;
+        }
+
+        e.preventDefault();
       }
     },
     created: function created() {
