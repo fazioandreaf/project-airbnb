@@ -5,87 +5,64 @@
   <div class="contain-main">
 
 
-  <div class="outer-jumbotron">
-    <h3 class="title-outer-jmb">
-      Cerca tra i preferiti:
-    </h3>
+    <div class="outer-jumbotron">
 
-    {{--------------------- INIZIO DANNY SLIDER ----------------------}}
-    {{-- <div class="danny-slider" id="app">
+      <h3 class="title-outer-jmb">
+        Cerca tra i preferiti:
+      </h3>
 
-      <!---__________ FRECCIA SINISTRA __________ -->
-      <div class="freccia-sinistra">
-        <a href="#">
+      <div class="slider-main" id="slider" v-cloak>
+
+        <span>
           <i @click="backwards" class="fas fa-chevron-left"></i>
-        </a>
-      </div>
+        </span>
 
-      <!---__________ FOTO __________ -->
-      <div class="foto">
-        <img class="picture active" :src="images[activeImg]">
-      </div>
+        <ul class="apartment-samples" id="slider2">
 
-      <!---__________ FRECCIA DESTRA __________ -->
-      <div class="freccia-destra">
-        <a href="#">
+          @foreach ($apartments as $apartment)
+            <li>
+              <div class="flags">
+                <a href="{{route('apartment', $apartment->id)}}">
+                  <img src="{{asset('/storage/assets/'.$apartment->cover_image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                  {{-- {{ $apartment->id }}
+                  {{ $apartment->title }} --}}
+                </a>
+              </div>
+            </li>
+
+          @endforeach
+
+        </ul>
+
+        <span>
           <i @click="forward" class="fas fa-chevron-right"></i>
-        </a>
+        </span>
+
+      </div> {{-- end of slider-main --}}
+
+
+
+      <div class="section-host" >
+
+        <div class="host">
+
+          <h1 class="h1-host">
+            Diventa un Host
+          </h1>
+
+          <p class="p-host">
+            Condividi il tuo Spazio per guadagnare in più e Cogliere Nuove Opportunità.
+          </p>
+
+          <a href="{{ route('register')}}" class="btn-host_hmpages">
+            Scopri di più
+          </a>
+
+
+        </div>
       </div>
 
-    </div> --}}
-    {{--------------------- FINE DANNY SLIDER ----------------------}}
-
-    <div class="slider-main">
-
-      <span>
-        <a href="#">
-          <i class="fas fa-chevron-left"></i>
-        </a>
-      </span>
-
-      <ul class="apartment-samples">
-
-
-        @foreach ($apartments as $apartment)
-          <li>
-            <div class="flags">
-              <a href="{{route('apartment', $apartment->id)}}">
-                {{ $apartment->id }}
-                {{ $apartment->title }}
-              </a>
-            </div>
-          </li>
-
-        @endforeach
-
-      </ul>
-
-      <span>
-        <a href="#">
-          <i class="fas fa-chevron-right"></i>
-        </a>
-      </span>
-
-    </div> {{-- end of slider-main --}}
-
-
-
-    <div class="section-host" >
-
-      <div class="host">
-        <h1 class="h1-host">
-          Diventa un Host
-        </h1>
-        <p class="p-host">
-          Condividi il tuo Spazio per guadagnare in più e Cogliere Nuove Opportunità.
-        </p>
-        <button class="btn-host_hmpages" >
-          Scopri di più
-        </button>
-      </div>
     </div>
 
   </div>
-
-
 @endsection
