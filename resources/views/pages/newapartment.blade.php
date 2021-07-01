@@ -41,6 +41,13 @@
                     </div>
 
                     <div class="elm-form">
+                        <label for="description">
+                            Descrizione Struttura
+                        </label>
+                        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                    </div>
+
+                    <div class="elm-form">
                         <label for="number_rooms">
                             Numero Camere
                         </label>

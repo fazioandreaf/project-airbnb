@@ -53,6 +53,7 @@ class HomeController extends Controller {
             
             $validated = $request -> validate([
                 'title' => 'required|max:128|min:4',
+                'description' => 'nullable|min:48',
                 'number_rooms' => 'required|numeric',
                 'number_toiletes' => 'required|numeric',
                 'number_beds' => 'required|numeric',
@@ -93,6 +94,7 @@ class HomeController extends Controller {
     {
         $validated = $request -> validate([
             'title' => 'required|max:128|min:4',
+            'description' => 'nullable|min:48',
             'number_rooms' => 'required|numeric',
             'number_toiletes' => 'required|numeric',
             'number_beds' => 'required|numeric',
