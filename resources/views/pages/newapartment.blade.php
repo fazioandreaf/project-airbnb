@@ -95,9 +95,8 @@
                     <div class="form-service-container">
 
                         <div class="form-elem-service-elm">
-                            <label for="service_id[]">{{$service->service}}</label>
+                            <label for="service_id[{{$service->id}}]">{{$service->service}}</label>
                             <input type="checkbox" name="service_id[]" id="service_id[]" value="{{$service->id}}">
-
                         </div>
                     </div>
                 @endforeach

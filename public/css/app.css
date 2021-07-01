@@ -6,6 +6,7 @@ section#user-dashboard .wrapper-with-apartments {
   height: 300px;
 }
 
+#stats .button-link,
 section#user-dashboard .wrapper-with-apartments .apartments-link a,
 section#my-apartments .button-link {
   display: inline-block;
@@ -2174,6 +2175,30 @@ section#pay-section button {
   background-color: #12a19a;
   font-family: "Nunito", sans-serif;
   color: white;
+}
+
+#stats .stats-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#stats .stats-menu > li {
+  margin: 10px;
+  cursor: pointer;
+}
+
+#stats .wrapper-statistics {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#stats .wrapper-statistics .button-link {
+  background-color: #d9d9d9;
+  cursor: pointer;
 }
 
 * {
