@@ -86,6 +86,7 @@
 /************************************************************************/
 /******/ ({
 
+<<<<<<< Updated upstream
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -12620,11 +12621,14 @@ module.exports = g;
 
 /***/ }),
 
+=======
+>>>>>>> Stashed changes
 /***/ "./resources/js/homepage.js":
 /*!**********************************!*\
   !*** ./resources/js/homepage.js ***!
   \**********************************/
 /*! no static exports found */
+<<<<<<< Updated upstream
 /***/ (function(module, exports, __webpack_require__) {
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
@@ -12645,6 +12649,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   }); // END OF NEW VUE
 });
+=======
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'C:\\Boolean\\project-airbnb\\resources\\js\\homepage.js'");
+>>>>>>> Stashed changes
 
 /***/ }),
 
