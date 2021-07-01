@@ -8,7 +8,6 @@ class Statistic extends Model
 {
     protected $fillable = [
         'ip',
-        'view_date'
     ];
 
     public function apartment()
