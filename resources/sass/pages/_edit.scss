@@ -12,7 +12,8 @@ section#edit-section{
     .form-complit{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        // justify-content: space-between;
+
 
         .form-text{
             display: flex;
@@ -43,15 +44,21 @@ section#edit-section{
             }
 
         }
-
+        .form-service{
+            margin-left: 50px;
+        }
         .form-select{
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            
-            input{
-                margin-left: 20px;
+            align-items: center;
+            label{
+                flex-grow: 1;
+                padding-right: 10px;
             }
+            // input{
+            //     margin-left: 20px;
+            // }
         }
 
 
