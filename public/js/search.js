@@ -2137,20 +2137,15 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     },
     methods: {
-      log: function log() {
-        console.log("mundo");
-      },
       addclass: function addclass() {
         this.toggle = !this.toggle;
       },
       openDropdown: function openDropdown() {
         this.dropdownActive = !this.dropdownActive;
-        console.log("LALLERO");
       },
       filtro: function filtro() {
         var _this2 = this;
 
-        console.log("ciao");
         this.activeservice = [];
         axios.get("api/filter", {
           params: {
@@ -2160,8 +2155,6 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }).then(function (res) {
           if (res.status == 200) {
-            console.log(res.data);
-
             if (res.data.length == 0) {
               return _this2.currentapartment = [{
                 title: "Nessun appartamento trovato"
@@ -2174,8 +2167,45 @@ document.addEventListener("DOMContentLoaded", function () {
           return console.log(err);
         });
       },
-      upservice: function upservice(id) {
+      filtroavanzato: function filtroavanzato() {
         var _this3 = this;
+
+        this.activeservice = [];
+        axios.get("api/filter", {
+          params: {
+            where: this.where,
+            number_rooms: this.number_rooms,
+            number_beds: this.number_beds
+          }
+        }).then(function (res) {
+          if (res.status == 200) {
+            if (res.data.length == 0) {
+              return _this3.currentapartment = [{
+                title: "Nessun appartamento trovato"
+              }];
+            }
+
+            ;
+            axios.get('https://api.tomtom.com/search/2/search/' + res.data[0].address + '.JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC').then(function (res) {
+              var point = [res.data.results[0].position.lon, res.data.results[0].position.lat];
+              map.easeTo({
+                center: point,
+                zoom: 10
+              });
+              makemarker(res.data.results[0].position.lon, res.data.results[0].position.lat);
+            })["catch"](function (err) {
+              return console.log(err);
+            });
+          }
+
+          ;
+          _this3.currentapartment = res.data;
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      },
+      upservice: function upservice(id) {
+        var _this4 = this;
 
         this.currentapartment = [];
 
@@ -2198,12 +2228,12 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log(res.data);
 
           if (res.data.length == 0) {
-            return _this3.currentapartment = [{
+            return _this4.currentapartment = [{
               title: "Nessun appartamento trovato"
             }];
           }
 
-          _this3.currentapartment = res.data;
+          _this4.currentapartment = res.data;
         })["catch"](function (err) {
           return console.log(err);
         });
@@ -2212,8 +2242,6 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "apartments" + id;
       },
       getLatLng: function getLatLng(address) {
-        console.log(address); // let lon=0;
-
         axios.get("https://api.tomtom.com/search/2/geocode/" + address + ".JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC").then(function (res) {
           // console.log(res.data);
           if (pos.length > 1) {
@@ -2280,61 +2308,61 @@ document.addEventListener("DOMContentLoaded", function () {
         return totalDistance;
       },
       latlng: function latlng(elem) {
-        var _this4 = this;
+        var _this5 = this;
 
         axios.get("https://api.tomtom.com/search/2/geocode/" + elem.address + ".JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC").then(function (res) {
-          _this4.pos1 = {
+          _this5.pos1 = {
             lat: res.data.results[0].position.lat,
             lon: res.data.results[0].position.lon
           };
-          makemarker(_this4.pos1.lon, _this4.pos1.lat);
-          goto(_this4.pos1.lon, _this4.pos1.lat);
+          makemarker(_this5.pos1.lon, _this5.pos1.lat);
+          goto(_this5.pos1.lon, _this5.pos1.lat);
         })["catch"](function (err) {
           return console.log(err);
         });
       },
       latlngcustom: function latlngcustom(elem) {
-        var _this5 = this;
+        var _this6 = this;
 
         axios.get("https://api.tomtom.com/search/2/geocode/" + elem.address + ".JSON?extendedPostalCodesFor=Str&view=Unified&key=k1fTAPbKkU0oOi0V5dHOHuW4J0oAMIy4").then(function (res) {
-          if (_this5.pos2.length > 0) {
-            _this5.pos2 = {};
+          if (_this6.pos2.length > 0) {
+            _this6.pos2 = {};
           }
 
-          _this5.pos2 = {
+          _this6.pos2 = {
             lat: res.data.results[0].position.lat,
             lon: res.data.results[0].position.lon
           };
-          tmp = _this5.distcustom(_this5.pos1, _this5.pos2); // console.log(this.pos1, this.pos2, tmp);
+          tmp = _this6.distcustom(_this6.pos1, _this6.pos2); // console.log(this.pos1, this.pos2, tmp);
 
-          _this5.km = tmp.kilometers; // console.log('km',this.km, 'pos1', this.pos1, 'pos2', this.pos2);
+          _this6.km = tmp.kilometers; // console.log('km',this.km, 'pos1', this.pos1, 'pos2', this.pos2);
 
-          if (_this5.km < 20) {
-            _this5.pos2.address = elem.address;
-            _this5.pos2.area = elem.area;
-            _this5.pos2.cover_image = elem.cover_image;
-            _this5.pos2.created_at = elem.created_at;
-            _this5.pos2.deleted_at = elem.deleted_at;
-            _this5.pos2.id = elem.id;
-            _this5.pos2.number_beds = elem.number_beds;
-            _this5.pos2.number_rooms = elem.number_rooms;
-            _this5.pos2.number_toiletes = elem.number_toiletes;
-            _this5.pos2.title = elem.title;
-            _this5.pos2.updated_at = elem.updated_at;
-            _this5.pos2.user_id = elem.user_id;
-            _this5.pos2.km = _this5.km;
+          if (_this6.km < 20) {
+            _this6.pos2.address = elem.address;
+            _this6.pos2.area = elem.area;
+            _this6.pos2.cover_image = elem.cover_image;
+            _this6.pos2.created_at = elem.created_at;
+            _this6.pos2.deleted_at = elem.deleted_at;
+            _this6.pos2.id = elem.id;
+            _this6.pos2.number_beds = elem.number_beds;
+            _this6.pos2.number_rooms = elem.number_rooms;
+            _this6.pos2.number_toiletes = elem.number_toiletes;
+            _this6.pos2.title = elem.title;
+            _this6.pos2.updated_at = elem.updated_at;
+            _this6.pos2.user_id = elem.user_id;
+            _this6.pos2.km = _this6.km;
 
-            _this5.apartmentrange.push(_this5.pos2);
+            _this6.apartmentrange.push(_this6.pos2);
           }
 
-          _this5.pos2 = {};
-          _this5.km = 0; // console.log(this.apartmentrange);
+          _this6.pos2 = {};
+          _this6.km = 0; // console.log(this.apartmentrange);
         })["catch"](function (err) {
           return console.log(err);
         });
       },
       addresrange: function addresrange(elem) {
-        var _this6 = this;
+        var _this7 = this;
 
         this.latlng(elem);
         ar = elem.address.split("-");
@@ -2350,16 +2378,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         setTimeout(function () {
-          console.log("time1", _this6.apartmentrange);
-
-          _this6.apartmentrange.sort(function (a, b) {
+          _this7.apartmentrange.sort(function (a, b) {
             return a.km - b.km;
           });
 
-          console.log("time2", _this6.apartmentrange);
-          _this6.currentapartment = _this6.apartmentrange;
-          _this6.apartmentrange = [];
-          console.log("time3", _this6.apartmentrange, _this6.currentapartment);
+          _this7.currentapartment = _this7.apartmentrange;
+          _this7.apartmentrange = [];
+          console.log("time3", _this7.apartmentrange, _this7.currentapartment);
         }, 1000);
       }
     }

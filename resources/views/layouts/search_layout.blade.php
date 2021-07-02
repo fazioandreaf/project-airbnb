@@ -153,7 +153,8 @@
                 .then( res=>{
                 var point=[res.data.results[0].position.lon,res.data.results[0].position.lat];
                 map.easeTo({center:point,zoom:10});
-                makemarker(res.data.results[0].position.lon, res.data.results[0].position.lat)})
+                makemarker(res.data.results[0].position.lon, res.data.results[0].position.lat)
+            })
                 .catch(err=> console.log(err));
             }
         };
