@@ -765,10 +765,18 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   background-color: navy;
   border-radius: 10px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-right: 20px;
+}
+
+.outer-jumbotron .slider-main .apartment-samples .flags span {
+  color: white;
+}
+
+.outer-jumbotron .slider-main .apartment-samples .flags span:hover {
+  color: red;
 }
 
 .outer-jumbotron .slider-main .apartment-samples .flags a {

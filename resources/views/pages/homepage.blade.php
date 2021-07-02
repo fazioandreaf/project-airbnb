@@ -25,6 +25,7 @@
                   {{-- {{ $apartment->id }}
                   {{ $apartment->title }} --}}
                 </a>
+                <span>{{ $apartment->title }} </span>
               </div>
             </li>
 

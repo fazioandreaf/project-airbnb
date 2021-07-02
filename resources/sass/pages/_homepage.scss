@@ -1,146 +1,150 @@
 .contain-main {
-  height: 100%;
+    height: 100%;
 
-  section:only-of-type {
-    width: 100%;
-    @include container(90%);
+    section:only-of-type {
+        width: 100%;
+        @include container(90%);
 
-    ul:first-of-type {
-      height: 400px;
-      @include flex(column, flex-end, null);
+        ul:first-of-type {
+            height: 400px;
+            @include flex(column, flex-end, null);
 
-      li:nth-child(1) {
-        @include flex(row, flex-start, space-envely);
+            li:nth-child(1) {
+                @include flex(row, flex-start, space-envely);
 
-        a {
-          margin-top: 5px;
+                a {
+                    margin-top: 5px;
+                }
+
+                span {
+                    @include flex(row, center, center);
+                    width: 70px;
+                    height: 40px;
+                    border-radius: 5px;
+                    margin-left: 20px;
+                    font-size: 20px;
+                    background-color: $black;
+                    color: $white;
+                }
+            }
+
+            li:nth-child(2) {
+                font-size: 30px;
+            }
+        } // FINE DEL PRIMO UL
+
+        button {
+            margin-top: 20px;
+            font-weight: bolder;
+            width: 150px;
+            height: 50px;
+            background-color: $black;
+            color: $white;
+            border-radius: 10px;
+            border: none;
         }
-
-        span {
-          @include flex(row, center, center);
-          width: 70px;
-          height: 40px;
-          border-radius: 5px;
-          margin-left: 20px;
-          font-size: 20px;
-          background-color: $black;
-          color: $white;
-        }
-      }
-
-      li:nth-child(2) {
-        font-size: 30px;
-      }
-
-    } // FINE DEL PRIMO UL
-
-    button {
-      margin-top: 20px;
-      font-weight: bolder;
-      width: 150px;
-      height: 50px;
-      background-color: $black;
-      color: $white;
-      border-radius: 10px;
-      border: none;
-    }
-
-  } // FINE DELL'UNICO SECTION FIGLIO DI HOMEPAGE
-
+    } // FINE DELL'UNICO SECTION FIGLIO DI HOMEPAGE
 }
 
-.outer-jumbotron{
-  margin: 10px auto;
-  width: 90%;
-  height: auto;
-  text-align: center;
+.outer-jumbotron {
+    margin: 10px auto;
+    width: 90%;
+    height: auto;
+    text-align: center;
 
-  .title-outer-jmb{
-    margin-top: 100px;
-    margin-bottom: 30px;
-  }
-
-  .slider-main {
-    @include flex(row, center, center);
-
-    .fa-chevron-left,
-    .fa-chevron-right {
-      cursor: pointer;
-      font-size: 40px;
-      color: $search-fuchsia;
+    .title-outer-jmb {
+        margin-top: 100px;
+        margin-bottom: 30px;
     }
 
-    .apartment-samples {
-      font-size: 20px;
-      @include container(90%);
-      @include flex(row, space-between, center);
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-
-
-      .flags{
-        width: 220px;
-        height: 220px;
-        background-color: navy;
-        border-radius: 10px;
+    .slider-main {
         @include flex(row, center, center);
-        margin-right: 20px;
 
-        a{
-          @include flex(row, center, center);
-          height:100%;
-          color: white;
+        .fa-chevron-left,
+        .fa-chevron-right {
+            cursor: pointer;
+            font-size: 40px;
+            color: $search-fuchsia;
         }
-      }
+
+        .apartment-samples {
+            font-size: 20px;
+            @include container(90%);
+            @include flex(row, space-between, center);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+
+            .flags {
+                width: 220px;
+                height: 220px;
+                background-color: navy;
+                border-radius: 10px;
+                @include flex(column, center, center);
+                margin-right: 20px;
+                &:hover {
+                    // width: 250px;
+                    // height: 250px;
+                }
+                span {
+                    color: white;
+                    &:hover {
+                        color: red;
+                    }
+                }
+                a {
+                    @include flex(row, center, center);
+                    height: 100%;
+                    color: white;
+                }
+            }
+        }
     }
-  }
 
-  .section-host{
-    display: flex;
-    justify-content: center;
-    margin-top: 120px;
-    margin-bottom: 40px;
+    .section-host {
+        display: flex;
+        justify-content: center;
+        margin-top: 120px;
+        margin-bottom: 40px;
 
+        .host {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 90%;
+            height: 350px;
+            background-image: url(../assets/diventaHost.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: start;
 
-    .host{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 90%;
-      height: 350px;
-      background-image: url(../assets/diventaHost.png);
-      background-repeat: no-repeat;
-      background-size: cover;
-      color:white;
-      border-radius: 10px;
-      padding: 30px;
-      text-align: start;
+            .h1-host {
+                margin-bottom: 5px;
+            }
 
-      .h1-host{
-        margin-bottom: 5px;
-      }
+            .p-host {
+                margin: 5px 0;
+            }
 
-      .p-host{
-        margin: 5px 0;
-      }
+            .btn-host_hmpages {
+                @include flex(row, center, center);
+                width: 150px;
+                height: 40px;
+                background-color: $search-fuchsia;
+                color: white;
+                font-family: "Poppins", sans-serif;
+                text-transform: uppercase;
+                border: none;
+                border-radius: 5px;
+                margin-top: 15px;
+            }
 
-      .btn-host_hmpages{
-        @include flex(row, center, center);
-        width: 150px;
-        height: 40px;
-        background-color: $search-fuchsia;
-        color: white;
-        font-family: "Poppins", sans-serif;
-        text-transform:uppercase;
-        border: none;
-        border-radius: 5px;
-        margin-top: 15px;
-      }
-
-      .img-host{
-        width: 50px;
-        height: auto;
-      }
+            .img-host {
+                width: 50px;
+                height: auto;
+            }
+        }
     }
-  }
 }
