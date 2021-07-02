@@ -93,7 +93,7 @@
                 </div>
                 {{-- <input type="latitude"  name="latitude" type="number" value="1">
                 <input type="longitude" style="display: none" name="longitude" type="number" value="1"> --}}
-                <ul class="form-errors">
+                <ul v-if="formErrors.length" class="form-errors">
                     <li v-for="error in formErrors">
                         @{{ error }}
                     </li>

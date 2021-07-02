@@ -50361,78 +50361,101 @@ document.addEventListener('DOMContentLoaded', function () {
         var hasNumbers = /\d/;
         var isMailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
         this.formErrors = [];
-        var now = Date.now(); // Name validation
+        var now = Date.now();
+        var input = []; // Name validation
 
         if (!this.firstname) {
           this.formErrors.push("Il campo nome è obbligatorio!");
+          input.push("firstname");
         } else if (this.firstname.length > 128) {
           this.formErrors.push("Hai davvero un nome così lungo?");
+          input.push("firstname");
         }
 
         if (hasNumbers.test(this.firstname)) {
           this.formErrors.push("Il nome non può contenere numeri!");
+          input.push("firstname");
         } // Lastname validation
 
 
         if (!this.lastname) {
           this.formErrors.push("Il campo cognome è obbligatorio!");
+          input.push("lastname");
         } else if (this.lastname.length > 128) {
           this.formErrors.push("Hai davvero un cognome così lungo?");
+          input.push("lastname");
         }
 
         if (hasNumbers.test(this.lastname)) {
           this.formErrors.push("Il cognome non può contenere numeri!");
+          input.push("lastname");
         } // Email validation
 
 
         if (!isMailValid.test(this.email)) {
           this.formErrors.push("La mail inserita non è valida!");
+          input.push("email");
         } // Password validation
 
 
         if (!this.password) {
           this.formErrors.push("Il campo password è obbligatorio!");
+          input.push("password");
         } else if (this.password.length < 8) {
           this.formErrors.push("La password deve contenere almeno 8 caratteri!");
+          input.push("password");
         }
 
         if (this.confirmPassword != this.password) {
           this.formErrors.push("Le password non corrispondono!");
+          input.push("confirm-password");
         } // Date of birth validation
 
 
         if (!this.dateOfBirth) {
           this.formErrors.push("Non hai inserito una data dei nascita valida!");
+          input.push("date_of_birth");
         } else {
           var date = new Date(this.dateOfBirth).getTime();
-          if (date > now) this.formErrors.push("Vieni davvero dal futuro?");
+
+          if (date > now) {
+            this.formErrors.push("Vieni davvero dal futuro?");
+            input.push("date_of_birth");
+          }
         }
 
         if (!this.formErrors.length) {
           return true;
         }
 
+        this.classes = input;
         e.preventDefault(); //!important prevents submit realod
       },
       validateLogin: function validateLogin(e) {
         var isMailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-        this.formErrors = []; // Email validation
+        this.formErrors = [];
+        var input = []; // Email validation
 
         if (!isMailValid.test(this.email)) {
           this.formErrors.push("La mail inserita non è valida!");
+          input.push('email');
         } // Password validation
 
 
         if (!this.password) {
           this.formErrors.push("Il campo password è obbligatorio!");
+          input.push('password');
         } else if (this.password.length < 8) {
           this.formErrors.push("La password deve contenere almeno 8 caratteri!");
+          this.input.push('password');
         }
 
         if (!this.formErrors.length) {
           return true;
         }
 
+        this.classes = input;
+        console.log(this.classes);
         e.preventDefault();
       }
     },
