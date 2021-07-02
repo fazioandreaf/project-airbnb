@@ -1,4 +1,4 @@
-@extends('layouts.minimal-layout')
+@extends('layouts.pay-layout')
 @section('content')
 
     <section id='pay-section'>

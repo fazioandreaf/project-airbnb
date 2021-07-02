@@ -53,6 +53,7 @@ class HomeController extends Controller {
             
             $validated = $request -> validate([
                 'title' => 'required|max:128|min:4',
+                'description' => 'nullable|min:22',
                 'number_rooms' => 'required|numeric',
                 'number_toiletes' => 'required|numeric',
                 'number_beds' => 'required|numeric',
@@ -60,9 +61,12 @@ class HomeController extends Controller {
                 'address' => 'required',
                 'user_id' => 'required|integer',
             ]);
-            $service = Service::findOrFail($request -> get('service_id'));
-            $apartment = Apartment::create($validated);
+            
+            if (!is_null($request->service_id)) {
+                $service = Service::findOrFail($request -> get('service_id'));
+            }
 
+            $apartment = Apartment::create($validated);
             if ($request->hasFile('cover_image')) {
                 $img = $request -> file('cover_image');
                 $imgExt = $img -> getClientOriginalExtension();
@@ -93,6 +97,7 @@ class HomeController extends Controller {
     {
         $validated = $request -> validate([
             'title' => 'required|max:128|min:4',
+            'description' => 'nullable|min:22',
             'number_rooms' => 'required|numeric',
             'number_toiletes' => 'required|numeric',
             'number_beds' => 'required|numeric',
@@ -133,7 +138,10 @@ class HomeController extends Controller {
                     ->where('statistics.apartment_id','=',$id)
                     ->get();
         //             dd(count($statistic));
-        return view('pages.statistic',compact('statistic'));
+
+        $user_id = Auth::id();
+        $user = User::findOrFail($user_id);
+        return view('pages.statistic',compact('statistic', 'user'));
     }
 
     // init braintree

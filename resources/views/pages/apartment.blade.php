@@ -17,7 +17,7 @@
           </div>
 
           <div>
-            
+
             <span id="barra-ricerca">
               <a href="#">
                 Inizia la ricerca
@@ -159,14 +159,14 @@
 
                 {{-- (1) --}}
                 <li class="riga uno">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est Danny. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                  <p>{{$apartment->description}}.</p>
                 </li>
 
                 {{-- (2) --}}
                 <li class="riga due">
 
                   <span>
-                    <img src="{{asset('storage/assets/icone_stanze.png')}}" alt="stanze-img" style="width: 50px; height: 50px;">
+                    <img src="{{asset('storage/assets/icone_stanze.png')}}" alt="stanze-img">
                     <a href="#">
                       Stanze :
                       {{$apartment->number_rooms}}
@@ -204,6 +204,7 @@
 
                   <span>
                     <a href="#">
+                      <h3>Servizi extra</h3>
                         <ul class="sub-list">
                           @foreach ($apartment->services as $service)
                           <li>
@@ -218,18 +219,22 @@
 
                 {{-- (4) --}}
                 <li class="riga quattro">
-                  <a href="#">
-                    <img src="{{asset('storage/assets/icone_sponsor.png')}}" alt="sponsor-img" style="width: 50px; height: 50px;">
-                    @foreach ($apartment->sponsors as $apSp)
-                      <p>
-                        {{$apSp->sponsor_duration}} ore di sponsor
-                      </p>
-                    @endforeach
-                  </a>
-                  <a href="#">
-                    <i class="fas fa-pump-soap"></i>
-                    <p>Questo host si impegna a seguire la procedura avanzata di pulizia in 5 fasi di BoolB&B.</p>
-                  </a>
+                  <h3>Informazioni utili</h3>
+
+                  <div class="test">
+                    <a href="#">
+                      <img src="{{asset('storage/assets/icone_sponsor.png')}}" alt="sponsor-img" style="width: 50px; height: 50px;">
+                      @foreach ($apartment->sponsors as $apSp)
+                        <p>
+                          {{$apSp->sponsor_duration}} ore di sponsor
+                        </p>
+                      @endforeach
+                    </a>
+                    <a href="#">
+                      <i class="fas fa-pump-soap"></i>
+                      <p>Questo host si impegna a seguire la procedura avanzata di pulizia in 5 fasi di BoolB&B.</p>
+                    </a>
+                  </div>
                 </li>
 
               </ul>
@@ -243,7 +248,7 @@
               <form action="" method="get">
                 <span>Scrivi all'host<i class="fas fa-pencil-alt"></i><div>Vedi se ci sono camere disponibili.</div></span>
                 <textarea rows="20" cols="30"></textarea>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Invia">
               </form>
             </div>
             {{-- FINE SEZIONE DI DESTRA --}}

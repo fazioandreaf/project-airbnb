@@ -2125,6 +2125,9 @@ document.addEventListener("DOMContentLoaded", function () {
     created: function created() {
       var _this = this;
 
+      setTimeout(function () {
+        _this.filtro();
+      }, 1000);
       axios.get("api/service").then(function (res) {
         if (res.status == 200) {
           _this.allservice = res.data;
@@ -2144,9 +2147,10 @@ document.addEventListener("DOMContentLoaded", function () {
         this.dropdownActive = !this.dropdownActive;
         console.log("LALLERO");
       },
-      filter: function filter() {
+      filtro: function filtro() {
         var _this2 = this;
 
+        console.log("ciao");
         this.activeservice = [];
         axios.get("api/filter", {
           params: {
@@ -2225,11 +2229,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return console.log(err);
         });
       },
-      addlayer: function addlayer(i) {
-        if (pos.length < 1) {
-          return alert("Non hai cliccato su nessun appartmanto");
-        }
-
+      addlayer: function addlayer(i, pos) {
         console.log("ciao");
         map.on("click", function () {
           map.addLayer({
@@ -2241,7 +2241,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 type: "Feature",
                 geometry: {
                   type: "Polygon",
-                  coordinates: [[[pos[pos.length - 1].lon - 0.1, pos[pos.length - 1].lat + 0.1], [pos[pos.length - 1].lon + 0.1, pos[pos.length - 1].lat + 0.1], [pos[pos.length - 1].lon + 0.1, pos[pos.length - 1].lat - 0.1], [pos[pos.length - 1].lon - 0.1, pos[pos.length - 1].lat - 0.1] //             [15.067560533884222, 38.642288177883556],
+                  coordinates: [[[pos.lon - 0.001, pos.lat + 0.001], [pos.lon + 0.001, pos.lat + 0.001], [pos.lon + 0.001, pos.lat - 0.001], [pos.lon - 0.001, pos.lat - 0.001] //             [15.067560533884222, 38.642288177883556],
                   //   [16.267560533884222, 38.642288177883556],
                   //   [16.267560533884222, 36.442288177883556],
                   //   [15.067560533884222, 36.442288177883556],
@@ -2255,7 +2255,7 @@ document.addEventListener("DOMContentLoaded", function () {
               // 'circle-color': '#3a3a3a',
               // 'circle-stroke-width': 2,
               // 'circle-stroke-color': '#FFF'
-              "fill-color": "#db356c",
+              "fill-color": "#12a19a",
               "fill-opacity": 0.5,
               "fill-outline-color": "black"
             }
@@ -2263,33 +2263,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         console.log("ciao");
       },
-      calculateDistance: function calculateDistance() {
-        // if (points.length < 2) {
-        //     return undefined;
-        // }
-        if (pos.length < 1) {
-          return alert("Non hai cliccato su nessun appartmanto");
-        }
-
-        var totalDistance = {
-          kilometers: 0,
-          miles: 0
-        }; // for (var i = 1; i < points.length; ++i) {
-        // var fromPoint = points[i - 1];
-        // var toPoint = points[i];
-
-        var fromPoint = [pos[0].lon, pos[0].lat];
-        var toPoint = [pos[1].lon, pos[1].lat];
-        var kilometers = turf.distance(fromPoint, toPoint);
-        var miles = turf.distance(fromPoint, toPoint, {
-          units: "miles"
-        });
-        totalDistance.kilometers = Math.round((totalDistance.kilometers + kilometers) * 100) / 100;
-        totalDistance.miles = Math.round((totalDistance.miles + miles) * 100) / 100; // }
-
-        return totalDistance;
-      },
-      provdist: function provdist(pos1, pos2) {
+      distcustom: function distcustom(pos1, pos2) {
         var totalDistance = {
           kilometers: 0,
           miles: 0
@@ -2319,7 +2293,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return console.log(err);
         });
       },
-      latlngpos2: function latlngpos2(elem) {
+      latlngcustom: function latlngcustom(elem) {
         var _this5 = this;
 
         axios.get("https://api.tomtom.com/search/2/geocode/" + elem.address + ".JSON?extendedPostalCodesFor=Str&view=Unified&key=k1fTAPbKkU0oOi0V5dHOHuW4J0oAMIy4").then(function (res) {
@@ -2331,12 +2305,23 @@ document.addEventListener("DOMContentLoaded", function () {
             lat: res.data.results[0].position.lat,
             lon: res.data.results[0].position.lon
           };
-          tmp = _this5.provdist(_this5.pos1, _this5.pos2); // console.log(this.pos1, this.pos2, tmp);
+          tmp = _this5.distcustom(_this5.pos1, _this5.pos2); // console.log(this.pos1, this.pos2, tmp);
 
           _this5.km = tmp.kilometers; // console.log('km',this.km, 'pos1', this.pos1, 'pos2', this.pos2);
 
           if (_this5.km < 20) {
             _this5.pos2.address = elem.address;
+            _this5.pos2.area = elem.area;
+            _this5.pos2.cover_image = elem.cover_image;
+            _this5.pos2.created_at = elem.created_at;
+            _this5.pos2.deleted_at = elem.deleted_at;
+            _this5.pos2.id = elem.id;
+            _this5.pos2.number_beds = elem.number_beds;
+            _this5.pos2.number_rooms = elem.number_rooms;
+            _this5.pos2.number_toiletes = elem.number_toiletes;
+            _this5.pos2.title = elem.title;
+            _this5.pos2.updated_at = elem.updated_at;
+            _this5.pos2.user_id = elem.user_id;
             _this5.pos2.km = _this5.km;
 
             _this5.apartmentrange.push(_this5.pos2);
@@ -2348,17 +2333,20 @@ document.addEventListener("DOMContentLoaded", function () {
           return console.log(err);
         });
       },
-      prova: function prova(elem) {
+      addresrange: function addresrange(elem) {
         var _this6 = this;
 
         this.latlng(elem);
         ar = elem.address.split("-");
         city_target = ar[2];
+        addlayer(elem.id, this.pos1);
 
         for (i = 0; i < this.currentapartment.length - 1; i++) {
           arr = this.currentapartment[i].address.split("-");
           city = arr[2];
-          if (city === city_target && elem.address != this.currentapartment[i].address) this.latlngpos2(this.currentapartment[i]);
+          if (city === city_target //  &&
+          // elem.address != this.currentapartment[i].address
+          ) this.latlngcustom(this.currentapartment[i]);
         }
 
         setTimeout(function () {
@@ -2387,7 +2375,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\redsy\Documents\Boolean\progetto-finale\Nuova cartella\project-airbnb\resources\js\search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! C:\Users\Andrea\Desktop\project-airbnb\resources\js\search.js */"./resources/js/search.js");
 
 
 /***/ })

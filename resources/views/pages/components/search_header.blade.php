@@ -1,7 +1,6 @@
 <header id="header-search">
 
   <div class="top-header-search" id="app">
-
     <div class="logo">
       <a href="{{route('homepage')}}">
         <img src="{{asset('storage/assets/lg_clr.png')}}" alt="logo-image">
@@ -12,7 +11,7 @@
 
         <div>
           <label for="where">Dove vuoi andare?</label>
-          <input type="text" v-model="where" name="where" placeholder="Roma">
+          <input type="text" v-model="where" name="where" placeholder="Roma" value={{$first_search}}>
         </div>
 
         <div class="wrapper-form-fields first">
@@ -26,7 +25,7 @@
         </div>
 
         <div id="lente">
-          <a href="#" @click="filter()">
+          <a href="#" @click="filtro()">
             <i class="fas fa-search"></i>
           </a>
         </div>

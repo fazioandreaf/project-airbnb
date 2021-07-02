@@ -19,3 +19,9 @@
   font-size: 20px;
 }
 
+@mixin responsive($device) {
+
+  @if $device == mobile {
+    @media screen and(max-width:420px) {@content};
+  }
+}

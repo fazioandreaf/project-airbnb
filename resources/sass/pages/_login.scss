@@ -7,16 +7,32 @@ section#login-section {
         @include flex(column, center, center);
     }
 
-    .wrapper-form-fields {
-        margin-bottom: 10px;
-        @include flex(row, space-between, center);
+    form { 
 
-        input {
-            margin-left: 5px;
-            background-color: $aggron-light-gray;
-            padding: 5px 10px;
-            border: 0;
-            border-radius: 20px;
+        width: 40%;
+        @include flex(column, center, center);
+
+        .wrapper-form-fields {
+            margin-bottom: 10px;
+            @include flex(row, space-between, center);
+            
+            label {
+
+                display: inline-block;
+                width: 100px;
+            }
+
+            input {
+                margin-left: 5px;
+                background-color: $aggron-light-gray;
+                padding: 5px 10px;
+                border: 0;
+                border-radius: 20px;
+    
+                &:focus {
+                    outline: 0;
+                }
+            }
         }
     }
 

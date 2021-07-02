@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         mounted: function() {},
         created: function() {
+            setTimeout(() => {
+                this.filtro();
+            }, 1000);
             axios
                 .get("api/service")
                 .then(res => {
@@ -41,7 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log("LALLERO");
             },
 
-            filter: function() {
+            filtro: function() {
+                console.log("ciao");
                 this.activeservice = [];
                 axios
                     .get("api/filter", {
@@ -121,10 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     })
                     .catch(err => console.log(err));
             },
-            addlayer: function(i) {
-                if (pos.length < 1) {
-                    return alert("Non hai cliccato su nessun appartmanto");
-                }
+            addlayer: function(i, pos) {
                 console.log("ciao");
                 map.on("click", function() {
                     map.addLayer({
@@ -138,22 +139,10 @@ document.addEventListener("DOMContentLoaded", () => {
                                     type: "Polygon",
                                     coordinates: [
                                         [
-                                            [
-                                                pos[pos.length - 1].lon - 0.1,
-                                                pos[pos.length - 1].lat + 0.1
-                                            ],
-                                            [
-                                                pos[pos.length - 1].lon + 0.1,
-                                                pos[pos.length - 1].lat + 0.1
-                                            ],
-                                            [
-                                                pos[pos.length - 1].lon + 0.1,
-                                                pos[pos.length - 1].lat - 0.1
-                                            ],
-                                            [
-                                                pos[pos.length - 1].lon - 0.1,
-                                                pos[pos.length - 1].lat - 0.1
-                                            ]
+                                            [pos.lon - 0.001, pos.lat + 0.001],
+                                            [pos.lon + 0.001, pos.lat + 0.001],
+                                            [pos.lon + 0.001, pos.lat - 0.001],
+                                            [pos.lon - 0.001, pos.lat - 0.001]
                                             //             [15.067560533884222, 38.642288177883556],
                                             //   [16.267560533884222, 38.642288177883556],
                                             //   [16.267560533884222, 36.442288177883556],
@@ -169,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             // 'circle-color': '#3a3a3a',
                             // 'circle-stroke-width': 2,
                             // 'circle-stroke-color': '#FFF'
-                            "fill-color": "#db356c",
+                            "fill-color": "#12a19a",
                             "fill-opacity": 0.5,
                             "fill-outline-color": "black"
                         }
@@ -177,35 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
                 console.log("ciao");
             },
-            calculateDistance: function() {
-                // if (points.length < 2) {
-                //     return undefined;
-                // }
-                if (pos.length < 1) {
-                    return alert("Non hai cliccato su nessun appartmanto");
-                }
-                var totalDistance = {
-                    kilometers: 0,
-                    miles: 0
-                };
-                // for (var i = 1; i < points.length; ++i) {
-                // var fromPoint = points[i - 1];
-                // var toPoint = points[i];
-                var fromPoint = [pos[0].lon, pos[0].lat];
-                var toPoint = [pos[1].lon, pos[1].lat];
-                var kilometers = turf.distance(fromPoint, toPoint);
-                var miles = turf.distance(fromPoint, toPoint, {
-                    units: "miles"
-                });
-                totalDistance.kilometers =
-                    Math.round((totalDistance.kilometers + kilometers) * 100) /
-                    100;
-                totalDistance.miles =
-                    Math.round((totalDistance.miles + miles) * 100) / 100;
-                // }
-                return totalDistance;
-            },
-            provdist: function(pos1, pos2) {
+            distcustom: function(pos1, pos2) {
                 var totalDistance = {
                     kilometers: 0,
                     miles: 0
@@ -241,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     })
                     .catch(err => console.log(err));
             },
-            latlngpos2: function(elem) {
+            latlngcustom: function(elem) {
                 axios
                     .get(
                         "https://api.tomtom.com/search/2/geocode/" +
@@ -256,13 +217,24 @@ document.addEventListener("DOMContentLoaded", () => {
                             lat: res.data.results[0].position.lat,
                             lon: res.data.results[0].position.lon
                         };
-                        tmp = this.provdist(this.pos1, this.pos2);
+                        tmp = this.distcustom(this.pos1, this.pos2);
                         // console.log(this.pos1, this.pos2, tmp);
                         this.km = tmp.kilometers;
 
                         // console.log('km',this.km, 'pos1', this.pos1, 'pos2', this.pos2);
                         if (this.km < 20) {
                             this.pos2.address = elem.address;
+                            this.pos2.area = elem.area;
+                            this.pos2.cover_image = elem.cover_image;
+                            this.pos2.created_at = elem.created_at;
+                            this.pos2.deleted_at = elem.deleted_at;
+                            this.pos2.id = elem.id;
+                            this.pos2.number_beds = elem.number_beds;
+                            this.pos2.number_rooms = elem.number_rooms;
+                            this.pos2.number_toiletes = elem.number_toiletes;
+                            this.pos2.title = elem.title;
+                            this.pos2.updated_at = elem.updated_at;
+                            this.pos2.user_id = elem.user_id;
                             this.pos2.km = this.km;
                             this.apartmentrange.push(this.pos2);
                         }
@@ -272,18 +244,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     })
                     .catch(err => console.log(err));
             },
-            prova: function(elem) {
+            addresrange: function(elem) {
                 this.latlng(elem);
                 ar = elem.address.split("-");
                 city_target = ar[2];
+                addlayer(elem.id, this.pos1);
                 for (i = 0; i < this.currentapartment.length - 1; i++) {
                     arr = this.currentapartment[i].address.split("-");
                     city = arr[2];
                     if (
-                        city === city_target &&
-                        elem.address != this.currentapartment[i].address
+                        city === city_target
+                        //  &&
+                        // elem.address != this.currentapartment[i].address
                     )
-                        this.latlngpos2(this.currentapartment[i]);
+                        this.latlngcustom(this.currentapartment[i]);
                 }
                 setTimeout(() => {
                     console.log("time1", this.apartmentrange);
@@ -294,8 +268,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     console.log("time2", this.apartmentrange);
                     this.currentapartment = this.apartmentrange;
                     this.apartmentrange = [];
-                    console.log("time3", this.apartmentrange,this.currentapartment);
-
+                    console.log(
+                        "time3",
+                        this.apartmentrange,
+                        this.currentapartment
+                    );
                 }, 1000);
             }
         }

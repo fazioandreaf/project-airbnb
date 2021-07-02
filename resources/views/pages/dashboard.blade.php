@@ -12,14 +12,16 @@
 
         @if (count($apartments))
             <div class="wrapper-with-apartments">
-                <div class="wrapper-dashboard-labels">
-                    <div class="dashboard-label" :class="(labelActive == 'profile-infos') ? 'active' : ''" v-on:click="labelActive = 'profile-infos'">
+               
+                <ul class="wrapper-dashboard-labels">
+                    <li class="dashboard-label" :class="(labelActive == 'profile-infos') ? 'active' : ''" v-on:click="labelActive = 'profile-infos'">
                         Riepilogo Profilo
-                    </div>
-                    <div class="dashboard-label" :class="(labelActive == 'my-apartments') ? 'active' : ''" v-on:click="labelActive = 'my-apartments'">
+                    </li>
+                    <li class="dashboard-label" :class="(labelActive == 'my-apartments') ? 'active' : ''" v-on:click="labelActive = 'my-apartments'">
                         Gestisci appartamenti
-                    </div>
-                </div>
+                    </li>
+                </ul>
+
                 <div class="user-infos" :class="(labelActive == 'profile-infos') ? 'active' : ''">
                     <div class="wrapper-image-placeholder">
                         <img src="{{ asset('storage/assets/profile_placeholder.png') }}">

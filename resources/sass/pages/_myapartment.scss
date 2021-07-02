@@ -1,5 +1,7 @@
 section#my-apartments {
 
+  padding: 40px 0;
+
     .container {
       @include container(90%);
   
@@ -14,10 +16,7 @@ section#my-apartments {
   
        background-color: $grovyle-dark-green;
   
-    
       }
-  
-  
     }
   
     .delete:hover {
@@ -42,7 +41,6 @@ section#my-apartments {
   
       &:nth-child(even) {
         background-color: $aggron-light-gray;
-  
       }
   
       .apartment-main-infos {
@@ -50,7 +48,8 @@ section#my-apartments {
           @include flex(row, null, center);
         }
         .apartment-title {
-          flex-basis: 30%;
+          flex-grow: 1;
+          cursor: pointer;
         }
   
         .apartment-details {
@@ -65,11 +64,10 @@ section#my-apartments {
       }
   
       .details {
-        max-height: 400px;
-        margin-top: 20px;
+        max-height: 420px;
   
         .button-link{
-          margin-top: 20px;
+          margin: 20px 0 20px;
         }
       }
   

@@ -37,7 +37,14 @@
                         <label for="title">
                             Nome Struttura
                         </label>
-                        <input type="text" name="title" id="title" required>
+                        <input type="text" name="title" id="title" required >
+                    </div>
+
+                    <div class="elm-form">
+                        <label for="description">
+                            Descrizione Struttura
+                        </label>
+                        <textarea name="description" id="description" ></textarea>
                     </div>
 
                     <div class="elm-form">
@@ -82,9 +89,10 @@
                         <input id="cover_image" type="file" name="cover_image" class="eml-img">
                     </div>
                 </div>
-
+                {{-- <input type="latitude"  name="latitude" type="number" value="1">
+                <input type="longitude" style="display: none" name="longitude" type="number" value="1"> --}}
             </div>
-    
+
             <h2 style="margin: 20px">
                 services
             </h2>
@@ -94,9 +102,8 @@
                     <div class="form-service-container">
 
                         <div class="form-elem-service-elm">
-                            <label for="service_id[]">{{$service->service}}</label>
+                            <label for="service_id[{{$service->id}}]">{{$service->service}}</label>
                             <input type="checkbox" name="service_id[]" id="service_id[]" value="{{$service->id}}">
-
                         </div>
                     </div>
                 @endforeach

@@ -22,3 +22,6 @@ Route::get('/service','ApiController@service')->name('service');
 Route::get('/upservice','ApiController@upservice')->name('upservice');
 
 Route::get('/apartment/destroy/{id}', 'ApiController@destroy') -> name('destroy');
+Route::get('/views/{id}', 'ApiController@getViews') -> name('get_views');
+Route::get('/messages/{id}', 'ApiController@getMessages') -> name('get_messages');
+
