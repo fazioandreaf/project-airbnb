@@ -2146,7 +2146,6 @@ document.addEventListener("DOMContentLoaded", function () {
       filtro: function filtro() {
         var _this2 = this;
 
-        removeMarkerr();
         this.activeservice = [];
         axios.get("api/filter", {
           params: {
@@ -2187,8 +2186,7 @@ document.addEventListener("DOMContentLoaded", function () {
               }];
             }
 
-            ;
-            axios.get('https://api.tomtom.com/search/2/search/' + res.data[0].address + '.JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC').then(function (res) {
+            axios.get("https://api.tomtom.com/search/2/search/" + res.data[0].address + ".JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC").then(function (res) {
               var point = [res.data.results[0].position.lon, res.data.results[0].position.lat];
               map.easeTo({
                 center: point,
@@ -2200,7 +2198,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
           }
 
-          ;
           _this3.currentapartment = res.data;
         })["catch"](function (err) {
           return console.log(err);
@@ -2237,6 +2234,21 @@ document.addEventListener("DOMContentLoaded", function () {
           }
 
           _this4.currentapartment = res.data;
+          console.log(_this4.currentapartment);
+
+          for (i = 0; i < _this4.currentapartment.length; i++) {
+            axios.get("https://api.tomtom.com/search/2/search/" + _this4.currentapartment[i].address + ".JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC").then(function (res) {
+              tmp = res.data.results[0].position;
+              var point = [tmp.lon, tmp.lat];
+              map.easeTo({
+                center: point,
+                zoom: 10
+              });
+              makemarker(tmp.lon, tmp.lat);
+            })["catch"](function (err) {
+              return console.log(err);
+            });
+          }
         })["catch"](function (err) {
           return console.log(err);
         });
@@ -2261,7 +2273,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       },
       addlayer: function addlayer(i, pos) {
-        console.log("ciao");
         map.on("click", function () {
           map.addLayer({
             id: "overlay" + i,
@@ -2292,7 +2303,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           });
         });
-        console.log("ciao");
       },
       distcustom: function distcustom(pos1, pos2) {
         var totalDistance = {
@@ -2367,13 +2377,12 @@ document.addEventListener("DOMContentLoaded", function () {
       addresrange: function addresrange(elem) {
         var _this7 = this;
 
-        removeMarkerr();
         this.latlng(elem);
         ar = elem.address.split("-");
         city_target = ar[2];
         addlayer(elem.id, this.pos1);
 
-        for (i = 0; i < this.currentapartment.length - 1; i++) {
+        for (i = 0; i < this.currentapartment.length; i++) {
           arr = this.currentapartment[i].address.split("-");
           city = arr[2];
           if (city === city_target //  &&
@@ -2389,6 +2398,10 @@ document.addEventListener("DOMContentLoaded", function () {
           _this7.currentapartment = _this7.apartmentrange;
           _this7.apartmentrange = [];
           console.log("time3", _this7.apartmentrange, _this7.currentapartment);
+
+          for (i = 0; i < _this7.currentapartment.length; i++) {
+            makemarker(_this7.currentapartment[1].lon, _this7.currentapartment[1].lat);
+          }
         }, 1000);
       }
     }

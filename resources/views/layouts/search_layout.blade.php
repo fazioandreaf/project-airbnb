@@ -39,7 +39,6 @@
 
 
   <body onload="formarker({{$apartments}})">
-          <a href="#" onclick="removeMarkerr()">prova</a>
     <div id="search">
 
       <header>
@@ -58,9 +57,12 @@
     <script>
         arr=[];
         function removeMarkerr(){
-            console.log('ciao');
-            for(i=0;i<arr.length;i++)
-            arr[i].remove();
+            console.log(arr);
+            for(i=0;i<arr.length;i++){
+                if(typeof arr[i]== 'object')
+                arr[i].remove();
+            }
+            arr=[];
         };
         // esempio di creare una funzione che metta tutti i marker nella mappa
         function makemarker(LNG, LAT){
