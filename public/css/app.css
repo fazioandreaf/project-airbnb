@@ -1778,7 +1778,6 @@ section#edit-section h2 {
 section#edit-section .form-complit {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 
 section#edit-section .form-complit .form-text {
@@ -1807,14 +1806,20 @@ section#edit-section .form-complit .form-text .form-text-elem input:hover {
   transition: 0.2s;
 }
 
+section#edit-section .form-complit .form-service {
+  margin-left: 50px;
+}
+
 section#edit-section .form-complit .form-select {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
-section#edit-section .form-complit .form-select input {
-  margin-left: 20px;
+section#edit-section .form-complit .form-select label {
+  flex-grow: 1;
+  padding-right: 10px;
 }
 
 section#edit-section .form-btn {

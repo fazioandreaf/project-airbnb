@@ -17,7 +17,7 @@ $factory->define(Service::class, function (Faker $faker) {
         'Antincendio',
         'Animali',
         'Microonde',
-        'Lavatrice',
+        'Spazio di lavoro dedicato',
         'Parcheggio'
 
     ];

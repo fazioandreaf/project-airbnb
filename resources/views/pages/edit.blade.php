@@ -57,7 +57,7 @@
                     </div>
                 </div>
     
-                <div >
+                <div class="form-service">
                     <h4>
                         Servizi
                     </h4>
@@ -65,8 +65,8 @@
                     <div >
                         @foreach ($services as $service)
                             <div class="form-select">
-                                <label for="service_id[]">{{$service->service}}</label>
-                                <input type="checkbox" name="service_id[]" id="service_id[]" value="{{$service->id}}"
+                                <label for="service_id[{{$service->id}}]">{{$service->service}}</label>
+                                <input type="checkbox" name="service_id[]" id="service_id[{{$service->id}}]" value="{{$service->id}}"
                                     @foreach ($apartment->services as $checkedService)
                                         @if ($checkedService->id == $service->id)
                                             checked
