@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         created: function() {
             setTimeout(() => {
                 this.filtro();
-            }, 1000);
+            }, 5000);
             axios
                 .get("api/service")
                 .then(res => {
@@ -32,20 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 .catch(err => console.log(err));
         },
         methods: {
-            log: function() {
-                console.log("mundo");
-            },
             addclass: function() {
                 this.toggle = !this.toggle;
             },
-
             openDropdown: function() {
                 this.dropdownActive = !this.dropdownActive;
-                console.log("LALLERO");
             },
-
             filtro: function() {
-                console.log("ciao");
                 this.activeservice = [];
                 axios
                     .get("api/filter", {
@@ -57,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     })
                     .then(res => {
                         if (res.status == 200) {
-                            console.log(res.data);
                             if (res.data.length == 0) {
                                 return (this.currentapartment = [
                                     { title: "Nessun appartamento trovato" }
@@ -68,7 +60,52 @@ document.addEventListener("DOMContentLoaded", () => {
                     })
                     .catch(err => console.log(err));
             },
+            filtroavanzato: function() {
+                removeMarkerr();
+
+                this.activeservice = [];
+                axios
+                    .get("api/filter", {
+                        params: {
+                            where: this.where,
+                            number_rooms: this.number_rooms,
+                            number_beds: this.number_beds
+                        }
+                    })
+                    .then(res => {
+                        if (res.status == 200) {
+                            if (res.data.length == 0) {
+                                return (this.currentapartment = [
+                                    { title: "Nessun appartamento trovato" }
+                                ]);
+                            }
+
+                            axios
+                                .get(
+                                    "https://api.tomtom.com/search/2/search/" +
+                                        res.data[0].address +
+                                        ".JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC"
+                                )
+                                .then(res => {
+                                    var point = [
+                                        res.data.results[0].position.lon,
+                                        res.data.results[0].position.lat
+                                    ];
+                                    map.easeTo({ center: point, zoom: 10 });
+                                    makemarker(
+                                        res.data.results[0].position.lon,
+                                        res.data.results[0].position.lat
+                                    );
+                                })
+                                .catch(err => console.log(err));
+                        }
+                        this.currentapartment = res.data;
+                    })
+                    .catch(err => console.log(err));
+            },
+
             upservice: function(id) {
+                removeMarkerr();
                 this.currentapartment = [];
                 if (!this.activeservice.includes(id)) {
                     this.activeservice.push(id);
@@ -94,6 +131,22 @@ document.addEventListener("DOMContentLoaded", () => {
                             ]);
                         }
                         this.currentapartment = res.data;
+                        console.log(this.currentapartment);
+                        for (i = 0; i < this.currentapartment.length; i++) {
+                            axios
+                                .get(
+                                    "https://api.tomtom.com/search/2/search/" +
+                                        this.currentapartment[i].address +
+                                        ".JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC"
+                                )
+                                .then(res => {
+                                    tmp = res.data.results[0].position;
+                                    var point = [tmp.lon, tmp.lat];
+                                    map.easeTo({ center: point, zoom: 10 });
+                                    makemarker(tmp.lon, tmp.lat);
+                                })
+                                .catch(err => console.log(err));
+                        }
                     })
                     .catch(err => console.log(err));
             },
@@ -101,8 +154,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.location.href = "apartments" + id;
             },
             getLatLng: function(address) {
-                console.log(address);
-                // let lon=0;
                 axios
                     .get(
                         "https://api.tomtom.com/search/2/geocode/" +
@@ -126,7 +177,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     .catch(err => console.log(err));
             },
             addlayer: function(i, pos) {
-                console.log("ciao");
                 map.on("click", function() {
                     map.addLayer({
                         id: "overlay" + i,
@@ -164,7 +214,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                     });
                 });
-                console.log("ciao");
             },
             distcustom: function(pos1, pos2) {
                 var totalDistance = {
@@ -248,24 +297,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 this.latlng(elem);
                 ar = elem.address.split("-");
                 city_target = ar[2];
-                addlayer(elem.id, this.pos1);
-                for (i = 0; i < this.currentapartment.length - 1; i++) {
+                for (i = 0; i < this.currentapartment.length; i++) {
                     arr = this.currentapartment[i].address.split("-");
                     city = arr[2];
                     if (
                         city === city_target
-                        //  &&
-                        // elem.address != this.currentapartment[i].address
                     )
                         this.latlngcustom(this.currentapartment[i]);
                 }
                 setTimeout(() => {
-                    console.log("time1", this.apartmentrange);
-
                     this.apartmentrange.sort(function(a, b) {
                         return a.km - b.km;
                     });
-                    console.log("time2", this.apartmentrange);
                     this.currentapartment = this.apartmentrange;
                     this.apartmentrange = [];
                     console.log(
@@ -273,6 +316,12 @@ document.addEventListener("DOMContentLoaded", () => {
                         this.apartmentrange,
                         this.currentapartment
                     );
+                    for (i = 0; i < this.currentapartment.length; i++) {
+                        makemarker(
+                            this.currentapartment[1].lon,
+                            this.currentapartment[1].lat
+                        );
+                    }
                 }, 1000);
             }
         }
