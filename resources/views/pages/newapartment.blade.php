@@ -93,7 +93,7 @@
                 <input type="longitude" style="display: none" name="longitude" type="number" value="1"> --}}
             </div>
 
-            <h2 style="margin: 20px">
+            <h2>
                 services
             </h2>
 
@@ -102,13 +102,13 @@
                     <div class="form-service-container">
 
                         <div class="form-elem-service-elm">
-                            <label for="service_id[{{$service->id}}]">{{$service->service}}</label>
-                            <input type="checkbox" name="service_id[]" id="service_id[]" value="{{$service->id}}">
+                            <input class="hidden_check" type="checkbox" name="service_id[]" id="service_id[{{ $service->id }}]" value="{{$service->id}}">
+                            <label for="service_id[{{ $service->id }}]">{{$service->service}}</label>
                         </div>
                     </div>
                 @endforeach
             </div>
-
+            
             <button type="submit">
                 Invia
             </button>

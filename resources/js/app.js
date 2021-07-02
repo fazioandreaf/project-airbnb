@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 this.dropdownActive = false;
             },
-
+            
             validateRegister: function(e) {
 
                 const hasNumbers = /\d/;
