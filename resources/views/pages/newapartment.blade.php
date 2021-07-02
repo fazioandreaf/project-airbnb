@@ -37,14 +37,14 @@
                         <label for="title">
                             Nome Struttura
                         </label>
-                        <input type="text" name="title" id="title" required>
+                        <input type="text" name="title" id="title" required >
                     </div>
 
                     <div class="elm-form">
                         <label for="description">
                             Descrizione Struttura
                         </label>
-                        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                        <textarea name="description" id="description" ></textarea>
                     </div>
 
                     <div class="elm-form">

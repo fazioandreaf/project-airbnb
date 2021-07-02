@@ -40,8 +40,12 @@ section#newapartment-section{
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
+                textarea{
+                    resize: none;
+                    overflow-y: auto;
+                }
 
-                input{
+                input, textarea{
 
                     background-color: $aggron-light-gray;
                     padding: 5px 10px;
