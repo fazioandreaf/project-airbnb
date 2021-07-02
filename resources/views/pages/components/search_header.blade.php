@@ -91,7 +91,7 @@
 
   <div class="lower-header-search">
     <ul>
-      <li v-for="elem in allservice" @click="upservice(elem.id)">
+      <li v-for="elem in allservice" @click="upservice(elem.id)" :class="(activeservice.includes(elem.id)?'active':'')">
         @{{elem.service}}
       </li>
     </ul>

@@ -113,7 +113,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     index = this.activeservice.indexOf(id);
                     this.activeservice.splice(index, 1);
                 }
-                console.log(this.activeservice);
                 axios
                     .get("api/upservice", {
                         params: {
@@ -124,14 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                     })
                     .then(res => {
-                        console.log(res.data);
                         if (res.data.length == 0) {
                             return (this.currentapartment = [
                                 { title: "Nessun appartamento trovato" }
                             ]);
                         }
                         this.currentapartment = res.data;
-                        console.log(this.currentapartment);
                         for (i = 0; i < this.currentapartment.length; i++) {
                             axios
                                 .get(

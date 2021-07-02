@@ -57,7 +57,6 @@
     <script>
         arr=[];
         function removeMarkerr(){
-            console.log(arr);
             for(i=0;i<arr.length;i++){
                 if(typeof arr[i]== 'object')
                 arr[i].remove();

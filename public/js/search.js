@@ -2216,7 +2216,6 @@ document.addEventListener("DOMContentLoaded", function () {
           this.activeservice.splice(index, 1);
         }
 
-        console.log(this.activeservice);
         axios.get("api/upservice", {
           params: {
             service: this.activeservice,
@@ -2225,8 +2224,6 @@ document.addEventListener("DOMContentLoaded", function () {
             number_beds: this.number_beds
           }
         }).then(function (res) {
-          console.log(res.data);
-
           if (res.data.length == 0) {
             return _this4.currentapartment = [{
               title: "Nessun appartamento trovato"
@@ -2234,7 +2231,6 @@ document.addEventListener("DOMContentLoaded", function () {
           }
 
           _this4.currentapartment = res.data;
-          console.log(_this4.currentapartment);
 
           for (i = 0; i < _this4.currentapartment.length; i++) {
             axios.get("https://api.tomtom.com/search/2/search/" + _this4.currentapartment[i].address + ".JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC").then(function (res) {
