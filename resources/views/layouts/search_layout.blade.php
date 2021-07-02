@@ -36,7 +36,44 @@
     <link rel='stylesheet' type='text/css' href='../assets/ui-library/index.css'/> --}}
 
   </head>
-
+      <style>
+        .marker-icon {
+            background-position: center;
+            background-size: 22px 22px;
+            border-radius: 50%;
+            height: 22px;
+            left: 4px;
+            position: absolute;
+            text-align: center;
+            top: 3px;
+            transform: rotate(45deg);
+            width: 22px;
+        }
+        .marker {
+            height: 30px;
+            width: 30px;
+        }
+        .marker-content {
+            background: #c30b82;
+            border-radius: 50% 50% 50% 0;
+            height: 30px;
+            left: 50%;
+            margin: -15px 0 0 -15px;
+            position: absolute;
+            top: 50%;
+            transform: rotate(-45deg);
+            width: 30px;
+        }
+        .marker-content::before {
+            background: #ffffff;
+            border-radius: 50%;
+            content: "";
+            height: 24px;
+            margin: 3px 0 0 3px;
+            position: absolute;
+            width: 24px;
+        }
+    </style>
 
   <body onload="formarker({{$apartments}})">
     <div id="search">
@@ -70,6 +107,29 @@
                             .addTo(map);
                             arr.push(marker);
         };
+        function createMarker(icon, position, color, popupText) {
+            var markerElement = document.createElement('div');
+            markerElement.className = 'marker';
+
+            var markerContentElement = document.createElement('div');
+            markerContentElement.className = 'marker-content';
+            markerContentElement.style.backgroundColor = color;
+            markerElement.appendChild(markerContentElement);
+
+            var iconElement = document.createElement('div');
+            iconElement.className = 'marker-icon';
+            iconElement.style.backgroundImage =
+                'url(' + icon + ')';
+            markerContentElement.appendChild(iconElement);
+
+            var popup = new tt.Popup({offset: 30}).setText(popupText);
+            // add marker to map
+            var markersearch= new tt.Marker({element: markerElement, anchor: 'bottom'})
+                .setLngLat(position)
+                .setPopup(popup)
+                .addTo(map);
+                arr.push(markersearch);
+        }
         // zoom nella porzione che voglio
         function goto(LNG, LAT){
             var point=[LNG,LAT];
@@ -161,9 +221,11 @@
             if(item!=''){
                 axios.get('https://api.tomtom.com/search/2/search/'+ item+ '.JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC')
                 .then( res=>{
-                var point=[res.data.results[0].position.lon,res.data.results[0].position.lat];
+                    tmp=res.data.results[0].position;
+                var point=[tmp.lon,tmp.lat];
                 map.easeTo({center:point,zoom:10});
-                makemarker(res.data.results[0].position.lon, res.data.results[0].position.lat)
+                createMarker('../../../storage/app/public/assets/lg_color1.png', [tmp.lon,tmp.lat], 'red', item);
+                // makemarker(tmp.lon, tmp.lat)
             })
                 .catch(err=> console.log(err));
             }

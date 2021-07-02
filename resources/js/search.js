@@ -62,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             filtroavanzato: function() {
                 removeMarkerr();
-
                 this.activeservice = [];
                 axios
                     .get("api/filter", {
@@ -87,14 +86,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                         ".JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC"
                                 )
                                 .then(res => {
-                                    var point = [
-                                        res.data.results[0].position.lon,
-                                        res.data.results[0].position.lat
-                                    ];
+                                    tmp = res.data.results[0].position;
+                                    var point = [tmp.lon, tmp.lat];
                                     map.easeTo({ center: point, zoom: 10 });
-                                    makemarker(
-                                        res.data.results[0].position.lon,
-                                        res.data.results[0].position.lat
+                                    createMarker(
+                                        "../../../storage/app/public/assets/lg_color1.png",
+                                        [tmp.lon, tmp.lat],
+                                        "red",
+                                        this.where
                                     );
                                 })
                                 .catch(err => console.log(err));
@@ -297,9 +296,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 for (i = 0; i < this.currentapartment.length; i++) {
                     arr = this.currentapartment[i].address.split("-");
                     city = arr[2];
-                    if (
-                        city === city_target
-                    )
+                    if (city === city_target)
                         this.latlngcustom(this.currentapartment[i]);
                 }
                 setTimeout(() => {

@@ -2187,12 +2187,13 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             axios.get("https://api.tomtom.com/search/2/search/" + res.data[0].address + ".JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC").then(function (res) {
-              var point = [res.data.results[0].position.lon, res.data.results[0].position.lat];
+              tmp = res.data.results[0].position;
+              var point = [tmp.lon, tmp.lat];
               map.easeTo({
                 center: point,
                 zoom: 10
               });
-              makemarker(res.data.results[0].position.lon, res.data.results[0].position.lat);
+              createMarker("../../../storage/app/public/assets/lg_color1.png", [tmp.lon, tmp.lat], "red", _this3.where);
             })["catch"](function (err) {
               return console.log(err);
             });
