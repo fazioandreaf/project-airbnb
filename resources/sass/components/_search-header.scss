@@ -2,9 +2,9 @@
   height: 220px;
   @include container(90%);
 
-  // @include responsive(mobile) {
-  //   background-color: red;
-  // }
+  @include responsive(mobile) {
+    background-color: red;
+  }
 
   .top-header-search {
     width: 100%;

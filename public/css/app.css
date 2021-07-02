@@ -544,6 +544,12 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   width: 90%;
 }
 
+@media screen and (max-width: 420px) {
+  #header-search {
+    background-color: red;
+  }
+}
+
 #header-search .top-header-search {
   width: 100%;
   height: 50%;
