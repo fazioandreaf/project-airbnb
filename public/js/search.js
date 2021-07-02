@@ -2380,14 +2380,11 @@ document.addEventListener("DOMContentLoaded", function () {
         this.latlng(elem);
         ar = elem.address.split("-");
         city_target = ar[2];
-        addlayer(elem.id, this.pos1);
 
         for (i = 0; i < this.currentapartment.length; i++) {
           arr = this.currentapartment[i].address.split("-");
           city = arr[2];
-          if (city === city_target //  &&
-          // elem.address != this.currentapartment[i].address
-          ) this.latlngcustom(this.currentapartment[i]);
+          if (city === city_target) this.latlngcustom(this.currentapartment[i]);
         }
 
         setTimeout(function () {
