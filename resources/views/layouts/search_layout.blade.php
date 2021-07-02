@@ -37,7 +37,9 @@
 
   </head>
 
+
   <body onload="formarker({{$apartments}})">
+          <a href="#" onclick="removeMarkerr()">prova</a>
     <div id="search">
 
       <header>
@@ -54,11 +56,18 @@
     </div>
 
     <script>
+        arr=[];
+        function removeMarkerr(){
+            console.log('ciao');
+            for(i=0;i<arr.length;i++)
+            arr[i].remove();
+        };
         // esempio di creare una funzione che metta tutti i marker nella mappa
         function makemarker(LNG, LAT){
             var marker = new tt.Marker([{height:100000,width:100000}])
                             .setLngLat([LNG,LAT])
                             .addTo(map);
+                            arr.push(marker);
         };
         // zoom nella porzione che voglio
         function goto(LNG, LAT){

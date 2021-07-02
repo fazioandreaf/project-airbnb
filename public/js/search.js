@@ -2127,7 +2127,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       setTimeout(function () {
         _this.filtro();
-      }, 1000);
+      }, 5000);
       axios.get("api/service").then(function (res) {
         if (res.status == 200) {
           _this.allservice = res.data;
@@ -2146,6 +2146,7 @@ document.addEventListener("DOMContentLoaded", function () {
       filtro: function filtro() {
         var _this2 = this;
 
+        removeMarkerr();
         this.activeservice = [];
         axios.get("api/filter", {
           params: {
@@ -2170,6 +2171,7 @@ document.addEventListener("DOMContentLoaded", function () {
       filtroavanzato: function filtroavanzato() {
         var _this3 = this;
 
+        removeMarkerr();
         this.activeservice = [];
         axios.get("api/filter", {
           params: {
@@ -2207,6 +2209,7 @@ document.addEventListener("DOMContentLoaded", function () {
       upservice: function upservice(id) {
         var _this4 = this;
 
+        removeMarkerr();
         this.currentapartment = [];
 
         if (!this.activeservice.includes(id)) {
@@ -2364,6 +2367,7 @@ document.addEventListener("DOMContentLoaded", function () {
       addresrange: function addresrange(elem) {
         var _this7 = this;
 
+        removeMarkerr();
         this.latlng(elem);
         ar = elem.address.split("-");
         city_target = ar[2];
