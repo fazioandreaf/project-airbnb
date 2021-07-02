@@ -115,7 +115,7 @@
               <div>
                 <a href="#">
                   <img class="immagini-piccole"
-                    src="https://source.unsplash.com/375x245/?Dining_room" 
+                    src="https://source.unsplash.com/375x245/?interior,Room,Home" 
                     alt="immagine-qui" style="width: 100%;height: 100%;">
                 </a>
               </div>
@@ -123,7 +123,7 @@
               <div>
                 <a href="#">
                   <img class="immagini-piccole"
-                    src="https://source.unsplash.com/375x245/?Kitchen" 
+                    src="https://source.unsplash.com/375x245/?Kitchen,Interior" 
                     alt="immagine-qui" style="width: 100%;height: 100%;">
                 </a>
               </div>
@@ -131,7 +131,7 @@
               <div>
                 <a href="#">
                   <img class="immagini-piccole"
-                    src="https://source.unsplash.com/375x245/?Living_room" 
+                    src="https://source.unsplash.com/collection/2048325/375x245" 
                     alt="immagine-qui" style="width: 100%;height: 100%;">
                 </a>
               </div>
