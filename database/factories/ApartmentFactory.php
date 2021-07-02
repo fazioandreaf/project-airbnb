@@ -717,7 +717,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
         ],
         [
             'title' => 'Stanza Boccaccio',
-            'description' => "Appartamento dotato di 2 camere da letto, soggiorno, TV a schermo piatto, cucina attrezzata con zona pranzo e 2 bagni con bidet e lavatrice. Per una maggiore comodità, la struttura fornisce asciugamani e lenzuola a un costo aggiuntivo.",
+            'description' => "L'appartamento si trova in un bellissimo palazzo storico del 1400, nella meravigliosa Borgo Santi Apostoli, tra via de'Tornabuoni e il Ponte Vecchio, la zona più esclusiva di Firenze. Perfetto per una coppia o per una famiglia di 3 persone, è dotato di aria condizionata e smart TV con Netflix.",
             'number_rooms' => 1,
             'number_toiletes' => 1,
             'number_beds' => 1,
@@ -727,7 +727,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
         ],
         [
             'title' => 'Vista da Leonardo',
-            'description' => "L'appartamento presenta 2 camere da letto, una TV a schermo piatto, una cucina attrezzata con lavastoviglie e forno a microonde, una lavatrice e 1 bagno con bidet. Per una maggiore comodità, la struttura fornisce asciugamani e lenzuola a un costo aggiuntivo.",
+            'description' => "E' un luogo suggestivo, molto silenzioso, completamente ristrutturato e dotato di ogni confort che vi permetterà, grazie alla sua posizione, di raggiungere a piedi in 5 minuti il patrimonio storico e artistico di questa splendida città.",
             'number_rooms' => 2,
             'number_toiletes' => 1,
             'number_beds' => 2,
@@ -737,7 +737,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
         ],
         [
             'title' => 'Perla Rossa',
-            'description' => "Bellissima ed ampia camera matrimoniale con soffitto alto, soggiorno con angolo cottura luminoso con divano letto in pelle a una piazza a mezzo.",
+            'description' => "Delizioso appartamento in San Niccolò, a due passi da Duomo, dal Piazzale Michelangelo e dagli Uffizi. Arredato con cura e superaccessoriato l'appartamento è dotato di wi-fi gratuito.",
             'number_rooms' => 1,
             'number_toiletes' => 1,
             'number_beds' => 1,
@@ -747,7 +747,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
         ],
         [
             'title' => 'Apartment Mattonaia',
-            'description' => "Situato a Firenze, a soli 1,3 km dal Mercato di Sant'Ambrogio, il Mattonaia Apartment offre una vista sulla città, la connessione WiFi gratuita e un parcheggio privato senza costi aggiuntivi. Si trova a 2,1 km da Palazzo Vecchio e offre un servizio di parcheggio e riconsegna auto.",
+            'description' => "Appartamento indipendente, puoi andare ovunque semplicemente camminando. Molto ben attrezzato, ti sentirai come a casa (wifi, aria condizionata, tv/dvd e molti altri).",
             'number_rooms' => 1,
             'number_toiletes' => 1,
             'number_beds' => 1,
@@ -757,7 +757,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
         ],
         [
             'title' => 'B&B Ognissanti',
-            'description' => "Descrizione da inserire",
+            'description' => "Delizioso appartamento in posizione privilegiata, a due passi dal ponte vecchio e da tutti i principali monumenti si trova al secondo piano di antico edificio e si compone da salotto con comodo divano letto doppio e tavolo da pranzo, cucina totalmente equipaggiata, camera da letto matrimoniale, bagno con doccia.",
             'number_rooms' => 2,
             'number_toiletes' => 2,
             'number_beds' => 2,
@@ -767,7 +767,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
         ],
         [
             'title' => 'La Camera in Fiore',
-            'description' => "Descrizione da inserire",
+            'description' => "Centralissimo e accogliente appartamento di 130 mq, sito nel autentico quartiere di Sant Ambrogio, dotato di privatissima terrazza di 10 mq, dal fascino tipico. Smart TV e wifi illimitato.",
             'number_rooms' => 3,
             'number_toiletes' => 1,
             'number_beds' => 3,
@@ -777,7 +777,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
         ],
         [
             'title' => 'Camera dei Medici',
-            'description' => "Descrizione da inserire",
+            'description' => "Ti sentirai coccolato e a tuo agio come a casa tua. E' ben servito da negozi, ristoranti pub e supermarket.. Il mio alloggio è adatto a coppie, chi viaggia per lavoro e amici.",
             'number_rooms' => 1,
             'number_toiletes' => 1,
             'number_beds' => 1,
@@ -787,12 +787,9 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
         ],
 
     ];
-
     $i = $nextIndex->current();
     $apartment = $apartments[$i];
-    // dd($apartment);
     $nextIndex->next();
-
     return [
         'title' => $apartment['title'],
         'description' => $apartment['description'],
@@ -804,7 +801,6 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
         'cover_image' => $apartment['cover_image'],
     ];
 });
-
 function nextApartment()
 {
     for($i=0; $i<76; $i++) {
