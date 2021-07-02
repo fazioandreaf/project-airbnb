@@ -34,8 +34,8 @@
                 </button>
             </div>
 
-            <ul v-if="registerErrors.length">
-                <li v-for="error in registerErrors">
+            <ul v-if="formErrors.length">
+                <li v-for="error in formErrors">
                     @{{ error }}
                 </li>
             </ul>

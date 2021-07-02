@@ -15,8 +15,7 @@ section#newapartment-section{
     }
 
     .form-nw-apartment{
-        display: flex;
-        justify-content: center;
+        @include flex(column, center, center);
         width: 800px;
         margin: auto;
         border: 1px solid white;
@@ -38,9 +37,13 @@ section#newapartment-section{
 
 
             .elm-form{
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
+                @include flex(row, space-between, null);
+                padding: 10px 0;
+
+                .error {
+                    border: 2px solid #f44336;
+                }
+
                 textarea{
                     resize: none;
                     overflow-y: auto;
@@ -52,13 +55,15 @@ section#newapartment-section{
                     padding: 5px 10px;
                     border: 0;
                     border-radius: 20px;
-                    margin-bottom: 20px;
+                    transition: all .4s;
 
+                    &:focus {
+                        outline: 0;
+                    }
 
                     &:hover {
 
-                        background-color: $steelix-gray;
-                        transition: 0.2s;
+                        background-color: $steelix-gray; 
                     }
                 }
             }
@@ -69,6 +74,10 @@ section#newapartment-section{
                 justify-content: space-between;
             }
 
+        }
+
+        .form-errors {
+            font-size: 12px;
         }
     }
 
@@ -101,7 +110,7 @@ section#newapartment-section{
                     }
                 }
 
-                .test:checked ~ label {
+                .hidden_check:checked ~ label {
                    background-color: darkslategrey;
                 } 
 
