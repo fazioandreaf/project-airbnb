@@ -14,10 +14,15 @@ section#edit-section{
         flex-direction: row;
         // justify-content: space-between;
 
+        .form-errors {
+
+            font-size: 12px;
+            flex-basis: 100%;
+            text-align: center
+        }
 
         .form-text{
-            display: flex;
-            flex-direction: column;
+            @include flex(column, center, null);
 
             .form-text-elem{
                 display: flex;
@@ -25,7 +30,9 @@ section#edit-section{
                 justify-content: space-between;
                 margin: 5px 0px; 
 
-            
+                .error {
+                    border: 2px solid #f44336;
+                }
                 
                 input{
                     margin-left: 5px;

@@ -1878,9 +1878,16 @@ section#edit-section .form-complit {
   flex-direction: row;
 }
 
+section#edit-section .form-complit .form-errors {
+  font-size: 12px;
+  flex-basis: 100%;
+  text-align: center;
+}
+
 section#edit-section .form-complit .form-text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 section#edit-section .form-complit .form-text .form-text-elem {
@@ -1888,6 +1895,10 @@ section#edit-section .form-complit .form-text .form-text-elem {
   flex-direction: row;
   justify-content: space-between;
   margin: 5px 0px;
+}
+
+section#edit-section .form-complit .form-text .form-text-elem .error {
+  border: 2px solid #f44336;
 }
 
 section#edit-section .form-complit .form-text .form-text-elem input {
