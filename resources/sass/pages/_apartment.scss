@@ -2,18 +2,39 @@
   background-color: $dirty-white;
   padding-bottom: 30px;
 
+  // MEDIA QUERY
+  @include responsive(mobile) {
+    @include container(100%);
+  }
+
   nav {
     @include flex(row, null, center);
     border-bottom: 0.5px solid rgba(50, 50, 50, .3);
     height:100px;
     background-color: $white;
 
+    // MEDIA QUERY
+    @include responsive(mobile) {
+      background-color: $royal-fuchsia;
+    }
+
+
     .basic-header {
       @include container(80%);
       @include flex(row, space-between, center);
 
+      // MEDIA QUERY
+      @include responsive(mobile) {
+        @include flex(row, center, center);
+      }
+
       // INIZIO PRIMO div IMMAGINE
       div:nth-child(1) {
+
+        // MEDIA QUERY
+        @include responsive(mobile) {
+          display:none;
+        }
 
         img {
           height: auto;
@@ -30,6 +51,24 @@
           width: 400px;
           height: 50px;
           border-radius: 30px;
+
+          // MEDIA QUERY
+          @include responsive(mobile) {
+            background-color: white;
+
+            a:last-child {
+              background-color: $salmon-pink;
+            }
+
+            a:last-child:hover {
+              background-color: $royal-fuchsia;
+            }
+          }
+
+          // MEDIA QUERY
+          @include responsive(mobile) {
+            width: 200px;
+          }
 
           a:first-of-type {
             margin-left: 10px;
@@ -60,6 +99,11 @@
       // INIZIO terzo div (quello con omino utente)
       div:nth-child(3) {
         @include flex(row, flex-end, null);
+
+        // MEDIA QUERY
+        @include responsive(mobile) {
+          display:none;
+        }
 
         a {
           @include flex(row, space-evenly, center);
