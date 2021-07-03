@@ -24,4 +24,8 @@
   @if $device == mobile {
     @media screen and(max-width:420px) {@content};
   }
+
+  @if $device == tablet {
+    @media screen and(max-width:620px) {@content};
+  }
 }

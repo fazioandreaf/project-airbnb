@@ -1,6 +1,8 @@
 #header-search {
-    height: 220px;
-    @include container(90%);
+  min-height: 220px;
+  @include flex(column, space-around, null);
+  @include container(90%);
+  flex-wrap: wrap;
 
   // MEDIA QUERY
   @include responsive(mobile) {
@@ -16,6 +18,7 @@
     @include responsive(mobile) {
       @include flex(row, center, center);
       background-color: $fuchsia-search;
+      height: 100px;
     }
 
     .logo {
@@ -172,6 +175,11 @@
           padding: 13px 13px;
           border-radius: 30px;
           border: 1px solid rgba(50, 50, 50, 0.3);
+
+          // MEDIA QUERY
+          @include responsive(mobile) {
+            margin-top: 10px;
+          }
         }
 
         li:hover {

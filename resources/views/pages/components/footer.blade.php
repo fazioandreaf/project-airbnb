@@ -158,6 +158,25 @@
   </div>
 
   <div class="footer-bottom-section">
+
+    <div id="invisible">
+
+      {{-- LOGO --}}
+      <span>
+        <a href="{{route('homepage')}}">
+          <img src="{{asset('storage/assets/lg_color1.png')}}" alt="logo-image">
+        </a>
+      </span>
+
+      {{-- UTENTE (OMINO) --}}
+      <span>
+        <a href="#">
+          <i class="fas fa-user"></i>
+        </a>
+      </span>
+
+    </div> <!-- FINE INVISIBLE -->
+
     <!-- Lista Informazioni Sito -->
     <ul id="site-infos" class="footer-nav-links">
       <li>

@@ -1,6 +1,7 @@
 .search-page {
   @include flex(row, null, null);
   @include container(90%);
+
   // debug
   height: 82.3vh;
   > div {
@@ -13,10 +14,16 @@
     overflow: auto;
     @include flex(column, null, null);
 
+
     .row-with-img-text {
       height: 300px;
       @include flex(row, null, null);
       border-bottom: 1px solid rgba(50, 50, 50, .3);
+
+      // MEDIA QUERY
+      @include responsive(mobile) {
+        @include flex(column, null, null);
+      }
 
       .sinistra-img {
         @include flex(row, null, center);
@@ -40,6 +47,11 @@
         flex-basis: 60%;
         line-height: 200%;
 
+        // MEDIA QUERY
+        @include responsive(mobile) {
+          margin: 0;
+        }
+
         a:first-of-type {
           // margin-bottom: 20px;
         }
@@ -54,7 +66,7 @@
     background-size: cover;
 
     // MEDIA QUERY
-    @include responsive(mobile) {
+    @include responsive(tablet) {
       display: none;
     }
 
