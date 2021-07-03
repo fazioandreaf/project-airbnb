@@ -23,7 +23,7 @@ class CreateApartmentsTable extends Migration
             $table->smallInteger('number_beds');
             $table->smallInteger('area');
             $table->string('address',128);
-            $table->string('cover_image',128)->nullable();
+            // $table->string('cover_image',128)->nullable();
             $table->BigInteger('user_id')->unsigned()->index();
 
             $table->timestamps();

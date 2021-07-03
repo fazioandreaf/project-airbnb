@@ -53,6 +53,12 @@ class AddForeignKeys extends Migration
                 ->references('id')
                 ->on('apartments');
         });
+
+        Schema::table('images', function (Blueprint $table) {
+            $table->foreign('apartment_id','apartmentImage')
+                ->references('id')
+                ->on('apartments');
+        });
     }
 
     /**
@@ -82,6 +88,10 @@ class AddForeignKeys extends Migration
 
         Schema::table('messages', function (Blueprint $table) {
             $table->dropForeign('apartmentMessage');
+        });
+
+        Schema::table('images', function (Blueprint $table) {
+            $table->dropForeign('apartmentImage');
         });
     }
 }

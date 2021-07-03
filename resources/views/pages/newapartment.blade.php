@@ -82,12 +82,12 @@
                         <input type="text" name="address" id="address" required>
                     </div>
 
-                    <div class="elm-form-img">
+                    {{-- <div class="elm-form-img">
                         <label for="cover_image">
                             Immagini
                         </label>
                         <input id="cover_image" type="file" name="cover_image" class="eml-img">
-                    </div>
+                    </div> --}}
                 </div>
                 {{-- <input type="latitude"  name="latitude" type="number" value="1">
                 <input type="longitude" style="display: none" name="longitude" type="number" value="1"> --}}

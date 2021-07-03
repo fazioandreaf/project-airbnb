@@ -52,10 +52,10 @@
                         <input type="text" pattern="[A-Za-z0-9'\.\-\s\,]" name="address" id="address" value="{{$apartment->address}}" required>
                     </div>
             
-                    <div class="form-text-elem">
+                    {{-- <div class="form-text-elem">
                         <label for="cover_image">Immagine</label>
                         <input id="cover_image" data-filetype="jpg|jpeg|png" type="file" name="cover_image" value="{{$apartment->cover_image}}">
-                    </div>
+                    </div> --}}
                 </div>
     
                 <div class="form-service">
