@@ -253,9 +253,20 @@
 
             {{-- ___INIZIO SEZIONE DI DESTRA___ --}}
             <div class="destra-dettagli-flat">
-              <form action="" method="get">
-                <span>Scrivi all'host<i class="fas fa-pencil-alt"></i><div>Vedi se ci sono camere disponibili.</div></span>
-                <textarea rows="20" cols="30"></textarea>
+              <form action="{{ route('send', $apartment->id) }}" method="POST" novalidate>
+                @csrf
+                @method('POST')
+                <span>
+                  Scrivi all'host 
+                  <i class="fas fa-pencil-alt"></i>
+                  <br>
+                  Vedi se ci sono camere disponibili.
+                </span>
+                <label for="email">
+                  Email
+                </label>
+                <input type="email" id="email" name="email" v-model="email">
+                <textarea rows="20" cols="30" name="text_message"></textarea>
                 <input type="submit" value="Invia">
               </form>
             </div>

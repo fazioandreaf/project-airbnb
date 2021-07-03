@@ -6,6 +6,7 @@ Use App\Sponsor;
 Use App\Statistic;
 Use App\User;
 Use App\Service;
+use App\Message;
 use Auth;
 use DB;
 use Carbon\Carbon;

@@ -30,8 +30,7 @@ Route::get('/apartment/{id}','MainController@showApartment')->name('apartment');
 
 
 //Messaggio inviato
-ROute::get('/send/{id}','MainController@send')-> name('send');
-
+Route::post('/send/{id}','MainController@send')-> name('send');
 
 Route::get('/statistic/{id}', 'HomeController@statistic') -> name('statistic');
 Route::get('/dashboard/{id}', 'HomeController@dashboard') -> name('dashboard');
