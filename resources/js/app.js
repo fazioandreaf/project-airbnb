@@ -50,9 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             beds: null,
             area: null,
             address: null,
-
             classes: [],
-
             formErrors: []
         },
 
@@ -145,7 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Address validation
                 if(!this.address) {
-                    this.formErrors.push("Il campo indirizzo è obbligatorio!")
+                    this.formErrors.push("Il campo indirizzo è obbligatorio!");
+                    input.push("address");
                 }
 
                 if(!this.formErrors.length) {
@@ -154,7 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 
                 this.classes = input;
-                console.log(this.classes);
                 scrollTo.scrollIntoView({behavior: "smooth"});
                 console.log(this.formErrors);
                 e.preventDefault();
@@ -162,6 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             validateRegister: function(e) {
 
+                const scrollTo = document.getElementById("section-register");
                 const hasNumbers = /\d/;
                 const isMailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
                 this.formErrors = [];
@@ -173,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     this.formErrors.push("Il campo nome è obbligatorio!");
                     input.push("firstname");
-                } else if(this.firstname.length > 128) {
+                } else if(this.firstname.length > 255) {
 
                     this.formErrors.push("Hai davvero un nome così lungo?");
                     input.push("firstname");
@@ -189,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     this.formErrors.push("Il campo cognome è obbligatorio!");
                     input.push("lastname");
-                } else if(this.lastname.length > 128) {
+                } else if(this.lastname.length > 255) {
 
                     this.formErrors.push("Hai davvero un cognome così lungo?");
                     input.push("lastname");
@@ -205,6 +204,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if(!isMailValid.test(this.email)) {
 
                     this.formErrors.push("La mail inserita non è valida!");
+                    input.push("email");
+                } else if(this.email.length > 255) {
+                    this.formErrors.push("La mail inserita supera il limite di caratteri consentiti!");
                     input.push("email");
                 }
 
@@ -243,12 +245,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     return true
                 }
 
+                scrollTo.scrollIntoView({behavior: "smooth"});
                 this.classes = input;
                 e.preventDefault(); //!important prevents submit realod
             },
 
             validateLogin: function(e) {
 
+                const scrollTo = document.getElementById("login-section");
                 const isMailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
                 this.formErrors = [];
                 let input = [];
@@ -275,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 this.classes = input;
-                console.log(this.classes);
+                scrollTo.scrollIntoView({behavior: "smooth"});
                 e.preventDefault();
             }
         },

@@ -41,7 +41,7 @@
                         <input type="text" name="title" id="title" v-model="title" v-bind:class="(classes.includes('title')) ? 'error' : ''">
                     </div>
 
-                    <div class="elm-form">
+                    <div class="elm-form textarea">
                         <label for="description">
                             Descrizione Struttura
                         </label>

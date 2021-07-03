@@ -1933,7 +1933,6 @@ __webpack_require__.r(__webpack_exports__);
     nextImage: function nextImage() {
       var max = this.images.length - 1;
       this.activeImage == max ? this.activeImage = 0 : this.activeImage++;
-      console.log(this.activeImage);
     }
   },
   mounted: function mounted() {
@@ -50343,6 +50342,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!this.address) {
           this.formErrors.push("Il campo indirizzo è obbligatorio!");
+          input.push("address");
         }
 
         if (!this.formErrors.length) {
@@ -50350,7 +50350,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         this.classes = input;
-        console.log(this.classes);
         scrollTo.scrollIntoView({
           behavior: "smooth"
         });
@@ -50358,6 +50357,7 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
       },
       validateRegister: function validateRegister(e) {
+        var scrollTo = document.getElementById("section-register");
         var hasNumbers = /\d/;
         var isMailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
         this.formErrors = [];
@@ -50367,7 +50367,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!this.firstname) {
           this.formErrors.push("Il campo nome è obbligatorio!");
           input.push("firstname");
-        } else if (this.firstname.length > 128) {
+        } else if (this.firstname.length > 255) {
           this.formErrors.push("Hai davvero un nome così lungo?");
           input.push("firstname");
         }
@@ -50381,7 +50381,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!this.lastname) {
           this.formErrors.push("Il campo cognome è obbligatorio!");
           input.push("lastname");
-        } else if (this.lastname.length > 128) {
+        } else if (this.lastname.length > 255) {
           this.formErrors.push("Hai davvero un cognome così lungo?");
           input.push("lastname");
         }
@@ -50394,6 +50394,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!isMailValid.test(this.email)) {
           this.formErrors.push("La mail inserita non è valida!");
+          input.push("email");
+        } else if (this.email.length > 255) {
+          this.formErrors.push("La mail inserita supera il limite di caratteri consentiti!");
           input.push("email");
         } // Password validation
 
@@ -50428,10 +50431,14 @@ document.addEventListener('DOMContentLoaded', function () {
           return true;
         }
 
+        scrollTo.scrollIntoView({
+          behavior: "smooth"
+        });
         this.classes = input;
         e.preventDefault(); //!important prevents submit realod
       },
       validateLogin: function validateLogin(e) {
+        var scrollTo = document.getElementById("login-section");
         var isMailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
         this.formErrors = [];
         var input = []; // Email validation
@@ -50455,7 +50462,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         this.classes = input;
-        console.log(this.classes);
+        scrollTo.scrollIntoView({
+          behavior: "smooth"
+        });
         e.preventDefault();
       }
     },
