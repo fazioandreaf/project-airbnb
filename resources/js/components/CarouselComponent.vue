@@ -34,7 +34,6 @@ export default {
             this.activeImage == max
                 ? (this.activeImage = 0)
                 : this.activeImage++;
-            console.log(this.activeImage);
         }
     },
 

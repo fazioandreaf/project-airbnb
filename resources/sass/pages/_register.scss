@@ -118,5 +118,14 @@ section#section-register {
             color: $white;
             font-weight: 600;
         }
+
+        .form-errors {
+
+            font-size: 12px;
+        }
+        
+        .error {
+            border: 2px solid #f44336;
+        }
     }
 }

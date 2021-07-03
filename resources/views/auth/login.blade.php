@@ -18,14 +18,14 @@
                     {{ __('E-mail')}}
                 </label>
 
-                <input type="email" name="email" id="email" value="{{ old('email')}}" autocomplete="email" v-model="email" required>
+                <input type="email" name="email" id="email" value="{{ old('email')}}" autocomplete="email" v-model="email" :class="(classes.includes('email')) ? 'error' : ''">
             </div>
 
             <div class="wrapper-form-fields">
                 <label for="password">
                     {{ __('Password')}}
                 </label>
-                <input type="password" name="password" id="password" v-model="password" required>
+                <input type="password" name="password" id="password" v-model="password" :class="(classes.includes('password')) ? 'error' : ''">
             </div>
 
             <div class="wrapper-form-botton">
@@ -34,8 +34,8 @@
                 </button>
             </div>
 
-            <ul v-if="registerErrors.length">
-                <li v-for="error in registerErrors">
+            <ul class="form-errors" v-if="formErrors.length">
+                <li v-for="error in formErrors">
                     @{{ error }}
                 </li>
             </ul>
