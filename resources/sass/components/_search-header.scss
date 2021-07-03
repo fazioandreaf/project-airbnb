@@ -1,6 +1,7 @@
 #header-search {
-    height: 220px;
-    @include container(90%);
+  height: 220px;
+  // @include flex(column, space-evenly, center);
+  @include container(90%);
 
   // MEDIA QUERY
   @include responsive(mobile) {

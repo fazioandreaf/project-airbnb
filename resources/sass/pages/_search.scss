@@ -54,7 +54,7 @@
     background-size: cover;
 
     // MEDIA QUERY
-    @include responsive(mobile) {
+    @include responsive(tablet) {
       display: none;
     }
 

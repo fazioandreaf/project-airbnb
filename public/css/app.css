@@ -731,18 +731,9 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
 }
 
 #header-search .lower-header-search ul li {
-  cursor: pointer;
   padding: 13px 13px;
   border-radius: 30px;
   border: 1px solid rgba(50, 50, 50, 0.3);
-  transition: all 0.2s;
-}
-
-#header-search .lower-header-search ul .active {
-  border: none;
-  color: white;
-  background-color: #ff385c;
-  transition: all 0.5s;
 }
 
 #header-search .lower-header-search ul li:hover {
@@ -1323,7 +1314,7 @@ section#section-register form .form-button {
   background-size: cover;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 620px) {
   .search-page .right-section {
     display: none;
   }
