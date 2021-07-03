@@ -2,111 +2,184 @@
     height: 220px;
     @include container(90%);
 
-    // @include responsive(mobile) {
-    //   background-color: red;
-    // }
+  // MEDIA QUERY
+  @include responsive(mobile) {
+    @include container(100%);
+  }
 
-    .top-header-search {
-        width: 100%;
-        height: 50%;
-        @include flex(row, space-between, center);
-        .logo {
-            a {
-                width: 100%;
-                img {
-                    margin-top: 10px;
-                    height: auto;
-                    width: 120px;
-                }
-            } // fine A-HREF
-        } // fine LOGO
-        .filter {
-            flex: 1;
-            @include flex(row, center, center);
-            div {
-                margin-right: 30px;
-            }
-            input {
-                height: 35px;
-                border: 1px solid rgba(50, 50, 50, 0.3);
-                border-radius: 10px;
-            }
-            #lente {
-                a {
-                    @include flex(row, center, center);
-                    width: 50px;
-                    height: 50px;
-                    color: $white;
-                    background-color: $search-fuchsia;
-                    border-radius: 50px;
-                    &:hover {
-                        background-color: #e6007e;
-                    }
-                }
-            }
-        } // fine filtri
+  .top-header-search {
+    width: 100%;
+    height: 50%;
+    @include flex(row, space-between, center);
 
-        .has-dropdown {
-            position: relative;
+    // MEDIA QUERY
+    @include responsive(mobile) {
+      @include flex(row, center, center);
+      background-color: $fuchsia-search;
+    }
 
-            .hamburger {
-                @include hamburger($white);
-                color: $black;
-                border: 1px solid rgba(50, 50, 50, 0.3);
+    .logo {
 
-                & > .icon {
-                    margin: 0 5px;
-                }
-            } // FINE HAMBURGER
+      // MEDIA QUERY
+      @include responsive(mobile) {
+        display:none;
+      }
 
-            .dropdown {
-                display: none;
-                position: absolute;
-                top: calc(100% + 2px);
-                left: calc(-50% - 20px);
-                color: $black;
-                box-shadow: 0 0 3px $user-gray;
-                width: 200px;
-                padding: 10px;
-                border-radius: 10px;
-                background-color: $white;
+      a {
+      width: 100%;
 
-                a:hover {
-                    opacity: 0.3;
-                }
-            }
-
-            .open {
-                display: block;
-            }
+        img {
+          margin-top: 10px;
+          height: auto;
+          width: 120px;
         }
+
+      } // fine A-HREF
+
+    } // fine LOGO
+
+    .filter {
+      flex: 1;
+      @include flex(row, center, center);
+
+      .dove-andare label,
+      .wrapper-form-fields,
+      .numero-letti {
+
+        // MEDIA QUERY
+        @include responsive(mobile) {
+          display:none;
+        }
+
+      }
+
+      div {
+        margin-right:30px;
+      }
+
+      input {
+        height: 35px;
+        border: 1px solid rgba(50, 50, 50, .3);
+        border-radius: 10px;
+      }
+
+      #lente {
+
+        a {
+          @include flex(row, center, center);
+          width: 50px;
+          height: 50px;
+          color: $white;
+          background-color: $search-fuchsia;
+          border-radius: 50px;
+
+          // MEDIA QUERY
+          @include responsive(mobile) {
+            background-color: $salmon-pink;
+          }
+
+          &:hover{
+            background-color: $royal-fuchsia;
+          }
+
+        } // FINE A-HREF
+
+      }
+
+      .filtrini {
+        display:none;
+
+        // MEDIA QUERY
+        @include responsive(mobile) {
+          display:block;
+          width: 50px;
+          height: 50px;
+          color: $white;
+          background-color: $search-fuchsia;
+          border-radius: 50px;
+          @include flex(row, center, center);
+
+          // MEDIA QUERY
+          @include responsive(mobile) {
+            background-color: $salmon-pink;
+          }
+
+          &:hover{
+            background-color: $royal-fuchsia;
+          }
+
+        }
+
+      } // fine filtrini
+
+    } // fine filtri
+
+    .has-dropdown {
+      position: relative;
+
+      // MEDIA QUERY
+      @include responsive(mobile) {
+        display:none;
+      }
+
+      .hamburger {
+        @include hamburger($white);
+        color: $black;
+        border: 1px solid rgba(50, 50, 50, .3);
+
+        & > .icon {
+          margin: 0 5px;
+        }
+
+        } // FINE HAMBURGER
+
+        .dropdown {
+          display: none;
+          position: absolute;
+          top: calc(100% + 2px);
+          left: calc(-50% - 20px);
+          color: $black;
+          box-shadow: 0 0 3px $user-gray;
+          width: 200px;
+          padding: 10px;
+          border-radius: 10px;
+          background-color: $white;
+
+          a:hover {
+            opacity: 0.3;
+          }
+        }
+
+        .open {
+          display: block;
+        }
+
+      }
+
     }
 
     .lower-header-search {
-        height: 50%;
-        @include flex(row, null, center);
+      height: 50%;
+      @include flex(row, null, center);
+      flex-wrap: wrap;
 
-        ul {
-            width: 100%;
-            @include flex(row, space-between, center);
+      ul {
+        width: 100%;
+        @include flex(row, space-between, center);
+        flex-wrap: wrap;
 
-            li {
-                cursor: pointer;
-                padding: 13px 13px;
-                border-radius: 30px;
-                border: 1px solid rgba(50, 50, 50, 0.3);
-                transition: all 0.2s;
-            }
-            .active {
-                border: none;
-                color: white;
-                background-color: #ff385c;
-                transition: all 0.5s;
-            }
+        li {
+          padding: 13px 13px;
+          border-radius: 30px;
+          border: 1px solid rgba(50, 50, 50, 0.3);
+        }
 
-            li:hover {
-                border: 1px solid black;
-            }
-        } // FINE UL
+        li:hover {
+          border: 1px solid black;
+        }
+
+      } // FINE UL
+
     } // fine di lower-header search
-} // fine di top-header search
+
+  } // fine di top-header search
