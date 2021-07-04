@@ -25,6 +25,26 @@
 @import 'pages/newapartment';
 @import 'pages/pay';
 @import 'pages/statistics';
+@import 'pages/success';
+
+
+@keyframes bounce {
+  10%{
+      transform: translateY(20px);
+  }
+  30%{
+    transform: translateY(22px);
+  }
+  50%{
+    transform: translateY(20px);
+  }
+  70%{
+    transform: translateY(15px);
+  }
+  90%{
+    transform: translateY(5px);
+  }
+}
 
 // RULES FOR THE WHOLE PAGES
 * {

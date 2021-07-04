@@ -59,3 +59,4 @@ Route::get('/pages/maps', 'MainController@maps');
 // Route::get('/add_sponsor/{id}','MainController@addSponsor')->name('add_sponsor');
 // Route::get('/statistic/{id}', 'MainController@statistic') -> name('statistic');
 
+Route::view('/success', 'pages/success');
