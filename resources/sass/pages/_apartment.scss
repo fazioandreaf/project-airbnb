@@ -2,18 +2,39 @@
   background-color: $dirty-white;
   padding-bottom: 30px;
 
+  // MEDIA QUERY
+  @include responsive(mobile) {
+    @include container(100%);
+  }
+
   nav {
     @include flex(row, null, center);
     border-bottom: 0.5px solid rgba(50, 50, 50, .3);
     height:100px;
     background-color: $white;
 
+    // MEDIA QUERY
+    @include responsive(mobile) {
+      background-color: $royal-fuchsia;
+    }
+
+
     .basic-header {
       @include container(80%);
       @include flex(row, space-between, center);
 
+      // MEDIA QUERY
+      @include responsive(mobile) {
+        @include flex(row, center, center);
+      }
+
       // INIZIO PRIMO div IMMAGINE
       div:nth-child(1) {
+
+        // MEDIA QUERY
+        @include responsive(mobile) {
+          display:none;
+        }
 
         img {
           height: auto;
@@ -30,6 +51,24 @@
           width: 400px;
           height: 50px;
           border-radius: 30px;
+
+          // MEDIA QUERY
+          @include responsive(mobile) {
+            background-color: white;
+
+            a:last-child {
+              background-color: $salmon-pink;
+            }
+
+            a:last-child:hover {
+              background-color: $royal-fuchsia;
+            }
+          }
+
+          // MEDIA QUERY
+          @include responsive(mobile) {
+            width: 200px;
+          }
 
           a:first-of-type {
             margin-left: 10px;
@@ -60,6 +99,11 @@
       // INIZIO terzo div (quello con omino utente)
       div:nth-child(3) {
         @include flex(row, flex-end, null);
+
+        // MEDIA QUERY
+        @include responsive(mobile) {
+          display:none;
+        }
 
         a {
           @include flex(row, space-evenly, center);
@@ -145,6 +189,11 @@
         div:first-of-type {
           @include flex(row, center, center);
 
+          // MEDIA QUERY
+          @include responsive(mobile) {
+            width:100%;
+          }
+
           a {
             height: 100%;
             width: calc(100% - 5px);
@@ -154,7 +203,14 @@
           .immagine-grande {
             margin-right: 10px;
             border-radius: 20px 0px 0px 20px;
-          }
+
+            // MEDIA QUERY
+            @include responsive(mobile) {
+              margin-right: 0px;
+              border-radius: 20px;
+            }
+
+          } // FINE IMMAGINE GRANDE
 
           .immagine-grande:hover {
             opacity: 0.5;
@@ -166,6 +222,11 @@
         div:last-of-type {
           @include flex(row, null, null);
           flex-wrap: wrap;
+
+          // MEDIA QUERY
+          @include responsive(mobile) {
+            display:none;
+          }
 
           .immagini-piccole:hover {
             opacity: 0.5;

@@ -1413,6 +1413,13 @@ section#section-register form .form-button {
   padding-bottom: 30px;
 }
 
+@media screen and (max-width: 420px) {
+  #apartment-sample {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
 #apartment-sample nav {
   display: flex;
   flex-direction: row;
@@ -1422,6 +1429,12 @@ section#section-register form .form-button {
   background-color: #FFF;
 }
 
+@media screen and (max-width: 420px) {
+  #apartment-sample nav {
+    background-color: #e6007e;
+  }
+}
+
 #apartment-sample nav .basic-header {
   margin: 0 auto;
   width: 80%;
@@ -1429,6 +1442,21 @@ section#section-register form .form-button {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+@media screen and (max-width: 420px) {
+  #apartment-sample nav .basic-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  #apartment-sample nav .basic-header div:nth-child(1) {
+    display: none;
+  }
 }
 
 #apartment-sample nav .basic-header div:nth-child(1) img {
@@ -1448,6 +1476,26 @@ section#section-register form .form-button {
   width: 400px;
   height: 50px;
   border-radius: 30px;
+}
+
+@media screen and (max-width: 420px) {
+  #apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca {
+    background-color: white;
+  }
+
+  #apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca a:last-child {
+    background-color: #fa8a8a;
+  }
+
+  #apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca a:last-child:hover {
+    background-color: #e6007e;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  #apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca {
+    width: 200px;
+  }
 }
 
 #apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca a:first-of-type {
@@ -1483,6 +1531,12 @@ section#section-register form .form-button {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+}
+
+@media screen and (max-width: 420px) {
+  #apartment-sample nav .basic-header div:nth-child(3) {
+    display: none;
+  }
 }
 
 #apartment-sample nav .basic-header div:nth-child(3) a {
@@ -1575,6 +1629,12 @@ section#section-register form .form-button {
   align-items: center;
 }
 
+@media screen and (max-width: 420px) {
+  #apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div:first-of-type {
+    width: 100%;
+  }
+}
+
 #apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div:first-of-type a {
   height: 100%;
   width: calc(100% - 5px);
@@ -1586,6 +1646,13 @@ section#section-register form .form-button {
   border-radius: 20px 0px 0px 20px;
 }
 
+@media screen and (max-width: 420px) {
+  #apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div:first-of-type .immagine-grande {
+    margin-right: 0px;
+    border-radius: 20px;
+  }
+}
+
 #apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div:first-of-type .immagine-grande:hover {
   opacity: 0.5;
   z-index: 2;
@@ -1595,6 +1662,12 @@ section#section-register form .form-button {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 420px) {
+  #apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div:last-of-type {
+    display: none;
+  }
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div:last-of-type .immagini-piccole:hover {
