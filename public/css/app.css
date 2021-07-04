@@ -635,10 +635,7 @@ footer .bigger-footer .footer-top-section {
   footer .bigger-footer .footer-top-section {
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
-=======
     flex-wrap: wrap;
->>>>>>> tizy
   }
 }
 
@@ -758,14 +755,10 @@ footer .bigger-footer .footer-bottom-section #social-links {
 
 @media screen and (max-width: 420px) {
   footer .bigger-footer .footer-bottom-section #social-links {
-<<<<<<< HEAD
-    display: none;
-=======
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: flex-start;
->>>>>>> tizy
   }
 }
 

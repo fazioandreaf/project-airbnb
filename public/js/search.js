@@ -2239,7 +2239,6 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }).then(function (res) {
           if (res.status == 200) {
-            console.log(res.data);
             _this3.currentapartment_sponsor = res.data;
           }
         })["catch"](function (err) {
@@ -2297,14 +2296,12 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       getLatLng: function getLatLng(address) {
         axios.get("https://api.tomtom.com/search/2/geocode/" + address + ".JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC").then(function (res) {
-          // console.log(res.data);
           if (pos.length > 1) {
             var _tmp = pos[1];
             pos = [_tmp];
           }
 
           pos.push(res.data.results[0].position);
-          console.log(pos);
           goto(pos[pos.length - 1].lon, pos[pos.length - 1].lat);
           makemarker(pos[pos.length - 1].lon, pos[pos.length - 1].lat);
         })["catch"](function (err) {
@@ -2349,8 +2346,7 @@ document.addEventListener("DOMContentLoaded", function () {
           miles: 0
         };
         var fromPoint = [pos1.lon, pos1.lat];
-        var toPoint = [pos2.lon, pos2.lat]; // console.log(fromPoint, toPoint);
-
+        var toPoint = [pos2.lon, pos2.lat];
         var kilometers = turf.distance(fromPoint, toPoint);
         var miles = turf.distance(fromPoint, toPoint, {
           units: "miles"
@@ -2385,9 +2381,8 @@ document.addEventListener("DOMContentLoaded", function () {
             lat: res.data.results[0].position.lat,
             lon: res.data.results[0].position.lon
           };
-          tmp = _this6.distcustom(_this6.pos1, _this6.pos2); // console.log(this.pos1, this.pos2, tmp);
-
-          _this6.km = tmp.kilometers; // console.log('km',this.km, 'pos1', this.pos1, 'pos2', this.pos2);
+          tmp = _this6.distcustom(_this6.pos1, _this6.pos2);
+          _this6.km = tmp.kilometers;
 
           if (_this6.km < 20) {
             _this6.pos2.address = elem.address;
@@ -2408,7 +2403,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
 
           _this6.pos2 = {};
-          _this6.km = 0; // console.log(this.apartmentrange);
+          _this6.km = 0;
         })["catch"](function (err) {
           return console.log(err);
         });
@@ -2433,7 +2428,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
           _this7.currentapartment = _this7.apartmentrange;
           _this7.apartmentrange = [];
-          console.log("time3", _this7.apartmentrange, _this7.currentapartment);
 
           for (i = 0; i < _this7.currentapartment.length; i++) {
             makemarker(_this7.currentapartment[1].lon, _this7.currentapartment[1].lat);
@@ -2453,11 +2447,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-module.exports = __webpack_require__(/*! C:\Boolean\project-airbnb\resources\js\search.js */"./resources/js/search.js");
-=======
-module.exports = __webpack_require__(/*! C:\Users\redsy\Documents\Boolean\progetto-finale\Nuova cartella\project-airbnb\resources\js\search.js */"./resources/js/search.js");
->>>>>>> tizy
+module.exports = __webpack_require__(/*! C:\Users\Andrea\Desktop\project-airbnb\resources\js\search.js */"./resources/js/search.js");
 
 
 /***/ })

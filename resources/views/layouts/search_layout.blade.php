@@ -98,7 +98,8 @@
                 if(typeof arr[i]== 'object')
                 arr[i].remove();
             }
-            arr=[];
+            
+            console.log('arr',arr)
         };
         // esempio di creare una funzione che metta tutti i marker nella mappa
         function makemarker(LNG, LAT){
@@ -139,7 +140,6 @@
             // if(pos.length<1){
             //     return alert('Non hai cliccato su nessun appartmanto')
             // }
-            console.log('ciao');
             map.on('click', function() {
             map.addLayer({
                 'id': 'overlay'+i,
@@ -176,7 +176,6 @@
                 }
             });
             });
-            console.log('ciao');
         };
         function calculateDistance() {
             // if(pos.length<1){
@@ -209,7 +208,6 @@
                         pos=[tmp];
                     }
                     pos.push(res.data.results[0].position);
-                    console.log(pos);
                     goto(res.data.results[0].position.lon,res.data.results[0].position.lat);
                     makemarker(res.data.results[0].position.lon,res.data.results[0].position.lat);
                 }
@@ -300,7 +298,6 @@
             if (result.type === 'category' || result.type === 'brand') {
                 return;
             }
-            // console.log(result);
             searchMarkersManager.draw([result]);
             fitToViewport(result);
         }
@@ -341,8 +338,6 @@
             this.markers = {};
         }
             SearchMarkersManager.prototype.draw = function (poiList) {
-
-                console.log(poiList);
                 this._poiList = poiList;
                 this.clear();
                 this._poiList.forEach(function (poi) {

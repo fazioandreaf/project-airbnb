@@ -144,7 +144,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     })
                     .then(res => {
                         if (res.status == 200) {
-                            console.log(res.data);
                             this.currentapartment_sponsor = res.data;
                         }
                     })
@@ -205,13 +204,11 @@ document.addEventListener("DOMContentLoaded", () => {
                             ".JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC"
                     )
                     .then(res => {
-                        // console.log(res.data);
                         if (pos.length > 1) {
                             let tmp = pos[1];
                             pos = [tmp];
                         }
                         pos.push(res.data.results[0].position);
-                        console.log(pos);
                         goto(pos[pos.length - 1].lon, pos[pos.length - 1].lat);
                         makemarker(
                             pos[pos.length - 1].lon,
@@ -266,7 +263,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
                 var fromPoint = [pos1.lon, pos1.lat];
                 var toPoint = [pos2.lon, pos2.lat];
-                // console.log(fromPoint, toPoint);
                 var kilometers = turf.distance(fromPoint, toPoint);
                 var miles = turf.distance(fromPoint, toPoint, {
                     units: "miles"
@@ -311,10 +307,8 @@ document.addEventListener("DOMContentLoaded", () => {
                             lon: res.data.results[0].position.lon
                         };
                         tmp = this.distcustom(this.pos1, this.pos2);
-                        // console.log(this.pos1, this.pos2, tmp);
                         this.km = tmp.kilometers;
 
-                        // console.log('km',this.km, 'pos1', this.pos1, 'pos2', this.pos2);
                         if (this.km < 20) {
                             this.pos2.address = elem.address;
                             this.pos2.area = elem.area;
@@ -333,7 +327,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                         this.pos2 = {};
                         this.km = 0;
-                        // console.log(this.apartmentrange);
                     })
                     .catch(err => console.log(err));
             },
@@ -353,11 +346,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                     this.currentapartment = this.apartmentrange;
                     this.apartmentrange = [];
-                    console.log(
-                        "time3",
-                        this.apartmentrange,
-                        this.currentapartment
-                    );
                     for (i = 0; i < this.currentapartment.length; i++) {
                         makemarker(
                             this.currentapartment[1].lon,
