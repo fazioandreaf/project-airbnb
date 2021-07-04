@@ -67,14 +67,14 @@ class HomeController extends Controller {
             }
 
             $apartment = Apartment::create($validated);
-            if ($request->hasFile('cover_image')) {
-                $img = $request -> file('cover_image');
-                $imgExt = $img -> getClientOriginalExtension();
-                $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
-                $folder = '/assets/';
-                $apartment -> cover_image = $newNameImg;
-                $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
-            }
+            // if ($request->hasFile('cover_image')) {
+            //     $img = $request -> file('cover_image');
+            //     $imgExt = $img -> getClientOriginalExtension();
+            //     $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
+            //     $folder = '/assets/';
+            //     $apartment -> cover_image = $newNameImg;
+            //     $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
+            // }
 
             $apartment->services()->attach($request-> get('service_id'));
             $apartment->save();
@@ -107,14 +107,14 @@ class HomeController extends Controller {
 
         $apartment = Apartment::findOrFail($id);
 
-        if ($request->hasFile('cover_image')) {
-            $img = $request -> file('cover_image');
-            $imgExt = $img -> getClientOriginalExtension();
-            $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
-            $folder = '/assets/';
-            $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
-            $apartment -> cover_image = $newNameImg;
-        }
+        // if ($request->hasFile('cover_image')) {
+        //     $img = $request -> file('cover_image');
+        //     $imgExt = $img -> getClientOriginalExtension();
+        //     $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
+        //     $folder = '/assets/';
+        //     $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
+        //     $apartment -> cover_image = $newNameImg;
+        // }
 
         $apartment->update($validated);
         $apartment->services()->sync($request-> get('service_id'));

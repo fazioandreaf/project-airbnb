@@ -18,7 +18,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 80,
             'address' => 'VIA FILIPPO TURATI 62-64, 00185 ROMA',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Appartamento in Lucina',
@@ -28,7 +28,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 75,
             'address' => 'Via in Lucina, 10, 00186 Roma RM',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Light Charme Casa Vacanze',
@@ -38,7 +38,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 98,
             'address' => 'Via Sicilia, 50, 00187 Roma RM',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Casa Art Apartment',
@@ -48,7 +48,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 55,
             'address' => 'Via di Casal Bertone, 66, 00159 Roma RM',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Rossanella house',
@@ -58,7 +58,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 100,
             'address' => 'Via Manlio Torquato, 12, 00181 Roma RM',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Casa Vacanze Vespucci',
@@ -68,7 +68,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 96,
             'address' => 'Via Amerigo Vespucci, 24, 00153 Roma RM',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Il Soffio- Casa Vacanze',
@@ -78,7 +78,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 3,
             'area' => 85,
             'address' => 'Viale dei Quattro Venti, 97, 00152 Roma RM',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Roma Blue Apartment',
@@ -88,7 +88,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 3,
             'area' => 105,
             'address' => 'Via del Lago Terrione, 83, 00165 Roma RM',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'San Pietro Orange',
@@ -98,7 +98,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 3,
             'area' => 110,
             'address' => 'Piazza Americo Capponi, 3, 00193 Roma RM',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Trastevere Suite',
@@ -108,7 +108,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 3,
             'area' => 99,
             'address' => 'Via del Mattonato, 6, 00153 Roma RM',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
 
         // MILANO
@@ -121,7 +121,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 200,
             'address' => 'Via Rutilia 6, Ripamonti Corvetto, Milano',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Design District',
@@ -131,7 +131,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 100,
             'address' => ' Corso Magenta 61, Milano Centro, Milano',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'NOLO',
@@ -141,7 +141,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 150,
             'address' => 'Via Zuretti 46, Stazione Centrale, Milano',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'DUOMO12 - La Suite',
@@ -151,7 +151,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 200,
             'address' => 'Via Benedetto Marcello 47, Stazione Centrale, Milano',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Schiapparelli A Flat',
@@ -161,7 +161,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 189,
             'address' => ' Corso Monforte 27, Milano Centro, Milano',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'La Mia Terrazza su Milano',
@@ -171,7 +171,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 300,
             'address' => ' Via Messina 38, Sempione, Milano',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Casa Mec',
@@ -181,7 +181,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 180,
             'address' => 'Via Venezia Giulia 8, Milano',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Zuretti casa',
@@ -191,7 +191,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 180,
             'address' => 'Via Vittorio Scialoia 3, Niguarda, Milano',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Insustrial Apartment Duomo',
@@ -201,7 +201,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 140,
             'address' => 'Via Giovanni Antonio Plana 33, Certosa, Milano',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Amazing Studio',
@@ -211,7 +211,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 4,
             'area' => 100,
             'address' => 'Via Europa 56, Cologno Monzese, Milano',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Suite private',
@@ -221,7 +221,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 180,
             'address' => 'Via Fratelli Cervi, Milano',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Su Porta Venezia',
@@ -231,7 +231,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 120,
             'address' => 'Via Mazzini 3, Cernusco sul Naviglio, Milano',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Calliope',
@@ -241,7 +241,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 100,
             'address' => 'Via Circonvallazione Idro 3, Milano',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
 
         // TORINO
@@ -254,7 +254,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 120,
             'address' => "Via Principi D'Acaja 17, Milano",
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Casa Bogo Nuova',
@@ -264,7 +264,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 120,
             'address' => 'Corso Duca Degli Abruzzi 94, Crocetta, Torino',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Monolocale Indipendente',
@@ -274,7 +274,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 100,
             'address' => 'Via Spalato 7, Torino',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Le Petite',
@@ -284,7 +284,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 200,
             'address' => 'Via Principe Amedeo 41 Bis, Centro Storico di Torino, Torino',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Mole Sweet Studio',
@@ -294,7 +294,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 180,
             'address' => 'Via Borgo Dora 36, Aurora Vanchiglia, Torino',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Klimt House',
@@ -304,7 +304,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 180,
             'address' => 'Corso Grosseto 366/7, Torino',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Happy Day',
@@ -314,7 +314,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 100,
             'address' => 'Piazza Derna 238, Torino',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Pop Apartment',
@@ -324,7 +324,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 100,
             'address' => 'Via Nazioni Unite 11, Collegno, Torino',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Dora maison',
@@ -334,7 +334,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 160,
             'address' => 'Via Paolo Gaidano 113, Mirafiori, Torino',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'B&B Torino',
@@ -344,7 +344,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 160,
             'address' => 'Piazza Galimberti 12, Lingotto, Torino',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Barolo Wine Loft',
@@ -354,7 +354,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 130,
             'address' => 'Via Pracavallo 3, Nichelino,, Torino',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Tip Top Torino',
@@ -364,7 +364,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 110,
             'address' => 'Via Santa Andrea 20 Garino Vinovo, Candiolo, Torino',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Santa Rota',
@@ -374,7 +374,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 100,
             'address' => 'Corso Giulio Cesare 338/34, Torino',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Casa Baciu',
@@ -384,7 +384,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 120,
             'address' => 'Via Roma 36, San Mauro Torinese, Torino',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
 
         // VERONA
@@ -397,7 +397,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 150,
             'address' => 'Corso Porta Nuova 39, Centro storico di Verona, Verona',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Il Girasole',
@@ -407,7 +407,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 100,
             'address' => 'Via Luigi Lenotti 4/C-E, San Zeno, Verona',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Giulietta',
@@ -417,7 +417,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 80,
             'address' => 'Via san Vitale 12, Verona',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'DoubleRoom',
@@ -427,7 +427,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 130,
             'address' => 'Via G.Grioli 2c, Centro storico di Verona, Verona',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Attico a Verona',
@@ -437,7 +437,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 100,
             'address' => 'Via Carlo Belviglieri 42, Borgo Venezia, Verona',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Casa Sottoriva',
@@ -447,7 +447,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 3,
             'area' => 200,
             'address' => 'Via Centro 23, Borgo Roma, Verona',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Palazzo Negri',
@@ -457,7 +457,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 100,
             'address' => 'Via Scuderlando 40, Borgo Roma, Verona',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Da Aurora',
@@ -467,7 +467,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 160,
             'address' => 'Via Campagnol Di Tombetta 77, Borgo Roma, Verona',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => "Ca' delle Cornacchie",
@@ -477,7 +477,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 170,
             'address' => 'Via Legnago 135, Borgo Roma, Verona',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Cavour44',
@@ -487,7 +487,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 140,
             'address' => 'Via Santa Teresa 3, Borgo Roma, Verona',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Attico Arena',
@@ -497,7 +497,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 190,
             'address' => 'Via Valerio Catullo 1, Centro storico di Verona, Verona',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Gardenia Aparment',
@@ -507,7 +507,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 120,
             'address' => 'Via Ponte Pietra 3, Centro storico di Verona, Verona',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Diamond Suite',
@@ -517,7 +517,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 100,
             'address' => 'Via San Giovanni In Valle 14/a, Verona',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
 
         // BOLOGNA
@@ -530,7 +530,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 130,
             'address' => 'Via Saragozza 95, Saragozza, Bologna',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Zio Totò',
@@ -540,7 +540,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 120,
             'address' => 'Via Saffi 16, Bologna',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'il Teatro',
@@ -550,7 +550,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 100,
             'address' => 'Via Mascarella 102, Bologna',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Il Giardino Nascosto',
@@ -560,7 +560,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 200,
             'address' => 'Strada Maggiore 79, Savena, Bologna',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Tra le 2 Torri',
@@ -570,7 +570,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 180,
             'address' => 'Via Sebastiano Serlio 28, Bologna',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Caduti del Lavoro',
@@ -580,7 +580,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 3,
             'area' => 210,
             'address' => 'Viale Felsina 49, Savena, Bologna',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Il tuo spazio a Bologna',
@@ -590,7 +590,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 3,
             'area' => 120,
             'address' => 'Piazza San Francesco 6, Saragozza, Bologna',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'La Lanterna',
@@ -600,7 +600,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 4,
             'area' => 170,
             'address' => 'Via don Minzoni 4, Bologna',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Santo Stefano',
@@ -610,7 +610,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 3,
             'area' => 135,
             'address' => 'Via Nosadella 19 , Saragozza, Bologna',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Zambini House',
@@ -620,7 +620,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 154,
             'address' => 'Via Borgonuovo 2, Bologna',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Lady Room',
@@ -630,7 +630,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 169,
             'address' => 'Via Fratelli Rosselli 14, Bologna',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Da Lucio',
@@ -640,7 +640,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 180,
             'address' => 'Via Larga, 4, Bologna',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Pignoletto House',
@@ -650,7 +650,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 4,
             'area' => 170,
             'address' => 'Via San Donato 159/161, Bologna',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
 
         // FIRENZE
@@ -663,7 +663,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 100,
             'address' => 'Via della Scala 50, Santa Maria Novella, Firenze',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Camera a Santa Croce',
@@ -673,7 +673,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 45,
             'address' => 'Borgo Ognissanti 80, piano II, Santa Maria Novella, Firenze',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Ponte Vecchio Apartment',
@@ -683,7 +683,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 50,
             'address' => 'Via Camillo Cavour 42, San Marco - Santissima Annunziata, Firenze',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Sui Tetti di Firenze',
@@ -693,7 +693,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 100,
             'address' => 'Via Giuseppe La Farina 27, Campo di Marte, Firenze',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'La Gabbia del Grillo',
@@ -703,7 +703,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 120,
             'address' => 'Lungarno Archibusieri 8, Uffizi, Firenze',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => "L'anfieteatro Nascosto",
@@ -713,7 +713,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 4,
             'area' => 189,
             'address' => 'Via Cardinal Leopoldo 62, Firenze',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Stanza Boccaccio',
@@ -723,7 +723,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 50,
             'address' => 'Borgo San Jacopo 8, San Frediano, Firenze',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Vista da Leonardo',
@@ -733,7 +733,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 130,
             'address' => 'Corso dei Tintori 33, Santa Croce, Firenze',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Perla Rossa',
@@ -743,7 +743,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 80,
             'address' => 'Via Martelli 8, Duomo, Firenze',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Apartment Mattonaia',
@@ -753,7 +753,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 95,
             'address' => 'Via Di Ripoli, 169, Firenze',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'B&B Ognissanti',
@@ -763,7 +763,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 2,
             'area' => 67,
             'address' => 'Piazza Tommaso Alva Edison 12, Campo di Marte, Firenze',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'La Camera in Fiore',
@@ -773,7 +773,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 3,
             'area' => 130,
             'address' => 'Via Del Salviatino 21, Campo di Marte, Firenze',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
         [
             'title' => 'Camera dei Medici',
@@ -783,7 +783,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
             'number_beds' => 1,
             'area' => 89,
             'address' => 'Via dei Cioli 2, Settignano',
-            'cover_image' => '',
+            // 'cover_image' => '',
         ],
 
     ];
@@ -798,7 +798,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($nextIndex) {
         'number_beds' => $apartment['number_beds'],
         'area' => $apartment['area'],
         'address' => $apartment['address'],
-        'cover_image' => $apartment['cover_image'],
+        // 'cover_image' => $apartment['cover_image'],
     ];
 });
 function nextApartment()

@@ -18,7 +18,7 @@ class Apartment extends Model
         'address',
         'latitude',
         'longitude',
-        'cover_image',
+        // 'cover_image',
         'user_id',
     ];
 
@@ -45,5 +45,10 @@ class Apartment extends Model
     public function messages()
     {
         return $this -> hasMany(Message::class);
+    }
+
+    public function images()
+    {
+        return $this -> hasMany(Image::class);
     }
 }
