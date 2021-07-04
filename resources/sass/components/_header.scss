@@ -75,6 +75,77 @@
   }
 }
 
+#apartment-header {
+
+  #logo {
+
+    height: 60px;
+    width: auto;
+  }
+
+  height: 100px;
+  background-color: $white;
+
+  .container {
+    @include container(90%);
+    height: 100%;
+  }
+
+  .navbar {
+
+    height: 100%;
+    color: $white;
+
+    .username {
+
+      color: #e6027f;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      height: 100%;
+      @include flex(row, space-between, center);
+
+      #wrapper-logo a {
+
+        @include flex(row, null, center);
+      }
+
+      .has-dropdown {
+        position: relative;
+
+        .hamburger {
+          @include hamburger(#e6027f);
+          color: $white;
+
+          & > .icon {
+            margin: 0 5px;
+
+          }
+        }
+
+        .dropdown {
+          display: none;
+          position: absolute;
+          z-index: 9001; //IT'S OVER 9000
+          top: calc(100% + 2px);
+          left: calc(-50% - 20px);
+          background-color: $white;
+          color: $black;
+          box-shadow: 0 0 3px $user-gray;
+          width: 200px;
+          padding: 10px;
+          border-radius: 10px;
+        }
+
+        .open {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
 //Header Landing Page
 .landing-header {
 

@@ -3,69 +3,6 @@
 
     {{-- DANNY --}}
     <div class="container" id="apartment-sample">
-
-      {{-- _________ HEADER INIZIA QUI__________ --}}
-      <nav>
-        <div class="basic-header">
-
-          <div>
-            <span>
-              <a href="{{route('homepage')}}">
-                <img src="{{asset('storage/assets/lg_clr.png')}}" alt="logo-image">
-              </a>
-            </span>
-          </div>
-
-          <div>
-
-            <span id="barra-ricerca">
-              <a href="#">
-                Inizia la ricerca
-              </a>
-              <a href="#">
-                <i class="fas fa-search"></i>
-              </a>
-            </span>
-
-          </div>
-
-          <div>
-            @guest
-              @if (Route::has('register'))
-                <a href="{{ route('register') }}">
-                  {{ __('Diventa un Host') }}
-                </a>
-              @endif
-              <a href="{{ route('login') }}">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-user"></i>
-              </a>
-            @endguest
-            @auth
-              <a href="#">
-                {{ Auth::user()->name }}
-              </a>
-              <a href="{{ route('logout')}}" onclick="
-              event.preventDefault();
-              document.getElementById('form_logout').submit();"
-              >
-              {{ __('Logout') }}
-            </a>
-            <form id="form_logout" method="POST" action="{{ route('logout') }}">
-              @csrf
-            </form>
-            <div>
-              <a href="{{route('dashboard',Auth::id())}}">
-                Dashboard
-              </a>
-            </div>
-          @endauth
-        </div>
-
-      </div> {{-- FINE BASIC HEADER--}}
-    </nav> {{-- FINE NAV--}}
-    {{-- _________ HEADER FINISCE QUI__________ --}}
-
     {{-- _________JUMBOTRON INIZIA QUI__________ --}}
 
       <div class="jumbotron-apartment">
