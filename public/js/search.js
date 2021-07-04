@@ -2114,6 +2114,7 @@ document.addEventListener("DOMContentLoaded", function () {
       number_beds: 1,
       toggle: true,
       currentapartment: [],
+      currentapartment_sponsor: [],
       allservice: [],
       activeservice: [],
       pos1: {},
@@ -2166,12 +2167,27 @@ document.addEventListener("DOMContentLoaded", function () {
         })["catch"](function (err) {
           return console.log(err);
         });
+        axios.get("api/sponsored", {
+          params: {
+            where: this.where,
+            number_rooms: this.number_rooms,
+            number_beds: this.number_beds
+          }
+        }).then(function (res) {
+          if (res.status == 200) {
+            _this2.currentapartment_sponsor = res.data;
+          }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
       },
       filtroavanzato: function filtroavanzato() {
         var _this3 = this;
 
         removeMarkerr();
         this.activeservice = [];
+        this.currentapartment_sponsor = [];
+        this.currentapartment = [];
         axios.get("api/filter", {
           params: {
             where: this.where,
@@ -2200,6 +2216,32 @@ document.addEventListener("DOMContentLoaded", function () {
           }
 
           _this3.currentapartment = res.data;
+
+          for (i = 1; i < _this3.currentapartment.length; i++) {
+            axios.get("https://api.tomtom.com/search/2/geocode/" + _this3.currentapartment[i].address + ".JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC").then(function (res) {
+              _this3.pos1 = {
+                lat: res.data.results[0].position.lat,
+                lon: res.data.results[0].position.lon
+              };
+              makemarker(_this3.pos1.lon, _this3.pos1.lat);
+            })["catch"](function (err) {
+              return console.log(err);
+            });
+          }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+        axios.get("api/sponsored", {
+          params: {
+            where: this.where,
+            number_rooms: this.number_rooms,
+            number_beds: this.number_beds
+          }
+        }).then(function (res) {
+          if (res.status == 200) {
+            console.log(res.data);
+            _this3.currentapartment_sponsor = res.data;
+          }
         })["catch"](function (err) {
           return console.log(err);
         });
