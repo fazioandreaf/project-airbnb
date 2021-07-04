@@ -151,4 +151,13 @@ class HomeController extends Controller {
         return view('pages.sponsor',compact('sponsors','apartment'));
     }
 
+    public function edit_image($id)
+    {
+        $apartment = Apartment::findOrFail($id);
+        return view('pages.edit-image',compact('apartment'));
+    }
+    public function update_image(Request $request, $id)
+    {
+        dd($request);
+    }
 } // END OF HomeController
