@@ -29,20 +29,28 @@ class MainController extends Controller {
     }
     // dettagli appartamento
     public function showApartment(Request $request, $id){
-        // dd(\Request::getClientIp(true));
-        // dd($request);
         $now = Carbon::now()->setTimeZone("Europe/Rome");
         $ip=\Request::ip();
         $validate=([
             'ip'=>$ip,
         ]);
-        // dd($now);
+        
         $apartment = Apartment::findOrFail($id);
         $statistic = Statistic::make($validate);
         $statistic -> apartment() -> associate($id);
         $statistic->save();
         $sponsors=Sponsor::all();
-        return view('pages.apartment',compact('apartment','statistic','sponsors'));
+
+        $images = [];
+        $cover_image = null;
+            foreach ($apartment -> images as $key => $image) {
+                if ($key == 0) {
+                    $cover_image = $image->image;
+                }else{
+                    $images []= $image;
+                }
+            }
+        return view('pages.apartment',compact('apartment','statistic','sponsors','images','cover_image'));
     }
 
     // registrazione

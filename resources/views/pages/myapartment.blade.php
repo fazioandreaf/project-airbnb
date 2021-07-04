@@ -49,9 +49,13 @@
                     </a>
                 </template>
             </my-apartment>
-        @endforeach
+            <a href="{{ route('edit_image', $apartment->id) }}">
+                <button>
+                    edit image
+                </button>
+            </a>
+            @endforeach
         </div>
-        
     </div>
 </section>
 @endsection
