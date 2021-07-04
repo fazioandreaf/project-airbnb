@@ -32,7 +32,8 @@
   </head>
 
   <body>
-
+  <div id="app">
+    @include('pages.components.minimal-white-header')
     <main>
       @yield('content_apartment')
     </main>
@@ -40,7 +41,7 @@
     <footer>
       @include('pages.components.footer')
     </footer>
-
+  </div>
   </body>
 
 </html>

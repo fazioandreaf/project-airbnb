@@ -100,6 +100,84 @@ section#my-apartments .button-link {
   display: block;
 }
 
+#apartment-header {
+  height: 100px;
+  background-color: #FFF;
+}
+
+#apartment-header #logo {
+  height: 60px;
+  width: auto;
+}
+
+#apartment-header .container {
+  margin: 0 auto;
+  width: 90%;
+  height: 100%;
+}
+
+#apartment-header .navbar {
+  height: 100%;
+  color: #FFF;
+}
+
+#apartment-header .navbar .username {
+  color: #e6027f;
+  font-weight: 600;
+}
+
+#apartment-header .navbar .nav-links {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#apartment-header .navbar .nav-links #wrapper-logo a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#apartment-header .navbar .nav-links .has-dropdown {
+  position: relative;
+}
+
+#apartment-header .navbar .nav-links .has-dropdown .hamburger {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #e6027f;
+  padding: 10px;
+  border-radius: 25px;
+  font-size: 20px;
+  color: #FFF;
+}
+
+#apartment-header .navbar .nav-links .has-dropdown .hamburger > .icon {
+  margin: 0 5px;
+}
+
+#apartment-header .navbar .nav-links .has-dropdown .dropdown {
+  display: none;
+  position: absolute;
+  z-index: 9001;
+  top: calc(100% + 2px);
+  left: calc(-50% - 20px);
+  background-color: #FFF;
+  color: #000;
+  box-shadow: 0 0 3px #6c6a6b;
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#apartment-header .navbar .nav-links .has-dropdown .open {
+  display: block;
+}
+
 .landing-header {
   height: 100vh;
   position: relative;
@@ -1417,6 +1495,7 @@ section#section-register form .error {
 }
 
 #apartment-sample {
+  font-family: "Nunito", sans-serif;
   background-color: #eff0f0;
   padding-bottom: 30px;
 }
@@ -1426,152 +1505,6 @@ section#section-register form .error {
     margin: 0 auto;
     width: 100%;
   }
-}
-
-#apartment-sample nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border-bottom: 0.5px solid rgba(50, 50, 50, 0.3);
-  height: 100px;
-  background-color: #FFF;
-}
-
-@media screen and (max-width: 420px) {
-  #apartment-sample nav {
-    background-color: #e6007e;
-  }
-}
-
-#apartment-sample nav .basic-header {
-  margin: 0 auto;
-  width: 80%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@media screen and (max-width: 420px) {
-  #apartment-sample nav .basic-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  #apartment-sample nav .basic-header div:nth-child(1) {
-    display: none;
-  }
-}
-
-#apartment-sample nav .basic-header div:nth-child(1) img {
-  height: auto;
-  width: 120px;
-}
-
-#apartment-sample nav .basic-header div:nth-child(2) {
-  display: flex;
-  flex-direction: row;
-}
-
-#apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 400px;
-  height: 50px;
-  border-radius: 30px;
-}
-
-@media screen and (max-width: 420px) {
-  #apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca {
-    background-color: white;
-  }
-
-  #apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca a:last-child {
-    background-color: #fa8a8a;
-  }
-
-  #apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca a:last-child:hover {
-    background-color: #e6007e;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  #apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca {
-    width: 200px;
-  }
-}
-
-#apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca a:first-of-type {
-  margin-left: 10px;
-}
-
-#apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca a:last-of-type {
-  margin-right: 10px;
-}
-
-#apartment-sample nav .basic-header div:nth-child(2) span {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border: 0.5px solid rgba(50, 50, 50, 0.3);
-}
-
-#apartment-sample nav .basic-header div:nth-child(2) span a:last-of-type {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-color: #e80080;
-  color: #FFF;
-  font-size: 20px;
-  width: 35px;
-  height: 35px;
-  border-radius: 100%;
-}
-
-#apartment-sample nav .basic-header div:nth-child(3) {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-
-@media screen and (max-width: 420px) {
-  #apartment-sample nav .basic-header div:nth-child(3) {
-    display: none;
-  }
-}
-
-#apartment-sample nav .basic-header div:nth-child(3) a {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-#apartment-sample nav .basic-header div:nth-child(3) a:nth-child(1) {
-  margin: 20px 30px 0px 10px;
-}
-
-#apartment-sample nav .basic-header div:nth-child(3) a:nth-child(2) {
-  font-size: 15px;
-  background-color: #FFF;
-  width: 90px;
-  height: 60px;
-  border-radius: 30px;
-  border: 1px solid rgba(50, 50, 50, 0.3);
-}
-
-#apartment-sample nav .basic-header div:nth-child(3) a:nth-child(2) i:last-of-type {
-  color: #FFF;
-  background-color: #6c6a6b;
-  padding: 10px;
-  border-radius: 100%;
 }
 
 #apartment-sample .jumbotron-apartment {
@@ -1584,7 +1517,6 @@ section#section-register form .error {
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .titolo {
-  margin-top: 40px;
   height: 60px;
   display: flex;
   flex-direction: row;
@@ -1856,15 +1788,15 @@ section#section-register form .error {
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form {
-  height: 650px;
   width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  box-shadow: 2px 2px lightgray;
+  box-shadow: 0 0 3px lightgray;
   background-color: #FFF;
+  padding: 20px;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form .fa-pencil-alt {
@@ -1916,16 +1848,47 @@ section#section-register form .error {
   }
 }
 
-#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form span {
-  line-height: 200%;
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form .form-infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form span i {
-  margin-left: 130px;
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form .form-infos span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form .form-infos span .icon {
+  margin-left: 20px;
   font-size: 30px;
 }
 
-#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form input {
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form .wrapper-form-fields {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 0;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form .wrapper-form-fields label {
+  margin-right: 10px;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form .wrapper-form-fields input {
+  border: 1px solid rgba(50, 50, 50, 0.2);
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form .wrapper-form-fields input:focus {
+  outline: 0;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form input[type=submit] {
   font-size: 18px;
   margin-top: 20px;
   padding: 15px 30px;
@@ -1933,13 +1896,25 @@ section#section-register form .error {
   border: none;
   border-radius: 10px;
   color: #FFF;
+  transition: all 0.5s;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form input[type=submit]:hover {
+  background-color: #b30062;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form textarea {
+  margin-top: 10px;
   max-width: 80%;
-  min-height: 60%;
-  border: 0.5px solid rgba(50, 50, 50, 0.2);
+  overflow: auto;
+  resize: none;
+  padding: 10px;
+  border: 1px solid rgba(50, 50, 50, 0.2);
   border-radius: 10px;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form textarea:focus {
+  outline: 0;
 }
 
 section#login-section {

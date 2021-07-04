@@ -3,69 +3,6 @@
 
     {{-- DANNY --}}
     <div class="container" id="apartment-sample">
-
-      {{-- _________ HEADER INIZIA QUI__________ --}}
-      <nav>
-        <div class="basic-header">
-
-          <div>
-            <span>
-              <a href="{{route('homepage')}}">
-                <img src="{{asset('storage/assets/lg_clr.png')}}" alt="logo-image">
-              </a>
-            </span>
-          </div>
-
-          <div>
-
-            <span id="barra-ricerca">
-              <a href="#">
-                Inizia la ricerca
-              </a>
-              <a href="#">
-                <i class="fas fa-search"></i>
-              </a>
-            </span>
-
-          </div>
-
-          <div>
-            @guest
-              @if (Route::has('register'))
-                <a href="{{ route('register') }}">
-                  {{ __('Diventa un Host') }}
-                </a>
-              @endif
-              <a href="{{ route('login') }}">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-user"></i>
-              </a>
-            @endguest
-            @auth
-              <a href="#">
-                {{ Auth::user()->name }}
-              </a>
-              <a href="{{ route('logout')}}" onclick="
-              event.preventDefault();
-              document.getElementById('form_logout').submit();"
-              >
-              {{ __('Logout') }}
-            </a>
-            <form id="form_logout" method="POST" action="{{ route('logout') }}">
-              @csrf
-            </form>
-            <div>
-              <a href="{{route('dashboard',Auth::id())}}">
-                Dashboard
-              </a>
-            </div>
-          @endauth
-        </div>
-
-      </div> {{-- FINE BASIC HEADER--}}
-    </nav> {{-- FINE NAV--}}
-    {{-- _________ HEADER FINISCE QUI__________ --}}
-
     {{-- _________JUMBOTRON INIZIA QUI__________ --}}
 
       <div class="jumbotron-apartment">
@@ -268,16 +205,21 @@
               <form action="{{ route('send', $apartment->id) }}" method="POST" novalidate>
                 @csrf
                 @method('POST')
-                <span>
-                  Scrivi all'host 
-                  <i class="fas fa-pencil-alt"></i>
-                  <br>
-                  Vedi se ci sono camere disponibili.
-                </span>
-                <label for="email">
-                  Email
-                </label>
-                <input type="email" id="email" name="email" v-model="email">
+                <div class="form-infos">
+                  <span>
+                    Scrivi all'host 
+                    <i class="fas fa-pencil-alt icon"></i>
+                  </span>
+                  <span>
+                    Vedi se ci sono camere disponibili.
+                  </span>
+                </div>
+                <div class="wrapper-form-fields">
+                  <label for="email">
+                    Email
+                  </label>
+                  <input type="email" id="email" name="email" v-model="email">
+                </div>
                 <textarea rows="20" cols="30" name="text_message"></textarea>
                 <input type="submit" value="Invia">
               </form>
