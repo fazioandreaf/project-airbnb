@@ -5,14 +5,14 @@
         <div class="left-section">
             @if (count($apartments)>0)
                 @foreach ($apartments_sponsor as $items)
-                    <div class="row-with-img-text" onload="formarker('ciao')">
+                    <div v-if="currentapartment.length<1" class="row-with-img-text" onload="formarker('ciao')">
                         <div class="sinistra-img">
                             <a href="#">
                                 <img src="{{$items->cover_image}}" alt="immagine stanza">
                             </a>
                         </div>
                         <div class="destra-testo">
-                            <strong>{{$items->expire_date}}</strong><br>
+                            <strong>Talia stu beddu appartemento, è 'n mostru  {{$items->expire_date}}</strong><br>
                             <a href="{{route('apartment', $items->id)}}">
                             {{-- <a @click="redirect(elem.id)"> --}}
                                 <h2>{{$items->title}}</h2>
