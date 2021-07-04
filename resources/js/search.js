@@ -78,6 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
             filtroavanzato: function() {
                 removeMarkerr();
                 this.activeservice = [];
+                this.currentapartment_sponsor = [];
+                this.currentapartment = [];
                 axios
                     .get("api/filter", {
                         params: {
@@ -114,6 +116,37 @@ document.addEventListener("DOMContentLoaded", () => {
                                 .catch(err => console.log(err));
                         }
                         this.currentapartment = res.data;
+                        for (i = 1; i < this.currentapartment.length; i++) {
+                            axios
+                                .get(
+                                    "https://api.tomtom.com/search/2/geocode/" +
+                                        this.currentapartment[i].address +
+                                        ".JSON?extendedPostalCodesFor=Str&view=Unified&key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC"
+                                )
+                                .then(res => {
+                                    this.pos1 = {
+                                        lat: res.data.results[0].position.lat,
+                                        lon: res.data.results[0].position.lon
+                                    };
+                                    makemarker(this.pos1.lon, this.pos1.lat);
+                                })
+                                .catch(err => console.log(err));
+                        }
+                    })
+                    .catch(err => console.log(err));
+                axios
+                    .get("api/sponsored", {
+                        params: {
+                            where: this.where,
+                            number_rooms: this.number_rooms,
+                            number_beds: this.number_beds
+                        }
+                    })
+                    .then(res => {
+                        if (res.status == 200) {
+                            console.log(res.data);
+                            this.currentapartment_sponsor = res.data;
+                        }
                     })
                     .catch(err => console.log(err));
             },
