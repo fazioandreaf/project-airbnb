@@ -105,44 +105,56 @@
             {{-- INIZIO IMMAGINE GRANDE --}}
             <div>
               <a href="#">
-                <img class="immagine-grande" src="{{asset('/storage/assets/'.$apartment->cover_image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                <img class="immagine-grande" src="{{asset('/storage/assets/external/'.$cover_image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
               </a>
             </div>
             {{-- FINE IMMAGINE GRANDE --}}
 
             {{-- INIZIO 4 IMMAGINI --}}
             <div>
-              <div>
+              @foreach ($images as $key => $image)
+                <div>
+                  <a href="#">
+                      @switch($key)
+                          @case(0)
+                            <img class="immagini-piccole" src="{{asset('/storage/assets/living-room/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                              @break
+                          @case(1)
+                            <img class="immagini-piccole" src="{{asset('/storage/assets/kitchen/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                              @break
+                          @case(2)
+                            <img class="immagini-piccole" src="{{asset('/storage/assets/bedroom/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">  
+                              @break  
+                          @case(3)
+                            <img class="immagini-piccole" src="{{asset('/storage/assets/bathroom/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">  
+                            @break                        
+                      @endswitch
+                  </a>
+                </div>
+              @endforeach
+              {{-- <div>
                 <a href="#">
-                  <img class="immagini-piccole"
-                    src="https://source.unsplash.com/375x245/?interior,Room,Home" 
-                    alt="immagine-qui" style="width: 100%;height: 100%;">
+                  <img class="immagini-piccole" src="https://source.unsplash.com/375x245/?interior,Room,Home" alt="immagine-qui" style="width: 100%;height: 100%;">
                 </a>
               </div>
 
               <div>
                 <a href="#">
-                  <img class="immagini-piccole"
-                    src="https://source.unsplash.com/375x245/?Kitchen,Interior" 
-                    alt="immagine-qui" style="width: 100%;height: 100%;">
+                  <img class="immagini-piccole" src="https://source.unsplash.com/375x245/?Kitchen,Interior" alt="immagine-qui" style="width: 100%;height: 100%;">
                 </a>
               </div>
 
               <div>
                 <a href="#">
-                  <img class="immagini-piccole"
-                    src="https://source.unsplash.com/collection/2048325/375x245" 
-                    alt="immagine-qui" style="width: 100%;height: 100%;">
+                  <img class="immagini-piccole" src="https://source.unsplash.com/collection/2048325/375x245" alt="immagine-qui" style="width: 100%;height: 100%;">
                 </a>
               </div>
 
               <div>
                 <a href="#">
-                  <img class="immagini-piccole"
-                    src="https://source.unsplash.com/375x245/?Bathroom" 
-                    alt="immagine-qui" style="width: 100%;height: 100%;">
+                  <img class="immagini-piccole" src="https://source.unsplash.com/375x245/?Bathroom" alt="immagine-qui" style="width: 100%;height: 100%;">
                 </a>
-              </div>
+              </div> --}}
             </div>
             {{-- INIZIO 4 IMMAGINI --}}
 
