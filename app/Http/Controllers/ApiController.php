@@ -24,6 +24,22 @@ class ApiController extends Controller
             $apartments= Apartment::all();
         return response() -> json(($apartments),200);
     }
+    public function sponsored(Request $request){
+        $now = Carbon::now()->setTimeZone("Europe/Rome");
+        if($request->where!=''){
+            $apartments_sponsor= DB::table('apartments')
+                ->join('apartment_sponsor', 'apartments.id' , '=', 'apartment_sponsor.apartment_id')
+                ->join('users', 'apartments.user_id' , '=', 'users.id')
+                ->select('apartment_sponsor.*', 'apartments.*')
+                ->where('expire_date', '>', $now)
+                ->where('apartments.deleted_at', null)
+                ->where('address', 'LIKE','%'. $request->where.'%')
+                ->where('number_rooms', '>=', $request->number_rooms)
+                ->where('number_beds', '>=', $request->number_beds)
+                ->get();
+        }
+        return response() -> json(($apartments_sponsor),200);
+    }
     public function service(){
         $services=Service::all();
         // dd($services);

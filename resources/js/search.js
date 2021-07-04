@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             number_beds: 1,
             toggle: true,
             currentapartment: [],
+            currentapartment_sponsor: [],
             allservice: [],
             activeservice: [],
             pos1: {},
@@ -56,6 +57,20 @@ document.addEventListener("DOMContentLoaded", () => {
                                 ]);
                             }
                             this.currentapartment = res.data;
+                        }
+                    })
+                    .catch(err => console.log(err));
+                axios
+                    .get("api/sponsored", {
+                        params: {
+                            where: this.where,
+                            number_rooms: this.number_rooms,
+                            number_beds: this.number_beds
+                        }
+                    })
+                    .then(res => {
+                        if (res.status == 200) {
+                            this.currentapartment_sponsor = res.data;
                         }
                     })
                     .catch(err => console.log(err));

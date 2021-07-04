@@ -2114,6 +2114,7 @@ document.addEventListener("DOMContentLoaded", function () {
       number_beds: 1,
       toggle: true,
       currentapartment: [],
+      currentapartment_sponsor: [],
       allservice: [],
       activeservice: [],
       pos1: {},
@@ -2162,6 +2163,19 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             _this2.currentapartment = res.data;
+          }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+        axios.get("api/sponsored", {
+          params: {
+            where: this.where,
+            number_rooms: this.number_rooms,
+            number_beds: this.number_beds
+          }
+        }).then(function (res) {
+          if (res.status == 200) {
+            _this2.currentapartment_sponsor = res.data;
           }
         })["catch"](function (err) {
           return console.log(err);
