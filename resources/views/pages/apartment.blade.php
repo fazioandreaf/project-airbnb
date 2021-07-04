@@ -205,16 +205,21 @@
               <form action="{{ route('send', $apartment->id) }}" method="POST" novalidate>
                 @csrf
                 @method('POST')
-                <span>
-                  Scrivi all'host 
-                  <i class="fas fa-pencil-alt"></i>
-                  <br>
-                  Vedi se ci sono camere disponibili.
-                </span>
-                <label for="email">
-                  Email
-                </label>
-                <input type="email" id="email" name="email" v-model="email">
+                <div class="form-infos">
+                  <span>
+                    Scrivi all'host 
+                    <i class="fas fa-pencil-alt icon"></i>
+                  </span>
+                  <span>
+                    Vedi se ci sono camere disponibili.
+                  </span>
+                </div>
+                <div class="wrapper-form-fields">
+                  <label for="email">
+                    Email
+                  </label>
+                  <input type="email" id="email" name="email" v-model="email">
+                </div>
                 <textarea rows="20" cols="30" name="text_message"></textarea>
                 <input type="submit" value="Invia">
               </form>

@@ -1,4 +1,5 @@
 #apartment-sample {
+  font-family: "Nunito", sans-serif;
   background-color: $dirty-white;
   padding-bottom: 30px;
 
@@ -286,12 +287,13 @@
 
 
           form {
-            height: 650px;
+
             width: 80%;
             @include flex(column, center, center);
             border-radius: 20px;
-            box-shadow: 2px 2px lightgray;
+            box-shadow: 0 0 3px lightgray;
             background-color: $white;
+            padding: 20px;
 
             .fa-pencil-alt {
               animation: matita 2s linear infinite;
@@ -305,19 +307,40 @@
               100% {transform: rotate(0.00turn);}
             }
 
-            span {
-              line-height: 200%;
+            .form-infos {
+              @include flex(column, null, center);
 
-              i {
-                margin-left: 130px;
-                font-size: 30px;
+              span {
+                @include flex(row, space-between, center);
 
-              } // FINE ICONA MATITA
+                .icon {
+                  margin-left: 20px;
+                  font-size: 30px;
+                }
+              }
+              
+            }
 
-            } // FINE SPAN
+            .wrapper-form-fields {
+              @include flex(row, flex-start, center);
+              padding: 10px 0;
+              label {
+                margin-right: 10px;
+              }
+
+              input {
+                border: 1px solid rgba(50, 50, 50, .2);
+                border-radius: 10px;
+                padding: 5px 10px;
+
+                &:focus {
+                  outline: 0;
+                }
+              }
+            }
 
             // BOTTONE SUBMIT
-            input {
+            input[type="submit"] {
               font-size: 18px;
               margin-top: 20px;
               padding: 15px 30px;
@@ -325,14 +348,26 @@
               border: none;
               border-radius: 10px;
               color: $white;
+              transition: all .5s;
+
+              &:hover {
+                background-color: $mesprit-fuchsia;
+              }
             }
 
             // SCATOLA DI TESTO (LOL)
             textarea {
+              margin-top: 10px;
               max-width: 80%;
-              min-height: 60%;
-              border: 0.5px solid rgba(50, 50, 50, .2);
+              overflow: auto;
+              resize: none;
+              padding: 10px;
+              border: 1px solid rgba(50, 50, 50, .2);
               border-radius: 10px;
+
+              &:focus {
+                outline: 0;
+              }
             }
           }
         } // FINE destra-dettagli-flat

@@ -1495,6 +1495,7 @@ section#section-register form .error {
 }
 
 #apartment-sample {
+  font-family: "Nunito", sans-serif;
   background-color: #eff0f0;
   padding-bottom: 30px;
 }
@@ -1787,15 +1788,15 @@ section#section-register form .error {
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form {
-  height: 650px;
   width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  box-shadow: 2px 2px lightgray;
+  box-shadow: 0 0 3px lightgray;
   background-color: #FFF;
+  padding: 20px;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form .fa-pencil-alt {
@@ -1847,16 +1848,47 @@ section#section-register form .error {
   }
 }
 
-#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form span {
-  line-height: 200%;
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form .form-infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form span i {
-  margin-left: 130px;
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form .form-infos span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form .form-infos span .icon {
+  margin-left: 20px;
   font-size: 30px;
 }
 
-#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form input {
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form .wrapper-form-fields {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 0;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form .wrapper-form-fields label {
+  margin-right: 10px;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form .wrapper-form-fields input {
+  border: 1px solid rgba(50, 50, 50, 0.2);
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form .wrapper-form-fields input:focus {
+  outline: 0;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form input[type=submit] {
   font-size: 18px;
   margin-top: 20px;
   padding: 15px 30px;
@@ -1864,13 +1896,25 @@ section#section-register form .error {
   border: none;
   border-radius: 10px;
   color: #FFF;
+  transition: all 0.5s;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form input[type=submit]:hover {
+  background-color: #b30062;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form textarea {
+  margin-top: 10px;
   max-width: 80%;
-  min-height: 60%;
-  border: 0.5px solid rgba(50, 50, 50, 0.2);
+  overflow: auto;
+  resize: none;
+  padding: 10px;
+  border: 1px solid rgba(50, 50, 50, 0.2);
   border-radius: 10px;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form textarea:focus {
+  outline: 0;
 }
 
 section#login-section {
