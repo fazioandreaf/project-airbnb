@@ -1629,6 +1629,12 @@ section#section-register form .form-button {
   align-items: center;
 }
 
+@media screen and (max-width: 420px) {
+  #apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div:first-of-type {
+    width: 100%;
+  }
+}
+
 #apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div:first-of-type a {
   height: 100%;
   width: calc(100% - 5px);
@@ -1640,6 +1646,13 @@ section#section-register form .form-button {
   border-radius: 20px 0px 0px 20px;
 }
 
+@media screen and (max-width: 420px) {
+  #apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div:first-of-type .immagine-grande {
+    margin-right: 0px;
+    border-radius: 20px;
+  }
+}
+
 #apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div:first-of-type .immagine-grande:hover {
   opacity: 0.5;
   z-index: 2;
@@ -1649,6 +1662,12 @@ section#section-register form .form-button {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 420px) {
+  #apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div:last-of-type {
+    display: none;
+  }
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .apartment-img-container div:last-of-type .immagini-piccole:hover {

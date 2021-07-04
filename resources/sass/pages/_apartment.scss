@@ -189,6 +189,11 @@
         div:first-of-type {
           @include flex(row, center, center);
 
+          // MEDIA QUERY
+          @include responsive(mobile) {
+            width:100%;
+          }
+
           a {
             height: 100%;
             width: calc(100% - 5px);
@@ -198,7 +203,14 @@
           .immagine-grande {
             margin-right: 10px;
             border-radius: 20px 0px 0px 20px;
-          }
+
+            // MEDIA QUERY
+            @include responsive(mobile) {
+              margin-right: 0px;
+              border-radius: 20px;
+            }
+
+          } // FINE IMMAGINE GRANDE
 
           .immagine-grande:hover {
             opacity: 0.5;
@@ -210,6 +222,11 @@
         div:last-of-type {
           @include flex(row, null, null);
           flex-wrap: wrap;
+
+          // MEDIA QUERY
+          @include responsive(mobile) {
+            display:none;
+          }
 
           .immagini-piccole:hover {
             opacity: 0.5;

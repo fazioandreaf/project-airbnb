@@ -80,7 +80,7 @@
           </h1>
         </div>
 
-        {{-- INIZIO DESCRIZIONE --}}
+        {{-- INIZIO INDIRIZZO --}}
         <div class="description-apartment">
           <div>
             <span>
@@ -90,7 +90,7 @@
             </span>
           </div>
         </div>
-        {{-- FINE DESCRIZIONE --}}
+        {{-- FINE INDIRIZZO --}}
 
         {{-- _________FINE DESCRIZIONE - INIZIO IMMAGINI___________ --}}
 
@@ -99,9 +99,11 @@
 
           {{-- INIZIO IMMAGINE GRANDE --}}
           <div>
+            <i class="fas fa-chevron-left"></i>
             <a href="#">
               <img class="immagine-grande" src="{{asset('/storage/assets/'.$apartment->cover_image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
             </a>
+            <i class="fas fa-chevron-right"></i>
           </div>
           {{-- FINE IMMAGINE GRANDE --}}
 
