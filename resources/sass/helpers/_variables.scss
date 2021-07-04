@@ -37,3 +37,10 @@ $steelix-gray: #d9d9d9;
 $mesprit-fuchsia: #b30062;
 // footer
 $footer-gray: #f7f7f7;
+
+@mixin responsive($device) {
+
+    @if $device == mobile {
+      @media screen and(max-width:420px) {@content};
+    }
+  }

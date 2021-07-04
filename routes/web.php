@@ -52,3 +52,4 @@ Route::get('/success_message','PayController@success')->name('success');
 Route::get('/pages/maps', 'MainController@maps');
 
 
+Route::view('/success', 'pages/success');

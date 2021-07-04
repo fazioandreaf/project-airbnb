@@ -4,9 +4,11 @@
         <div class="container">
             <ul class="nav-links">
                 <li id="wrapper-logo">
-                    <a href="{{ route('homepage') }}">
-                        <img id="logo" src="{{ asset('storage/assets/lg_color0_bianco.png')}}" alt="Logo BoolBnB">
-                    </a>
+                    <div class="logo-b">
+                        <a href="{{ route('homepage') }}" class="logo-b"></a>
+                        {{--<img id="logo" src="{{ asset('storage/assets/lg_color0_bianco.png')}}" alt="Logo BoolBnB">--}}
+                    {{--</a> --}}
+                        </div>
                 </li>
                 <li class="has-dropdown" v-on:click.stop="openDropdown">
                     <div class="hamburger">
@@ -56,26 +58,27 @@
                 </li>
             </ul>
 
-            <div class="wrapper-search-bar">
-                <form class="search-bar" action="{{ route('search') }}" method="get" enctype="multipart/form-data">
-                    @method('get')
-                    @csrf
-                    <div class="wrapper-form-fields first">
-                        <div id="search">
+            
+        </div>
+        <div class="wrapper-search-bar">
+            <form class="search-bar" action="{{ route('search') }}" method="get" enctype="multipart/form-data">
+                @method('get')
+                @csrf
+                <div class="wrapper-form-fields first">
+                    <div id="search">
 
-                            <label for="where">
-                                Dove
-                            </label>
-                            <input type="text" id="where" name="where" placeholder="Dove vuoi andare?">
-                        </div>
+                        <label for="where">
+                            Dove
+                        </label>
+                        <input type="text" id="where" name="where" placeholder="Dove vuoi andare?">
                     </div>
-                    <div class="wrapper-form-fields last">
-                        <button type="submit" class="search">
-                            <i class="fas fa-search"></i>
-                        </div>
+                </div>
+                <div class="wrapper-form-fields last">
+                    <button type="submit" class="search">
+                        <i class="fas fa-search"></i>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </nav>
 

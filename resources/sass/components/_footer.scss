@@ -1,4 +1,5 @@
 footer {
+
   border-top: 1px solid rgba(50, 50, 50, .1);
   background-color: $footer-gray;
 
@@ -15,9 +16,10 @@ footer {
       border-bottom: 1px solid rgba(50, 50, 50, .1);
       padding: 40px 0;
 
-      // MEDIA QUERY
-      @include responsive(mobile) {
-        @include flex(column, null, null);
+      @include responsive(mobile){
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
       }
 
       // UL NAV LINKS
@@ -31,14 +33,21 @@ footer {
           width: 100%;
         }
 
-        h3 {
+       
+  
+        h3 {  
           font-size: 14px;
           text-transform: uppercase;
+
+          @include responsive(mobile){
+            margin-top: 20px;
+          }
         }
 
         & > li a:hover {
           text-decoration: underline;
         }
+
       }
     }
 
@@ -96,6 +105,13 @@ footer {
       #site-infos {
         flex-grow: 1;
 
+        @include responsive(mobile){
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          align-items: flex-start;
+        }
+
         li {
           margin-right: 20px;
 
@@ -110,9 +126,11 @@ footer {
       #social-links {
         @include flex(row, flex-end, center);
 
-        // MEDIA QUERY
-        @include responsive(mobile) {
-          display:none;
+        @include responsive(mobile){
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          align-items:flex-start;
         }
 
         .social {
@@ -138,4 +156,6 @@ footer {
       }
     }
   } // END BIGGER FOOTER
+
+ 
 } // fine di footer
