@@ -1,12 +1,14 @@
 #header-search {
   min-height: 220px;
-  @include flex(column, space-around, null);
+  @include flex(column, space-evenly, null);
   @include container(90%);
   flex-wrap: wrap;
 
   // MEDIA QUERY
   @include responsive(mobile) {
     @include container(100%);
+    @include flex(column, null, null);
+    max-height: 800px;
   }
 
   .top-header-search {
@@ -25,7 +27,7 @@
 
       // MEDIA QUERY
       @include responsive(mobile) {
-        display:none;
+        display: none;
       }
 
       a {
@@ -82,7 +84,7 @@
           }
 
           &:hover{
-            background-color: $royal-fuchsia;
+            background-color: lime;
           }
 
         } // FINE A-HREF
@@ -108,7 +110,7 @@
           }
 
           &:hover{
-            background-color: $royal-fuchsia;
+            background-color: lime;
           }
 
         }

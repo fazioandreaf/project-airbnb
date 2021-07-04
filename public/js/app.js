@@ -50241,7 +50241,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var app = new Vue({
     el: '#app',
     data: _defineProperty({
-      messaggio: "hello world",
+      isShowing: false,
       labelActive: "profile-infos",
       dropdownActive: false,
       formErrors: [],
@@ -50261,6 +50261,11 @@ document.addEventListener('DOMContentLoaded', function () {
       classes: []
     }, "formErrors", []),
     methods: {
+      test: function test() {
+        // this.isShowing = !this.isShowing;
+        // console.log(this.isShowing);
+        console.log("LALLERO");
+      },
       openDropdown: function openDropdown() {
         this.dropdownActive = !this.dropdownActive;
       },
@@ -50835,8 +50840,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Andrea\Desktop\project-airbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Andrea\Desktop\project-airbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Danny\Progetti_2021\07-2021\02-07-2021\project-airbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Danny\Progetti_2021\07-2021\02-07-2021\project-airbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
