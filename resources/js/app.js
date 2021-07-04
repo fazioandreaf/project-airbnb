@@ -31,9 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const app = new Vue({
         el: '#app',
         data: {
-
-            messaggio:"hello world",
-
+            isShowing: false,
             labelActive: "profile-infos",
             dropdownActive: false,
             registerErrors: [],
@@ -46,6 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         methods: {
+
+          test: function() {
+            // this.isShowing = !this.isShowing;
+            // console.log(this.isShowing);
+            console.log("LALLERO");
+          },
 
             openDropdown: function() {
 
@@ -104,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     this.registerErrors.push("La password deve contenere almeno 8 caratteri!")
                 }
-                
+
                 if(this.confirmPassword != this.password) {
 
                     this.registerErrors.push("Le password non corrispondono!")
@@ -112,15 +116,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Date of birth validation
                 if(!this.dateOfBirth) {
-                    
+
                     this.registerErrors.push("Non hai inserito una data dei nascita valida!")
                 } else {
-                    
+
                     const date = new Date(this.dateOfBirth).getTime();
-                    if (date > now) 
+                    if (date > now)
                     this.registerErrors.push("Vieni davvero dal futuro?")
                 }
-                
+
                 if(!this.registerErrors.length) {
                     return true
                 }
@@ -146,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     this.registerErrors.push("La password deve contenere almeno 8 caratteri!")
                 }
-            
+
                 if(!this.registerErrors.length) {
                     return true
                 }

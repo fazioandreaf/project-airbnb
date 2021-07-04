@@ -1,6 +1,6 @@
 <header id="header-search">
 
-  <div class="top-header-search" id="app">
+  <div class="top-header-search">
 
     <div class="logo">
       <a href="{{route('homepage')}}">
@@ -31,7 +31,7 @@
           </a>
         </div>
 
-        <div class="filtrini">
+        <div class="filtrini" @click="isShowing == true">
           <a href="#">
             <i class="fas fa-filter"></i>
           </a>
@@ -96,7 +96,7 @@
 
   </div> {{-- FINE DI top-header-search --}}
 
-  <div class="lower-header-search">
+  <div class="lower-header-search" v-if="test">
     <ul>
       <li v-for="elem in allservice" @click="upservice(elem.id)" :class="(activeservice.includes(elem.id)?'active':'')">
         @{{elem.service}}

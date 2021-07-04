@@ -50240,7 +50240,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var app = new Vue({
     el: '#app',
     data: {
-      messaggio: "hello world",
+      isShowing: false,
       labelActive: "profile-infos",
       dropdownActive: false,
       registerErrors: [],
@@ -50252,6 +50252,11 @@ document.addEventListener('DOMContentLoaded', function () {
       confirmPassword: null
     },
     methods: {
+      test: function test() {
+        // this.isShowing = !this.isShowing;
+        // console.log(this.isShowing);
+        console.log("LALLERO");
+      },
       openDropdown: function openDropdown() {
         this.dropdownActive = !this.dropdownActive;
       },

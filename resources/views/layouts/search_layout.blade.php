@@ -12,8 +12,7 @@
     {{-- cdn --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
     <!-- Scripts -->
-    <script src="{{ asset('js/search.js') }}" ></script>
-
+    <script src="{{ asset('js/search.js') }}"></script>
     <!-- Google Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">

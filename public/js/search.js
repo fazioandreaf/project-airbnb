@@ -2108,6 +2108,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var app = new Vue({
     el: "#search",
     data: {
+      isShowing: false,
       dropdownActive: false,
       where: "",
       number_rooms: 1,
@@ -2137,6 +2138,11 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     },
     methods: {
+      test: function test() {
+        this.isShowing = !this.isShowing;
+        console.log(this.isShowing);
+        console.log("LALLERO");
+      },
       addclass: function addclass() {
         this.toggle = !this.toggle;
       },

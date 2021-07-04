@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const app = new Vue({
         el: "#search",
         data: {
+            isShowing: false,
             dropdownActive: false,
             where: "",
             number_rooms: 1,
@@ -32,6 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 .catch(err => console.log(err));
         },
         methods: {
+
+            test: function() {
+              this.isShowing = !this.isShowing;
+              console.log(this.isShowing);
+              console.log("LALLERO");
+            },
+
             addclass: function() {
                 this.toggle = !this.toggle;
             },
