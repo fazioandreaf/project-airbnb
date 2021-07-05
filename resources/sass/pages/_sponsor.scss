@@ -5,6 +5,11 @@ div#sponsor-apartament{
     margin: auto;
     margin-top: 60px;
 
+    // MEDIA QUERY
+    @include responsive(mobile) {
+      height: auto;
+    }
+
     .title-sponsor{
         margin-top: 20px;
         margin-bottom: 10px;
@@ -12,9 +17,8 @@ div#sponsor-apartament{
     }
 
     .label-sponsor-contain{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
+      @include flex(row, space-around, null);
+      flex-wrap: wrap;
 
         .label-sponsor{
             width: 250px;
@@ -45,7 +49,7 @@ div#sponsor-apartament{
                 font-size: 50px;
 
                 .euro-price{
-                    font-size: 30px; 
+                    font-size: 30px;
                 }
 
             }
