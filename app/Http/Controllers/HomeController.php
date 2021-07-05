@@ -179,7 +179,7 @@ class HomeController extends Controller {
     public function store_image(Request $request,$id,$i)
     {
         $apartment = Apartment::findOrFail($id);
-        if (count($apartment->images) == 5) {
+        if (count($apartment->images) == 4) {
             return redirect()->route('myapartment',Auth::id());
         }
         if ($request->hasFile('image')) {
