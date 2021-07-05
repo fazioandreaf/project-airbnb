@@ -20,11 +20,14 @@
           @foreach ($apartments as $apartment)
             <li>
               <div class="flags">
-                <a href="{{route('apartment', $apartment->id)}}">
-                  {{-- <img src="{{asset('/storage/assets/'.$apartment->cover_image)}}" alt="immagine-qui" style="width: 100%;height: 100%;"> --}}
-                  <img src="{{asset('/storage/assets/external/'.$apartment->id. '.jpg')}}" alt="">
+                <a href="{{ route('apartment', $apartment->id) }}">
+                  <img id="{{ 'image_'.$apartment->id }}" src="{{ asset('/storage/assets/external/' . $apartment->id .'.jpg')}}" onerror="this.src='https://news.cinecitta.com/photo.aspx?s=1&w=850&path=%2Fpublic%2Fnews%2F0069%2F69239%2Fpadre_maronno.jpg'">
                 </a>
-                <span class="title">{{ $apartment->title }} </span>
+                <div class="title">
+                  <a href="{{ route('apartment', $apartment->id) }}">
+                    {{ $apartment->title }} 
+                  </a>
+                </div>
               </div>
             </li>
 

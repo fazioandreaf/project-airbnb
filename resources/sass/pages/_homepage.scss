@@ -71,38 +71,64 @@
             font-size: 20px;
             @include container(90%);
             @include flex(row, space-between, center);
-            overflow-x: hidden;
+            overflow: hidden;
             scroll-behavior: smooth;
 
             .flags {
                 width: 220px;
                 height: 220px;
-                background-color: navy;
+                overflow: hidden;
+                position: relative;
                 border-radius: 10px;
-                @include flex(column, center, center);
                 margin-right: 20px;
-                &:hover {
-                    // width: 250px;
-                    // height: 250px;
+                
+                & > a {
+                    position: absolute;
+                    background-color: transparent;
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                    z-index: 100;
                 }
-                span {
-                    color: white;
-                    &:hover {
-                        color: red;
-                    }
+
+                // .layover {
+                //     
+                //     position: absolute;
+                    
+                //     transform: translateY(100%);
+                //     z-index: 100;
+                //     transition: all .5s;
+                // }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
                 }
-                a {
-                    @include flex(column, center, center);
-                    color: white;
-                    flex-basis: 75%;
-                    img {
+
+                .title { 
+                    color: $white;
+                    background-color: rgba(0,0,0,.6);
+                    position: absolute;
+                    bottom: 0;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    transform: translateY(100%);
+                    transition: all .5s;
+                    z-index: 100;
+
+                    a {
+                        display: inline-block; 
                         width: 100%;
                         height: 100%;
                     }
                 }
-                .title {
-                    flex: 1;
-                }
+            }  
+
+            .flags:hover .layover,
+            .flags:hover > .title, {
+                transform: translateY(0%);
             }
         }
     }

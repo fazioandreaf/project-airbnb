@@ -36,7 +36,7 @@
           </a>
         </div>
 
-        <div class="filtrini" @click="isShowing == true">
+        <div class="filtrini" @click="filterbutton" :class="!filterel?'activefilter':''">
           <a href="#">
             <i class="fas fa-filter"></i>
           </a>
@@ -102,7 +102,7 @@
 
   </div> {{-- FINE DI top-header-search --}}
 
-  <div class="lower-header-search" v-if="test">
+  <div class="lower-header-search" v-if="filterel">
     <ul>
       <li v-for="elem in allservice" @click="upservice(elem.id)" :class="(activeservice.includes(elem.id)?'active':'')">
         @{{elem.service}}

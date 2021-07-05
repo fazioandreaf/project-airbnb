@@ -2108,7 +2108,6 @@ document.addEventListener("DOMContentLoaded", function () {
   var app = new Vue({
     el: "#search",
     data: {
-      isShowing: false,
       dropdownActive: false,
       where: "",
       number_rooms: 1,
@@ -2122,7 +2121,9 @@ document.addEventListener("DOMContentLoaded", function () {
       pos2: {},
       apartmentrange: [],
       km: 0,
-      range: 21
+      range: 21,
+      results: true,
+      filterel: false
     },
     mounted: function mounted() {},
     created: function created() {
@@ -2130,7 +2131,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       setTimeout(function () {
         _this.filtro();
-      }, 5000);
+      }, 1000);
       axios.get("api/service").then(function (res) {
         if (res.status == 200) {
           _this.allservice = res.data;
@@ -2140,10 +2141,9 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     },
     methods: {
-      test: function test() {
-        this.isShowing = !this.isShowing;
-        console.log(this.isShowing);
-        console.log("LALLERO");
+      filterbutton: function filterbutton() {
+        console.log(this.filterel);
+        this.filterel = !this.filterel;
       },
       addclass: function addclass() {
         this.toggle = !this.toggle;
@@ -2165,6 +2165,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (res.status == 200) {
             if (res.data.length == 0) {
               return _this2.currentapartment = [{
+                errore: true,
                 title: "Nessun appartamento trovato"
               }];
             }
@@ -2206,6 +2207,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (res.status == 200) {
             if (res.data.length == 0) {
               return _this3.currentapartment = [{
+                errore: true,
                 title: "Nessun appartamento trovato"
               }];
             }
@@ -2258,12 +2260,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
         removeMarkerr();
         this.currentapartment = [];
+        this.currentapartment_sponsor = [];
 
         if (!this.activeservice.includes(id)) {
           this.activeservice.push(id);
         } else {
           index = this.activeservice.indexOf(id);
           this.activeservice.splice(index, 1);
+        }
+
+        if (this.activeservice.length < 1) {
+          this.filtroavanzato();
         }
 
         axios.get("api/upservice", {
@@ -2275,29 +2282,71 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }).then(function (res) {
           if (res.data.length == 0) {
-            return _this4.currentapartment = [{
+            _this4.currentapartment = [{
+              errore: true,
               title: "Nessun appartamento trovato"
             }];
-          }
+          } else {
+            _this4.currentapartment = res.data;
 
-          _this4.currentapartment = res.data;
-
-          for (i = 0; i < _this4.currentapartment.length; i++) {
-            axios.get("https://api.tomtom.com/search/2/search/" + _this4.currentapartment[i].address + ".JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC").then(function (res) {
-              tmp = res.data.results[0].position;
-              var point = [tmp.lon, tmp.lat];
-              map.easeTo({
-                center: point,
-                zoom: 10
+            for (i = 0; i < _this4.currentapartment.length; i++) {
+              axios.get("https://api.tomtom.com/search/2/search/" + _this4.currentapartment[i].address + ".JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC").then(function (res) {
+                tmp = res.data.results[0].position;
+                var point = [tmp.lon, tmp.lat];
+                map.easeTo({
+                  center: point,
+                  zoom: 10
+                });
+                makemarker(tmp.lon, tmp.lat);
+              })["catch"](function (err) {
+                return console.log(err);
               });
-              makemarker(tmp.lon, tmp.lat);
-            })["catch"](function (err) {
-              return console.log(err);
-            });
+            }
           }
         })["catch"](function (err) {
           return console.log(err);
         });
+        axios.get("api/upservice_sponsored", {
+          params: {
+            service: this.activeservice,
+            where: this.where,
+            number_rooms: this.number_rooms,
+            number_beds: this.number_beds
+          }
+        }).then(function (res) {
+          console.log("resss", res.data); // if (res.data.length == 0) {
+          //     this.results = !this.results;
+          //     this.currentapartment_sponsor = [
+          //      errore:true,       {
+          // title: "Nessun appartamento trovato" }
+          //     ];
+          // } else {
+          //     this.currentapartment_sponsor = res.data;
+          //     for (
+          //         i = 0;
+          //         i < this.currentapartment_sponsor.length;
+          //         i++
+          //     ) {
+          //         axios
+          //             .get(
+          //                 "https://api.tomtom.com/search/2/search/" +
+          //                     this.currentapartment_sponsor[i]
+          //                         .address +
+          //                     ".JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC"
+          //             )
+          //             .then(res => {
+          //                 tmp = res.data.results[0].position;
+          //                 var point = [tmp.lon, tmp.lat];
+          //                 map.easeTo({ center: point, zoom: 10 });
+          //                 makemarker(tmp.lon, tmp.lat);
+          //             })
+          //             .catch(err => console.log(err));
+          //     }
+          // }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+        console.log("final", this.currentapartment_sponsor);
       },
       redirect: function redirect(id) {
         window.location.href = "apartments" + id;
@@ -2426,6 +2475,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (res.status == 200) {
             if (res.data.length == 0) {
               return _this7.currentapartment = [{
+                errore: true,
                 title: "Nessun appartamento trovato"
               }];
             }
@@ -2451,7 +2501,7 @@ document.addEventListener("DOMContentLoaded", function () {
             for (i = 0; i < _this7.currentapartment.length; i++) {
               makemarker(_this7.currentapartment[i].lon, _this7.currentapartment[i].lat);
             }
-          }, 1000);
+          }, 700);
         })["catch"](function (err) {
           return console.log(err);
         });

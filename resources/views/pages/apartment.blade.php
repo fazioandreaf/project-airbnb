@@ -190,7 +190,7 @@
                 @method('POST')
                 <div class="form-infos">
                   <span>
-                    Scrivi all'host 
+                    Scrivi all'host
                     <i class="fas fa-pencil-alt icon"></i>
                   </span>
                   <span>
