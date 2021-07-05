@@ -6,7 +6,7 @@
                 <li id="wrapper-logo">
                     <div class="logo-b">
                         <a href="{{ route('homepage') }}" class="logo-b"></a>
-                        {{--<img id="logo" src="{{ asset('storage/assets/lg_color0_bianco.png')}}" alt="Logo BoolBnB">--}}
+                        {{-- <img id="logo" src="{{ asset('storage/assets/lg_color0_bianco.png')}}" alt="Logo BoolBnB"> --}}
                     {{--</a> --}}
                         </div>
                 </li>

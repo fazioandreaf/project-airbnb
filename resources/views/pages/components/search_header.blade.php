@@ -1,8 +1,9 @@
 <header id="header-search">
 
-  <div class="top-header-search" id="app">
+  <div class="top-header-search">
 
     <div class="logo">
+
       <a href="{{route('homepage')}}">
         <img src="{{asset('storage/assets/lg_clr.png')}}" alt="logo-image">
       </a>
@@ -24,6 +25,10 @@
           <label for="number_beds">Numeri di letti</label>
           <input type="number" v-model="number_beds" name="number_beds" placeholder="1">
         </div>
+        <div v-if="range!=21" class="numero-letti">
+          <label for="number_beds">Km di distanza dall'appartamento selezionato</label>
+          <input type="number" v-model="range" name="range" placeholder="20">
+        </div>
 
         <div id="lente">
           <a href="#" @click="filtroavanzato()">
@@ -31,11 +36,12 @@
           </a>
         </div>
 
-        <div class="filtrini">
+        <div class="filtrini" @click="isShowing == true">
           <a href="#">
             <i class="fas fa-filter"></i>
           </a>
         </div>
+
 
       </div> {{-- FINE DI FILTERS --}}
 
@@ -96,7 +102,7 @@
 
   </div> {{-- FINE DI top-header-search --}}
 
-  <div class="lower-header-search">
+  <div class="lower-header-search" v-if="test">
     <ul>
       <li v-for="elem in allservice" @click="upservice(elem.id)" :class="(activeservice.includes(elem.id)?'active':'')">
         @{{elem.service}}

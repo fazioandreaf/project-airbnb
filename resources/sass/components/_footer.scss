@@ -60,34 +60,6 @@ footer {
       width: 100%;
       padding: 40px 0;
 
-      #invisible {
-        display: none;
-
-        // LOGO IMAGE
-        img:first-of-type {
-          width: 50px;
-          height: 50px;
-        }
-
-        // IMMAGINE UTENTE (OMINO)
-        i {
-          @include flex(column, center, center);
-          font-size: 30px;
-          width: 50px;
-          height: 50px;
-          color: $royal-fuchsia;
-          border: 1px solid $royal-fuchsia;
-          border-radius: 50%;
-        }
-
-        // MEDIA QUERY
-        @include responsive(mobile) {
-          width: 100%;
-          display: block;
-          @include flex(row, space-between, center);
-        }
-      }
-
       // Tutti e due gli UL
       .footer-nav-links {
         @include flex(row, null, center);

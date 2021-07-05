@@ -14,6 +14,11 @@
     overflow: auto;
     @include flex(column, null, null);
 
+    // MEDIA QUERY
+    @include responsive(mobile) {
+      border-top: none;
+    }
+
 
     .row-with-img-text {
       height: 300px;

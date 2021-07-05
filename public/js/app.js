@@ -50241,7 +50241,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var app = new Vue({
     el: '#app',
     data: _defineProperty({
-      messaggio: "hello world",
+      isShowing: false,
       labelActive: "profile-infos",
       dropdownActive: false,
       formErrors: [],
@@ -50261,6 +50261,11 @@ document.addEventListener('DOMContentLoaded', function () {
       classes: []
     }, "formErrors", []),
     methods: {
+      test: function test() {
+        // this.isShowing = !this.isShowing;
+        // console.log(this.isShowing);
+        console.log("LALLERO");
+      },
       openDropdown: function openDropdown() {
         this.dropdownActive = !this.dropdownActive;
       },

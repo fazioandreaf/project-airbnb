@@ -5,6 +5,10 @@ section#user-dashboard {
 
         @include container(90%);
         @include flex(column, null, center);
+
+        @include responsive(mobile) {
+            @include container(100%);
+        }
     }
 
     h1 {
@@ -26,6 +30,11 @@ section#user-dashboard {
         border-top-left-radius: 0;
         background-color: $footer-gray;
         position: relative;
+        padding: 20px;
+
+        @include responsive(mobile) {
+            padding: 20px;
+        }
 
         .user-infos, .apartments-link {
             display: none;
@@ -35,13 +44,22 @@ section#user-dashboard {
 
             @include flex(row, null, center);
             height: 100%;
-            width: 100%; 
+            width: 100%;
+            @include responsive(mobile) {
+                padding: 10px;
+                @include flex(column, center, center);
+            }
         }
 
         .wrapper-image-placeholder {
 
-            height: 100%;
             width: 50%;
+            transition: all .5s;
+
+            @include responsive(mobile) {
+                margin-top: 20px;
+                border-radius: 50%;
+            }
 
             img {
 
@@ -49,6 +67,10 @@ section#user-dashboard {
                 max-width: 100%;
                 object-fit: cover;
                 border-bottom-left-radius: 15px;
+
+                @include responsive(mobile) {
+                    border-radius: 50%;
+                }
             }
         }
 
@@ -65,6 +87,10 @@ section#user-dashboard {
             background-color: $venusaur-green;
             width: 100%;
 
+            @include responsive(mobile) {
+                @include flex(column, center, center);
+            }
+
             .dashboard-label {
 
                 @include flex(row, center, center);
@@ -74,6 +100,11 @@ section#user-dashboard {
                 height: 40px;
                 transition: background-color .5s;
                 cursor: pointer;
+
+                @include responsive(mobile) {
+                    width: 100%;
+                    height: 25px;
+                }
 
                 &:hover {
 
@@ -90,6 +121,11 @@ section#user-dashboard {
 
             @include flex(row, center, center);
             @extend %venusaur-green-button;
+
+            @include responsive(mobile) {
+                margin-top: 20px;
+                font-size: 10px;
+            }
 
             &:hover {
                 background-color: $grovyle-dark-green;

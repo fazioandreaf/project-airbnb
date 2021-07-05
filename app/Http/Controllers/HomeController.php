@@ -9,6 +9,7 @@ use App\Apartment;
 use App\Sponsor;
 Use App\Service;
 use App\SponsoredApartment;
+use App\Image;
 
 
 class HomeController extends Controller {
@@ -156,8 +157,43 @@ class HomeController extends Controller {
         $apartment = Apartment::findOrFail($id);
         return view('pages.edit-image',compact('apartment'));
     }
-    public function update_image(Request $request, $id)
+    public function update_image(Request $request, $id,$key,$idApartment)
     {
-        dd($request);
+        // dd($request->all());
+        $validated = $request -> validate([
+            'image' => 'required'
+        ]);
+        $image = Image::findOrFail($id);
+        if ($request->hasFile('image')) {
+            $img = $request -> file('image');
+            $imgExt = $img -> getClientOriginalExtension();
+            $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
+            switch ($key) {
+                case 0:
+                    $folder = '/assets/external/';
+                    break;
+                case 1: 
+                    $folder = '/assets/living-room/';
+                    break;
+                case 2: 
+                    $folder = '/assets/kitchen/';
+                    break;
+                case 3: 
+                    $folder = '/assets/bedroom/';
+                    break;
+                case 4: 
+                    $folder = '/assets/bathroom/';
+                    break;
+            }
+            $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
+            // dd($img,$imgExt,$newNameImg,$imgFile);
+
+            $image->image = $newNameImg;
+            // dd($image->image = $newNameImg);
+            $image->update(['image' => $newNameImg]);
+            return redirect()->route('edit_image',$idApartment);
+        }else {
+            return back();
+        }
     }
 } // END OF HomeController

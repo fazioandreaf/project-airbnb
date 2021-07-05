@@ -158,7 +158,6 @@
   </div>
 
   <div class="footer-bottom-section">
-
     <!-- Lista Informazioni Sito -->
     <ul id="site-infos" class="footer-nav-links">
       <li>

@@ -3,7 +3,6 @@ section#user-dashboard .wrapper-with-apartments {
   width: 60%;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  height: 300px;
 }
 
 section#user-dashboard .wrapper-with-apartments .apartments-link a,
@@ -267,14 +266,12 @@ section#my-apartments .button-link {
   width: 60px;
   height: 60px;
   margin-top: 10px;
-  background-image: url(/images/lg_color0_bianco.png?41b32fd294bbfd12a993f8e4361fe9f3);
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 @media screen and (max-width: 420px) {
   .landing-header .navbar .nav-links #wrapper-logo .logo-b {
-    background-image: url(/images/lg_color1.png?9fa13ceb857a6fcab56d309814a4bc60);
     margin-top: 0px;
   }
 }
@@ -687,39 +684,6 @@ footer .bigger-footer .footer-bottom-section {
   padding: 40px 0;
 }
 
-footer .bigger-footer .footer-bottom-section #invisible {
-  display: none;
-}
-
-footer .bigger-footer .footer-bottom-section #invisible img:first-of-type {
-  width: 50px;
-  height: 50px;
-}
-
-footer .bigger-footer .footer-bottom-section #invisible i {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-  width: 50px;
-  height: 50px;
-  color: #e6007e;
-  border: 1px solid #e6007e;
-  border-radius: 50%;
-}
-
-@media screen and (max-width: 420px) {
-  footer .bigger-footer .footer-bottom-section #invisible {
-    width: 100%;
-    display: block;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-
 footer .bigger-footer .footer-bottom-section .footer-nav-links {
   display: flex;
   flex-direction: row;
@@ -800,7 +764,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   min-height: 220px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin: 0 auto;
   width: 90%;
   flex-wrap: wrap;
@@ -810,6 +774,9 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   #header-search {
     margin: 0 auto;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    max-height: 800px;
   }
 }
 
@@ -894,7 +861,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
 }
 
 #header-search .top-header-search .filter #lente a:hover {
-  background-color: #e6007e;
+  background-color: lime;
 }
 
 #header-search .top-header-search .filter .filtrini {
@@ -924,7 +891,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
 
 @media screen and (max-width: 420px) {
   #header-search .top-header-search .filter .filtrini:hover {
-    background-color: #e6007e;
+    background-color: lime;
   }
 }
 
@@ -1146,7 +1113,6 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   justify-content: center;
   width: 90%;
   height: 350px;
-  background-image: url(/images/diventaHost.png?09ac750ce1020f6c907abe1ed05c16b0);
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
@@ -1299,6 +1265,13 @@ section#user-dashboard .container {
   align-items: center;
 }
 
+@media screen and (max-width: 420px) {
+  section#user-dashboard .container {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
 section#user-dashboard h1 {
   font-size: 40px;
   text-align: center;
@@ -1317,6 +1290,13 @@ section#user-dashboard .wrapper-with-apartments {
   border-top-left-radius: 0;
   background-color: #f7f7f7;
   position: relative;
+  padding: 20px;
+}
+
+@media screen and (max-width: 420px) {
+  section#user-dashboard .wrapper-with-apartments {
+    padding: 20px;
+  }
 }
 
 section#user-dashboard .wrapper-with-apartments .user-infos,
@@ -1332,9 +1312,26 @@ section#user-dashboard .wrapper-with-apartments .user-infos.active {
   width: 100%;
 }
 
+@media screen and (max-width: 420px) {
+  section#user-dashboard .wrapper-with-apartments .user-infos.active {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 section#user-dashboard .wrapper-with-apartments .wrapper-image-placeholder {
-  height: 100%;
   width: 50%;
+  transition: all 0.5s;
+}
+
+@media screen and (max-width: 420px) {
+  section#user-dashboard .wrapper-with-apartments .wrapper-image-placeholder {
+    margin-top: 20px;
+    border-radius: 50%;
+  }
 }
 
 section#user-dashboard .wrapper-with-apartments .wrapper-image-placeholder img {
@@ -1343,6 +1340,12 @@ section#user-dashboard .wrapper-with-apartments .wrapper-image-placeholder img {
   -o-object-fit: cover;
      object-fit: cover;
   border-bottom-left-radius: 15px;
+}
+
+@media screen and (max-width: 420px) {
+  section#user-dashboard .wrapper-with-apartments .wrapper-image-placeholder img {
+    border-radius: 50%;
+  }
 }
 
 section#user-dashboard .wrapper-with-apartments .active {
@@ -1362,6 +1365,15 @@ section#user-dashboard .wrapper-with-apartments .wrapper-dashboard-labels {
   width: 100%;
 }
 
+@media screen and (max-width: 420px) {
+  section#user-dashboard .wrapper-with-apartments .wrapper-dashboard-labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 section#user-dashboard .wrapper-with-apartments .wrapper-dashboard-labels .dashboard-label {
   display: flex;
   flex-direction: row;
@@ -1373,6 +1385,13 @@ section#user-dashboard .wrapper-with-apartments .wrapper-dashboard-labels .dashb
   height: 40px;
   transition: background-color 0.5s;
   cursor: pointer;
+}
+
+@media screen and (max-width: 420px) {
+  section#user-dashboard .wrapper-with-apartments .wrapper-dashboard-labels .dashboard-label {
+    width: 100%;
+    height: 25px;
+  }
 }
 
 section#user-dashboard .wrapper-with-apartments .wrapper-dashboard-labels .dashboard-label:hover {
@@ -1388,6 +1407,13 @@ section#user-dashboard .wrapper-with-apartments .apartments-link a {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 420px) {
+  section#user-dashboard .wrapper-with-apartments .apartments-link a {
+    margin-top: 20px;
+    font-size: 10px;
+  }
 }
 
 section#user-dashboard .wrapper-with-apartments .apartments-link a:hover {
@@ -1551,6 +1577,12 @@ section#section-register form .error {
   overflow: auto;
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (max-width: 420px) {
+  .search-page .left-section {
+    border-top: none;
+  }
 }
 
 .search-page .left-section .row-with-img-text {

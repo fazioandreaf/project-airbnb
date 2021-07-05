@@ -56,6 +56,7 @@ class MainController extends Controller {
 
     // registrazione
     public function search(Request $request){
+        $now = Carbon::now()->setTimeZone("Europe/Rome");
         // dd($request->where);
         $first_search=$request->where;
         if($request->where!=null){
@@ -64,8 +65,16 @@ class MainController extends Controller {
         else{
             $apartments= Apartment::first()->limit(50)->get();
         }
+        $apartments_sponsor = DB::table('apartments')
+                    ->join('apartment_sponsor', 'apartments.id' , '=', 'apartment_sponsor.apartment_id')
+                    ->join('users', 'apartments.user_id' , '=', 'users.id')
+                    ->select('apartment_sponsor.*', 'apartments.*')
+                    ->where('address', 'LIKE','%'. $request->where.'%')
+                    ->where('expire_date', '>', $now)
+                    ->where('apartments.deleted_at', null)
+                    ->get();
         // dd($apartments,$first_search);
-        return view('pages.search',compact('apartments','first_search'));
+        return view('pages.search',compact('apartments','first_search','apartments_sponsor'));
     }
     public function send(Request $request,$id){
         $validate=$request->validate([
