@@ -2757,7 +2757,25 @@ section#edit-section .form-complit .form-select {
 
 section#edit-section .form-complit .form-select label {
   flex-grow: 1;
-  padding-right: 10px;
+  padding: 2px;
+  border-radius: 5px;
+  transition: all ease-in 0.5s;
+  text-align: left;
+  margin: 2px;
+}
+
+section#edit-section .form-complit .form-select label:hover {
+  background-color: #12a19a;
+  color: #FFF;
+}
+
+section#edit-section .form-complit .form-select .hidden_check:checked ~ label {
+  background-color: #12a19a;
+  color: #FFF;
+}
+
+section#edit-section .form-complit .form-select .hidden_check {
+  visibility: hidden;
 }
 
 section#edit-section .form-btn {
