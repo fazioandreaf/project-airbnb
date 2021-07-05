@@ -43,13 +43,13 @@
 
         @include flex(row, null, center);
 
-      
+
       }
 
       .has-dropdown {
         position: relative;
 
-        
+
         .hamburger {
           @include hamburger($white);
           color: $black;
@@ -65,7 +65,7 @@
           display: none;
           position: absolute;
           z-index: 9001; //IT'S OVER 9000
-          
+
           background-color: $white;
           color: $black;
           box-shadow: 0 0 3px $user-gray;
@@ -77,7 +77,7 @@
             background-color: red;
             top: calc(100% + 2px);
           left: calc(-50% - 20px);
-            
+
            }
 
         }
@@ -174,7 +174,7 @@
     height: 60px;
     width: auto;
   }
-  
+
   & > img {
 
     position: absolute; // IMPORTANTE
@@ -217,7 +217,7 @@
       @include flex(column, null, center);
 
       @include responsive(mobile){
-        
+
         width: 100%;
         height: 100px;
         padding: 50px;
@@ -251,19 +251,19 @@
           height: 60px;
           margin-top: 10px;
           //background-color: brown;
-          
-          background-image:url('../assets/lg_color0_bianco.png');
+
+          // background-image:url('../storage/assets/lg_color0_bianco.png');
           background-size: contain;
           background-repeat: no-repeat;
-          
+
           @include responsive(mobile){
-            background-image: url('../assets/lg_color1.png');
+            // background-image: url('../assets/lg_color1.png');
             margin-top: 0px;
            }
 
         }
 
-        
+
       }
 
       .hamburger {
@@ -313,7 +313,7 @@
 
     .wrapper-search-bar {
 
-      
+
       padding: 20px 40px;
       border-radius: 40px;
 
@@ -336,7 +336,7 @@
 
           @include responsive(mobile){
             width: 100px;
-            
+
            }
         }
 
@@ -348,7 +348,7 @@
 
           @include responsive(mobile){
             padding-left: 100px;
-            
+
            }
         }
 
@@ -360,10 +360,10 @@
 
           @include responsive(mobile){
             padding-left: 100px;
-            
+
            }
         }
-        
+
         input {
 
           border: 0;
@@ -384,7 +384,7 @@
 
           @include responsive(mobile){
             margin-left: 200px;
-            
+
            }
         }
       }
@@ -409,11 +409,11 @@
   .navbar {
 
     flex-grow: 1;
-    
+
     .nav-links {
 
       @include flex(row, space-between, center);
-      
+
       @include responsive(mobile){
         justify-content: flex-start;
        }

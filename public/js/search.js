@@ -2121,7 +2121,8 @@ document.addEventListener("DOMContentLoaded", function () {
       pos1: {},
       pos2: {},
       apartmentrange: [],
-      km: 0
+      km: 0,
+      range: 21
     },
     mounted: function mounted() {},
     created: function created() {
@@ -2190,6 +2191,7 @@ document.addEventListener("DOMContentLoaded", function () {
       filtroavanzato: function filtroavanzato() {
         var _this3 = this;
 
+        this.range = 20;
         removeMarkerr();
         this.activeservice = [];
         this.currentapartment_sponsor = [];
@@ -2325,20 +2327,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 type: "Feature",
                 geometry: {
                   type: "Polygon",
-                  coordinates: [[[pos.lon - 0.001, pos.lat + 0.001], [pos.lon + 0.001, pos.lat + 0.001], [pos.lon + 0.001, pos.lat - 0.001], [pos.lon - 0.001, pos.lat - 0.001] //             [15.067560533884222, 38.642288177883556],
-                  //   [16.267560533884222, 38.642288177883556],
-                  //   [16.267560533884222, 36.442288177883556],
-                  //   [15.067560533884222, 36.442288177883556],
-                  ]]
+                  coordinates: [[[pos.lon - 0.001, pos.lat + 0.001], [pos.lon + 0.001, pos.lat + 0.001], [pos.lon + 0.001, pos.lat - 0.001], [pos.lon - 0.001, pos.lat - 0.001]]]
                 }
               }
             },
             layout: {},
             paint: {
-              // 'circle-radius': 6,
-              // 'circle-color': '#3a3a3a',
-              // 'circle-stroke-width': 2,
-              // 'circle-stroke-color': '#FFF'
               "fill-color": "#12a19a",
               "fill-opacity": 0.5,
               "fill-outline-color": "black"
@@ -2389,8 +2383,9 @@ document.addEventListener("DOMContentLoaded", function () {
           };
           tmp = _this6.distcustom(_this6.pos1, _this6.pos2);
           _this6.km = tmp.kilometers;
+          console.log(_this6.km, _this6.range);
 
-          if (_this6.km < 20) {
+          if (_this6.km < _this6.range) {
             _this6.pos2.address = elem.address;
             _this6.pos2.area = elem.area;
             _this6.pos2.cover_image = elem.cover_image;
@@ -2417,28 +2412,49 @@ document.addEventListener("DOMContentLoaded", function () {
       addresrange: function addresrange(elem) {
         var _this7 = this;
 
+        removeMarkerr();
         this.latlng(elem);
         ar = elem.address.split("-");
         city_target = ar[2];
+        axios.get("api/filter", {
+          params: {
+            where: this.where,
+            number_rooms: this.number_rooms,
+            number_beds: this.number_beds
+          }
+        }).then(function (res) {
+          if (res.status == 200) {
+            if (res.data.length == 0) {
+              return _this7.currentapartment = [{
+                title: "Nessun appartamento trovato"
+              }];
+            }
+          }
 
-        for (i = 0; i < this.currentapartment.length; i++) {
-          arr = this.currentapartment[i].address.split("-");
-          city = arr[2];
-          if (city === city_target) this.latlngcustom(this.currentapartment[i]);
-        }
-
-        setTimeout(function () {
-          _this7.apartmentrange.sort(function (a, b) {
-            return a.km - b.km;
-          });
-
-          _this7.currentapartment = _this7.apartmentrange;
-          _this7.apartmentrange = [];
+          console.log(res.data);
+          _this7.currentapartment = res.data;
 
           for (i = 0; i < _this7.currentapartment.length; i++) {
-            makemarker(_this7.currentapartment[1].lon, _this7.currentapartment[1].lat);
+            arr = _this7.currentapartment[i].address.split("-");
+            city = arr[2];
+            if (city === city_target) _this7.latlngcustom(_this7.currentapartment[i]);
           }
-        }, 1000);
+
+          setTimeout(function () {
+            _this7.apartmentrange.sort(function (a, b) {
+              return a.km - b.km;
+            });
+
+            _this7.currentapartment = _this7.apartmentrange;
+            _this7.apartmentrange = [];
+
+            for (i = 0; i < _this7.currentapartment.length; i++) {
+              makemarker(_this7.currentapartment[i].lon, _this7.currentapartment[i].lat);
+            }
+          }, 1000);
+        })["catch"](function (err) {
+          return console.log(err);
+        });
       }
     }
   });
