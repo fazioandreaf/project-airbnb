@@ -12631,16 +12631,23 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 document.addEventListener('DOMContentLoaded', function () {
   var slider = new Vue({
     el: "#slider",
-    data: {},
+    data: {
+      image: "https://news.cinecitta.com/photo.aspx?s=1&w=850&path=%2Fpublic%2Fnews%2F0069%2F69239%2Fpadre_maronno.jpg"
+    },
     methods: {
       forward: function forward() {
         document.getElementById('slider2').scrollLeft += 220;
+        console.log("Forward");
       },
       // END OF FORWARD
       backwards: function backwards() {
         document.getElementById('slider2').scrollLeft -= 220;
-      } // END OF BACKWARDS
-
+        console.log("Backwards");
+      },
+      // END OF BACKWARDS
+      defaultImage: function defaultImage(e) {
+        e.target.src = this.image;
+      }
     } // END OF methods
 
   }); // END OF NEW VUE
@@ -12655,7 +12662,7 @@ document.addEventListener('DOMContentLoaded', function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\redsy\Documents\Boolean\progetto-finale\Nuova cartella\project-airbnb\resources\js\homepage.js */"./resources/js/homepage.js");
+module.exports = __webpack_require__(/*! C:\Boolean\project-airbnb\resources\js\homepage.js */"./resources/js/homepage.js");
 
 
 /***/ })
