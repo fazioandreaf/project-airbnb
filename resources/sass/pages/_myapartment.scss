@@ -122,7 +122,14 @@ section#my-apartments {
   
       .details {
         max-height: 420px;
-  
+        
+        .edit-apartment {
+          @include flex(row, flex-start, center);
+          & > li {
+            margin: 0 5px;
+          }
+        }
+
         .button-link{
           margin: 20px 0 20px;
         }

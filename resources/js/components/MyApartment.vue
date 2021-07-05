@@ -55,7 +55,17 @@
                         {{ apartment.area }}
                     </li>
                     <li>
-                        <slot name="edit"></slot>
+                        <ul class="edit-apartment">
+                            <li>
+                                <slot name="edit"></slot>
+                            </li>
+                            <li>
+                                <slot name="add-image"></slot>
+                            </li>
+                            <li>
+                                <slot name="edit-image"></slot>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

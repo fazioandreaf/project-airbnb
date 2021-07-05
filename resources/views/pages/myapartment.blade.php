@@ -49,6 +49,26 @@
                     </a>
                 </template>
 
+                @if (count($apartment->images) < 5)
+                    <template v-slot:add-image>
+                        <a class="button-link" href="{{ route('add_image', $apartment->id) }}">
+                            <span>
+                                Carica immagini
+                            </span> 
+                            <i class="fas fa-camera-retro"></i>
+                        </a>
+                    </template>
+                @endif
+
+                <template v-slot:edit-image>
+                    <a class="button-link" href="{{ route('edit_image', $apartment->id) }}">
+                        <span>
+                            Modifica immagini
+                         </span> 
+                         <i class="fas fa-images"></i>
+                     </a>
+                </template>
+
                 <template v-slot:statistic>
                     <a class="button-link" href="{{ route('statistic', $apartment->id) }}">
                        <span>
@@ -67,18 +87,6 @@
                     </a>
                 </template>
             </my-apartment>
-            <a href="{{ route('edit_image', $apartment->id) }}">
-                <button>
-                    edit image
-                </button>
-            </a>
-            @if (count($apartment->images) < 5)
-                <a href="{{ route('add_image', $apartment->id) }}">
-                    <button>
-                        add image
-                    </button>
-                </a>
-            @endif
             @endforeach
         </div>
     </div>

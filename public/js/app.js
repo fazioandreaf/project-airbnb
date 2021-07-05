@@ -2049,6 +2049,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37940,7 +37950,15 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _c("li", [_vm._t("edit")], 2)
+                    _c("li", [
+                      _c("ul", { staticClass: "edit-apartment" }, [
+                        _c("li", [_vm._t("edit")], 2),
+                        _vm._v(" "),
+                        _c("li", [_vm._t("add-image")], 2),
+                        _vm._v(" "),
+                        _c("li", [_vm._t("edit-image")], 2)
+                      ])
+                    ])
                   ])
                 ])
               : _vm._e()
