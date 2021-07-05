@@ -1,9 +1,9 @@
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Nunito");
 .search-page {
     @include flex(row, null, null);
     @include container(90%);
-
+    font-family: "Nunito", sans-serif;
+    
     // debug
     height: 82.3vh;
     > div {
