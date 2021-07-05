@@ -189,10 +189,10 @@
                         <label for="email">
                           Email
                         </label>
-                        <input type="email" name="email" v-model="email"> {{-- id="email" --}}
+                        <input class="lallero-btn email" type="email" name="email" v-model="email"> {{-- id="email" --}}
                       </div>
                       <textarea rows="10" cols="30" name="text_message"></textarea>
-                      <input type="submit" value="Invia">
+                      <input class="lallero-btn sub" type="submit" value="Invia">
                     </form>
                   </div>
                 </li>

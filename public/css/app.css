@@ -310,6 +310,7 @@ section#my-apartments .button-link {
   width: 60px;
   height: 60px;
   margin-top: 10px;
+  background-image: url(/images/lg_color0_bianco.png?41b32fd294bbfd12a993f8e4361fe9f3);
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -2265,15 +2266,35 @@ section#section-register form .error {
   #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows #taccuino-invisibile .lallero {
     display: flex;
     flex-direction: column;
+    font-size: 15px;
+  }
+
+  #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows #taccuino-invisibile .lallero textarea {
+    border-radius: 10px;
+    border: 1px solid #e6007e;
+  }
+
+  #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows #taccuino-invisibile .lallero .lallero-btn.email {
+    width: 200px;
+    margin-bottom: 5px;
+    border: 1px solid #e8005d;
+    border-radius: 10px;
+  }
+
+  #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows #taccuino-invisibile .lallero .lallero-btn.sub {
+    margin-top: 5px;
+    background-color: #e8005d;
+    border: none;
+    border-radius: 10px;
   }
 
   #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows #taccuino-invisibile .lallero i {
     font-size: 25px;
-    -webkit-animation: matita 1s linear infinite;
-            animation: matita 1s linear infinite;
+    -webkit-animation: pencil 1s linear infinite;
+            animation: pencil 1s linear infinite;
   }
 
-@-webkit-keyframes matita {
+@-webkit-keyframes pencil {
     0% {
       transform: rotate(0turn);
     }
@@ -2295,7 +2316,7 @@ section#section-register form .error {
     }
 }
 
-@keyframes matita {
+@keyframes pencil {
     0% {
       transform: rotate(0turn);
     }
@@ -2637,6 +2658,12 @@ div#sponsor-apartament {
   margin-top: 60px;
 }
 
+@media screen and (max-width: 420px) {
+  div#sponsor-apartament {
+    height: auto;
+  }
+}
+
 div#sponsor-apartament .title-sponsor {
   margin-top: 20px;
   margin-bottom: 10px;
@@ -2647,6 +2674,7 @@ div#sponsor-apartament .label-sponsor-contain {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 div#sponsor-apartament .label-sponsor-contain .label-sponsor {
