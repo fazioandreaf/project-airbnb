@@ -2130,7 +2130,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       setTimeout(function () {
         _this.filtro();
-      }, 5000);
+      }, 1000);
       axios.get("api/service").then(function (res) {
         if (res.status == 200) {
           _this.allservice = res.data;
@@ -2451,7 +2451,7 @@ document.addEventListener("DOMContentLoaded", function () {
             for (i = 0; i < _this7.currentapartment.length; i++) {
               makemarker(_this7.currentapartment[i].lon, _this7.currentapartment[i].lat);
             }
-          }, 1000);
+          }, 700);
         })["catch"](function (err) {
           return console.log(err);
         });
@@ -2469,7 +2469,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Danny\Progetti_2021\07-2021\02-07-2021\project-airbnb\resources\js\search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! C:\Users\Andrea\Desktop\project-airbnb\resources\js\search.js */"./resources/js/search.js");
 
 
 /***/ })

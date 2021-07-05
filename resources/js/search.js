@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         created: function() {
             setTimeout(() => {
                 this.filtro();
-            }, 5000);
+            }, 1000);
             axios
                 .get("api/service")
                 .then(res => {
@@ -376,7 +376,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     this.currentapartment[i].lat
                                 );
                             }
-                        }, 1000);
+                        }, 700);
                     })
                     .catch(err => console.log(err));
             }

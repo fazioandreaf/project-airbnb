@@ -12628,17 +12628,17 @@ module.exports = g;
 /***/ (function(module, exports, __webpack_require__) {
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   var slider = new Vue({
     el: "#slider",
     data: {},
     methods: {
       forward: function forward() {
-        document.getElementById('slider2').scrollLeft += 220;
+        document.getElementById("slider2").scrollLeft += 220;
       },
       // END OF FORWARD
       backwards: function backwards() {
-        document.getElementById('slider2').scrollLeft -= 220;
+        document.getElementById("slider2").scrollLeft -= 220;
       } // END OF BACKWARDS
 
     } // END OF methods
@@ -12655,7 +12655,7 @@ document.addEventListener('DOMContentLoaded', function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\redsy\Documents\Boolean\progetto-finale\Nuova cartella\project-airbnb\resources\js\homepage.js */"./resources/js/homepage.js");
+module.exports = __webpack_require__(/*! C:\Users\Andrea\Desktop\project-airbnb\resources\js\homepage.js */"./resources/js/homepage.js");
 
 
 /***/ })

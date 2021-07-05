@@ -8,11 +8,10 @@
                     <div v-if="currentapartment_sponsor.length<1" class="row-with-img-text" onload="formarker('ciao')">
                         <div class="sinistra-img">
                             <a href="#">
-                                <img src="{{$items->cover_image}}" alt="immagine stanza">
+                                <img src="{{asset('/storage/assets/external/'.$items->id. '.jpg')}}" alt="immagine stanza">
                             </a>
                         </div>
                         <div class="destra-testo">
-                            <strong>Talia stu beddu appartemento, è 'n mostru  {{$items->expire_date}}</strong><br>
                             <a href="{{route('apartment', $items->id)}}">
                             {{-- <a @click="redirect(elem.id)"> --}}
                                 <h2>{{$items->title}}</h2>
@@ -32,7 +31,7 @@
                     <div v-if="currentapartment.length<1" class="row-with-img-text" onload="formarker('ciao')">
                         <div class="sinistra-img">
                             <a href="#">
-                                <img src="{{$item->cover_image}}" alt="immagine stanza">
+                                <img src="{{asset('/storage/assets/external/'.$items->id. '.jpg')}}" alt="immagine stanza">
                             </a>
                         </div>
                         <div class="destra-testo">
@@ -61,11 +60,11 @@
             <div else  v-for="elem in currentapartment_sponsor" class="row-with-img-text">
                 <div class="sinistra-img">
                     <a href="">
-                        <img :src=" elem.cover_image " alt="immagine stanza" style="width:100%; border-radius:10px" >
+                        {{-- <img src="{{asset('/storage/assets/external/'.$items->id. '.jpg')}}" alt="immagine stanza"> --}}
+                        <img :src=" ('/storage/assets/external/'+elem.id+ '.jpg')" alt="immagine stanza" style="width:100%; border-radius:10px" >
                     </a>
                 </div>
                 <div  class="destra-testo">
-                    <strong>sponsor in vue  {{$items->expire_date}}</strong><br>
 
                     <a href="{{route('apartment',1)}}" >
                         <h2>
@@ -93,7 +92,7 @@
             <div else  v-for="elem in currentapartment" class="row-with-img-text">
                 <div class="sinistra-img">
                     <a href="">
-                        <img :src=" elem.cover_image " alt="immagine stanza" style="width:100%; border-radius:10px" >
+                        <img :src=" ('/storage/assets/external/'+elem.id+ '.jpg')" alt="immagine stanza" style="width:100%; border-radius:10px" >
                     </a>
                 </div>
                 <div  class="destra-testo">
