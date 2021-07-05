@@ -88,7 +88,7 @@
                     </div> --}}
 
 
-                    <span>Area : <span style:"font-weight:bolder">@{{elem.area}}  m^2</span></span>
+                    <span>Area : <span style:"font-weight:bolder">@{{elem.area}}  m<sup>2</sup></span></span>
                     <span>Numeri di posti letto: @{{elem.number_beds}}</span>
                     <span>Numero di stanze: @{{elem.number_rooms}}</span>
 
@@ -122,7 +122,7 @@
                     </div> --}}
 
 
-                    <span>Area : <span style:"font-weight:bolder">@{{elem.area}}  m^2</span></span>
+                    <span>Area : <span style:"font-weight:bolder">@{{elem.area}}  m<sup>2</sup></span></span>
                     <span>Numeri di posti letto: @{{elem.number_beds}}</span>
                     <span>Numero di stanze: @{{elem.number_rooms}}</span>
 

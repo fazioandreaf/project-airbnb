@@ -1808,162 +1808,13 @@ section#section-register form .error {
 #apartment-sample {
   font-family: "Nunito", sans-serif;
   background-color: #eff0f0;
-  max-height: 90%;
-  padding-bottom: 10%;
 }
 
 @media screen and (max-width: 420px) {
   #apartment-sample {
     margin: 0 auto;
     width: 100%;
-    height: auto;
   }
-}
-
-#apartment-sample nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border-bottom: 0.5px solid rgba(50, 50, 50, 0.3);
-  height: 100px;
-  background-color: #FFF;
-}
-
-@media screen and (max-width: 420px) {
-  #apartment-sample nav {
-    background-color: #e6007e;
-  }
-}
-
-#apartment-sample nav .basic-header {
-  margin: 0 auto;
-  width: 80%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@media screen and (max-width: 420px) {
-  #apartment-sample nav .basic-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  #apartment-sample nav .basic-header div:nth-child(1) {
-    display: none;
-  }
-}
-
-#apartment-sample nav .basic-header div:nth-child(1) img {
-  height: auto;
-  width: 120px;
-}
-
-#apartment-sample nav .basic-header div:nth-child(2) {
-  display: flex;
-  flex-direction: row;
-}
-
-#apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 400px;
-  height: 50px;
-  border-radius: 30px;
-}
-
-@media screen and (max-width: 420px) {
-  #apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca {
-    background-color: white;
-  }
-
-  #apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca a:last-child {
-    background-color: #fa8a8a;
-  }
-
-  #apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca a:last-child:hover {
-    background-color: #e6007e;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  #apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca {
-    width: 200px;
-  }
-}
-
-#apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca a:first-of-type {
-  margin-left: 10px;
-}
-
-#apartment-sample nav .basic-header div:nth-child(2) #barra-ricerca a:last-of-type {
-  margin-right: 10px;
-}
-
-#apartment-sample nav .basic-header div:nth-child(2) span {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border: 0.5px solid rgba(50, 50, 50, 0.3);
-}
-
-#apartment-sample nav .basic-header div:nth-child(2) span a:last-of-type {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-color: #e80080;
-  color: #FFF;
-  font-size: 20px;
-  width: 35px;
-  height: 35px;
-  border-radius: 100%;
-}
-
-#apartment-sample nav .basic-header div:nth-child(3) {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-
-@media screen and (max-width: 420px) {
-  #apartment-sample nav .basic-header div:nth-child(3) {
-    display: none;
-  }
-}
-
-#apartment-sample nav .basic-header div:nth-child(3) a {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-#apartment-sample nav .basic-header div:nth-child(3) a:nth-child(1) {
-  margin: 20px 30px 0px 10px;
-}
-
-#apartment-sample nav .basic-header div:nth-child(3) a:nth-child(2) {
-  font-size: 15px;
-  background-color: #FFF;
-  width: 90px;
-  height: 60px;
-  border-radius: 30px;
-  border: 1px solid rgba(50, 50, 50, 0.3);
-}
-
-#apartment-sample nav .basic-header div:nth-child(3) a:nth-child(2) i:last-of-type {
-  color: #FFF;
-  background-color: #6c6a6b;
-  padding: 10px;
-  border-radius: 100%;
 }
 
 #apartment-sample .jumbotron-apartment {
@@ -1976,10 +1827,6 @@ section#section-register form .error {
     margin: 0 auto;
     width: 95%;
   }
-}
-
-#apartment-sample .jumbotron-apartment #jumbo-container {
-  margin-bottom: 50px;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .titolo {
@@ -2191,7 +2038,12 @@ section#section-register form .error {
   display: flex;
   flex-direction: row;
   align-items: center;
-  flex-wrap: wrap;
+}
+
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.uno p {
+  display: inline-block;
+  width: 100%;
+  word-wrap: break-word;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.due {

@@ -1,144 +1,144 @@
 #apartment-sample {
   font-family: "Nunito", sans-serif;
   background-color: $dirty-white;
-  max-height: 90%;
-  padding-bottom: 10%;
+  // max-height: 90%;
+  // padding-bottom: 10%;
 
   // MEDIA QUERY
   @include responsive(mobile) {
     @include container(100%);
-    height: auto;
+    // height: auto;
   }
 
-  nav {
-    @include flex(row, null, center);
-    border-bottom: 0.5px solid rgba(50, 50, 50, .3);
-    height:100px;
-    background-color: $white;
+  // nav {
+  //   @include flex(row, null, center);
+  //   border-bottom: 0.5px solid rgba(50, 50, 50, .3);
+  //   height:100px;
+  //   background-color: $white;
 
-    // MEDIA QUERY
-    @include responsive(mobile) {
-      background-color: $royal-fuchsia;
-    }
+  //   // MEDIA QUERY
+  //   @include responsive(mobile) {
+  //     background-color: $royal-fuchsia;
+  //   }
 
 
-    .basic-header {
-      @include container(80%);
-      @include flex(row, space-between, center);
+  //   .basic-header {
+  //     @include container(80%);
+  //     @include flex(row, space-between, center);
 
-      // MEDIA QUERY
-      @include responsive(mobile) {
-        @include flex(row, center, center);
-      }
+  //     // MEDIA QUERY
+  //     @include responsive(mobile) {
+  //       @include flex(row, center, center);
+  //     }
 
-      // INIZIO PRIMO div IMMAGINE
-      div:nth-child(1) {
+  //     // INIZIO PRIMO div IMMAGINE
+  //     div:nth-child(1) {
 
-        // MEDIA QUERY
-        @include responsive(mobile) {
-          display: none;
-        }
+  //       // MEDIA QUERY
+  //       @include responsive(mobile) {
+  //         display: none;
+  //       }
 
-        img {
-          height: auto;
-          width: 120px;
-        }
-      } // FINE PRIMO div IMMAGINE
+  //       img {
+  //         height: auto;
+  //         width: 120px;
+  //       }
+  //     } // FINE PRIMO div IMMAGINE
 
-      // INIZIO secondo div (BARRA DI RICERCA)
-      div:nth-child(2) {
-        @include flex(row, null, null);
+  //     // INIZIO secondo div (BARRA DI RICERCA)
+  //     div:nth-child(2) {
+  //       @include flex(row, null, null);
 
-        #barra-ricerca {
-          @include flex(row, space-between, null);
-          width: 400px;
-          height: 50px;
-          border-radius: 30px;
+  //       #barra-ricerca {
+  //         @include flex(row, space-between, null);
+  //         width: 400px;
+  //         height: 50px;
+  //         border-radius: 30px;
 
-          // MEDIA QUERY
-          @include responsive(mobile) {
-            background-color: white;
+  //         // MEDIA QUERY
+  //         @include responsive(mobile) {
+  //           background-color: white;
 
-            a:last-child {
-              background-color: $salmon-pink;
-            }
+  //           a:last-child {
+  //             background-color: $salmon-pink;
+  //           }
 
-            a:last-child:hover {
-              background-color: $royal-fuchsia;
-            }
-          }
+  //           a:last-child:hover {
+  //             background-color: $royal-fuchsia;
+  //           }
+  //         }
 
-          // MEDIA QUERY
-          @include responsive(mobile) {
-            width: 200px;
-          }
+  //         // MEDIA QUERY
+  //         @include responsive(mobile) {
+  //           width: 200px;
+  //         }
 
-          a:first-of-type {
-            margin-left: 10px;
-          }
+  //         a:first-of-type {
+  //           margin-left: 10px;
+  //         }
 
-          a:last-of-type {
-            margin-right: 10px;
-          }
-        }
+  //         a:last-of-type {
+  //           margin-right: 10px;
+  //         }
+  //       }
 
-        span {
-          @include flex(row, center, center);
-          border: 0.5px solid rgba(50, 50, 50, .3);
+  //       span {
+  //         @include flex(row, center, center);
+  //         border: 0.5px solid rgba(50, 50, 50, .3);
 
-          a:last-of-type {
-            @include flex(row, center, center);
-            background-color: $fuchsia-search;
-            color: $white;
-            font-size: 20px;
-            width: 35px;
-            height: 35px;
-            border-radius: 100%;
-          }
-        }
+  //         a:last-of-type {
+  //           @include flex(row, center, center);
+  //           background-color: $fuchsia-search;
+  //           color: $white;
+  //           font-size: 20px;
+  //           width: 35px;
+  //           height: 35px;
+  //           border-radius: 100%;
+  //         }
+  //       }
 
-      } // FINE SECONDO div (BARRA DI RICERCA)
+  //     } // FINE SECONDO div (BARRA DI RICERCA)
 
-      // INIZIO terzo div (quello con omino utente)
-      div:nth-child(3) {
-        @include flex(row, flex-end, null);
+  //     // INIZIO terzo div (quello con omino utente)
+  //     div:nth-child(3) {
+  //       @include flex(row, flex-end, null);
 
-        // MEDIA QUERY
-        @include responsive(mobile) {
-          display: none;
-        }
+  //       // MEDIA QUERY
+  //       @include responsive(mobile) {
+  //         display: none;
+  //       }
 
-        a {
-          @include flex(row, space-evenly, center);
-        }
+  //       a {
+  //         @include flex(row, space-evenly, center);
+  //       }
 
-        a:nth-child(1) {
-          margin: 20px 30px 0px 10px;
-        }
+  //       a:nth-child(1) {
+  //         margin: 20px 30px 0px 10px;
+  //       }
 
-        a:nth-child(2) {
-          font-size: 15px;
-          background-color: $white;
-          width: 90px;
-          height: 60px;
-          border-radius: 30px;
-          border: 1px solid rgba(50, 50, 50, .3);
+  //       a:nth-child(2) {
+  //         font-size: 15px;
+  //         background-color: $white;
+  //         width: 90px;
+  //         height: 60px;
+  //         border-radius: 30px;
+  //         border: 1px solid rgba(50, 50, 50, .3);
 
-          // Icona utente (omino)
-          i:last-of-type {
-            color: $white;
-            background-color: $user-gray;
-            padding: 10px;
-            border-radius: 100%;
-          }
+  //         // Icona utente (omino)
+  //         i:last-of-type {
+  //           color: $white;
+  //           background-color: $user-gray;
+  //           padding: 10px;
+  //           border-radius: 100%;
+  //         }
 
-        }
+  //       }
 
-      } // FINE terzo div (quello con omino utente)
+  //     } // FINE terzo div (quello con omino utente)
 
-    } // FINE DI BASIC HEADER (width: 80%)
+  //   } // FINE DI BASIC HEADER (width: 80%)
 
-  } // FINE NAV (100% width per border bottom)
+  // } // FINE NAV (100% width per border bottom)
 
   // ---------------------------------------------------------------------------
 
@@ -151,7 +151,7 @@
     }
 
     #jumbo-container {
-      margin-bottom: 50px;
+      // margin-bottom: 50px;
 
       .titolo {
         height: 60px;
@@ -349,13 +349,17 @@
                 width: 40px;
                 height: auto;
               }
-
             }
 
             // (1) INIZIO PARAGRAFO LOREM
             .riga.uno {
               @include flex(row, null, center);
-              flex-wrap: wrap;
+
+              p {
+                display: inline-block;
+                width: 100%;
+                word-wrap: break-word
+              }
             } // (1) FINE PARAGRAFO LOREM
 
 
