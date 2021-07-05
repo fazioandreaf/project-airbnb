@@ -8,6 +8,19 @@
 // Header dashboard
 #dashboard-header {
 
+  @include responsive(mobile){
+
+    width: 100%;
+    height: 100px;
+    padding: 50px;
+    background-color: $black;
+    border-top: 1px solid lightgrey;
+    position: fixed;
+    z-index: 9999;
+    bottom: 0;
+    left: 0;
+   }
+
   #logo {
 
     height: 60px;
@@ -38,26 +51,30 @@
       height: 100%;
       @include flex(row, space-between, center);
 
-
       #wrapper-logo a {
 
         @include flex(row, null, center);
-
-
       }
 
       .has-dropdown {
         position: relative;
 
-
         .hamburger {
           @include hamburger($white);
           color: $black;
 
+          @include responsive(mobile){  
+            font-size: 30px;
+            color: $black;
+            border-radius: 50%;
+
+            .fa-bars {
+              display: none;
+            }
+          }
 
           & > .icon {
             margin: 0 5px;
-
           }
         }
 
@@ -73,6 +90,20 @@
           width: 200px;
           padding: 10px;
           border-radius: 10px;
+
+          @include responsive(mobile){
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+            height: 380px;
+            width: 350px;
+            top: calc(-100% - 380px);
+            left: calc(100% - 335px);
+            background-color: white;
+            border: 2px solid $black;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            text-align: center;
+           }
         }
 
         .open {
@@ -103,7 +134,7 @@
     background-color: white;
     border-top: 1px solid lightgrey;
     position: fixed;
-    z-index: 99;
+    z-index: 9999;
     bottom: 0;
     left: 0;
    }
@@ -252,7 +283,7 @@
         background-color: white;
         border-top: 1px solid lightgrey;
         position: fixed;
-        z-index: 99;
+        z-index: 9999;
         bottom: 0;
         left: 0;
        }
@@ -352,19 +383,19 @@
 
     .wrapper-search-bar {
 
-
+      @include flex(row, center, center);
       padding: 20px 40px;
       border-radius: 40px;
 
       @include responsive(mobile){
         background-color: $search-fuchsia;
-        border-radius: 0px;
+        border-radius: 0;
        }
 
       .search-bar {
 
         @include flex(row, center, center);
-
+        width: 100%;
 
         .wrapper-form-fields {
 
@@ -374,33 +405,20 @@
           padding: 20px;
 
           @include responsive(mobile){
-            width: 100px;
-
+            width: 50%;
            }
         }
 
         .first {
-
-          padding-left: 150px;
+          padding-left: 100px;
           border-top-left-radius: 50px;
           border-bottom-left-radius: 50px;
 
-          @include responsive(mobile){
-            padding-left: 100px;
-
-           }
         }
 
         .last {
-
-          padding-right: 150px;
           border-top-right-radius: 50px;
           border-bottom-right-radius: 50px;
-
-          @include responsive(mobile){
-            padding-left: 100px;
-
-           }
         }
 
         input {
@@ -420,11 +438,6 @@
           color: $white;
           border: 0;
           border-radius: 50%;
-
-          @include responsive(mobile){
-            margin-left: 200px;
-
-           }
         }
       }
     }
