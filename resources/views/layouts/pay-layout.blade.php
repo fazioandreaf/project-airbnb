@@ -9,11 +9,6 @@
     <title></title>
 </head>
 <body>
-    <a href="{{route('homepage')}}">
-        <button>
-            HomePage
-        </button>
-    </a>
 
     @yield('content')
 
