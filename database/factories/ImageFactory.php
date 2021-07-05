@@ -20,22 +20,27 @@ $factory->define(Image::class, function (Faker $faker) use ($nextIndex) {
 
             switch ($j) {
                 case 0:
+                    $folder = 'external';
                     $url = asset('storage/app/public/external/'.$idApartment.'.jpg');
                     break;
                     
                 case 1:
+                    $folder = 'living-room';
                     $url = asset('storage/app/public/living-room/'.($idApartment + $tot).'.jpg');
                     break;
 
                 case 2:
+                    $folder = 'kitchen';
                     $url = asset('storage/app/public/kitchen/'.($idApartment + ($tot * 2)).'.jpg');
                     break;
         
-                case 3:            
+                case 3:
+                    $folder = 'bedroom';
                     $url = asset('storage/app/public/bedroom/'.($idApartment + ($tot * 3)).'.jpg');
                     break;
            
                 case 4:
+                    $folder = 'bathroom';
                     $url = asset('storage/app/public/bathroom/'.($idApartment + ($tot * 4)).'.jpg');
                     break;
             }
@@ -43,7 +48,8 @@ $factory->define(Image::class, function (Faker $faker) use ($nextIndex) {
             $imageName = $imageNameArr[count($imageNameArr)-1];
             $photo = [
                 'image' => $imageName,
-                'apartment_id' => $idApartment
+                'apartment_id' => $idApartment,
+                'folder' => $folder
             ];
             $images []= $photo; 
         } 
@@ -53,7 +59,8 @@ $factory->define(Image::class, function (Faker $faker) use ($nextIndex) {
     $nextIndex->next();
     return [
         'image' => $image['image'],
-        'apartment_id' => $image['apartment_id']
+        'apartment_id' => $image['apartment_id'],
+        'folder' => $image['folder']
     ];
 });
 
