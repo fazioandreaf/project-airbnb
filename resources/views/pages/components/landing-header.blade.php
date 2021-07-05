@@ -4,11 +4,11 @@
         <div class="container">
             <ul class="nav-links">
                 <li id="wrapper-logo">
-                    <div class="logo-b">
-                        <a href="{{ route('homepage') }}" class="logo-b"></a>
+                    <a href="{{ route('homepage') }}" class="logo-b">
+                        <div class="logo-b"></div>
+                    </a>
                         {{-- <img id="logo" src="{{ asset('storage/assets/lg_color0_bianco.png')}}" alt="Logo BoolBnB"> --}}
                     {{--</a> --}}
-                        </div>
                 </li>
                 <li class="has-dropdown" v-on:click.stop="openDropdown">
                     <div class="hamburger">
