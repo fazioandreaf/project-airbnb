@@ -65,15 +65,14 @@
           display: none;
           position: absolute;
           z-index: 9001; //IT'S OVER 9000
-
+          top: calc(100% + 2px);
+          left: calc(-50% - 20px);
           background-color: $white;
           color: $black;
           box-shadow: 0 0 3px $user-gray;
           width: 200px;
           padding: 10px;
           border-radius: 10px;
-
-
         }
 
         .open {
@@ -244,14 +243,12 @@
           width: 60px;
           height: 60px;
           margin-top: 10px;
-          //background-color: brown;
-
-          // background-image:url('../storage/assets/lg_color0_bianco.png');
+          background-image:url('../assets/lg_color0_bianco.png');
           background-size: contain;
           background-repeat: no-repeat;
 
           @include responsive(mobile){
-            // background-image: url('../assets/lg_color1.png');
+            background-image: url('../assets/lg_color1.png');
             margin-top: 0px;
            }
 
