@@ -22,10 +22,9 @@
               <div class="flags">
                 <a href="{{route('apartment', $apartment->id)}}">
                   {{-- <img src="{{asset('/storage/assets/'.$apartment->cover_image)}}" alt="immagine-qui" style="width: 100%;height: 100%;"> --}}
-                  {{ $apartment->id }}
-                  {{ $apartment->title }}
+                  <img src="{{asset('/storage/assets/external/'.$apartment->id. '.jpg')}}" alt="">
                 </a>
-                <span>{{ $apartment->title }} </span>
+                <span class="title">{{ $apartment->title }} </span>
               </div>
             </li>
 
