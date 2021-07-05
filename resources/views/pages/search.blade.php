@@ -5,14 +5,16 @@
         <div class="left-section">
             @if (count($apartments)>0)
                 @foreach ($apartments_sponsor as $items)
-                    <div v-if="currentapartment_sponsor.length<1" class="row-with-img-text" onload="formarker('ciao')">
+                    <div v-if="currentapartment_sponsor.length<1  && results=true" class="row-with-img-text" onload="formarker('ciao')">
                         <div class="sinistra-img">
-                            <a href="#">
-                                <img src="{{$items->cover_image}}" alt="immagine stanza">
+                            <a href="#" class="sponsor">
+                                <div>
+                                    Appartamento sponsorizzato controller
+                                </div>
+                                <img src="{{asset('/storage/assets/external/'.$items->id. '.jpg')}}" alt="immagine stanza">
                             </a>
                         </div>
                         <div class="destra-testo">
-                            <strong>Talia stu beddu appartemento, è 'n mostru  {{$items->expire_date}}</strong><br>
                             <a href="{{route('apartment', $items->id)}}">
                             {{-- <a @click="redirect(elem.id)"> --}}
                                 <h2>{{$items->title}}</h2>
@@ -31,8 +33,8 @@
                 @foreach ($apartments as $item)
                     <div v-if="currentapartment.length<1" class="row-with-img-text" onload="formarker('ciao')">
                         <div class="sinistra-img">
-                            <a href="#">
-                                <img src="{{$item->cover_image}}" alt="immagine stanza">
+                            <a href="#" >
+                                <img src="{{asset('/storage/assets/external/'.$items->id. '.jpg')}}" alt="immagine stanza">
                             </a>
                         </div>
                         <div class="destra-testo">
@@ -58,14 +60,17 @@
                     </span>
                 </div>
             @endif
-            <div else  v-for="elem in currentapartment_sponsor" class="row-with-img-text">
+            <div else v-for="elem in currentapartment_sponsor" class="row-with-img-text">
                 <div class="sinistra-img">
-                    <a href="">
-                        <img :src=" elem.cover_image " alt="immagine stanza" style="width:100%; border-radius:10px" >
+                    <a href="#" class="sponsor">
+                        <div class="tagsponsor">
+                            Appartamento sponsorizzato
+                        </div>
+                        <div class="mobile-title">@{{elem.title}}</div>
+                        <img :src=" ('/storage/assets/external/'+elem.id+ '.jpg')" alt="immagine stanza" style="width:100%; border-radius:10px; height: 220px;" >
                     </a>
                 </div>
                 <div  class="destra-testo">
-                    <strong>sponsor in vue  {{$items->expire_date}}</strong><br>
 
                     <a href="{{route('apartment',1)}}" >
                         <h2>
@@ -90,10 +95,14 @@
                 </div>
             </div>
 
-            <div else  v-for="elem in currentapartment" class="row-with-img-text">
+            <div v-else-if="currentapartment[0].errore!=true" v-for="elem in currentapartment" class="row-with-img-text">
                 <div class="sinistra-img">
-                    <a href="">
-                        <img :src=" elem.cover_image " alt="immagine stanza" style="width:100%; border-radius:10px" >
+                    <a href="#" class="sponsor">
+                        <div class="tagsponsor">
+                            Appartamento sponsorizzato
+                        </div>
+                        <div class="mobile-title">@{{elem.title}}</div>
+                        <img :src=" ('/storage/assets/external/'+elem.id+ '.jpg')" alt="immagine stanza" style="width:100%; border-radius:10px; height: 220px;" >
                     </a>
                 </div>
                 <div  class="destra-testo">
@@ -118,7 +127,14 @@
                     <span>Numero di stanze: @{{elem.number_rooms}}</span>
 
                 </div>
+
+                <div v-if="elem.errore" class="errore" >
+                    Nessun appartamento trovato
+                </div>
+
+
             </div>
+
 
 
         </div>

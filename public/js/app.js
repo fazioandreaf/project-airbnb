@@ -2045,6 +2045,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2063,7 +2066,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       console.log(this.apartment.id);
-      axios.get('/api/apartment/destroy/' + this.apartment.id).then(function (response) {
+      axios.get("/api/apartment/destroy/" + this.apartment.id).then(function (response) {
         if (response.status == 200) {
           _this.deleted = true;
         }
@@ -50840,8 +50843,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Danny\Progetti_2021\07-2021\02-07-2021\project-airbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Danny\Progetti_2021\07-2021\02-07-2021\project-airbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Boolean\project-airbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Boolean\project-airbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
