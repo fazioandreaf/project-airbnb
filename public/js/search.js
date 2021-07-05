@@ -2108,7 +2108,6 @@ document.addEventListener("DOMContentLoaded", function () {
   var app = new Vue({
     el: "#search",
     data: {
-      isShowing: false,
       dropdownActive: false,
       where: "",
       number_rooms: 1,
@@ -2123,7 +2122,8 @@ document.addEventListener("DOMContentLoaded", function () {
       apartmentrange: [],
       km: 0,
       range: 21,
-      results: true
+      results: true,
+      filterel: false
     },
     mounted: function mounted() {},
     created: function created() {
@@ -2141,10 +2141,9 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     },
     methods: {
-      test: function test() {
-        this.isShowing = !this.isShowing;
-        console.log(this.isShowing);
-        console.log("LALLERO");
+      filterbutton: function filterbutton() {
+        console.log(this.filterel);
+        this.filterel = !this.filterel;
       },
       addclass: function addclass() {
         this.toggle = !this.toggle;

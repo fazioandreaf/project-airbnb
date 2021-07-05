@@ -33,11 +33,26 @@
             }
 
             .sinistra-img {
+                .mobile-title {
+                    display: none;
+                    @include responsive(mobile) {
+                        display: block;
+                    }
+                }
+
+                @include responsive(mobile) {
+                    margin: 20px 0;
+                }
+
                 @include flex(row, null, center);
                 flex-basis: 40%;
                 .sponsor {
+                     @include responsive(mobile){
+                         width: 100%;
+                     }
+
                     position: relative;
-                    > div {
+                    .tagsponsor {
                         position: absolute;
                         bottom: 101%;
                         border-radius: 5px;
@@ -46,6 +61,9 @@
                         // transform: translateX(50%);
                         padding: 0.5rem;
                         background-color: #ff385c;
+                        @include responsive(mobile) {
+                            right: 0%;
+                        }
                     }
                 }
                 a {
@@ -67,7 +85,7 @@
 
                 // MEDIA QUERY
                 @include responsive(mobile) {
-                    margin: 0;
+                    display: none;
                 }
 
                 a:first-of-type {

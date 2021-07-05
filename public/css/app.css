@@ -824,6 +824,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
     flex-direction: column;
     justify-content: flex-start;
     max-height: 800px;
+    min-height: 0;
   }
 }
 
@@ -911,6 +912,12 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   background-color: #12a19a;
 }
 
+@media screen and (max-width: 420px) {
+  #header-search .top-header-search .filter .activefilter {
+    background-color: #fa8a8a !important;
+  }
+}
+
 #header-search .top-header-search .filter .filtrini {
   display: none;
 }
@@ -921,7 +928,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
     width: 50px;
     height: 50px;
     color: #FFF;
-    background-color: #ff385c;
+    background-color: #12a19a;
     border-radius: 50px;
     display: flex;
     flex-direction: row;
@@ -930,13 +937,15 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   }
 
   #header-search .top-header-search .filter .filtrini:hover {
-    background-color: lime;
+    background-color: #12a19a;
   }
-}
 
-@media screen and (max-width: 420px) and (max-width: 420px) {
-  #header-search .top-header-search .filter .filtrini {
-    background-color: #fa8a8a;
+  #header-search .top-header-search .filter .filtrini > a {
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -1669,11 +1678,33 @@ section#section-register form .error {
   flex-basis: 40%;
 }
 
+.search-page .left-section .row-with-img-text .sinistra-img .mobile-title {
+  display: none;
+}
+
+@media screen and (max-width: 420px) {
+  .search-page .left-section .row-with-img-text .sinistra-img .mobile-title {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .search-page .left-section .row-with-img-text .sinistra-img {
+    margin: 20px 0;
+  }
+}
+
 .search-page .left-section .row-with-img-text .sinistra-img .sponsor {
   position: relative;
 }
 
-.search-page .left-section .row-with-img-text .sinistra-img .sponsor > div {
+@media screen and (max-width: 420px) {
+  .search-page .left-section .row-with-img-text .sinistra-img .sponsor {
+    width: 100%;
+  }
+}
+
+.search-page .left-section .row-with-img-text .sinistra-img .sponsor .tagsponsor {
   position: absolute;
   bottom: 101%;
   border-radius: 5px;
@@ -1681,6 +1712,12 @@ section#section-register form .error {
   font-size: 0.7rem;
   padding: 0.5rem;
   background-color: #ff385c;
+}
+
+@media screen and (max-width: 420px) {
+  .search-page .left-section .row-with-img-text .sinistra-img .sponsor .tagsponsor {
+    right: 0%;
+  }
 }
 
 .search-page .left-section .row-with-img-text .sinistra-img a {
@@ -1704,7 +1741,7 @@ section#section-register form .error {
 
 @media screen and (max-width: 420px) {
   .search-page .left-section .row-with-img-text .destra-testo {
-    margin: 0;
+    display: none;
   }
 }
 

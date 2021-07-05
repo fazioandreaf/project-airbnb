@@ -9,6 +9,7 @@
         @include container(100%);
         @include flex(column, flex-start, null);
         max-height: 800px;
+        min-height: 0;
     }
 
     .top-header-search {
@@ -82,27 +83,33 @@
                     }
                 } // FINE A-HREF
             }
+            .activefilter {
+                @include responsive(mobile) {
+                    background-color: #fa8a8a !important;
+                }
+            }
 
             .filtrini {
                 display: none;
-
                 // MEDIA QUERY
                 @include responsive(mobile) {
                     display: block;
                     width: 50px;
                     height: 50px;
                     color: $white;
-                    background-color: $search-fuchsia;
+                    background-color: #12a19a;
                     border-radius: 50px;
                     @include flex(row, center, center);
 
                     &:hover {
-                        background-color: lime;
+                        background-color: #12a19a;
                     }
-
-                    // MEDIA QUERY
-                    @include responsive(mobile) {
-                        background-color: $salmon-pink;
+                    > a {
+                        align-items: center;
+                        height: 100%;
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
                     }
                 }
             } // fine filtrini

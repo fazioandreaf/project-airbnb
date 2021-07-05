@@ -63,11 +63,11 @@
             <div else v-for="elem in currentapartment_sponsor" class="row-with-img-text">
                 <div class="sinistra-img">
                     <a href="#" class="sponsor">
-                        <div>
+                        <div class="tagsponsor">
                             Appartamento sponsorizzato
                         </div>
-                        {{-- <img src="{{asset('/storage/assets/external/'.$items->id. '.jpg')}}" alt="immagine stanza"> --}}
-                        <img :src=" ('/storage/assets/external/'+elem.id+ '.jpg')" alt="immagine stanza" style="width:100%; border-radius:10px" >
+                        <div class="mobile-title">@{{elem.title}}</div>
+                        <img :src=" ('/storage/assets/external/'+elem.id+ '.jpg')" alt="immagine stanza" style="width:100%; border-radius:10px; height: 220px;" >
                     </a>
                 </div>
                 <div  class="destra-testo">
@@ -98,7 +98,11 @@
             <div v-else-if="currentapartment[0].errore!=true" v-for="elem in currentapartment" class="row-with-img-text">
                 <div class="sinistra-img">
                     <a href="#" class="sponsor">
-                        <img :src=" ('/storage/assets/external/'+elem.id+ '.jpg')" alt="immagine stanza" style="width:100%; border-radius:10px" >
+                        <div class="tagsponsor">
+                            Appartamento sponsorizzato
+                        </div>
+                        <div class="mobile-title">@{{elem.title}}</div>
+                        <img :src=" ('/storage/assets/external/'+elem.id+ '.jpg')" alt="immagine stanza" style="width:100%; border-radius:10px; height: 220px;" >
                     </a>
                 </div>
                 <div  class="destra-testo">
