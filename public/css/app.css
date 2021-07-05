@@ -386,6 +386,10 @@ section#my-apartments .button-link {
 }
 
 .landing-header .navbar .wrapper-search-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   padding: 20px 40px;
   border-radius: 40px;
 }
@@ -393,7 +397,7 @@ section#my-apartments .button-link {
 @media screen and (max-width: 420px) {
   .landing-header .navbar .wrapper-search-bar {
     background-color: #ff385c;
-    border-radius: 0px;
+    border-radius: 0;
   }
 }
 
@@ -402,6 +406,7 @@ section#my-apartments .button-link {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .landing-header .navbar .wrapper-search-bar .search-bar .wrapper-form-fields {
@@ -416,32 +421,19 @@ section#my-apartments .button-link {
 
 @media screen and (max-width: 420px) {
   .landing-header .navbar .wrapper-search-bar .search-bar .wrapper-form-fields {
-    width: 100px;
+    width: 50%;
   }
 }
 
 .landing-header .navbar .wrapper-search-bar .search-bar .first {
-  padding-left: 150px;
+  padding-left: 100px;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
 }
 
-@media screen and (max-width: 420px) {
-  .landing-header .navbar .wrapper-search-bar .search-bar .first {
-    padding-left: 100px;
-  }
-}
-
 .landing-header .navbar .wrapper-search-bar .search-bar .last {
-  padding-right: 150px;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
-}
-
-@media screen and (max-width: 420px) {
-  .landing-header .navbar .wrapper-search-bar .search-bar .last {
-    padding-left: 100px;
-  }
 }
 
 .landing-header .navbar .wrapper-search-bar .search-bar input {
@@ -458,12 +450,6 @@ section#my-apartments .button-link {
   color: #FFF;
   border: 0;
   border-radius: 50%;
-}
-
-@media screen and (max-width: 420px) {
-  .landing-header .navbar .wrapper-search-bar .search-bar .search {
-    margin-left: 200px;
-  }
 }
 
 .register-header {

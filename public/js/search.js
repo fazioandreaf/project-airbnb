@@ -2142,7 +2142,6 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     methods: {
       filterbutton: function filterbutton() {
-        console.log(this.filterel);
         this.filterel = !this.filterel;
       },
       addclass: function addclass() {

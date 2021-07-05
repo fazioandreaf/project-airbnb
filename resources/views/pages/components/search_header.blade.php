@@ -36,7 +36,7 @@
           </a>
         </div>
 
-        <div class="filtrini" @click="filterbutton" :class="!filterel?'activefilter':''">
+        <div class="filtrini" @click="filterbutton" :class="(!filterel)? 'activefilter' : '' ">
           <a href="#">
             <i class="fas fa-filter"></i>
           </a>

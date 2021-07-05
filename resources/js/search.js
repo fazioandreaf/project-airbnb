@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         methods: {
             filterbutton: function() {
-                console.log(this.filterel);
                 this.filterel = !this.filterel;
             },
             addclass: function() {

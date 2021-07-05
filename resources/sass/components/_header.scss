@@ -352,19 +352,19 @@
 
     .wrapper-search-bar {
 
-
+      @include flex(row, center, center);
       padding: 20px 40px;
       border-radius: 40px;
 
       @include responsive(mobile){
         background-color: $search-fuchsia;
-        border-radius: 0px;
+        border-radius: 0;
        }
 
       .search-bar {
 
         @include flex(row, center, center);
-
+        width: 100%;
 
         .wrapper-form-fields {
 
@@ -374,33 +374,20 @@
           padding: 20px;
 
           @include responsive(mobile){
-            width: 100px;
-
+            width: 50%;
            }
         }
 
         .first {
-
-          padding-left: 150px;
+          padding-left: 100px;
           border-top-left-radius: 50px;
           border-bottom-left-radius: 50px;
 
-          @include responsive(mobile){
-            padding-left: 100px;
-
-           }
         }
 
         .last {
-
-          padding-right: 150px;
           border-top-right-radius: 50px;
           border-bottom-right-radius: 50px;
-
-          @include responsive(mobile){
-            padding-left: 100px;
-
-           }
         }
 
         input {
@@ -420,11 +407,6 @@
           color: $white;
           border: 0;
           border-radius: 50%;
-
-          @include responsive(mobile){
-            margin-left: 200px;
-
-           }
         }
       }
     }
