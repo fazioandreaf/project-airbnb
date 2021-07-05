@@ -2629,9 +2629,15 @@ section#login-section .wrapper-form-botton a {
 }
 
 section#edit-section {
-  width: 32%;
+  width: 800px;
   margin: auto;
   padding-top: 50px;
+}
+
+@media screen and (max-width: 420px) {
+  section#edit-section {
+    width: 400px;
+  }
 }
 
 section#edit-section h2 {
@@ -2642,6 +2648,12 @@ section#edit-section h2 {
 section#edit-section .form-complit {
   display: flex;
   flex-direction: row;
+}
+
+@media screen and (max-width: 420px) {
+  section#edit-section .form-complit {
+    display: block;
+  }
 }
 
 section#edit-section .form-complit .form-errors {
@@ -2681,8 +2693,31 @@ section#edit-section .form-complit .form-text .form-text-elem input:hover {
   transition: 0.2s;
 }
 
+section#edit-section .form-complit .form-text .form-text-elem textarea {
+  resize: none;
+  overflow-y: auto;
+  background-color: #ededed;
+  padding: 10px;
+  border: 0;
+  border-radius: 20px;
+  transition: all 0.4s;
+  width: 100%;
+  flex-grow: 1;
+}
+
+section#edit-section .form-complit .form-text .form-text-elem textarea:focus {
+  outline: 0;
+}
+
 section#edit-section .form-complit .form-service {
   margin-left: 50px;
+}
+
+@media screen and (max-width: 420px) {
+  section#edit-section .form-complit .form-service {
+    margin-left: 0px;
+    padding: 20px;
+  }
 }
 
 section#edit-section .form-complit .form-select {
