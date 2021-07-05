@@ -65,16 +65,11 @@
                 }
                 a {
                     margin: 20px 0px;
-
-        //a:first-of-type {
-          // margin-bottom: 20px;
-        //}
-      }
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        border-radius: 10px;
-                    }
+                }
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
                 }
             }
 
@@ -89,9 +84,9 @@
                     display: none;
                 }
 
-                a:first-of-type {
-                    // margin-bottom: 20px;
-                }
+                // a:first-of-type {
+                //     margin-bottom: 20px;
+                // }
             }
         }
         .errore {
