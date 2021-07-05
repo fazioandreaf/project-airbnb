@@ -73,12 +73,6 @@
           padding: 10px;
           border-radius: 10px;
 
-          @include responsive(mobile){
-            background-color: red;
-            top: calc(100% + 2px);
-          left: calc(-50% - 20px);
-
-           }
 
         }
 
@@ -302,6 +296,19 @@
           width: 200px;
           padding: 10px;
           border-radius: 10px;
+          
+          @include responsive(mobile){
+            position: absolute;
+            height: 380px;
+            width: 350px;
+            top: calc(-100% - 380px);
+            left: calc(100% - 335px);
+            background-color: white;
+            border: 2px solid $fuchsia-search;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            text-align: center;
+            padding-top: 160px;
+           }
         }
 
         .open {

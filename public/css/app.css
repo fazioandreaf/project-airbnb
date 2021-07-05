@@ -93,14 +93,6 @@ section#my-apartments .button-link {
   border-radius: 10px;
 }
 
-@media screen and (max-width: 420px) {
-  #dashboard-header .navbar .nav-links .has-dropdown .dropdown {
-    background-color: red;
-    top: calc(100% + 2px);
-    left: calc(-50% - 20px);
-  }
-}
-
 #dashboard-header .navbar .nav-links .has-dropdown .open {
   display: block;
 }
@@ -326,6 +318,21 @@ section#my-apartments .button-link {
   width: 200px;
   padding: 10px;
   border-radius: 10px;
+}
+
+@media screen and (max-width: 420px) {
+  .landing-header .navbar .nav-links .has-dropdown .dropdown {
+    position: absolute;
+    height: 380px;
+    width: 350px;
+    top: calc(-100% - 380px);
+    left: calc(100% - 335px);
+    background-color: white;
+    border: 2px solid #e80080;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    padding-top: 160px;
+  }
 }
 
 .landing-header .navbar .nav-links .has-dropdown .open {
@@ -616,6 +623,12 @@ footer {
 footer .bigger-footer {
   margin: 0 auto;
   width: 80%;
+}
+
+@media screen and (max-width: 420px) {
+  footer .bigger-footer {
+    margin-bottom: 100px;
+  }
 }
 
 footer .bigger-footer .footer-top-section {
@@ -2433,6 +2446,12 @@ section#newapartment-section .form-nw-apartment {
   padding: 10px;
 }
 
+@media screen and (max-width: 420px) {
+  section#newapartment-section .form-nw-apartment {
+    width: 350px;
+  }
+}
+
 section#newapartment-section .form-nw-apartment:hover {
   border: 1px solid #0d736e;
   transition: 0.2s;
@@ -2444,6 +2463,12 @@ section#newapartment-section .form-nw-apartment .form-nw-apartment-elm-tot {
   width: 400px;
   height: auto;
   padding: 20px 0px;
+}
+
+@media screen and (max-width: 420px) {
+  section#newapartment-section .form-nw-apartment .form-nw-apartment-elm-tot {
+    width: 100%;
+  }
 }
 
 section#newapartment-section .form-nw-apartment .form-nw-apartment-elm-tot .elm-form {
