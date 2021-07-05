@@ -170,26 +170,27 @@ class HomeController extends Controller {
             $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
             switch ($key) {
                 case 0:
-                    $folder = '/external/';
+                    $folder = '/assets/external/';
                     break;
                 case 1: 
-                    $folder = '/living-room/';
+                    $folder = '/assets/living-room/';
                     break;
                 case 2: 
-                    $folder = '/kitchen/';
+                    $folder = '/assets/kitchen/';
                     break;
                 case 3: 
-                    $folder = '/bedroom/';
+                    $folder = '/assets/bedroom/';
                     break;
                 case 4: 
-                    $folder = '/bathroom/';
+                    $folder = '/assets/bathroom/';
                     break;
             }
             $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
             // dd($img,$imgExt,$newNameImg,$imgFile);
 
             $image->image = $newNameImg;
-            $image->update($validated);
+            // dd($image->image = $newNameImg);
+            $image->update(['image' => $newNameImg]);
             return redirect()->route('edit_image',$idApartment);
         }else {
             return back();
