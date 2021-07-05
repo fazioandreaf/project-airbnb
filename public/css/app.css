@@ -1138,11 +1138,20 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
 
 .outer-jumbotron .slider-main .apartment-samples .flags a {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
   color: white;
+  flex-basis: 75%;
+}
+
+.outer-jumbotron .slider-main .apartment-samples .flags a img {
+  width: 100%;
+  height: 100%;
+}
+
+.outer-jumbotron .slider-main .apartment-samples .flags .title {
+  flex: 1;
 }
 
 .outer-jumbotron .section-host {

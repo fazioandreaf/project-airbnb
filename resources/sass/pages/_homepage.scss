@@ -92,9 +92,16 @@
                     }
                 }
                 a {
-                    @include flex(row, center, center);
-                    height: 100%;
+                    @include flex(column, center, center);
                     color: white;
+                    flex-basis: 75%;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .title {
+                    flex: 1;
                 }
             }
         }

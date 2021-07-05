@@ -7,6 +7,7 @@ Use App\Statistic;
 Use App\User;
 Use App\Service;
 use App\Message;
+use App\Image;
 use Auth;
 use DB;
 use Carbon\Carbon;
@@ -26,6 +27,7 @@ class MainController extends Controller {
                     ->where('apartments.deleted_at', null)
                     ->get();
 
+
         return view('pages.homepage', compact('apartments'));
     }
     // dettagli appartamento
@@ -35,7 +37,7 @@ class MainController extends Controller {
         $validate=([
             'ip'=>$ip,
         ]);
-        
+
         $apartment = Apartment::findOrFail($id);
         $statistic = Statistic::make($validate);
         $statistic -> apartment() -> associate($id);
