@@ -175,7 +175,7 @@
                     <form class="lallero" action="{{ route('send', $apartment->id) }}" method="POST" novalidate>
                       @csrf
                       @method('POST')
-                      <div> {{-- class form-infos --}}
+                      <div class="form-infos"> {{-- class form-infos --}}
 
                         <span>
                           Scrivi all'host

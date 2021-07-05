@@ -302,7 +302,6 @@
 
       .dettagli-flat {
         width: 100%;
-        height: 700px;
         @include flex(row, null, null);
 
         // ------------------- INIZIO SEZIONE SINISTRA ---------------------------
@@ -330,7 +329,7 @@
             .riga.tre,
             .riga.quattro {
               width: 100%;
-              height: 25%;
+              padding: 30px 0;
               @include flex(column, null, null);
 
               // MEDIA QUERY
@@ -448,11 +447,16 @@
               // MEDIA QUERY
               @include responsive(mobile) {
                 display: block;
+                padding: 20px 0;
                 @include flex(row, center, center);
 
                 .lallero {
                   @include flex(column, null, null);
                   font-size: 15px;
+
+                  .form-infos {
+                    @include flex(column, center, center)
+                  }
 
                   textarea {
                     border-radius: 10px;
@@ -473,7 +477,7 @@
                     border: 1px solid $darker-fuchsia-search;
                     border-radius: 10px;
                     padding-left: 5px;
-
+                    
                     &:focus {
                       outline: 0;
                     }
@@ -484,6 +488,14 @@
                     background-color: $darker-fuchsia-search;
                     border: none;
                     border-radius: 10px;
+                    color: $white;
+                    font-weight: 600;
+                    padding: 10px;
+                    transition: all .5s;
+
+                    &:hover {
+                      background-color: $mesprit-fuchsia;
+                    }
                   }
 
                   i {
