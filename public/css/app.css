@@ -2716,6 +2716,10 @@ section#edit-section .form-complit .form-text .form-text-elem input {
   margin-left: 20px;
 }
 
+section#edit-section .form-complit .form-text .form-text-elem input:focus {
+  outline: 0;
+}
+
 section#edit-section .form-complit .form-text .form-text-elem input:hover {
   background-color: #d9d9d9;
   transition: 0.2s;

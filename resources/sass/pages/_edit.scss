@@ -46,6 +46,10 @@ section#edit-section{
                     border-radius: 20px;
                     margin-left: 20px;
 
+                    &:focus {
+                        outline: 0;
+                    }
+
                     &:hover {
 
                         background-color: $steelix-gray;
