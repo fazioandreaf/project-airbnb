@@ -448,12 +448,32 @@
 
                 .lallero {
                   @include flex(column, null, null);
+                  font-size: 15px;
+
+                  textarea {
+                    border-radius: 10px;
+                    border: 1px solid $royal-fuchsia;
+                  }
+
+                  .lallero-btn.email {
+                    width: 200px;
+                    margin-bottom: 5px;
+                    border: 1px solid $darker-fuchsia-search;
+                    border-radius: 10px;
+                  }
+
+                  .lallero-btn.sub {
+                    margin-top: 5px;
+                    background-color: $darker-fuchsia-search;
+                    border: none;
+                    border-radius: 10px;
+                  }
 
                   i {
                     font-size: 25px;
-                    animation: matita 1s linear infinite;
+                    animation: pencil 1s linear infinite;
 
-                    @keyframes matita {
+                    @keyframes pencil {
                       0% {transform: rotate(0.00turn);}
                       25% {transform: rotate(0.05turn);}
                       50% {transform: rotate(0.10turn);}
