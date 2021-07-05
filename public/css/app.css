@@ -5,6 +5,7 @@ section#user-dashboard .wrapper-with-apartments {
   border-bottom-right-radius: 20px;
 }
 
+#section-add-images .container .container-form-add .add-image button,
 section#user-dashboard .wrapper-with-apartments .apartments-link a,
 section#my-apartments .button-link {
   display: inline-block;
@@ -3288,6 +3289,72 @@ div#success-message .cnt-success-msg button {
 div#success-message .cnt-success-msg button:hover {
   background-color: #6c6a6b;
   color: white;
+  transition: 0.2s;
+}
+
+#section-add-images {
+  text-align: center;
+  padding: 30px 0;
+}
+
+#section-add-images .container {
+  margin: 0 auto;
+  width: 600px;
+  background-color: #ededed;
+  padding: 15px;
+  border-radius: 20px;
+  border: 1px solid #12a19a;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+@media screen and (max-width: 620px) {
+  #section-add-images .container {
+    margin: 0 auto;
+    width: 380px;
+  }
+}
+
+#section-add-images .container h1 {
+  padding-top: 20px;
+  color: #fa8a8a;
+}
+
+#section-add-images .container .container-form-add {
+  width: 100%;
+  margin: 30px auto;
+}
+
+#section-add-images .container .container-form-add .add-image {
+  margin: 18px auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 15px;
+}
+
+#section-add-images .container .container-form-add .add-image .label-input .label-image {
+  font-size: 22px;
+  color: #fa8a8a;
+  padding-top: 5px;
+}
+
+#section-add-images .container .container-form-add .add-image .label-input .input-image {
+  margin: 15px auto;
+  cursor: pointer;
+}
+
+#section-add-images .container .container-form-add .add-image button {
+  cursor: pointer;
+  width: 170px;
+  height: 50px;
+}
+
+#section-add-images .container .container-form-add .add-image:hover {
+  background-color: yellowgreen;
+  box-shadow: 5px 5px 5px #dedede;
   transition: 0.2s;
 }
 
