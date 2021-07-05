@@ -5,6 +5,7 @@
   // MEDIA QUERY
   @include responsive(mobile) {
     @include container(100%);
+    padding-bottom: 100px;
   }
 
   nav {
@@ -141,6 +142,11 @@
 
   .jumbotron-apartment {
     @include container(80%);
+
+    // MEDIA QUERY
+    @include responsive(mobile) {
+      @include container(95%);
+    }
 
     #jumbo-container {
       margin-bottom: 50px;
@@ -298,10 +304,15 @@
         height: 700px;
         @include flex(row, null, null);
 
-        // INIZIO SEZIONE SINISTRA CON ICONE
+        // ------------------- INIZIO SEZIONE SINISTRA ---------------------------
         .sinistra-dettagli-flat {
           width: 70%;
           height: 100%;
+
+          // MEDIA QUERY
+          @include responsive(mobile) {
+            width: 100%;
+          }
 
           h2 {
             height: 40px;
@@ -320,6 +331,11 @@
               width: 100%;
               height: 25%;
 
+              // MEDIA QUERY
+              @include responsive(mobile) {
+                height: auto;
+              }
+
               h3 {
                 text-transform: uppercase;
                 border-bottom: 1px solid rgba(50, 50, 50, .3);
@@ -336,12 +352,21 @@
             // (1) INIZIO PARAGRAFO LOREM
             .riga.uno {
               @include flex(row, null, center);
+              flex-wrap: wrap;
+
             } // (1) FINE PARAGRAFO LOREM
 
 
             // (2) INZIO STANZE, LETTI, BAGNI, AREA
             .riga.due {
               @include flex(row, space-between, null);
+              flex-wrap: wrap;
+
+              // MEDIA QUERY
+              @include responsive(mobile) {
+                @include flex(row, flex-start, null);
+                padding: 50px 0px;
+              }
 
               img {
                 margin-right: 10px;
@@ -363,10 +388,16 @@
                 flex-wrap: wrap;
                 padding-bottom: 50px;
 
+
                 li {
                   margin-left: 20px;
                   height: 60px;
                   @include flex(column, center, center);
+
+                  // MEDIA QUERY
+                  @include responsive(mobile) {
+                    margin: 0;
+                  }
                 }
 
                 li:first-of-type {
@@ -392,6 +423,7 @@
                 width: 100%;
                 height: 100%;
                 @include flex(row, space-between, center);
+                flex-wrap: wrap;
 
                 a {
                   @include flex(row, center, center);
@@ -403,19 +435,24 @@
               }
 
 
-            } // (4) INIZIO SPONSOR E PULIZIA
+            } // (4) FINE SPONSOR E PULIZIA
 
           } // FINE #all-four-rows
 
         } // FINE sinistra-dettagli-flat
 
-        // FINE SEZIONE SINISTRA CON ICONE
+        // ------------------- FINE SEZIONE SINISTRA ---------------------------
 
-        // INIZIO SEZIONE DESTRA
+        // ------------------- INIZIO SEZIONE DESTRA ---------------------------
         .destra-dettagli-flat {
           width: 30%;
           height: 100%;
           @include flex(row, flex-end, center);
+
+          // MEDIA QUERY
+          @include responsive(tablet) {
+            display: none;
+          }
 
 
           form {
@@ -467,9 +504,13 @@
               border: 0.5px solid rgba(50, 50, 50, .2);
               border-radius: 10px;
             }
-          }
-        } // FINE destra-dettagli-flat
 
+          }
+
+        }
+
+        // ------------------- FINE SEZIONE DESTRA -----------------------------
+        
       } // FINE DETTAGLI-FLAT (width: 100% height: 600px)
 
     } // FINE #jumbo-container

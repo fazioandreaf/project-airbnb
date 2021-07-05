@@ -37,7 +37,7 @@
           </a>
         </div>
 
-      </div> {{-- FINE DI FILTERS --}}
+    </div> {{-- FINE DI FILTERS --}}
 
       <div class="has-dropdown" v-on:click.stop="openDropdown">
 

@@ -613,6 +613,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     max-height: 800px;
   }
 }
@@ -718,17 +719,15 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
     justify-content: center;
     align-items: center;
   }
+
+  #header-search .top-header-search .filter .filtrini:hover {
+    background-color: lime;
+  }
 }
 
 @media screen and (max-width: 420px) and (max-width: 420px) {
   #header-search .top-header-search .filter .filtrini {
     background-color: #fa8a8a;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  #header-search .top-header-search .filter .filtrini:hover {
-    background-color: lime;
   }
 }
 
@@ -795,6 +794,12 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 420px) {
+  #header-search .lower-header-search ul {
+    display: none;
+  }
 }
 
 #header-search .lower-header-search ul li {
@@ -1426,6 +1431,7 @@ section#section-register form .form-button {
   #apartment-sample {
     margin: 0 auto;
     width: 100%;
+    padding-bottom: 100px;
   }
 }
 
@@ -1578,6 +1584,13 @@ section#section-register form .form-button {
 #apartment-sample .jumbotron-apartment {
   margin: 0 auto;
   width: 80%;
+}
+
+@media screen and (max-width: 420px) {
+  #apartment-sample .jumbotron-apartment {
+    margin: 0 auto;
+    width: 95%;
+  }
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container {
@@ -1736,6 +1749,12 @@ section#section-register form .form-button {
   height: 100%;
 }
 
+@media screen and (max-width: 420px) {
+  #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat {
+    width: 100%;
+  }
+}
+
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat h2 {
   height: 40px;
   width: 100%;
@@ -1753,6 +1772,15 @@ section#section-register form .form-button {
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.quattro {
   width: 100%;
   height: 25%;
+}
+
+@media screen and (max-width: 420px) {
+  #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.uno,
+  #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.due,
+  #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.tre,
+  #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.quattro {
+    height: auto;
+  }
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.uno h3,
@@ -1776,12 +1804,23 @@ section#section-register form .form-button {
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.due {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 420px) {
+  #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.due {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 50px 0px;
+  }
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.due img {
@@ -1815,6 +1854,12 @@ section#section-register form .form-button {
   align-items: center;
 }
 
+@media screen and (max-width: 420px) {
+  #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.tre .sub-list li {
+    margin: 0;
+  }
+}
+
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.tre .sub-list li:first-of-type {
   margin: 0;
 }
@@ -1834,6 +1879,7 @@ section#section-register form .form-button {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.quattro .test a {
@@ -1854,6 +1900,12 @@ section#section-register form .form-button {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+}
+
+@media screen and (max-width: 620px) {
+  #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat {
+    display: none;
+  }
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat form {

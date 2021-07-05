@@ -77,7 +77,6 @@
               <a href="#">
                 {{$apartment->title}}
               </a>
-              {{-- <div>ID:[{{$apartment->id}}]</div> --}}
             </h1>
 
           </div>
@@ -100,7 +99,6 @@
 
           {{-- INIZIO immagini appartamento --}}
           <div class="apartment-img-container">
-            {{-- v-for="image in imgArr" --}}
 
             {{-- INIZIO IMMAGINE GRANDE --}}
             <div>
@@ -123,42 +121,17 @@
                             <img class="immagini-piccole" src="{{asset('/storage/assets/kitchen/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
                               @break
                           @case(2)
-                            <img class="immagini-piccole" src="{{asset('/storage/assets/bedroom/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">  
-                              @break  
+                            <img class="immagini-piccole" src="{{asset('/storage/assets/bedroom/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                              @break
                           @case(3)
-                            <img class="immagini-piccole" src="{{asset('/storage/assets/bathroom/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">  
-                            @break                        
+                            <img class="immagini-piccole" src="{{asset('/storage/assets/bathroom/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                            @break
                       @endswitch
                   </a>
                 </div>
               @endforeach
-              {{-- <div>
-                <a href="#">
-                  <img class="immagini-piccole" src="https://source.unsplash.com/375x245/?interior,Room,Home" alt="immagine-qui" style="width: 100%;height: 100%;">
-                </a>
-              </div>
-
-              <div>
-                <a href="#">
-                  <img class="immagini-piccole" src="https://source.unsplash.com/375x245/?Kitchen,Interior" alt="immagine-qui" style="width: 100%;height: 100%;">
-                </a>
-              </div>
-
-              <div>
-                <a href="#">
-                  <img class="immagini-piccole" src="https://source.unsplash.com/collection/2048325/375x245" alt="immagine-qui" style="width: 100%;height: 100%;">
-                </a>
-              </div>
-
-              <div>
-                <a href="#">
-                  <img class="immagini-piccole" src="https://source.unsplash.com/375x245/?Bathroom" alt="immagine-qui" style="width: 100%;height: 100%;">
-                </a>
-              </div> --}}
             </div>
-            {{-- INIZIO 4 IMMAGINI --}}
-
-            {{-- <img src="{{asset('storage/apartment-img/'.$apartment -> cover_image)}}" alt=""> --}}
+            {{-- FINE 4 IMMAGINI --}}
           </div>
           {{-- FINE immagini appartamento --}}
 
