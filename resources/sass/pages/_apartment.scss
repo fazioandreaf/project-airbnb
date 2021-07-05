@@ -1,15 +1,154 @@
 #apartment-sample {
   font-family: "Nunito", sans-serif;
   background-color: $dirty-white;
-  padding-bottom: 30px;
+  max-height: 90%;
+  padding-bottom: 10%;
 
   // MEDIA QUERY
   @include responsive(mobile) {
     @include container(100%);
+    height: auto;
   }
+
+  nav {
+    @include flex(row, null, center);
+    border-bottom: 0.5px solid rgba(50, 50, 50, .3);
+    height:100px;
+    background-color: $white;
+
+    // MEDIA QUERY
+    @include responsive(mobile) {
+      background-color: $royal-fuchsia;
+    }
+
+
+    .basic-header {
+      @include container(80%);
+      @include flex(row, space-between, center);
+
+      // MEDIA QUERY
+      @include responsive(mobile) {
+        @include flex(row, center, center);
+      }
+
+      // INIZIO PRIMO div IMMAGINE
+      div:nth-child(1) {
+
+        // MEDIA QUERY
+        @include responsive(mobile) {
+          display: none;
+        }
+
+        img {
+          height: auto;
+          width: 120px;
+        }
+      } // FINE PRIMO div IMMAGINE
+
+      // INIZIO secondo div (BARRA DI RICERCA)
+      div:nth-child(2) {
+        @include flex(row, null, null);
+
+        #barra-ricerca {
+          @include flex(row, space-between, null);
+          width: 400px;
+          height: 50px;
+          border-radius: 30px;
+
+          // MEDIA QUERY
+          @include responsive(mobile) {
+            background-color: white;
+
+            a:last-child {
+              background-color: $salmon-pink;
+            }
+
+            a:last-child:hover {
+              background-color: $royal-fuchsia;
+            }
+          }
+
+          // MEDIA QUERY
+          @include responsive(mobile) {
+            width: 200px;
+          }
+
+          a:first-of-type {
+            margin-left: 10px;
+          }
+
+          a:last-of-type {
+            margin-right: 10px;
+          }
+        }
+
+        span {
+          @include flex(row, center, center);
+          border: 0.5px solid rgba(50, 50, 50, .3);
+
+          a:last-of-type {
+            @include flex(row, center, center);
+            background-color: $fuchsia-search;
+            color: $white;
+            font-size: 20px;
+            width: 35px;
+            height: 35px;
+            border-radius: 100%;
+          }
+        }
+
+      } // FINE SECONDO div (BARRA DI RICERCA)
+
+      // INIZIO terzo div (quello con omino utente)
+      div:nth-child(3) {
+        @include flex(row, flex-end, null);
+
+        // MEDIA QUERY
+        @include responsive(mobile) {
+          display: none;
+        }
+
+        a {
+          @include flex(row, space-evenly, center);
+        }
+
+        a:nth-child(1) {
+          margin: 20px 30px 0px 10px;
+        }
+
+        a:nth-child(2) {
+          font-size: 15px;
+          background-color: $white;
+          width: 90px;
+          height: 60px;
+          border-radius: 30px;
+          border: 1px solid rgba(50, 50, 50, .3);
+
+          // Icona utente (omino)
+          i:last-of-type {
+            color: $white;
+            background-color: $user-gray;
+            padding: 10px;
+            border-radius: 100%;
+          }
+
+        }
+
+      } // FINE terzo div (quello con omino utente)
+
+    } // FINE DI BASIC HEADER (width: 80%)
+
+  } // FINE NAV (100% width per border bottom)
+
+  // ---------------------------------------------------------------------------
 
   .jumbotron-apartment {
     @include container(80%);
+
+    // MEDIA QUERY
+    @include responsive(mobile) {
+      @include container(95%);
+    }
 
     #jumbo-container {
       margin-bottom: 50px;
@@ -34,7 +173,7 @@
           width: 100%;
           span {
             @include flex(row, flex-end, null);
-            width:auto;
+            width: auto;
           }
         }
 
@@ -166,10 +305,15 @@
         height: 700px;
         @include flex(row, null, null);
 
-        // INIZIO SEZIONE SINISTRA CON ICONE
+        // ------------------- INIZIO SEZIONE SINISTRA ---------------------------
         .sinistra-dettagli-flat {
           width: 70%;
           height: 100%;
+
+          // MEDIA QUERY
+          @include responsive(mobile) {
+            width: 100%;
+          }
 
           h2 {
             height: 40px;
@@ -188,10 +332,16 @@
               width: 100%;
               height: 25%;
 
+              // MEDIA QUERY
+              @include responsive(mobile) {
+                height: auto;
+                font-size: 15px;
+                margin-bottom: 30px;
+              }
+
               h3 {
                 text-transform: uppercase;
                 border-bottom: 1px solid rgba(50, 50, 50, .3);
-                padding-bottom: 20px;
               }
 
               img {
@@ -204,12 +354,19 @@
             // (1) INIZIO PARAGRAFO LOREM
             .riga.uno {
               @include flex(row, null, center);
+              flex-wrap: wrap;
             } // (1) FINE PARAGRAFO LOREM
 
 
             // (2) INZIO STANZE, LETTI, BAGNI, AREA
             .riga.due {
               @include flex(row, space-between, null);
+              flex-wrap: wrap;
+
+              // MEDIA QUERY
+              @include responsive(mobile) {
+                align-self: flex-start;
+              }
 
               img {
                 margin-right: 10px;
@@ -223,26 +380,25 @@
 
             // (3) INIZIO SERVIZI EXTRA
             .riga.tre {
+              @include flex(column, null, null);
+              flex-wrap: wrap;
 
               .sub-list {
                 width:100%;
                 height: 100%;
                 @include flex(row, flex-start, center);
                 flex-wrap: wrap;
-                padding-bottom: 50px;
 
                 li {
-                  margin-left: 20px;
                   height: 60px;
                   @include flex(column, center, center);
-                }
+                  margin-right: 10px;
 
-                li:first-of-type {
-                  margin: 0;
-                }
+                  // MEDIA QUERY
+                  @include responsive(mobile) {
+                    margin: 10px 10px 0px 0px;
+                  }
 
-                img {
-                  margin-top: 10px;
                 }
 
               } // FINE SUB-LIST
@@ -252,38 +408,67 @@
             // (4) INIZIO SPONSOR E PULIZIA
             .riga.quattro {
 
-              h3 {
-                padding-top: 30px;
-              }
-
               .test {
                 width: 100%;
                 height: 100%;
-                @include flex(row, space-between, center);
+                @include flex(row, null, null);
+                flex-wrap: wrap;
 
                 a {
                   @include flex(row, center, center);
+                  height: 75%;
 
                   i {
                     font-size: 35px;
                   }
+
                 }
+
+                a:first-of-type p {
+                  overflow: hidden;
+
+                  // MEDIA QUERY
+                  @include responsive(mobile) {
+                    display:none;
+                  }
+                }
+
               }
 
+            } // (4) FINE SPONSOR E PULIZIA
 
-            } // (4) INIZIO SPONSOR E PULIZIA
+            #invisible-map {
+              display: none;
+
+              // MEDIA QUERY
+              @include responsive(mobile) {
+                display: block;
+                @include flex(row, center, center);
+
+                div {
+                  height: 250px;
+                  width: 250px;
+                  background-color: blue;
+                }
+              }
+            }
 
           } // FINE #all-four-rows
 
         } // FINE sinistra-dettagli-flat
 
-        // FINE SEZIONE SINISTRA CON ICONE
+        // ------------------- FINE SEZIONE SINISTRA ---------------------------
 
-        // INIZIO SEZIONE DESTRA
+        // ------------------- INIZIO SEZIONE DESTRA ---------------------------
         .destra-dettagli-flat {
           width: 30%;
           height: 100%;
           @include flex(row, flex-end, center);
+
+          // MEDIA QUERY
+          @include responsive(tablet) {
+            display: none;
+          }
 
 
           form {
@@ -369,8 +554,12 @@
                 outline: 0;
               }
             }
+
           }
-        } // FINE destra-dettagli-flat
+
+        }
+
+        // ------------------- FINE SEZIONE DESTRA -----------------------------
 
       } // FINE DETTAGLI-FLAT (width: 100% height: 600px)
 
