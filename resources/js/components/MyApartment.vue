@@ -6,7 +6,10 @@
                     <h1 @click="showDetails">
                         {{ apartment.title }}
                         <transition name="rotate">
-                            <i class="fas fa-chevron-down arrow" :class="(showApartmentDetails) ? 'rotate' : ''"></i>
+                            <i
+                                class="fas fa-chevron-down arrow"
+                                :class="showApartmentDetails ? 'rotate' : ''"
+                            ></i>
                         </transition>
                     </h1>
                 </li>
@@ -19,7 +22,7 @@
                         <i class="fas fa-trash-alt"></i>
                     </a>
                 </li>
-                 <li>
+                <li>
                     <slot name="statistic"></slot>
                 </li>
                 <li>
@@ -60,38 +63,34 @@
 </template>
 
 <script>
-    export default {
-        data: function() {
+export default {
+    data: function() {
+        return {
+            showApartmentDetails: false,
+            deleted: false
+        };
+    },
 
-            return {
-                showApartmentDetails: false,
-                deleted: false,
-            }
+    props: {
+        apartment: Object
+    },
+
+    methods: {
+        showDetails: function() {
+            this.showApartmentDetails = !this.showApartmentDetails;
         },
 
-        props: {
-
-            apartment: Object
-        },
-
-        methods: {
-
-            showDetails: function() {
-                
-                this.showApartmentDetails = !this.showApartmentDetails;
-            },
-
-            destroy: function() {
-                console.log(this.apartment.id);
-                axios
-                    .get('/api/apartment/destroy/' + this.apartment.id)
-                    .then(response => {
-                        if(response.status == 200) {
-                            this.deleted = true;
-                        }
-                    })
-                    .catch(error => console.log(error))
-            }
+        destroy: function() {
+            console.log(this.apartment.id);
+            axios
+                .get("/api/apartment/destroy/" + this.apartment.id)
+                .then(response => {
+                    if (response.status == 200) {
+                        this.deleted = true;
+                    }
+                })
+                .catch(error => console.log(error));
         }
     }
+};
 </script>

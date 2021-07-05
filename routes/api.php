@@ -21,6 +21,7 @@ Route::get('/filter','ApiController@filter')->name('filter');
 Route::get('/sponsored','ApiController@sponsored')->name('sponsored');
 Route::get('/service','ApiController@service')->name('service');
 Route::get('/upservice','ApiController@upservice')->name('upservice');
+Route::get('/upservice_sponsored','ApiController@upservice_sponsored')->name('upservice_sponsored');
 
 Route::get('/apartment/destroy/{id}', 'ApiController@destroy') -> name('destroy');
 Route::get('/views/{id}', 'ApiController@getViews') -> name('get_views');

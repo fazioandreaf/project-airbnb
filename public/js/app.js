@@ -2045,6 +2045,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2063,7 +2066,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       console.log(this.apartment.id);
-      axios.get('/api/apartment/destroy/' + this.apartment.id).then(function (response) {
+      axios.get("/api/apartment/destroy/" + this.apartment.id).then(function (response) {
         if (response.status == 200) {
           _this.deleted = true;
         }
