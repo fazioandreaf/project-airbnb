@@ -1695,13 +1695,8 @@ section#section-register form .error {
 }
 
 .search-page .left-section .row-with-img-text .sinistra-img .sponsor {
+  width: 100%;
   position: relative;
-}
-
-@media screen and (max-width: 420px) {
-  .search-page .left-section .row-with-img-text .sinistra-img .sponsor {
-    width: 100%;
-  }
 }
 
 .search-page .left-section .row-with-img-text .sinistra-img .sponsor .tagsponsor {

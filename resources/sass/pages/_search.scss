@@ -47,10 +47,7 @@
                 @include flex(row, null, center);
                 flex-basis: 40%;
                 .sponsor {
-                     @include responsive(mobile){
-                         width: 100%;
-                     }
-
+                    width: 100%;
                     position: relative;
                     .tagsponsor {
                         position: absolute;
