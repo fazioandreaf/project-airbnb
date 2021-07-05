@@ -44774,7 +44774,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 left: 20
               }
             },
-            responsive: false
+            responsive: true
           }
         });
         this.activeGraph = true;

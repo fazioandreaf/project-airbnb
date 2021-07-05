@@ -3324,8 +3324,23 @@ section#pay-section button {
   align-items: flex-start;
 }
 
+@media screen and (max-width: 420px) {
+  #stats .wrapper-statistics {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 #stats .wrapper-statistics aside {
   flex-basis: 30%;
+}
+
+@media screen and (max-width: 420px) {
+  #stats .wrapper-statistics aside {
+    width: 100%;
+  }
 }
 
 #stats .wrapper-statistics aside .years-list li:nth-child(odd) {
@@ -3350,6 +3365,14 @@ section#pay-section button {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+#stats .wrapper-statistics .wrapper-graph .no-stats-text {
+  background-color: #ededed;
+  padding: 50px 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+  text-align: center;
 }
 
 div#success-message {

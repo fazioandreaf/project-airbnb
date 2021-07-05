@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             }
                         },
 
-                        responsive: false
+                        responsive: true
                     }
                 });
 
