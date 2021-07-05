@@ -1,8 +1,7 @@
 <template>
     <div class="wrapper-apartment" v-if="!deleted">
         <div class="apartment-main-infos">
-            <ul class="infos">
-                <li class="apartment-title">
+                <span class="apartment-title">
                     <h1 @click="showDetails">
                         {{ apartment.title }}
                         <transition name="rotate">
@@ -12,13 +11,15 @@
                             ></i>
                         </transition>
                     </h1>
-                </li>
+                </span>
+            <ul class="infos">
+                
                 <li>
                     <slot name="view"></slot>
                 </li>
                 <li>
                     <a href="#" class="button-link" @click="destroy">
-                        Elimina
+                         <span> Elimina </span>
                         <i class="fas fa-trash-alt"></i>
                     </a>
                 </li>

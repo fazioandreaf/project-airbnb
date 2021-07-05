@@ -8,7 +8,12 @@
                 <span class="username"> 
                     {{ $user->firstname }} {{ $user->lastname}}
                 </span>
-                - I tuoi appartamenti 
+                <span class="separator">
+                    -
+                </span>
+               <span class="h1-voce"> 
+                   I tuoi appartamenti 
+                </span>
             </h1>
             <a class="button-link" href="{{ route('add')}}">
                 Aggiungi un appartamento   
@@ -19,32 +24,45 @@
         <div>
             @foreach ($apartments as $apartment)
             <my-apartment :apartment="{{ $apartment }}">
+
                 <template v-slot:view>
-                    <a class="button-link" href="{{ route('apartment', $apartment->id) }}">
+                 <a class="button-link left" href="{{ route('apartment', $apartment->id) }}">
+                      <span>
                         Visualizza
-                        <i class="fas fa-eye"></i>
-                    </a>
-                </template>
+                      </span> 
+                     <i class="fas fa-eye"></i>
+                  </a>
+                </template> 
+                
                 <template v-slot:delete>
                     <a class="button-link delete" href="{{ route('delete', $apartment->id) }}">
                         <i class="far fa-trash-alt"></i>
                     </a>
                 </template>
+
                 <template v-slot:edit>
                     <a class="button-link" href="{{ route('edit', $apartment->id) }}">
-                        Modifica
+                       <span>
+                           Modifica
+                        </span> 
                         <i class="fas fa-edit"></i>
                     </a>
                 </template>
+
                 <template v-slot:statistic>
                     <a class="button-link" href="{{ route('statistic', $apartment->id) }}">
-                        Statistiche
+                       <span>
+                           Statistiche
+                        </span> 
                         <i class="fas fa-chart-bar"></i>
                     </a>
                 </template>
+
                 <template v-slot:sponsor>
-                    <a class="button-link" href="{{ route('sponsor', $apartment->id) }}">
-                        Sponsor
+                    <a class="button-link right" href="{{ route('sponsor', $apartment->id) }}">
+                        <span>
+                            Sponsor  
+                        </span> 
                         <i class="fas fa-euro-sign"></i>
                     </a>
                 </template>
