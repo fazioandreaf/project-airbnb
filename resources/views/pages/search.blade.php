@@ -60,7 +60,7 @@
                     </span>
                 </div>
             @endif
-            <div else  v-for="elem in currentapartment_sponsor" class="row-with-img-text">
+            <div else v-for="elem in currentapartment_sponsor" class="row-with-img-text">
                 <div class="sinistra-img">
                     <a href="#" class="sponsor">
                         <div>
@@ -95,7 +95,7 @@
                 </div>
             </div>
 
-            <div else  v-for="elem in currentapartment" class="row-with-img-text">
+            <div v-else-if="currentapartment[0].errore!=true" v-for="elem in currentapartment" class="row-with-img-text">
                 <div class="sinistra-img">
                     <a href="#" class="sponsor">
                         <img :src=" ('/storage/assets/external/'+elem.id+ '.jpg')" alt="immagine stanza" style="width:100%; border-radius:10px" >
@@ -123,7 +123,14 @@
                     <span>Numero di stanze: @{{elem.number_rooms}}</span>
 
                 </div>
+
+                <div v-if="elem.errore" class="errore" >
+                    Nessun appartamento trovato
+                </div>
+
+
             </div>
+
 
 
         </div>

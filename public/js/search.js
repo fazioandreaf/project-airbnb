@@ -2166,6 +2166,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (res.status == 200) {
             if (res.data.length == 0) {
               return _this2.currentapartment = [{
+                errore: true,
                 title: "Nessun appartamento trovato"
               }];
             }
@@ -2207,6 +2208,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (res.status == 200) {
             if (res.data.length == 0) {
               return _this3.currentapartment = [{
+                errore: true,
                 title: "Nessun appartamento trovato"
               }];
             }
@@ -2282,6 +2284,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }).then(function (res) {
           if (res.data.length == 0) {
             _this4.currentapartment = [{
+              errore: true,
               title: "Nessun appartamento trovato"
             }];
           } else {
@@ -2303,48 +2306,48 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         })["catch"](function (err) {
           return console.log(err);
-        }); // axios
-        //     .get("api/upservice_sponsored", {
-        //         params: {
-        //             service: this.activeservice,
-        //             where: this.where,
-        //             number_rooms: this.number_rooms,
-        //             number_beds: this.number_beds
-        //         }
-        //     })
-        //     .then(res => {
-        //         console.log("resss", res.data);
-        //         // if (res.data.length == 0) {
-        //         //     this.results = !this.results;
-        //         //     this.currentapartment_sponsor = [
-        //         //         { title: "Nessun appartamento trovato" }
-        //         //     ];
-        //         // } else {
-        //         //     this.currentapartment_sponsor = res.data;
-        //         //     for (
-        //         //         i = 0;
-        //         //         i < this.currentapartment_sponsor.length;
-        //         //         i++
-        //         //     ) {
-        //         //         axios
-        //         //             .get(
-        //         //                 "https://api.tomtom.com/search/2/search/" +
-        //         //                     this.currentapartment_sponsor[i]
-        //         //                         .address +
-        //         //                     ".JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC"
-        //         //             )
-        //         //             .then(res => {
-        //         //                 tmp = res.data.results[0].position;
-        //         //                 var point = [tmp.lon, tmp.lat];
-        //         //                 map.easeTo({ center: point, zoom: 10 });
-        //         //                 makemarker(tmp.lon, tmp.lat);
-        //         //             })
-        //         //             .catch(err => console.log(err));
-        //         //     }
-        //         // }
-        //     })
-        //     .catch(err => console.log(err));
-        // console.log("final", this.currentapartment_sponsor);
+        });
+        axios.get("api/upservice_sponsored", {
+          params: {
+            service: this.activeservice,
+            where: this.where,
+            number_rooms: this.number_rooms,
+            number_beds: this.number_beds
+          }
+        }).then(function (res) {
+          console.log("resss", res.data); // if (res.data.length == 0) {
+          //     this.results = !this.results;
+          //     this.currentapartment_sponsor = [
+          //      errore:true,       {
+          // title: "Nessun appartamento trovato" }
+          //     ];
+          // } else {
+          //     this.currentapartment_sponsor = res.data;
+          //     for (
+          //         i = 0;
+          //         i < this.currentapartment_sponsor.length;
+          //         i++
+          //     ) {
+          //         axios
+          //             .get(
+          //                 "https://api.tomtom.com/search/2/search/" +
+          //                     this.currentapartment_sponsor[i]
+          //                         .address +
+          //                     ".JSON?key=v3kCAcjBfYVsbktxmCtOb3CQjgIHZgkC"
+          //             )
+          //             .then(res => {
+          //                 tmp = res.data.results[0].position;
+          //                 var point = [tmp.lon, tmp.lat];
+          //                 map.easeTo({ center: point, zoom: 10 });
+          //                 makemarker(tmp.lon, tmp.lat);
+          //             })
+          //             .catch(err => console.log(err));
+          //     }
+          // }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+        console.log("final", this.currentapartment_sponsor);
       },
       redirect: function redirect(id) {
         window.location.href = "apartments" + id;
@@ -2473,6 +2476,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (res.status == 200) {
             if (res.data.length == 0) {
               return _this7.currentapartment = [{
+                errore: true,
                 title: "Nessun appartamento trovato"
               }];
             }

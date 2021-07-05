@@ -1634,6 +1634,7 @@ section#section-register form .error {
 }
 
 .search-page .left-section {
+  position: relative;
   width: 45%;
   border-top: 1px solid rgba(50, 50, 50, 0.3);
   overflow: auto;
@@ -1674,7 +1675,7 @@ section#section-register form .error {
 
 .search-page .left-section .row-with-img-text .sinistra-img .sponsor > div {
   position: absolute;
-  bottom: 110%;
+  bottom: 101%;
   border-radius: 5px;
   color: white;
   font-size: 0.7rem;
@@ -1705,6 +1706,15 @@ section#section-register form .error {
   .search-page .left-section .row-with-img-text .destra-testo {
     margin: 0;
   }
+}
+
+.search-page .left-section .errore {
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  height: 280px;
+  text-align: center;
+  line-height: 280px;
 }
 
 .search-page .right-section {

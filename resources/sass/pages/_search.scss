@@ -1,3 +1,5 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 .search-page {
     @include flex(row, null, null);
     @include container(90%);
@@ -9,6 +11,7 @@
     }
 
     .left-section {
+        position: relative;
         width: 45%;
         border-top: 1px solid rgba(50, 50, 50, 0.3);
         overflow: auto;
@@ -36,7 +39,7 @@
                     position: relative;
                     > div {
                         position: absolute;
-                        bottom: 110%;
+                        bottom: 101%;
                         border-radius: 5px;
                         color: white;
                         font-size: 0.7rem;
@@ -71,6 +74,14 @@
                     // margin-bottom: 20px;
                 }
             }
+        }
+        .errore {
+            background-color: white;
+            position: absolute;
+            width: 100%;
+            height: 280px;
+            text-align: center;
+            line-height: 280px;
         }
     } // FINE del contenitore di sinistra
 
