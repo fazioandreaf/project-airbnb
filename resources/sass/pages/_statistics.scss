@@ -47,9 +47,15 @@
     .wrapper-statistics {
         @include flex(row, null, flex-start);
 
+        @include responsive(mobile) {
+            @include flex(column, center, center);
+        }
+
         aside {
             flex-basis: 30%;
-
+            @include responsive(mobile) {
+                width: 100%;
+            }
             .years-list li:nth-child(odd) {
                 background-color: $aggron-light-gray;
             }
@@ -75,6 +81,19 @@
 
             flex-basis: 70%;
             @include flex(row, center, center);
+
+            @include responsive(media) {
+                width: 100%;
+            }
+
+            .no-stats-text {
+                background-color: $aggron-light-gray;
+                padding: 50px 10px;
+                border-radius: 20px;
+                margin-top: 10px;
+                text-align: center;
+
+            }
         }
     }
 }

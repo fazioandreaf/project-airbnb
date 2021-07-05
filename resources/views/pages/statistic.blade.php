@@ -29,8 +29,8 @@
                 </ul>
             </aside>
             <div class="wrapper-graph">
-                <span v-if="noStats">Non ci sono statistiche da visualizzare!</span>
-                <canvas id="statsChart" width="500px" aria-label="Statistiche">
+                <div class="no-stats-text" v-if="noStats">Non ci sono statistiche da visualizzare!</div>
+                <canvas v-else id="statsChart" aria-label="Statistiche">
                     <p>Il tuo dispositivo non supporta il canvas</p>
                 </canvas>
             </div>
