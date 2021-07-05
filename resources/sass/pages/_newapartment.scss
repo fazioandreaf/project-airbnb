@@ -9,6 +9,7 @@ section#newapartment-section{
     color:white;
     text-align: center;
 
+
     h2{
         margin: 30px 0px;
         text-align: center;
@@ -21,6 +22,10 @@ section#newapartment-section{
         border: 1px solid white;
         border-radius: 10px;
         padding: 10px;
+        
+        @include responsive(mobile){
+            width: 350px;
+        } 
 
         &:hover{
             border: 1px solid $grovyle-dark-green;
@@ -34,6 +39,10 @@ section#newapartment-section{
             height: auto;
             padding: 20px 0px;
             //background-color: blueviolet;
+
+            @include responsive(mobile){
+                width: 100%;
+              } 
 
 
             .elm-form{

@@ -7,6 +7,9 @@ footer {
   .bigger-footer {
     @include container(80%);
 
+    @include responsive(mobile){
+      margin-bottom: 100px;
+    }
 
     // INIZIO FOOTER TOP SECTION (85% HEIGHT)
     .footer-top-section {
