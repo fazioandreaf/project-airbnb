@@ -58,7 +58,7 @@
                                     @break                        
                             @endswitch
                             <button type="submit">
-                                Aggiungi Immaggine
+                                Aggiungi Immagine
                             </button>
                         </div>
                     </form>

@@ -1719,11 +1719,20 @@ section#register-jumbotron {
 
 section#register-jumbotron .jumbotron {
   background-color: #000;
-  height: 400px;
+  padding: 40px 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 420px) {
+  section#register-jumbotron .jumbotron {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 section#register-jumbotron .jumbotron .wrapper-text {
@@ -1732,12 +1741,25 @@ section#register-jumbotron .jumbotron .wrapper-text {
   padding: 0 50px;
 }
 
+@media screen and (max-width: 420px) {
+  section#register-jumbotron .jumbotron .wrapper-text {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 section#register-jumbotron .jumbotron .wrapper-text h2 {
   font-size: 60px;
 }
 
 section#register-jumbotron .jumbotron #carousel {
   flex-basis: 40%;
+}
+
+@media screen and (max-width: 420px) {
+  section#register-jumbotron .jumbotron #carousel {
+    width: 100%;
+  }
 }
 
 section#register-jumbotron .jumbotron #carousel .carousel {
@@ -3461,10 +3483,10 @@ div#success-message .cnt-success-msg button:hover {
 #section-add-images .container {
   margin: 0 auto;
   width: 600px;
-  background-color: #ededed;
   padding: 15px;
+  background-color: #ededed;
   border-radius: 20px;
-  border: 1px solid #12a19a;
+  border: 1px solid #d9d9d9;
   margin-bottom: 60px;
   text-align: center;
 }
@@ -3477,7 +3499,7 @@ div#success-message .cnt-success-msg button:hover {
 
 #section-add-images .container h1 {
   padding-top: 20px;
-  color: #fa8a8a;
+  color: #12a19a;
 }
 
 #section-add-images .container .container-form-add {
@@ -3503,7 +3525,7 @@ div#success-message .cnt-success-msg button:hover {
 
 #section-add-images .container .container-form-add .add-image .label-input .label-image {
   font-size: 18px;
-  color: #fa8a8a;
+  color: #12a19a;
   padding-top: 5px;
   padding-left: 10px;
 }
@@ -3514,14 +3536,15 @@ div#success-message .cnt-success-msg button:hover {
 }
 
 #section-add-images .container .container-form-add .add-image button {
+  font-family: "Poppins", sans-serif;
+  border: 0;
   cursor: pointer;
-  width: 170px;
-  height: 50px;
   margin-bottom: 10px;
 }
 
 #section-add-images .container .container-form-add .add-image:hover {
-  background-color: yellowgreen;
+  background-color: #FFF;
+  padding: 0 10px;
   box-shadow: 5px 5px 5px #dedede;
   transition: 0.2s;
 }

@@ -35,8 +35,8 @@
                                 Ciao, <span class="username">{{ Auth::user()->firstname }}</span>!
                         </li>
                         <li>
-                            <a href="{{ route('homepage') }}">
-                                {{ __('Homepage') }}
+                            <a href="{{ route('dashboard', Auth::id()) }}">
+                                {{ __('Dashboard') }}
                             </a>
                         </li>
                         <li>
