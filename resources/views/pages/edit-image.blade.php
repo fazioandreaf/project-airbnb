@@ -1,51 +1,62 @@
 @extends('layouts.minimal-layout')
 @section('content')
-    <div>
+    <section id="section-add-images">
+    
+        <div class="container">
 
-        @foreach ($apartment -> images as $key => $image)
-            <div>
-                <form action="{{Route('update_image',[$image->id,$key,$apartment->id])}}"
-                  method="POST"
-                  enctype="multipart/form-data"
-                >   
-                
-                    @csrf
-                    @method('POST')
+            <h1>
+                {{$apartment->title}}
+            </h1>
 
-                    <div>
-                        @switch($key)
-                        @case(0)
-                            <label for="image">Esterno</label>
-                            <input type="file" name="image" id="image">
-                            <img class="immagini-piccole" src="{{asset('/storage/assets/external/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
-                            @break
-                        @case(1)
-                            <label for="image">Soggiorno</label>
-                            <input type="file" name="image" id="image">
-                            <img class="immagini-piccole" src="{{asset('/storage/assets/living-room/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
-                            @break
-                        @case(2)
-                            <label for="image">Cucina</label>
-                            <input type="file" name="image" id="image">
-                            <img class="immagini-piccole" src="{{asset('/storage/assets/kitchen/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
-                            @break
-                        @case(3)
-                            <label for="image">Stanza</label>
-                            <input type="file" name="image" id="image">
-                            <img class="immagini-piccole" src="{{asset('/storage/assets/bedroom/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">  
-                            @break  
-                        @case(4)
-                            <label for="image">Bagno</label>
-                            <input type="file" name="image" id="image">
-                            <img class="immagini-piccole" src="{{asset('/storage/assets/bathroom/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">  
-                            @break                        
-                        @endswitch
-                    </div>
+            @foreach ($apartment -> images as $key => $image)
 
-                    <button type="submit">Invia</button>
-                </form>
-            </div>
-        @endforeach
+                <div class="container-form-add">
+                    <form action="{{Route('update_image',[$image->id,$key,$apartment->id])}}"
+                    method="POST"
+                    enctype="multipart/form-data"
+                    >   
+                    
+                        @csrf
+                        @method('POST')
 
-    </div>
+                        <div class="add-image">
+                            @switch($key)
+                            @case(0)
+                            <div class="label-input">
+                                <label class="label-image" for="image">Foto Esterno</label>
+                                <input class="input-image" type="file" name="image" id="image">
+                            </div>
+                                @break
+                            @case(1)
+                            <div class="label-input">
+                                <label class="label-image" for="image">Foto Soggiorno</label>
+                                <input class="input-image" type="file" name="image" id="image">
+                            </div>
+                                @break
+                            @case(2)
+                            <div class="label-input">
+                                <label class="label-image" for="image">Foto Cucina</label>
+                                <input class="input-image" type="file" name="image" id="image">
+                            </div>
+                                @break
+                            @case(3)
+                            <div class="label-input">
+                                <label class="label-image" for="image">Foto Stanza</label>
+                                <input class="input-image" type="file" name="image" id="image">
+                            </div>
+                                @break  
+                            @case(4)
+                            <div class="label-input">
+                                <label class="label-image" for="image">Foto Bagno</label>
+                                <input class="input-image" type="file" name="image" id="image">
+                            </div>
+                                @break                        
+                            @endswitch
+                            <button type="submit">Modifica Immagine</button>
+                        </div>
+                    </form>
+                </div>
+            @endforeach
+        </div>
+    </section>
 @endsection
