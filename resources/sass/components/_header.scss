@@ -65,15 +65,14 @@
           display: none;
           position: absolute;
           z-index: 9001; //IT'S OVER 9000
-
+          top: calc(100% + 2px);
+          left: calc(-50% - 20px);
           background-color: $white;
           color: $black;
           box-shadow: 0 0 3px $user-gray;
           width: 200px;
           padding: 10px;
           border-radius: 10px;
-
-
         }
 
         .open {
@@ -95,6 +94,19 @@
 
   height: 100px;
   background-color: $white;
+  
+  @include responsive(mobile){
+
+    width: 100%;
+    height: 100px;
+    padding: 50px;
+    background-color: white;
+    border-top: 1px solid lightgrey;
+    position: fixed;
+    z-index: 99;
+    bottom: 0;
+    left: 0;
+   }
 
   .container {
     @include container(90%);
@@ -127,6 +139,17 @@
         .hamburger {
           @include hamburger(#e6027f);
           color: $white;
+          
+          @include responsive(mobile){
+            font-size: 30px;
+            color: $white;
+            border: 4px solid $fuchsia-search;
+            border-radius: 50%;
+  
+            .fa-bars{ //icona hamburget(fa-bars)
+              display: none;
+            }
+           }
 
           & > .icon {
             margin: 0 5px;
@@ -146,7 +169,22 @@
           width: 200px;
           padding: 10px;
           border-radius: 10px;
+
+          @include responsive(mobile){
+            position: absolute;
+            height: 380px;
+            width: 350px;
+            top: calc(-100% - 380px);
+            left: calc(100% - 335px);
+            background-color: white;
+            border: 2px solid $fuchsia-search;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            text-align: center;
+            padding-top: 160px;
+           }
         }
+
+        
 
         .open {
           display: block;
@@ -161,8 +199,6 @@
 
   height: 100vh;
   position: relative;
-
-
 
   #logo {
     height: 60px;
@@ -204,8 +240,6 @@
 
     background: linear-gradient(to bottom, $black 5%, transparent);
 
-
-
     .container {
       @include container(90%);
       @include flex(column, null, center);
@@ -244,14 +278,12 @@
           width: 60px;
           height: 60px;
           margin-top: 10px;
-          //background-color: brown;
-
-          // background-image:url('../storage/assets/lg_color0_bianco.png');
+          background-image:url('../assets/lg_color0_bianco.png');
           background-size: contain;
           background-repeat: no-repeat;
 
           @include responsive(mobile){
-            // background-image: url('../assets/lg_color1.png');
+            background-image: url('../assets/lg_color1.png');
             margin-top: 0px;
            }
 

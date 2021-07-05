@@ -85,6 +85,8 @@ section#my-apartments .button-link {
   display: none;
   position: absolute;
   z-index: 9001;
+  top: calc(100% + 2px);
+  left: calc(-50% - 20px);
   background-color: #FFF;
   color: #000;
   box-shadow: 0 0 3px #6c6a6b;
@@ -105,6 +107,20 @@ section#my-apartments .button-link {
 #apartment-header #logo {
   height: 60px;
   width: auto;
+}
+
+@media screen and (max-width: 420px) {
+  #apartment-header {
+    width: 100%;
+    height: 100px;
+    padding: 50px;
+    background-color: white;
+    border-top: 1px solid lightgrey;
+    position: fixed;
+    z-index: 99;
+    bottom: 0;
+    left: 0;
+  }
 }
 
 #apartment-header .container {
@@ -153,6 +169,19 @@ section#my-apartments .button-link {
   color: #FFF;
 }
 
+@media screen and (max-width: 420px) {
+  #apartment-header .navbar .nav-links .has-dropdown .hamburger {
+    font-size: 30px;
+    color: #FFF;
+    border: 4px solid #e80080;
+    border-radius: 50%;
+  }
+
+  #apartment-header .navbar .nav-links .has-dropdown .hamburger .fa-bars {
+    display: none;
+  }
+}
+
 #apartment-header .navbar .nav-links .has-dropdown .hamburger > .icon {
   margin: 0 5px;
 }
@@ -169,6 +198,21 @@ section#my-apartments .button-link {
   width: 200px;
   padding: 10px;
   border-radius: 10px;
+}
+
+@media screen and (max-width: 420px) {
+  #apartment-header .navbar .nav-links .has-dropdown .dropdown {
+    position: absolute;
+    height: 380px;
+    width: 350px;
+    top: calc(-100% - 380px);
+    left: calc(100% - 335px);
+    background-color: white;
+    border: 2px solid #e80080;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    padding-top: 160px;
+  }
 }
 
 #apartment-header .navbar .nav-links .has-dropdown .open {
@@ -266,12 +310,14 @@ section#my-apartments .button-link {
   width: 60px;
   height: 60px;
   margin-top: 10px;
+  background-image: url(/images/lg_color0_bianco.png?41b32fd294bbfd12a993f8e4361fe9f3);
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 @media screen and (max-width: 420px) {
   .landing-header .navbar .nav-links #wrapper-logo .logo-b {
+    background-image: url(/images/lg_color1.png?9fa13ceb857a6fcab56d309814a4bc60);
     margin-top: 0px;
   }
 }
@@ -1112,6 +1158,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   justify-content: center;
   width: 90%;
   height: 350px;
+  background-image: url(/images/diventaHost.png?09ac750ce1020f6c907abe1ed05c16b0);
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
