@@ -308,7 +308,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             lon: res.data.results[0].position.lon
                         };
                         tmp = this.distcustom(this.pos1, this.pos2);
+
                         this.km = tmp.kilometers;
+                        console.log(this.km, this.range);
                         if (this.km < this.range) {
                             this.pos2.address = elem.address;
                             this.pos2.area = elem.area;
@@ -333,6 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             addresrange: function(elem) {
                 removeMarkerr();
+
                 this.latlng(elem);
                 ar = elem.address.split("-");
                 city_target = ar[2];

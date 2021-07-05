@@ -2383,6 +2383,7 @@ document.addEventListener("DOMContentLoaded", function () {
           };
           tmp = _this6.distcustom(_this6.pos1, _this6.pos2);
           _this6.km = tmp.kilometers;
+          console.log(_this6.km, _this6.range);
 
           if (_this6.km < _this6.range) {
             _this6.pos2.address = elem.address;

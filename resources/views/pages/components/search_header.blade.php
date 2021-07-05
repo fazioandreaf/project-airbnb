@@ -25,7 +25,7 @@
           <label for="number_beds">Numeri di letti</label>
           <input type="number" v-model="number_beds" name="number_beds" placeholder="1">
         </div>
-        <div v-if="rand==21" class="numero-letti">
+        <div v-if="range!=21" class="numero-letti">
           <label for="number_beds">Km di distanza dall'appartamento selezionato</label>
           <input type="number" v-model="range" name="range" placeholder="20">
         </div>
