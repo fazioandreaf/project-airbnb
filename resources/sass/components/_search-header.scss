@@ -174,11 +174,6 @@
         @include flex(row, space-between, center);
         flex-wrap: wrap;
 
-        // MEDIA QUERY
-        @include responsive(mobile) {
-          display:none;
-        }
-
         li {
           padding: 13px 13px;
           border-radius: 30px;

@@ -215,6 +215,7 @@
                   <h3>Informazioni utili</h3>
 
                   <div class="test">
+
                     <a href="#">
                       <img src="{{asset('storage/assets/icone_sponsor.png')}}" alt="sponsor-img" style="width: 50px; height: 50px;">
                       @foreach ($apartment->sponsors as $apSp)
@@ -223,14 +224,23 @@
                         </p>
                       @endforeach
                     </a>
+
                     <a href="#">
                       <i class="fas fa-pump-soap"></i>
                       <p>Questo host si impegna a seguire la procedura avanzata di pulizia in 5 fasi di BoolB&B.</p>
                     </a>
+
+                  </div>
+                </li>
+
+                <li id="invisible-map">
+                  <div>
+
                   </div>
                 </li>
 
               </ul>
+
 
             </div>
             {{-- FINE SEZIONE DI SINISTRA CON ICONE --}}
