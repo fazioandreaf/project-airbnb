@@ -1,8 +1,10 @@
 section#edit-section{
-    width: 32%;
+    width: 800px;
     margin: auto;
     padding-top: 50px;
-
+    @include responsive(mobile){
+        width: 400px;
+    }
     
     h2{
         margin-bottom: 20px;
@@ -13,7 +15,9 @@ section#edit-section{
         display: flex;
         flex-direction: row;
         // justify-content: space-between;
-
+        @include responsive(mobile){
+            display: block;
+        }
         .form-errors {
 
             font-size: 12px;
@@ -48,11 +52,32 @@ section#edit-section{
                         transition: 0.2s;
                     }
                 }
+
+                textarea{
+                    resize: none;
+                    overflow-y: auto;
+                    background-color: $aggron-light-gray;
+                    padding: 10px;
+                    border: 0;
+                    border-radius: 20px;
+                    transition: all .4s;
+                    width: 100%;
+                    flex-grow: 1;
+                    &:focus {
+
+                        outline: 0;
+                    }
+                }
+
             }
 
         }
         .form-service{
             margin-left: 50px;
+            @include responsive(mobile){
+                margin-left: 0px;
+                padding: 20px;
+            }
         }
         .form-select{
             display: flex;
