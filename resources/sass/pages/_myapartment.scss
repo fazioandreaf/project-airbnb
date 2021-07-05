@@ -32,6 +32,22 @@ section#my-apartments {
       .username {
         color: $venusaur-green;
       }
+
+      @include responsive(mobile){
+        @include flex(column, null, center);
+
+        h1{
+          @include flex(column, null, center);
+
+          .h1-voce{
+            font-size: 15px;
+            margin-bottom: 20px;
+          }
+        }
+        .separator{
+          display: none;
+        }
+      }
     }
   
     .wrapper-apartment {
@@ -44,22 +60,63 @@ section#my-apartments {
       }
   
       .apartment-main-infos {
-        .infos {
-          @include flex(row, null, center);
-        }
+        @include flex(row, space-around, center);
+        flex-wrap: wrap;
+
+
         .apartment-title {
           flex-grow: 1;
           cursor: pointer;
+
+          @include responsive(mobile){
+            width: 100%;
+            text-align: center;
+          }
         }
+
+        .infos {
+          @include flex(row, null, center);
+
+          li{
+
+            @include responsive(mobile){
+              text-align: center;
+              .button-link{
+                border-radius: 0;
+                margin:5px 0;
+                width: 70px;
+              }
+
+              .left{
+                border-radius: 15px 0px 0px 15px;
+              }
+
+              .right{
+                border-radius: 0px 15px 15px 0px;
+              }
+              span{
+                display: none;
+              }
+              i{
+                font-size: 20px;
+                
+              }
   
+            }
+
+            
+          }
+
+        }
         .apartment-details {
           margin-left: 20px;
           font-size: 12px;
           cursor: pointer;
-  
+          
           &:hover {
             text-decoration: underline;
           }
+
         }
       }
   
@@ -68,6 +125,9 @@ section#my-apartments {
   
         .button-link{
           margin: 20px 0 20px;
+        }
+        @include responsive(mobile){
+          margin: 10px;
         }
       }
   

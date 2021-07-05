@@ -2046,8 +2046,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37840,28 +37838,28 @@ var render = function() {
         { staticClass: "wrapper-apartment" },
         [
           _c("div", { staticClass: "apartment-main-infos" }, [
+            _c("span", { staticClass: "apartment-title" }, [
+              _c(
+                "h1",
+                { on: { click: _vm.showDetails } },
+                [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.apartment.title) +
+                      "\n                    "
+                  ),
+                  _c("transition", { attrs: { name: "rotate" } }, [
+                    _c("i", {
+                      staticClass: "fas fa-chevron-down arrow",
+                      class: _vm.showApartmentDetails ? "rotate" : ""
+                    })
+                  ])
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
             _c("ul", { staticClass: "infos" }, [
-              _c("li", { staticClass: "apartment-title" }, [
-                _c(
-                  "h1",
-                  { on: { click: _vm.showDetails } },
-                  [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.apartment.title) +
-                        "\n                    "
-                    ),
-                    _c("transition", { attrs: { name: "rotate" } }, [
-                      _c("i", {
-                        staticClass: "fas fa-chevron-down arrow",
-                        class: _vm.showApartmentDetails ? "rotate" : ""
-                      })
-                    ])
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
               _c("li", [_vm._t("view")], 2),
               _vm._v(" "),
               _c("li", [
@@ -37873,9 +37871,8 @@ var render = function() {
                     on: { click: _vm.destroy }
                   },
                   [
-                    _vm._v(
-                      "\n                    Elimina\n                    "
-                    ),
+                    _c("span", [_vm._v(" Elimina ")]),
+                    _vm._v(" "),
                     _c("i", { staticClass: "fas fa-trash-alt" })
                   ]
                 )
