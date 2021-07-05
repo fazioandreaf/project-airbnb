@@ -331,6 +331,7 @@
             .riga.quattro {
               width: 100%;
               height: 25%;
+              @include flex(column, null, null);
 
               // MEDIA QUERY
               @include responsive(mobile) {
@@ -437,7 +438,7 @@
 
             } // (4) FINE SPONSOR E PULIZIA
 
-            #invisible-map {
+            #taccuino-invisibile {
               display: none;
 
               // MEDIA QUERY
@@ -445,13 +446,24 @@
                 display: block;
                 @include flex(row, center, center);
 
-                div {
-                  height: 250px;
-                  width: 250px;
-                  background-color: blue;
+                .lallero {
+                  @include flex(column, null, null);
+
+                  i {
+                    font-size: 25px;
+                    animation: matita 1s linear infinite;
+
+                    @keyframes matita {
+                      0% {transform: rotate(0.00turn);}
+                      25% {transform: rotate(0.05turn);}
+                      50% {transform: rotate(0.10turn);}
+                      75% {transform: rotate(0.05turn);}
+                      100% {transform: rotate(0.00turn);}
+                    }
+                  }
                 }
               }
-            }
+            } // FINE #taccuino-invisibile
 
           } // FINE #all-four-rows
 
@@ -503,7 +515,7 @@
                   font-size: 30px;
                 }
               }
-              
+
             }
 
             .wrapper-form-fields {

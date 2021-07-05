@@ -138,9 +138,9 @@
 
 
         </div>
-        <div class="right-section">
-            <div id='map' class='map'>
 
+        <div class="right-section">
+          <div id='map' class='map'>
         </div>
 
     </div>

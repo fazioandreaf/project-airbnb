@@ -170,9 +170,30 @@
                   </div>
                 </li>
 
-                <li id="invisible-map">
+                <li id="taccuino-invisibile">
                   <div>
+                    <form class="lallero" action="{{ route('send', $apartment->id) }}" method="POST" novalidate>
+                      @csrf
+                      @method('POST')
+                      <div> {{-- class form-infos --}}
 
+                        <span>
+                          Scrivi all'host
+                          <i class="fas fa-pencil-alt"></i> {{-- CLASS ICON (dopo -alt) --}}
+                        </span>
+                        <span>
+                          Vedi se ci sono camere disponibili.
+                        </span>
+                      </div>
+                      <div> {{-- CLASS wrapper-form-fields --}}
+                        <label for="email">
+                          Email
+                        </label>
+                        <input type="email" name="email" v-model="email"> {{-- id="email" --}}
+                      </div>
+                      <textarea rows="10" cols="30" name="text_message"></textarea>
+                      <input type="submit" value="Invia">
+                    </form>
                   </div>
                 </li>
 

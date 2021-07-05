@@ -283,7 +283,7 @@
           background-repeat: no-repeat;
 
           @include responsive(mobile){
-            // background-image: url('../assets/lg_color1.png');
+            background-image: url('../assets/lg_color1.png');
             margin-top: 0px;
            }
 

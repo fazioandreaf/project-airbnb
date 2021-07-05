@@ -316,6 +316,7 @@ section#my-apartments .button-link {
 
 @media screen and (max-width: 420px) {
   .landing-header .navbar .nav-links #wrapper-logo .logo-b {
+    background-image: url(/images/lg_color1.png?9fa13ceb857a6fcab56d309814a4bc60);
     margin-top: 0px;
   }
 }
@@ -1192,6 +1193,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   justify-content: center;
   width: 90%;
   height: 350px;
+  background-image: url(/images/diventaHost.png?09ac750ce1020f6c907abe1ed05c16b0);
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
@@ -2124,6 +2126,8 @@ section#section-register form .error {
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows .riga.quattro {
   width: 100%;
   height: 25%;
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 420px) {
@@ -2245,12 +2249,12 @@ section#section-register form .error {
   }
 }
 
-#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows #invisible-map {
+#apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows #taccuino-invisibile {
   display: none;
 }
 
 @media screen and (max-width: 420px) {
-  #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows #invisible-map {
+  #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows #taccuino-invisibile {
     display: block;
     display: flex;
     flex-direction: row;
@@ -2258,11 +2262,60 @@ section#section-register form .error {
     align-items: center;
   }
 
-  #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows #invisible-map div {
-    height: 250px;
-    width: 250px;
-    background-color: blue;
+  #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows #taccuino-invisibile .lallero {
+    display: flex;
+    flex-direction: column;
   }
+
+  #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .sinistra-dettagli-flat #all-four-rows #taccuino-invisibile .lallero i {
+    font-size: 25px;
+    -webkit-animation: matita 1s linear infinite;
+            animation: matita 1s linear infinite;
+  }
+
+@-webkit-keyframes matita {
+    0% {
+      transform: rotate(0turn);
+    }
+
+    25% {
+      transform: rotate(0.05turn);
+    }
+
+    50% {
+      transform: rotate(0.1turn);
+    }
+
+    75% {
+      transform: rotate(0.05turn);
+    }
+
+    100% {
+      transform: rotate(0turn);
+    }
+}
+
+@keyframes matita {
+    0% {
+      transform: rotate(0turn);
+    }
+
+    25% {
+      transform: rotate(0.05turn);
+    }
+
+    50% {
+      transform: rotate(0.1turn);
+    }
+
+    75% {
+      transform: rotate(0.05turn);
+    }
+
+    100% {
+      transform: rotate(0turn);
+    }
+}
 }
 
 #apartment-sample .jumbotron-apartment #jumbo-container .dettagli-flat .destra-dettagli-flat {
