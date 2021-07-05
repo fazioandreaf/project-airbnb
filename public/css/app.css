@@ -908,7 +908,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
 }
 
 #header-search .top-header-search .filter #lente a:hover {
-  background-color: lime;
+  background-color: #12a19a;
 }
 
 #header-search .top-header-search .filter .filtrini {
@@ -1000,15 +1000,22 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
+}
+
+#header-search .lower-header-search ul .active {
+  background-color: #ff385c;
+  color: white;
+  border: none;
 }
 
 #header-search .lower-header-search ul li {
   padding: 13px 13px;
   border-radius: 30px;
   border: 1px solid rgba(50, 50, 50, 0.3);
+  transition: all 0.2s;
 }
 
 @media screen and (max-width: 420px) {
@@ -1659,6 +1666,20 @@ section#section-register form .error {
   flex-direction: row;
   align-items: center;
   flex-basis: 40%;
+}
+
+.search-page .left-section .row-with-img-text .sinistra-img .sponsor {
+  position: relative;
+}
+
+.search-page .left-section .row-with-img-text .sinistra-img .sponsor > div {
+  position: absolute;
+  bottom: 110%;
+  border-radius: 5px;
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.5rem;
+  background-color: #ff385c;
 }
 
 .search-page .left-section .row-with-img-text .sinistra-img a {

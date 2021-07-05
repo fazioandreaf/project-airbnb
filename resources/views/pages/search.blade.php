@@ -5,9 +5,12 @@
         <div class="left-section">
             @if (count($apartments)>0)
                 @foreach ($apartments_sponsor as $items)
-                    <div v-if="currentapartment_sponsor.length<1" class="row-with-img-text" onload="formarker('ciao')">
+                    <div v-if="currentapartment_sponsor.length<1  && results=true" class="row-with-img-text" onload="formarker('ciao')">
                         <div class="sinistra-img">
-                            <a href="#">
+                            <a href="#" class="sponsor">
+                                <div>
+                                    Appartamento sponsorizzato controller
+                                </div>
                                 <img src="{{asset('/storage/assets/external/'.$items->id. '.jpg')}}" alt="immagine stanza">
                             </a>
                         </div>
@@ -30,7 +33,7 @@
                 @foreach ($apartments as $item)
                     <div v-if="currentapartment.length<1" class="row-with-img-text" onload="formarker('ciao')">
                         <div class="sinistra-img">
-                            <a href="#">
+                            <a href="#" >
                                 <img src="{{asset('/storage/assets/external/'.$items->id. '.jpg')}}" alt="immagine stanza">
                             </a>
                         </div>
@@ -59,7 +62,10 @@
             @endif
             <div else  v-for="elem in currentapartment_sponsor" class="row-with-img-text">
                 <div class="sinistra-img">
-                    <a href="">
+                    <a href="#" class="sponsor">
+                        <div>
+                            Appartamento sponsorizzato
+                        </div>
                         {{-- <img src="{{asset('/storage/assets/external/'.$items->id. '.jpg')}}" alt="immagine stanza"> --}}
                         <img :src=" ('/storage/assets/external/'+elem.id+ '.jpg')" alt="immagine stanza" style="width:100%; border-radius:10px" >
                     </a>
@@ -91,7 +97,7 @@
 
             <div else  v-for="elem in currentapartment" class="row-with-img-text">
                 <div class="sinistra-img">
-                    <a href="">
+                    <a href="#" class="sponsor">
                         <img :src=" ('/storage/assets/external/'+elem.id+ '.jpg')" alt="immagine stanza" style="width:100%; border-radius:10px" >
                     </a>
                 </div>
