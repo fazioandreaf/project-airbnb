@@ -1,0 +1,55 @@
+#section-add-images{
+    text-align: center;
+    padding: 30px 0;
+    .container{
+        @include container(600px);
+        background-color: $aggron-light-gray;
+        padding: 15px;
+        border-radius: 20px;
+        border: 1px solid $venusaur-green;
+        margin-bottom: 60px;
+        text-align: center;
+        @include responsive(tablet){
+            @include container(380px);
+        }
+        h1{
+            padding-top:20px;
+            color: $salmon-pink;
+        }
+        .container-form-add{
+            width: 100%;
+            margin: 30px auto;
+            .add-image{
+                margin: 18px auto;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: center;
+                border-radius: 15px;
+                .label-input{
+                    .label-image{
+                        font-size: 22px;
+                        color: $salmon-pink;
+                        padding-top: 5px;
+                    }
+                    .input-image{
+                        margin: 15px auto;
+                        cursor: pointer;
+                    }
+                }
+                button{
+                    @extend %venusaur-green-button;
+                    cursor: pointer;
+                    width: 170px;
+                    height: 50px;
+                }
+                &:hover{
+                    background-color: yellowgreen;
+                    box-shadow: 5px 5px 5px #dedede;
+                    transition: 0.2s;
+                }
+            }
+        }
+    }
+}

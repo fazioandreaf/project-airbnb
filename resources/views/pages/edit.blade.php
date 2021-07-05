@@ -51,12 +51,6 @@
                         <label for="address">Indirizzo</label>
                         <input type="text" name="address" id="address" v-model="address" value="{{$apartment->address}}" v-bind:class="(classes.includes('address')) ? 'error' : ''">
                     </div>
-            
-                    {{-- <div class="form-text-elem">
-                        <label for="cover_image">Immagine</label>
-                        <input id="cover_image" data-filetype="jpg|jpeg|png" type="file" name="cover_image" value="{{$apartment->cover_image}}">
-
-                    </div> --}}
 
                     <ul class="form-errors" v-if="formErrors.length">
                         <li v-for="error in formErrors">
