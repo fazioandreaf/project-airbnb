@@ -8,7 +8,8 @@ class Image extends Model
 {
     protected $fillable = [
         'image',
-        'apartment_id'
+        'apartment_id',
+        'folder'
     ];
 
     public function apartment()

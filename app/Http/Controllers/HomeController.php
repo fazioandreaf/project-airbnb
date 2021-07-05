@@ -68,14 +68,6 @@ class HomeController extends Controller {
             }
 
             $apartment = Apartment::create($validated);
-            // if ($request->hasFile('cover_image')) {
-            //     $img = $request -> file('cover_image');
-            //     $imgExt = $img -> getClientOriginalExtension();
-            //     $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
-            //     $folder = '/assets/';
-            //     $apartment -> cover_image = $newNameImg;
-            //     $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
-            // }
 
             $apartment->services()->attach($request-> get('service_id'));
             $apartment->save();
@@ -108,15 +100,6 @@ class HomeController extends Controller {
 
         $apartment = Apartment::findOrFail($id);
 
-        // if ($request->hasFile('cover_image')) {
-        //     $img = $request -> file('cover_image');
-        //     $imgExt = $img -> getClientOriginalExtension();
-        //     $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
-        //     $folder = '/assets/';
-        //     $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
-        //     $apartment -> cover_image = $newNameImg;
-        // }
-
         $apartment->update($validated);
         $apartment->services()->sync($request-> get('service_id'));
 
@@ -138,7 +121,6 @@ class HomeController extends Controller {
                     ->select('statistics.*','apartments.*')
                     ->where('statistics.apartment_id','=',$id)
                     ->get();
-        //             dd(count($statistic));
 
         $user_id = Auth::id();
         $user = User::findOrFail($user_id);
@@ -159,10 +141,6 @@ class HomeController extends Controller {
     }
     public function update_image(Request $request, $id,$key,$idApartment)
     {
-        // dd($request->all());
-        $validated = $request -> validate([
-            'image' => 'required'
-        ]);
         $image = Image::findOrFail($id);
         if ($request->hasFile('image')) {
             $img = $request -> file('image');
@@ -186,12 +164,61 @@ class HomeController extends Controller {
                     break;
             }
             $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
-            // dd($img,$imgExt,$newNameImg,$imgFile);
-
-            $image->image = $newNameImg;
-            // dd($image->image = $newNameImg);
             $image->update(['image' => $newNameImg]);
             return redirect()->route('edit_image',$idApartment);
+        }else {
+            return back();
+        }
+    }
+
+    public function add_image($id)
+    {
+        $apartment = Apartment::findOrFail($id);
+        return view('pages.add-images',compact('apartment'));
+    }
+    public function store_image(Request $request,$id,$i)
+    {
+        $apartment = Apartment::findOrFail($id);
+        if (count($apartment->images) == 5) {
+            return redirect()->route('myapartment',Auth::id());
+        }
+        if ($request->hasFile('image')) {
+            $img = $request -> file('image');
+            $imgExt = $img -> getClientOriginalExtension();
+            switch ($i) {
+                case 0:
+                    $folderDB = 'external';
+                    $folder = '/assets/external/';
+                    break;
+                case 1: 
+                    $folderDB = 'living-room';
+                    $folder = '/assets/living-room/';
+                    break;
+                case 2: 
+                    $folderDB = 'kitchen';
+                    $folder = '/assets/kitchen/';
+                    break;
+                case 3: 
+                    $folderDB = 'bedroom';
+                    $folder = '/assets/bedroom/';
+                    break;
+                case 4: 
+                    $folderDB = 'bathroom';
+                    $folder = '/assets/bathroom/';
+                    break;
+            }
+            $newNameImg = $id . $folderDB . '.' . $imgExt;
+
+            $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
+            $image = Image::firstOrCreate([
+                'image' => $newNameImg,
+                'apartment_id' => $id,
+                'folder' => $folderDB
+            ]);
+            $image->apartment()->associate($id);
+            $image->save();
+
+            return redirect()->route('add_image',$id);
         }else {
             return back();
         }

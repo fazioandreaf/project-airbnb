@@ -54,6 +54,13 @@
                     edit image
                 </button>
             </a>
+            @if (count($apartment->images) < 5)
+                <a href="{{ route('add_image', $apartment->id) }}">
+                    <button>
+                        add image
+                    </button>
+                </a>
+            @endif
             @endforeach
         </div>
     </div>

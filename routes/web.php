@@ -24,6 +24,9 @@ Route::post('/edit_function/{id}', 'HomeController@edit_function')->name('edit_f
 // edit Image
 Route::get('/edit_image/{id}','HomeController@edit_image')->name('edit_image');
 Route::post('/update_image/{id}/{key}/{idApartment}','HomeController@update_image')->name('update_image');
+// add Image
+Route::get('/add_image/{id}','HomeController@add_image')->name('add_image');
+Route::post('store_image/{idApartment}/{index}','HomeController@store_image')->name('store_image');
 // Rotta Soft-Delete
 Route::get('/delete/{id}','HomeController@deleteApartment')->name('delete');
 

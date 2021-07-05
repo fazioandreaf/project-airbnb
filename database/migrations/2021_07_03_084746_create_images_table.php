@@ -18,6 +18,7 @@ class CreateImagesTable extends Migration
 
             $table->string('image');
             $table->bigInteger('apartment_id')->unsigned()->index();
+            $table->string('folder');
 
             $table->timestamps();
         });
