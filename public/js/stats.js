@@ -44814,7 +44814,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Danny\Progetti_2021\07-2021\06-07-2021\project-airbnb\resources\js\stats.js */"./resources/js/stats.js");
+module.exports = __webpack_require__(/*! C:\Boolean\project-airbnb\resources\js\stats.js */"./resources/js/stats.js");
 
 
 /***/ })
