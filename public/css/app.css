@@ -3310,7 +3310,6 @@ div#success-message .cnt-success-msg button:hover {
 
 @media screen and (max-width: 620px) {
   #section-add-images .container {
-    margin: 0 auto;
     width: 380px;
   }
 }
@@ -3330,15 +3329,22 @@ div#success-message .cnt-success-msg button:hover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 620px) {
+  #section-add-images .container .container-form-add .add-image {
+    display: block;
+  }
 }
 
 #section-add-images .container .container-form-add .add-image .label-input .label-image {
-  font-size: 22px;
+  font-size: 18px;
   color: #fa8a8a;
   padding-top: 5px;
+  padding-left: 10px;
 }
 
 #section-add-images .container .container-form-add .add-image .label-input .input-image {
@@ -3350,6 +3356,7 @@ div#success-message .cnt-success-msg button:hover {
   cursor: pointer;
   width: 170px;
   height: 50px;
+  margin-bottom: 10px;
 }
 
 #section-add-images .container .container-form-add .add-image:hover {

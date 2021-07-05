@@ -9,12 +9,15 @@
         border: 1px solid $venusaur-green;
         margin-bottom: 60px;
         text-align: center;
+        
         @include responsive(tablet){
-            @include container(380px);
+            width: 380px;
         }
+        
         h1{
             padding-top:20px;
             color: $salmon-pink;
+        
         }
         .container-form-add{
             width: 100%;
@@ -24,14 +27,18 @@
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
-                justify-content: space-around;
+                justify-content: space-between;
                 align-items: center;
-                border-radius: 15px;
+                border-radius: 20px;
+                @include responsive(tablet){
+                    display: block;
+                }
                 .label-input{
                     .label-image{
-                        font-size: 22px;
+                        font-size: 18px;
                         color: $salmon-pink;
                         padding-top: 5px;
+                        padding-left: 10px;
                     }
                     .input-image{
                         margin: 15px auto;
@@ -43,6 +50,7 @@
                     cursor: pointer;
                     width: 170px;
                     height: 50px;
+                    margin-bottom: 10px;
                 }
                 &:hover{
                     background-color: yellowgreen;
