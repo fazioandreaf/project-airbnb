@@ -3,6 +3,7 @@
   <div class="top-header-search">
 
     <div class="logo">
+
       <a href="{{route('homepage')}}">
         <img src="{{asset('storage/assets/lg_clr.png')}}" alt="logo-image">
       </a>
@@ -24,6 +25,10 @@
           <label for="number_beds">Numeri di letti</label>
           <input type="number" v-model="number_beds" name="number_beds" placeholder="1">
         </div>
+        <div v-if="rand==21" class="numero-letti">
+          <label for="number_beds">Km di distanza dall'appartamento selezionato</label>
+          <input type="number" v-model="range" name="range" placeholder="20">
+        </div>
 
         <div id="lente">
           <a href="#" @click="filtroavanzato()">
@@ -36,6 +41,7 @@
             <i class="fas fa-filter"></i>
           </a>
         </div>
+
 
       </div> {{-- FINE DI FILTERS --}}
 

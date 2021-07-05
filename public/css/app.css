@@ -281,7 +281,6 @@ section#my-apartments .button-link {
 
 @media screen and (max-width: 420px) {
   .landing-header .navbar .nav-links #wrapper-logo .logo-b {
-    background-image: url(/images/lg_color1.png?9fa13ceb857a6fcab56d309814a4bc60);
     margin-top: 0px;
   }
 }
@@ -1135,7 +1134,6 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   justify-content: center;
   width: 90%;
   height: 350px;
-  background-image: url(/images/diventaHost.png?09ac750ce1020f6c907abe1ed05c16b0);
   background-repeat: no-repeat;
   background-size: cover;
   color: white;

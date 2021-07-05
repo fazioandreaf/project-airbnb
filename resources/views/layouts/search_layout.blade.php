@@ -97,8 +97,6 @@
                 if(typeof arr[i]== 'object')
                 arr[i].remove();
             }
-            
-            console.log('arr',arr)
         };
         // esempio di creare una funzione che metta tutti i marker nella mappa
         function makemarker(LNG, LAT){
