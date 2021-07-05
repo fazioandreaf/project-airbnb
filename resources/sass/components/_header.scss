@@ -94,7 +94,7 @@
 
   height: 100px;
   background-color: $white;
-  
+
   @include responsive(mobile){
 
     width: 100%;
@@ -139,13 +139,13 @@
         .hamburger {
           @include hamburger(#e6027f);
           color: $white;
-          
+
           @include responsive(mobile){
             font-size: 30px;
             color: $white;
             border: 4px solid $fuchsia-search;
             border-radius: 50%;
-  
+
             .fa-bars{ //icona hamburget(fa-bars)
               display: none;
             }
@@ -184,7 +184,7 @@
            }
         }
 
-        
+
 
         .open {
           display: block;
@@ -278,12 +278,12 @@
           width: 60px;
           height: 60px;
           margin-top: 10px;
-          background-image:url('../assets/lg_color0_bianco.png');
+          // background-image:url('../assets/lg_color0_bianco.png');
           background-size: contain;
           background-repeat: no-repeat;
 
           @include responsive(mobile){
-            background-image: url('../assets/lg_color1.png');
+            // background-image: url('../assets/lg_color1.png');
             margin-top: 0px;
            }
 
@@ -328,7 +328,7 @@
           width: 200px;
           padding: 10px;
           border-radius: 10px;
-          
+
           @include responsive(mobile){
             position: absolute;
             height: 380px;
