@@ -8,7 +8,7 @@
                     <div v-if="currentapartment_sponsor.length<1" class="row-with-img-text" onload="formarker('ciao')">
                         <div class="sinistra-img">
                             <a href="#">
-                                <img src="{{$items->cover_image}}" alt="immagine stanza">
+                                {{-- <img src="{{$items->cover_image}}" alt="immagine stanza"> --}}
                             </a>
                         </div>
                         <div class="destra-testo">
@@ -122,9 +122,9 @@
 
 
         </div>
-        <div class="right-section">
-            <div id='map' class='map'>
 
+        <div class="right-section">
+          <div id='map' class='map'>
         </div>
 
     </div>
