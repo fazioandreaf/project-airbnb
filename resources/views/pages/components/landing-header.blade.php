@@ -32,7 +32,7 @@
                             </a>
                             @endguest
                         </li>
-                        <li>
+                        <li class="user-field">
                             {{-- Logged view --}}
                             @auth
                                 Ciao, <strong>{{ Auth::user()->firstname }}</strong>!

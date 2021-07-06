@@ -56,6 +56,9 @@
 
       .has-dropdown {
         position: relative;
+        @include responsive(mobile) {
+          position: static;
+        }
 
         .hamburger {
           @include hamburger($white);
@@ -89,18 +92,29 @@
           padding: 10px;
           border-radius: 10px;
 
+            & > li {
+              padding: 0 10px;
+
+            }
+
+            & > li:hover {
+              background-color: $aggron-light-gray;
+            }
+
+            .user-field:hover {
+              background-color: $white;
+            }
+
           @include responsive(mobile){
             position: absolute;
-            height: 100vh;
+            border-radius: 0;
+            height: calc(100vh - 100px);
             width: 100vw;
-            height: 380px;
-            width: 350px;
-            top: calc(-100% - 380px);
-            left: calc(100% - 335px);
+            top: calc(-100vh + 100px);
+            left: 0;
             background-color: white;
-            border: 2px solid $black;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             text-align: center;
+            font-size: 30px;
            }
         }
 
@@ -164,6 +178,9 @@
 
       .has-dropdown {
         position: relative;
+        @include responsive(mobile) {
+          position: static;
+        }
 
         .hamburger {
           @include hamburger(#e6027f);
@@ -199,22 +216,31 @@
           padding: 10px;
           border-radius: 10px;
 
+            & > li {
+              padding: 0 10px;
+
+            }
+
+            & > li:hover {
+              background-color: $aggron-light-gray;
+            }
+
+            .user-field:hover {
+              background-color: $white;
+            }
+
           @include responsive(mobile){
             position: absolute;
-            height: 380px;
-            width: 350px;
-            top: calc(-100% - 380px);
-            left: calc(100% - 335px);
+            border-radius: 0;
+            height: calc(100vh - 100px);
+            width: 100vw;
+            top: calc(-100vh + 100px);
+            left: 0;
             background-color: white;
-            border: 2px solid $fuchsia-search;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             text-align: center;
-            padding-top: 160px;
+            font-size: 30px;
            }
         }
-
-
-
         .open {
           display: block;
         }
@@ -345,30 +371,46 @@
       .has-dropdown {
 
         position: relative;
+        @include responsive(mobile) {
+          position: static;
+        }
 
         .dropdown {
-
           display: none;
           position: absolute;
           z-index: 9001; //IT'S OVER 9000
           top: calc(100% + 2px);
           left: calc(-50% - 20px);
           background-color: $white;
+          color: $black;
+          box-shadow: 0 0 3px $user-gray;
           width: 200px;
           padding: 10px;
           border-radius: 10px;
 
+            & > li {
+              padding: 0 10px;
+
+            }
+
+            & > li:hover {
+              background-color: $aggron-light-gray;
+            }
+
+            .user-field:hover {
+              background-color: $white;
+            }
+
           @include responsive(mobile){
             position: absolute;
-            height: 380px;
-            width: 350px;
-            top: calc(-100% - 380px);
-            left: calc(100% - 335px);
+            border-radius: 0;
+            height: calc(100vh - 100px);
+            width: 100vw;
+            top: calc(-100vh + 100px);
+            left: 0;
             background-color: white;
-            border: 2px solid $fuchsia-search;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             text-align: center;
-            padding-top: 160px;
+            font-size: 30px;
            }
         }
 

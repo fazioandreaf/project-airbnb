@@ -71,7 +71,7 @@
                         </a>
                         @endguest
                     </li>
-                    <li>
+                    <li class="user-field">
                         {{-- Logged view --}}
                         @auth
                             Ciao, <span class="username">{{ Auth::user()->firstname }}</span>!
