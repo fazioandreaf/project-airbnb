@@ -121,9 +121,7 @@ class HomeController extends Controller {
                     ->where('statistics.apartment_id','=',$id)
                     ->get();
 
-        // $user_id = Auth::id();
-        // $user = User::findOrFail($user_id);
-        $user = User::findOrFail($id);
+        $user = User::findOrFail(Auth::id());
         return view('pages.statistic',compact('statistic', 'user'));
     }
 
@@ -142,14 +140,7 @@ class HomeController extends Controller {
     public function update_image(Request $request, $id,$idApartment)
     {
         $image = Image::findOrFail($id);
-        // $test =$_FILES['image'];
         $img = $request -> file('image');
-        // $test['type'] = $img -> getClientOriginalExtension();
-        // dd($test['error'],$test =$_FILES['image']);
-        // dd($request->all(),$request->image,$request->);
-        // if($ == 'application/octet-stream'){
-        // dd($request->all(),$request->image);
-        // }
         $newNameImg = time() . rand(1,1000) .'.'. $img -> getClientOriginalExtension();
         $folder = '/assets/apartment_img/';
         $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
@@ -165,27 +156,17 @@ class HomeController extends Controller {
     public function store_image(Request $request,$id)
     {
         $apartment = Apartment::findOrFail($id);
-        dump(count($apartment->images));
-        if (count($apartment->images) < 5) {
+        $img = $request -> file('image');
+        $folder = '/assets/apartment_img/';
+        $newNameImg = time() . rand(1,1000) . '.' . $img -> getClientOriginalExtension();;
+        $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
+        $image = Image::firstOrCreate([
+            'image' => $newNameImg,
+            'apartment_id' => $id,
+        ]);
+        if (count($apartment->images) == 5) {
             return redirect()->route('myapartment',Auth::id());
         }
-        if ($request->hasFile('image')) {
-            $img = $request -> file('image');
-            $imgExt = $img -> getClientOriginalExtension();
-            $folder = '/assets/apartment_img/';
-            $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
-            $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
-            $image = Image::firstOrCreate([
-                'image' => $newNameImg,
-                'apartment_id' => $id,
-                // 'folder' => $folderDB
-            ]);
-            $image->apartment()->associate($id);
-            $image->save();
-
-            return redirect()->route('add_image',$id);
-        }else {
-            return back();
-        }
+        return redirect()->route('add_image',$id);
     }
 } // END OF HomeController
