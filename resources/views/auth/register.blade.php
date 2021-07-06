@@ -3,12 +3,12 @@
 @section('content')
 
 <div id="app" v-cloak>
-    <section id="register-jumbotron">
+    <section id="register-jumbotron" >
 
-        <div class="jumbotron">
-            <div class="wrapper-text">
+        <div class="jumbotron" style="width: 90%;margin:0 auto;">
+            <div class="wrapper-text" style="text-align: right">
                 <h2>
-                    L'ospitalit&agrave; &egrave; la vera essenza di Danny
+                    L'ospitalit&agrave; &egrave; la vera essenza della vita
                 </h2>
             </div>
             <div id="carousel">

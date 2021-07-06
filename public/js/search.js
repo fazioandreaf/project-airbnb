@@ -2123,7 +2123,7 @@ document.addEventListener("DOMContentLoaded", function () {
       km: 0,
       range: 21,
       results: true,
-      filterel: false
+      filterel: true
     },
     mounted: function mounted() {},
     created: function created() {

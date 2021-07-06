@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
             km: 0,
             range: 21,
             results: true,
-            filterel: false
+            filterel: true
         },
         mounted: function() {},
         created: function() {

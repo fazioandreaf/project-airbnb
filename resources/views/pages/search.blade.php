@@ -98,9 +98,7 @@
             <div v-else-if="currentapartment[0].errore!=true" v-for="elem in currentapartment" class="row-with-img-text">
                 <div class="sinistra-img">
                     <a href="#" class="sponsor">
-                        <div class="tagsponsor">
-                            Appartamento sponsorizzato
-                        </div>
+
                         <div class="mobile-title">@{{elem.title}}</div>
                         <img :src=" ('/storage/assets/external/'+elem.id+ '.jpg')" alt="immagine stanza" style="width:100%; border-radius:10px; height: 220px;" >
                     </a>
@@ -115,6 +113,7 @@
                         @{{elem.address}}
                     </a> --}}
                     <a href="#" @click="addresrange(elem)">
+                        <strong> Address :</strong>
                         @{{elem.address}}
                     </a>
                     {{-- <div style="background-color:lightblue" @click="addresrange(elem)">
@@ -122,9 +121,9 @@
                     </div> --}}
 
 
-                    <span>Area : <span style:"font-weight:bolder">@{{elem.area}}  m<sup>2</sup></span></span>
-                    <span>Numeri di posti letto: @{{elem.number_beds}}</span>
-                    <span>Numero di stanze: @{{elem.number_rooms}}</span>
+                    <span><strong> Area :</strong> <span style:"font-weight:bolder">@{{elem.area}}  m<sup>2</sup></span></span>
+                    <span><strong> Numeri di posti letto:</strong> @{{elem.number_beds}}</span>
+                    <span><strong> Numero di stanze:</strong> @{{elem.number_rooms}}</span>
 
                 </div>
 

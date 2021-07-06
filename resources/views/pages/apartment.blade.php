@@ -97,34 +97,34 @@
 
                   <span>
                     <img src="{{asset('storage/assets/icone_stanze.png')}}" alt="stanze-img">
-                    <a href="#">
+
                       Stanze :
                       {{$apartment->number_rooms}}
-                    </a>
+
                   </span>
 
                   <span>
                     <img src="{{asset('storage/assets/icone_letto.png')}}" alt="letto-img" style="width: 50px; height: 50px;">
-                    <a href="#">
+
                       Letti :
                       {{$apartment->number_beds}}
-                    </a>
+
                   </span>
 
                   <span>
                     <img src="{{asset('storage/assets/icone_bagno.png')}}" alt="bagno-img" style="width: 50px; height: 50px;">
-                    <a href="#">
+
                       Numero bagni :
                       {{$apartment->number_toiletes}}
-                    </a>
+
                   </span>
 
                   <span>
                     <img src="{{asset('storage/assets/icone_area.png')}}" alt="area-img" style="width: 50px; height: 50px;">
-                    <a href="#">
+
                       Area :
                       {{$apartment->area}}mq
-                    </a>
+
                   </span>
 
                 </li>
@@ -133,7 +133,7 @@
                 <li class="riga tre">
 
                   <span>
-                    <a href="#">
+
                       <h3>Servizi extra</h3>
                         <ul class="sub-list">
                           @foreach ($apartment->services as $service)
@@ -143,7 +143,7 @@
                           </li>
                         @endforeach
                         </ul>
-                    </a>
+
                   </span>
                 </li>
 
@@ -153,14 +153,14 @@
 
                   <div class="test">
 
-                    <a href="#">
+                    {{-- <a href="#">
                       <img src="{{asset('storage/assets/icone_sponsor.png')}}" alt="sponsor-img" style="width: 50px; height: 50px;">
                       @foreach ($apartment->sponsors as $apSp)
                         <p>
                           {{$apSp->sponsor_duration}} ore di sponsor
                         </p>
                       @endforeach
-                    </a>
+                    </a> --}}
 
                     <a href="#">
                       <i class="fas fa-pump-soap"></i>
