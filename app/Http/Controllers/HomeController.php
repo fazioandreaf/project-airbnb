@@ -147,23 +147,7 @@ class HomeController extends Controller {
             $img = $request -> file('image');
             $imgExt = $img -> getClientOriginalExtension();
             $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
-            switch ($key) {
-                case 0:
-                    $folder = '/assets/external/';
-                    break;
-                case 1:
-                    $folder = '/assets/living-room/';
-                    break;
-                case 2:
-                    $folder = '/assets/kitchen/';
-                    break;
-                case 3:
-                    $folder = '/assets/bedroom/';
-                    break;
-                case 4:
-                    $folder = '/assets/bathroom/';
-                    break;
-            }
+            $folder = '/assets/apartment_img/';
             $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
             $image->update(['image' => $newNameImg]);
             return redirect()->route('edit_image',$idApartment);
@@ -177,44 +161,23 @@ class HomeController extends Controller {
         $apartment = Apartment::findOrFail($id);
         return view('pages.add-images',compact('apartment'));
     }
-    public function store_image(Request $request,$id,$i)
+    public function store_image(Request $request,$id)
     {
         $apartment = Apartment::findOrFail($id);
-        if (count($apartment->images) == 4) {
+        dump(count($apartment->images));
+        if (count($apartment->images) < 5) {
             return redirect()->route('myapartment',Auth::id());
         }
         if ($request->hasFile('image')) {
             $img = $request -> file('image');
             $imgExt = $img -> getClientOriginalExtension();
-            switch ($i) {
-                case 0:
-                    $folderDB = 'external';
-                    $folder = '/assets/external/';
-                    break;
-                case 1:
-                    $folderDB = 'living-room';
-                    $folder = '/assets/living-room/';
-                    break;
-                case 2:
-                    $folderDB = 'kitchen';
-                    $folder = '/assets/kitchen/';
-                    break;
-                case 3:
-                    $folderDB = 'bedroom';
-                    $folder = '/assets/bedroom/';
-                    break;
-                case 4:
-                    $folderDB = 'bathroom';
-                    $folder = '/assets/bathroom/';
-                    break;
-            }
-            $newNameImg = $id . $folderDB . '.' . $imgExt;
-
+            $folder = '/assets/apartment_img/';
+            $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
             $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
             $image = Image::firstOrCreate([
                 'image' => $newNameImg,
                 'apartment_id' => $id,
-                'folder' => $folderDB
+                // 'folder' => $folderDB
             ]);
             $image->apartment()->associate($id);
             $image->save();
