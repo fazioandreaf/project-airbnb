@@ -1887,7 +1887,7 @@ section#register-jumbotron .jumbotron .wrapper-text h2 {
 }
 
 section#register-jumbotron .jumbotron #carousel {
-  flex-basis: 40%;
+  flex-basis: 50%;
 }
 
 @media screen and (max-width: 420px) {
@@ -2041,6 +2041,7 @@ section#section-register form .error {
 }
 
 .search-page .left-section .row-with-img-text .sinistra-img .mobile-title {
+  font-weight: bold;
   display: none;
 }
 

@@ -3,7 +3,7 @@
     @include flex(row, null, null);
     @include container(90%);
     font-family: "Nunito", sans-serif;
-    
+
     // debug
     height: 82.3vh;
     > div {
@@ -35,6 +35,7 @@
 
             .sinistra-img {
                 .mobile-title {
+                    font-weight: bold;
                     display: none;
                     @include responsive(mobile) {
                         display: block;
