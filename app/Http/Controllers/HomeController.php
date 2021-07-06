@@ -145,7 +145,7 @@ class HomeController extends Controller {
         $folder = '/assets/apartment_img/';
         $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
         $image->update(['image' => $newNameImg]);
-        return redirect()->route('apartment',$idApartment);
+        return redirect()->route('add_image',$idApartment);
     }
 
     public function add_image($id)
