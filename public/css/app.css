@@ -130,6 +130,7 @@ section#my-apartments .button-link {
 
 #dashboard-header .navbar .nav-links .has-dropdown .dropdown > li {
   padding: 0 10px;
+  width: 100%;
 }
 
 #dashboard-header .navbar .nav-links .has-dropdown .dropdown > li:hover {
@@ -156,6 +157,15 @@ section#my-apartments .button-link {
 
 #dashboard-header .navbar .nav-links .has-dropdown .open {
   display: block;
+}
+
+@media screen and (max-width: 420px) {
+  #dashboard-header .navbar .nav-links .has-dropdown .open {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 #apartment-header {
@@ -267,6 +277,7 @@ section#my-apartments .button-link {
 
 #apartment-header .navbar .nav-links .has-dropdown .dropdown > li {
   padding: 0 10px;
+  width: 100%;
 }
 
 #apartment-header .navbar .nav-links .has-dropdown .dropdown > li:hover {
@@ -293,6 +304,15 @@ section#my-apartments .button-link {
 
 #apartment-header .navbar .nav-links .has-dropdown .open {
   display: block;
+}
+
+@media screen and (max-width: 420px) {
+  #apartment-header .navbar .nav-links .has-dropdown .open {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .landing-header {
@@ -452,6 +472,7 @@ section#my-apartments .button-link {
 
 .landing-header .navbar .nav-links .has-dropdown .dropdown > li {
   padding: 0 10px;
+  width: 100%;
 }
 
 .landing-header .navbar .nav-links .has-dropdown .dropdown > li:hover {
@@ -480,6 +501,15 @@ section#my-apartments .button-link {
   display: block;
 }
 
+@media screen and (max-width: 420px) {
+  .landing-header .navbar .nav-links .has-dropdown .open {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .landing-header .navbar .wrapper-search-bar {
   display: flex;
   flex-direction: row;
@@ -487,6 +517,7 @@ section#my-apartments .button-link {
   align-items: center;
   padding: 20px 40px;
   border-radius: 40px;
+  transition: all 0.5s ease-out;
 }
 
 @media screen and (max-width: 420px) {
@@ -545,6 +576,18 @@ section#my-apartments .button-link {
   color: #FFF;
   border: 0;
   border-radius: 50%;
+}
+
+.landing-header .navbar .fixed-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  z-index: 10000;
+  width: 100%;
+  background-color: #FFF;
+  border-radius: 0;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
 .register-header {
@@ -1183,6 +1226,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
 
 #header-search #search-apartments-navbar .has-dropdown .dropdown > li {
   padding: 0 10px;
+  width: 100%;
 }
 
 #header-search #search-apartments-navbar .has-dropdown .dropdown > li:hover {
@@ -1210,6 +1254,15 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
 
 #header-search #search-apartments-navbar .has-dropdown .open {
   display: block;
+}
+
+@media screen and (max-width: 420px) {
+  #header-search #search-apartments-navbar .has-dropdown .open {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .contain-main {

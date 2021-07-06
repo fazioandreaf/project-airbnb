@@ -60,7 +60,7 @@
 
             
         </div>
-        <div class="wrapper-search-bar">
+        <div class="wrapper-search-bar" id="advanced-search-bar" v-bind:class="(fixedNavbar) ? 'fixed-navbar' : '' ">
             <form class="search-bar" action="{{ route('search') }}" method="get" enctype="multipart/form-data">
                 @method('get')
                 @csrf

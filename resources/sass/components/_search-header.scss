@@ -245,7 +245,7 @@
       
                   & > li {
                     padding: 0 10px;
-      
+                    width: 100%;
                   }
       
                   & > li:hover {
@@ -272,6 +272,9 @@
     
             .open {
                 display: block;
+                @include responsive(mobile) {
+                    @include flex(column, center, center)
+                }
             }
         }
         

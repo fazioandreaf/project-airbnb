@@ -94,7 +94,7 @@
 
             & > li {
               padding: 0 10px;
-
+              width: 100%;
             }
 
             & > li:hover {
@@ -120,7 +120,9 @@
 
         .open {
           display: block;
-
+          @include responsive(mobile) {
+            @include flex(column, center, center)
+          }
         }
       }
     }
@@ -218,7 +220,7 @@
 
             & > li {
               padding: 0 10px;
-
+              width: 100%;
             }
 
             & > li:hover {
@@ -243,6 +245,9 @@
         }
         .open {
           display: block;
+          @include responsive(mobile) {
+            @include flex(column, center, center)
+          }
         }
       }
     }
@@ -390,7 +395,7 @@
 
             & > li {
               padding: 0 10px;
-
+              width: 100%;
             }
 
             & > li:hover {
@@ -415,8 +420,11 @@
         }
 
         .open {
-
           display: block;
+
+          @include responsive(mobile) {
+            @include flex(column, center, center)
+          }
         }
       }
     }
@@ -426,6 +434,7 @@
       @include flex(row, center, center);
       padding: 20px 40px;
       border-radius: 40px;
+      transition: all .5s ease-out;
 
       @include responsive(mobile){
         background-color: $search-fuchsia;
@@ -481,7 +490,22 @@
         }
       }
     }
+
+    .fixed-navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 0;
+      z-index: 10000;
+      width: 100%;
+      background-color: $white;
+      border-radius: 0;
+      box-shadow: 0 0 4px rgba(0,0,0,.5);
+
+    }
   }
+
+  
 }
 
 // Header pagina Diventa un Host

@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
         data: {},
 
         methods: {
+
             forward: function() {
                 document.getElementById("slider2").scrollLeft += 220;
             }, // END OF FORWARD
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
             backwards: function() {
                 document.getElementById("slider2").scrollLeft -= 220;
             } // END OF BACKWARDS
-        } // END OF methods
+        }, // END OF methods
+
     }); // END OF NEW VUE
 });
