@@ -40,7 +40,7 @@
             {{-- INIZIO IMMAGINE GRANDE --}}
             <div>
               <a href="#">
-                <img class="immagine-grande" src="{{asset('/storage/assets/external/'.$cover_image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                <img class="immagine-grande" src="{{asset('/storage/assets/apartment_img/'.$cover_image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
               </a>
             </div>
             {{-- FINE IMMAGINE GRANDE --}}
@@ -52,16 +52,16 @@
                   <a href="#">
                       @switch($key)
                           @case(0)
-                            <img class="immagini-piccole" src="{{asset('/storage/assets/living-room/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                            <img class="immagini-piccole" src="{{asset('/storage/assets/apartment_img/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
                               @break
                           @case(1)
-                            <img class="immagini-piccole" src="{{asset('/storage/assets/kitchen/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                            <img class="immagini-piccole" src="{{asset('/storage/assets/apartment_img/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
                               @break
                           @case(2)
-                            <img class="immagini-piccole" src="{{asset('/storage/assets/bedroom/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                            <img class="immagini-piccole" src="{{asset('/storage/assets/apartment_img/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
                               @break
                           @case(3)
-                            <img class="immagini-piccole" src="{{asset('/storage/assets/bathroom/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
+                            <img class="immagini-piccole" src="{{asset('/storage/assets/apartment_img/'.$image->image)}}" alt="immagine-qui" style="width: 100%;height: 100%;">
                             @break
                       @endswitch
                   </a>
