@@ -1398,6 +1398,16 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   z-index: 100;
 }
 
+.outer-jumbotron .slider-main .apartment-samples .flags .title .test {
+  height: 100%;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
 .outer-jumbotron .slider-main .apartment-samples .flags .title a {
   display: inline-block;
   width: 100%;
