@@ -11,7 +11,6 @@ Use App\Service;
 use App\SponsoredApartment;
 use App\Image;
 
-
 class HomeController extends Controller {
     /**
      * Create a new controller instance.
@@ -140,20 +139,22 @@ class HomeController extends Controller {
         $apartment = Apartment::findOrFail($id);
         return view('pages.edit-image',compact('apartment'));
     }
-    public function update_image(Request $request, $id,$key,$idApartment)
+    public function update_image(Request $request, $id,$idApartment)
     {
         $image = Image::findOrFail($id);
-        if ($request->hasFile('image')) {
-            $img = $request -> file('image');
-            $imgExt = $img -> getClientOriginalExtension();
-            $newNameImg = time() . rand(1,1000) . '.' . $imgExt;
-            $folder = '/assets/apartment_img/';
-            $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
-            $image->update(['image' => $newNameImg]);
-            return redirect()->route('edit_image',$idApartment);
-        }else {
-            return back();
-        }
+        // $test =$_FILES['image'];
+        $img = $request -> file('image');
+        // $test['type'] = $img -> getClientOriginalExtension();
+        // dd($test['error'],$test =$_FILES['image']);
+        // dd($request->all(),$request->image,$request->);
+        // if($ == 'application/octet-stream'){
+        // dd($request->all(),$request->image);
+        // }
+        $newNameImg = time() . rand(1,1000) .'.'. $img -> getClientOriginalExtension();
+        $folder = '/assets/apartment_img/';
+        $imgFile = $img -> storeAs($folder , $newNameImg , 'public');
+        $image->update(['image' => $newNameImg]);
+        return redirect()->route('apartment',$idApartment);
     }
 
     public function add_image($id)
