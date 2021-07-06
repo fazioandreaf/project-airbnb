@@ -2939,7 +2939,6 @@ section#edit-section .form-btn .button-form:hover {
 }
 
 div#sponsor-apartament {
-  height: 500px;
   width: 60%;
   margin: auto;
   margin-top: 60px;
@@ -3550,6 +3549,7 @@ section#pay-section button {
 }
 
 #stats .wrapper-statistics .wrapper-graph {
+  width: 70vw;
   flex-basis: 70%;
   display: flex;
   flex-direction: row;

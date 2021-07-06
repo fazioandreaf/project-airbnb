@@ -1,9 +1,8 @@
 #stats {
-
     padding: 50px 0;
 
     .container {
-        @include container(90%)
+        @include container(90%);
     }
 
     .username {
@@ -17,13 +16,12 @@
         background-color: $venusaur-green;
 
         & > li {
-            
             cursor: pointer;
             color: $white;
             font-weight: 600;
             height: 100%;
             @include flex(row, center, center);
-            transition: background-color .5s;
+            transition: background-color 0.5s;
 
             // .button-link {
             //     height: 100%;
@@ -38,7 +36,7 @@
                 padding: 10px;
             }
         }
-        
+
         .active {
             background-color: $grovyle-dark-green;
         }
@@ -61,7 +59,6 @@
             }
 
             .years-list li {
-                
                 a {
                     display: inline-block;
                     text-align: center;
@@ -70,15 +67,14 @@
                     cursor: pointer;
 
                     &:hover {
-                        color: $grovyle-dark-green
+                        color: $grovyle-dark-green;
                     }
                 }
             }
-
         }
 
         .wrapper-graph {
-
+            width: 70vw;
             flex-basis: 70%;
             @include flex(row, center, center);
 
@@ -92,7 +88,6 @@
                 border-radius: 20px;
                 margin-top: 10px;
                 text-align: center;
-
             }
         }
     }

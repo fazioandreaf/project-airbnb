@@ -51,7 +51,7 @@ class HomeController extends Controller {
     public function add_function(Request $request)
     {
         if ($request->user_id == Auth::id()) {
-            
+
             $validated = $request -> validate([
                 'title' => 'required|max:128|min:4',
                 'description' => 'nullable|min:22',
@@ -62,7 +62,7 @@ class HomeController extends Controller {
                 'address' => 'required',
                 'user_id' => 'required|integer',
             ]);
-            
+
             if (!is_null($request->service_id)) {
                 $service = Service::findOrFail($request -> get('service_id'));
             }
@@ -122,8 +122,9 @@ class HomeController extends Controller {
                     ->where('statistics.apartment_id','=',$id)
                     ->get();
 
-        $user_id = Auth::id();
-        $user = User::findOrFail($user_id);
+        // $user_id = Auth::id();
+        // $user = User::findOrFail($user_id);
+        $user = User::findOrFail($id);
         return view('pages.statistic',compact('statistic', 'user'));
     }
 
@@ -150,16 +151,16 @@ class HomeController extends Controller {
                 case 0:
                     $folder = '/assets/external/';
                     break;
-                case 1: 
+                case 1:
                     $folder = '/assets/living-room/';
                     break;
-                case 2: 
+                case 2:
                     $folder = '/assets/kitchen/';
                     break;
-                case 3: 
+                case 3:
                     $folder = '/assets/bedroom/';
                     break;
-                case 4: 
+                case 4:
                     $folder = '/assets/bathroom/';
                     break;
             }
@@ -190,19 +191,19 @@ class HomeController extends Controller {
                     $folderDB = 'external';
                     $folder = '/assets/external/';
                     break;
-                case 1: 
+                case 1:
                     $folderDB = 'living-room';
                     $folder = '/assets/living-room/';
                     break;
-                case 2: 
+                case 2:
                     $folderDB = 'kitchen';
                     $folder = '/assets/kitchen/';
                     break;
-                case 3: 
+                case 3:
                     $folderDB = 'bedroom';
                     $folder = '/assets/bedroom/';
                     break;
-                case 4: 
+                case 4:
                     $folderDB = 'bathroom';
                     $folder = '/assets/bathroom/';
                     break;

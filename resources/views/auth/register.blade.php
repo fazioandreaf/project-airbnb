@@ -8,7 +8,7 @@
         <div class="jumbotron">
             <div class="wrapper-text">
                 <h2>
-                    L'ospitalit&agrave; &egrave; la vera essenza di Danny
+                    L'ospitalit&agrave; &egrave; la vera essenza della vita
                 </h2>
             </div>
             <div id="carousel">
