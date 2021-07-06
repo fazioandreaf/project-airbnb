@@ -1,4 +1,5 @@
 #header-search {
+    font-family: "Nunito", sans-serif;
     min-height: 220px;
     @include flex(row, space-evenly, null);
     @include container(90%);
@@ -204,6 +205,9 @@
 
         .has-dropdown {
             position: relative;
+            @include responsive(mobile) {
+                position: static;
+            }
 
             .hamburger {
                 @include hamburger(#e6027f);
@@ -238,23 +242,39 @@
                 width: 200px;
                 padding: 10px;
                 border-radius: 10px;
-
+      
+                  & > li {
+                    padding: 0 10px;
+                    width: 100%;
+                  }
+      
+                  & > li:hover {
+                    background-color: $aggron-light-gray;
+                  }
+      
+                  .user-field:hover {
+                    background-color: $white;
+                  }
+      
                 @include responsive(mobile){
-                    position: absolute;
-                    height: 380px;
-                    width: 350px;
-                    top: calc(-100% - 380px);
-                    left: calc(100% - 335px);
-                    background-color: white;
-                    border: 2px solid $fuchsia-search;
-                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-                    text-align: center;
-                    padding-top: 160px;
-                }
-            }
+                  position: absolute;
+                  z-index: 9999;
+                  border-radius: 0;
+                  height: calc(100vh - 100px);
+                  width: 100vw;
+                  top: calc(-100vh + 100px);
+                  left: 0;
+                  background-color: white;
+                  text-align: center;
+                  font-size: 30px;
+                 }
+              }
     
             .open {
                 display: block;
+                @include responsive(mobile) {
+                    @include flex(column, center, center)
+                }
             }
         }
         

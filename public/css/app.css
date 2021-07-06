@@ -80,6 +80,12 @@ section#my-apartments .button-link {
   position: relative;
 }
 
+@media screen and (max-width: 420px) {
+  #dashboard-header .navbar .nav-links .has-dropdown {
+    position: static;
+  }
+}
+
 #dashboard-header .navbar .nav-links .has-dropdown .hamburger {
   display: flex;
   flex-direction: row;
@@ -122,24 +128,44 @@ section#my-apartments .button-link {
   border-radius: 10px;
 }
 
+#dashboard-header .navbar .nav-links .has-dropdown .dropdown > li {
+  padding: 0 10px;
+  width: 100%;
+}
+
+#dashboard-header .navbar .nav-links .has-dropdown .dropdown > li:hover {
+  background-color: #ededed;
+}
+
+#dashboard-header .navbar .nav-links .has-dropdown .dropdown .user-field:hover {
+  background-color: #FFF;
+}
+
 @media screen and (max-width: 420px) {
   #dashboard-header .navbar .nav-links .has-dropdown .dropdown {
     position: absolute;
-    height: 100vh;
+    border-radius: 0;
+    height: calc(100vh - 100px);
     width: 100vw;
-    height: 380px;
-    width: 350px;
-    top: calc(-100% - 380px);
-    left: calc(100% - 335px);
+    top: calc(-100vh + 100px);
+    left: 0;
     background-color: white;
-    border: 2px solid #000;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
+    font-size: 30px;
   }
 }
 
 #dashboard-header .navbar .nav-links .has-dropdown .open {
   display: block;
+}
+
+@media screen and (max-width: 420px) {
+  #dashboard-header .navbar .nav-links .has-dropdown .open {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 #apartment-header {
@@ -200,6 +226,12 @@ section#my-apartments .button-link {
   position: relative;
 }
 
+@media screen and (max-width: 420px) {
+  #apartment-header .navbar .nav-links .has-dropdown {
+    position: static;
+  }
+}
+
 #apartment-header .navbar .nav-links .has-dropdown .hamburger {
   display: flex;
   flex-direction: row;
@@ -243,23 +275,44 @@ section#my-apartments .button-link {
   border-radius: 10px;
 }
 
+#apartment-header .navbar .nav-links .has-dropdown .dropdown > li {
+  padding: 0 10px;
+  width: 100%;
+}
+
+#apartment-header .navbar .nav-links .has-dropdown .dropdown > li:hover {
+  background-color: #ededed;
+}
+
+#apartment-header .navbar .nav-links .has-dropdown .dropdown .user-field:hover {
+  background-color: #FFF;
+}
+
 @media screen and (max-width: 420px) {
   #apartment-header .navbar .nav-links .has-dropdown .dropdown {
     position: absolute;
-    height: 380px;
-    width: 350px;
-    top: calc(-100% - 380px);
-    left: calc(100% - 335px);
+    border-radius: 0;
+    height: calc(100vh - 100px);
+    width: 100vw;
+    top: calc(-100vh + 100px);
+    left: 0;
     background-color: white;
-    border: 2px solid #e80080;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
-    padding-top: 160px;
+    font-size: 30px;
   }
 }
 
 #apartment-header .navbar .nav-links .has-dropdown .open {
   display: block;
+}
+
+@media screen and (max-width: 420px) {
+  #apartment-header .navbar .nav-links .has-dropdown .open {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .landing-header {
@@ -397,6 +450,12 @@ section#my-apartments .button-link {
   position: relative;
 }
 
+@media screen and (max-width: 420px) {
+  .landing-header .navbar .nav-links .has-dropdown {
+    position: static;
+  }
+}
+
 .landing-header .navbar .nav-links .has-dropdown .dropdown {
   display: none;
   position: absolute;
@@ -404,28 +463,51 @@ section#my-apartments .button-link {
   top: calc(100% + 2px);
   left: calc(-50% - 20px);
   background-color: #FFF;
+  color: #000;
+  box-shadow: 0 0 3px #6c6a6b;
   width: 200px;
   padding: 10px;
   border-radius: 10px;
 }
 
+.landing-header .navbar .nav-links .has-dropdown .dropdown > li {
+  padding: 0 10px;
+  width: 100%;
+}
+
+.landing-header .navbar .nav-links .has-dropdown .dropdown > li:hover {
+  background-color: #ededed;
+}
+
+.landing-header .navbar .nav-links .has-dropdown .dropdown .user-field:hover {
+  background-color: #FFF;
+}
+
 @media screen and (max-width: 420px) {
   .landing-header .navbar .nav-links .has-dropdown .dropdown {
     position: absolute;
-    height: 380px;
-    width: 350px;
-    top: calc(-100% - 380px);
-    left: calc(100% - 335px);
+    border-radius: 0;
+    height: calc(100vh - 100px);
+    width: 100vw;
+    top: calc(-100vh + 100px);
+    left: 0;
     background-color: white;
-    border: 2px solid #e80080;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
-    padding-top: 160px;
+    font-size: 30px;
   }
 }
 
 .landing-header .navbar .nav-links .has-dropdown .open {
   display: block;
+}
+
+@media screen and (max-width: 420px) {
+  .landing-header .navbar .nav-links .has-dropdown .open {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .landing-header .navbar .wrapper-search-bar {
@@ -435,6 +517,7 @@ section#my-apartments .button-link {
   align-items: center;
   padding: 20px 40px;
   border-radius: 40px;
+  transition: all 0.5s ease-out;
 }
 
 @media screen and (max-width: 420px) {
@@ -493,6 +576,18 @@ section#my-apartments .button-link {
   color: #FFF;
   border: 0;
   border-radius: 50%;
+}
+
+.landing-header .navbar .fixed-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  z-index: 10000;
+  width: 100%;
+  background-color: #FFF;
+  border-radius: 0;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
 .register-header {
@@ -836,6 +931,7 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
 }
 
 #header-search {
+  font-family: "Nunito", sans-serif;
   min-height: 220px;
   display: flex;
   flex-direction: row;
@@ -1079,6 +1175,12 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   position: relative;
 }
 
+@media screen and (max-width: 420px) {
+  #header-search #search-apartments-navbar .has-dropdown {
+    position: static;
+  }
+}
+
 #header-search #search-apartments-navbar .has-dropdown .hamburger {
   display: flex;
   flex-direction: row;
@@ -1122,23 +1224,45 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   border-radius: 10px;
 }
 
+#header-search #search-apartments-navbar .has-dropdown .dropdown > li {
+  padding: 0 10px;
+  width: 100%;
+}
+
+#header-search #search-apartments-navbar .has-dropdown .dropdown > li:hover {
+  background-color: #ededed;
+}
+
+#header-search #search-apartments-navbar .has-dropdown .dropdown .user-field:hover {
+  background-color: #FFF;
+}
+
 @media screen and (max-width: 420px) {
   #header-search #search-apartments-navbar .has-dropdown .dropdown {
     position: absolute;
-    height: 380px;
-    width: 350px;
-    top: calc(-100% - 380px);
-    left: calc(100% - 335px);
+    z-index: 9999;
+    border-radius: 0;
+    height: calc(100vh - 100px);
+    width: 100vw;
+    top: calc(-100vh + 100px);
+    left: 0;
     background-color: white;
-    border: 2px solid #e80080;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
-    padding-top: 160px;
+    font-size: 30px;
   }
 }
 
 #header-search #search-apartments-navbar .has-dropdown .open {
   display: block;
+}
+
+@media screen and (max-width: 420px) {
+  #header-search #search-apartments-navbar .has-dropdown .open {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .contain-main {
@@ -1272,6 +1396,16 @@ footer .bigger-footer .footer-bottom-section #social-links li:last-child {
   transform: translateY(100%);
   transition: all 0.5s;
   z-index: 100;
+}
+
+.outer-jumbotron .slider-main .apartment-samples .flags .title .test {
+  height: 100%;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .outer-jumbotron .slider-main .apartment-samples .flags .title a {
@@ -1719,11 +1853,20 @@ section#register-jumbotron {
 
 section#register-jumbotron .jumbotron {
   background-color: #000;
-  height: 400px;
+  padding: 40px 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 420px) {
+  section#register-jumbotron .jumbotron {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 section#register-jumbotron .jumbotron .wrapper-text {
@@ -1732,12 +1875,25 @@ section#register-jumbotron .jumbotron .wrapper-text {
   padding: 0 50px;
 }
 
+@media screen and (max-width: 420px) {
+  section#register-jumbotron .jumbotron .wrapper-text {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 section#register-jumbotron .jumbotron .wrapper-text h2 {
   font-size: 60px;
 }
 
 section#register-jumbotron .jumbotron #carousel {
   flex-basis: 40%;
+}
+
+@media screen and (max-width: 420px) {
+  section#register-jumbotron .jumbotron #carousel {
+    width: 100%;
+  }
 }
 
 section#register-jumbotron .jumbotron #carousel .carousel {
@@ -2694,6 +2850,10 @@ section#edit-section .form-complit .form-text .form-text-elem input {
   margin-left: 20px;
 }
 
+section#edit-section .form-complit .form-text .form-text-elem input:focus {
+  outline: 0;
+}
+
 section#edit-section .form-complit .form-text .form-text-elem input:hover {
   background-color: #d9d9d9;
   transition: 0.2s;
@@ -2735,7 +2895,25 @@ section#edit-section .form-complit .form-select {
 
 section#edit-section .form-complit .form-select label {
   flex-grow: 1;
-  padding-right: 10px;
+  padding: 2px;
+  border-radius: 5px;
+  transition: all ease-in 0.5s;
+  text-align: left;
+  margin: 2px;
+}
+
+section#edit-section .form-complit .form-select label:hover {
+  background-color: #12a19a;
+  color: #FFF;
+}
+
+section#edit-section .form-complit .form-select .hidden_check:checked ~ label {
+  background-color: #12a19a;
+  color: #FFF;
+}
+
+section#edit-section .form-complit .form-select .hidden_check {
+  visibility: hidden;
 }
 
 section#edit-section .form-btn {
@@ -3461,10 +3639,10 @@ div#success-message .cnt-success-msg button:hover {
 #section-add-images .container {
   margin: 0 auto;
   width: 600px;
-  background-color: #ededed;
   padding: 15px;
+  background-color: #ededed;
   border-radius: 20px;
-  border: 1px solid #12a19a;
+  border: 1px solid #d9d9d9;
   margin-bottom: 60px;
   text-align: center;
 }
@@ -3477,7 +3655,7 @@ div#success-message .cnt-success-msg button:hover {
 
 #section-add-images .container h1 {
   padding-top: 20px;
-  color: #fa8a8a;
+  color: #12a19a;
 }
 
 #section-add-images .container .container-form-add {
@@ -3503,7 +3681,7 @@ div#success-message .cnt-success-msg button:hover {
 
 #section-add-images .container .container-form-add .add-image .label-input .label-image {
   font-size: 18px;
-  color: #fa8a8a;
+  color: #12a19a;
   padding-top: 5px;
   padding-left: 10px;
 }
@@ -3514,14 +3692,15 @@ div#success-message .cnt-success-msg button:hover {
 }
 
 #section-add-images .container .container-form-add .add-image button {
+  font-family: "Poppins", sans-serif;
+  border: 0;
   cursor: pointer;
-  width: 170px;
-  height: 50px;
   margin-bottom: 10px;
 }
 
 #section-add-images .container .container-form-add .add-image:hover {
-  background-color: yellowgreen;
+  background-color: #FFF;
+  padding: 0 10px;
   box-shadow: 5px 5px 5px #dedede;
   transition: 0.2s;
 }

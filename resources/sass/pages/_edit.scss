@@ -46,6 +46,10 @@ section#edit-section{
                     border-radius: 20px;
                     margin-left: 20px;
 
+                    &:focus {
+                        outline: 0;
+                    }
+
                     &:hover {
 
                         background-color: $steelix-gray;
@@ -84,9 +88,26 @@ section#edit-section{
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            label{
+            label {
                 flex-grow: 1;
-                padding-right: 10px;
+                padding: 2px;
+                border-radius: 5px;
+                transition: all ease-in .5s;
+                text-align: left;
+                margin: 2px;
+                &:hover {
+                    background-color: $venusaur-green;
+                    color: $white;
+                }
+            }
+
+            .hidden_check:checked ~ label {
+               background-color: $venusaur-green;
+               color: $white;
+            } 
+
+            .hidden_check {
+                visibility: hidden;
             }
             // input{
             //     margin-left: 20px;

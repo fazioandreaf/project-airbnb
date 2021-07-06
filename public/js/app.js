@@ -50259,9 +50259,11 @@ files.keys().map(function (key) {
  */
 
 document.addEventListener('DOMContentLoaded', function () {
+  var _data;
+
   var app = new Vue({
     el: '#app',
-    data: _defineProperty({
+    data: (_data = {
       isShowing: false,
       labelActive: "profile-infos",
       dropdownActive: false,
@@ -50280,12 +50282,19 @@ document.addEventListener('DOMContentLoaded', function () {
       area: null,
       address: null,
       classes: []
-    }, "formErrors", []),
+    }, _defineProperty(_data, "formErrors", []), _defineProperty(_data, "fixedNavbar", false), _data),
     methods: {
-      test: function test() {
-        // this.isShowing = !this.isShowing;
-        // console.log(this.isShowing);
-        console.log("LALLERO");
+      toggleNavbar: function toggleNavbar() {
+        var _this = this;
+
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 100 && window.innerWidth > 420) {
+            _this.fixedNavbar = true;
+            console.log("fixed");
+          } else if (window.scrollY == 0) {
+            _this.fixedNavbar = false;
+          }
+        });
       },
       openDropdown: function openDropdown() {
         this.dropdownActive = !this.dropdownActive;
@@ -50583,6 +50592,9 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
       }
     },
+    mounted: function mounted() {
+      this.toggleNavbar();
+    },
     created: function created() {
       document.addEventListener('click', this.documentCloseDropdown);
     }
@@ -50861,8 +50873,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\sviluppo\php\laravel-test\project-airbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\sviluppo\php\laravel-test\project-airbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Boolean\project-airbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Boolean\project-airbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -25,7 +25,9 @@
                 </a>
                 <div class="title">
                   <a href="{{ route('apartment', $apartment->id) }}">
-                    {{ $apartment->title }} 
+                    <span class="test">
+                      {{ $apartment->title }} 
+                    </span>
                   </a>
                 </div>
               </div>

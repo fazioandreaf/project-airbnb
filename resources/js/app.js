@@ -49,16 +49,23 @@ document.addEventListener('DOMContentLoaded', () => {
             area: null,
             address: null,
             classes: [],
-            formErrors: []
+            formErrors: [],
+            fixedNavbar: false,
         },
 
         methods: {
 
-          test: function() {
-            // this.isShowing = !this.isShowing;
-            // console.log(this.isShowing);
-            console.log("LALLERO");
-          },
+            toggleNavbar: function() {
+
+                window.addEventListener("scroll", () => {
+                    if(window.scrollY > 100 && window.innerWidth > 420) {
+                        this.fixedNavbar = true;
+                        console.log("fixed")
+                    } else if(window.scrollY == 0) {
+                        this.fixedNavbar = false;
+                    }
+                });
+            },
 
             openDropdown: function() {
 
@@ -376,6 +383,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 scrollTo.scrollIntoView({behavior: "smooth"});
                 e.preventDefault();
             }
+        },
+
+        mounted() {
+
+            this.toggleNavbar();
         },
 
         created() {
